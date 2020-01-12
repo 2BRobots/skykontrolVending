@@ -1373,7 +1373,7 @@ EAGLE CAD Libraries on element14&lt;/a&gt;</description>
 <circle x="0" y="0" radius="2.5" width="0.127" layer="21"/>
 <pad name="P$3" x="-2.5" y="7.45" drill="1" diameter="1.85"/>
 <pad name="P$4" x="-2.5" y="-7.45" drill="1" diameter="1.85"/>
-<hole x="1.25" y="-7.5" drill="1.8"/>
+<hole x="1.25" y="-7.5" drill="2"/>
 <text x="3" y="4" size="1.27" layer="25" rot="R90">KEMET
 CT-07</text>
 <wire x1="5" y1="-2.5" x2="3.5" y2="-2.5" width="0.127" layer="51"/>
@@ -1897,18 +1897,18 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="40.0378" y1="23.1378" x2="36.905" y2="23.1378" width="0.6096" layer="1"/>
 <wire x1="41.9" y1="25" x2="40.0378" y2="23.1378" width="0.6096" layer="1"/>
 <wire x1="3.95" y1="14" x2="3.95" y2="11.05" width="0.6096" layer="1"/>
-<wire x1="7.5" y1="7.5" x2="25" y2="7.5" width="0.6096" layer="1"/>
-<wire x1="35" y1="5.5" x2="37.5" y2="3" width="0.6096" layer="1"/>
 <wire x1="37.5" y1="3" x2="48.5" y2="3" width="0.6096" layer="1"/>
 <wire x1="48.5" y1="3" x2="50.5" y2="5" width="0.6096" layer="1"/>
 <wire x1="50.5" y1="5" x2="50.5" y2="9" width="0.6096" layer="1"/>
 <wire x1="50.5" y1="9" x2="55.5" y2="14" width="0.6096" layer="1"/>
 <wire x1="55.5" y1="14" x2="55.5" y2="21" width="0.6096" layer="1"/>
 <wire x1="3.95" y1="11.05" x2="7.5" y2="7.5" width="0.6096" layer="1"/>
-<wire x1="25" y1="7.5" x2="27" y2="5.5" width="0.6096" layer="1"/>
-<wire x1="27" y1="5.5" x2="35" y2="5.5" width="0.6096" layer="1"/>
 <wire x1="53.3622" y1="23.1378" x2="55.5" y2="21" width="0.6096" layer="1"/>
 <wire x1="40.0378" y1="23.1378" x2="53.3622" y2="23.1378" width="0.6096" layer="1"/>
+<wire x1="36" y1="1.5" x2="37.5" y2="3" width="0.6096" layer="1"/>
+<wire x1="7.5" y1="7.5" x2="19.5" y2="7.5" width="0.6096" layer="1"/>
+<wire x1="19.5" y1="7.5" x2="25.5" y2="1.5" width="0.6096" layer="1"/>
+<wire x1="25.5" y1="1.5" x2="36" y2="1.5" width="0.6096" layer="1"/>
 </signal>
 <signal name="ADC2">
 <contactref element="U1" pad="3"/>

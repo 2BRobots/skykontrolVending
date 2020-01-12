@@ -7522,7 +7522,7 @@ EAGLE CAD Libraries on element14&lt;/a&gt;</description>
 <circle x="0" y="0" radius="2.5" width="0.127" layer="21"/>
 <pad name="P$3" x="-2.5" y="7.45" drill="1" diameter="1.85"/>
 <pad name="P$4" x="-2.5" y="-7.45" drill="1" diameter="1.85"/>
-<hole x="1.25" y="-7.5" drill="1.8"/>
+<hole x="1.25" y="-7.5" drill="2"/>
 <text x="3" y="4" size="1.27" layer="25" rot="R90">KEMET
 CT-07</text>
 <wire x1="5" y1="-2.5" x2="3.5" y2="-2.5" width="0.127" layer="51"/>
