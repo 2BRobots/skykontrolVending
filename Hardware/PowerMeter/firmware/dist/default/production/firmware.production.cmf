@@ -11,21 +11,21 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\ciro_\AppData\Local\Temp\sguo.o
+$C:\Users\ciro_\AppData\Local\Temp\s910.o
 reset_vec CODE 0 0 0 1 2
 end_init CODE 0 B0 B0 1 2
 config CONFIG 0 8007 8007 2 2
 $dist/default/production\firmware.production.o
 cinit CODE 0 B1 B1 11 2
-text1 CODE 0 137 137 B 2
-text2 CODE 0 12B 12B C 2
-text3 CODE 0 10E 10E 1D 2
-text5 CODE 0 142 142 B 2
-idataCOMMON CODE 0 14D 14D 2 2
+text1 CODE 0 138 138 B 2
+text2 CODE 0 12C 12C C 2
+text3 CODE 0 10E 10E 1E 2
+text5 CODE 0 143 143 B 2
+idataCOMMON CODE 0 14E 14E 2 2
 maintext CODE 0 C2 C2 4C 2
 cstackCOMMON COMMON 1 70 70 8 1
 cstackBANK0 BANK0 1 29 29 4 1
-stringtext1 STRCODE 0 14F 14F 1 2
+stringtext1 STRCODE 0 150 150 1 2
 intentry CODE 0 4 4 AC 2
 bssBANK0 BANK0 1 20 20 9 1
 dataCOMMON COMMON 1 78 78 2 1
@@ -41,9 +41,9 @@ RAM A0-BF 1
 BANK0 2D-6F 1
 BANK1 A0-BF 1
 CONST 1-3 2
-CONST 150-7FF 2
+CONST 151-7FF 2
 ENTRY 1-3 2
-ENTRY 150-7FF 2
+ENTRY 151-7FF 2
 IDLOC 8000-8003 2
 SFR10 500-56F 1
 SFR11 580-5EF 1
@@ -69,7 +69,7 @@ SFR30 F00-F6F 1
 SFR31 F80-FEF 1
 STACK 200D-206F 1
 CODE 1-3 2
-CODE 150-7FF 2
+CODE 151-7FF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
 SFR2 100-16F 1
@@ -84,9 +84,9 @@ BIGRAM 2000-206F 1
 COMMON 7B-7D 1
 EEDATA F000-F0FF 2
 STRCODE 1-3 2
-STRCODE 150-7FF 2
+STRCODE 151-7FF 2
 STRING 1-3 2
-STRING 150-7FF 2
+STRING 151-7FF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -101,82 +101,82 @@ STRING 150-7FF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\firmware.production.o
-B1 cinit CODE >690:C:\Users\ciro_\AppData\Local\Temp\sguo.s
-B1 cinit CODE >693:C:\Users\ciro_\AppData\Local\Temp\sguo.s
-B1 cinit CODE >731:C:\Users\ciro_\AppData\Local\Temp\sguo.s
-B2 cinit CODE >732:C:\Users\ciro_\AppData\Local\Temp\sguo.s
-B3 cinit CODE >733:C:\Users\ciro_\AppData\Local\Temp\sguo.s
-B4 cinit CODE >734:C:\Users\ciro_\AppData\Local\Temp\sguo.s
-B5 cinit CODE >739:C:\Users\ciro_\AppData\Local\Temp\sguo.s
-B6 cinit CODE >743:C:\Users\ciro_\AppData\Local\Temp\sguo.s
-B7 cinit CODE >744:C:\Users\ciro_\AppData\Local\Temp\sguo.s
-B8 cinit CODE >745:C:\Users\ciro_\AppData\Local\Temp\sguo.s
-B9 cinit CODE >746:C:\Users\ciro_\AppData\Local\Temp\sguo.s
-BA cinit CODE >747:C:\Users\ciro_\AppData\Local\Temp\sguo.s
-BB cinit CODE >748:C:\Users\ciro_\AppData\Local\Temp\sguo.s
-BC cinit CODE >749:C:\Users\ciro_\AppData\Local\Temp\sguo.s
-BD cinit CODE >750:C:\Users\ciro_\AppData\Local\Temp\sguo.s
-BE cinit CODE >751:C:\Users\ciro_\AppData\Local\Temp\sguo.s
-BF cinit CODE >757:C:\Users\ciro_\AppData\Local\Temp\sguo.s
-BF cinit CODE >759:C:\Users\ciro_\AppData\Local\Temp\sguo.s
-C0 cinit CODE >760:C:\Users\ciro_\AppData\Local\Temp\sguo.s
-C1 cinit CODE >761:C:\Users\ciro_\AppData\Local\Temp\sguo.s
-4 intentry CODE >125:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-6 intentry CODE >127:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-9 intentry CODE >129:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-A intentry CODE >130:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-D intentry CODE >131:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-11 intentry CODE >132:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-1C intentry CODE >133:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-21 intentry CODE >134:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-23 intentry CODE >137:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-27 intentry CODE >138:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-32 intentry CODE >139:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-35 intentry CODE >140:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-37 intentry CODE >143:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-3D intentry CODE >144:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-3F intentry CODE >145:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-40 intentry CODE >150:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-42 intentry CODE >152:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-43 intentry CODE >153:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-45 intentry CODE >154:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-48 intentry CODE >156:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-4A intentry CODE >158:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-54 intentry CODE >159:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-55 intentry CODE >161:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-57 intentry CODE >163:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-61 intentry CODE >164:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-62 intentry CODE >167:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-64 intentry CODE >169:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-66 intentry CODE >171:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-68 intentry CODE >172:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-6D intentry CODE >173:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-6F intentry CODE >175:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-71 intentry CODE >177:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-74 intentry CODE >178:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-78 intentry CODE >179:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-79 intentry CODE >180:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-7A intentry CODE >183:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-7E intentry CODE >185:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-8A intentry CODE >186:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-8B intentry CODE >187:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-90 intentry CODE >190:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-93 intentry CODE >192:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-94 intentry CODE >193:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-99 intentry CODE >195:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-9B intentry CODE >198:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-9D intentry CODE >199:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-9E intentry CODE >200:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-A0 intentry CODE >203:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-A3 intentry CODE >205:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-A9 intentry CODE >206:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-AA intentry CODE >207:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-AC intentry CODE >208:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-AE intentry CODE >210:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-142 text5 CODE >97:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-142 text5 CODE >99:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-149 text5 CODE >102:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-14C text5 CODE >104:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+B1 cinit CODE >690:C:\Users\ciro_\AppData\Local\Temp\s910.s
+B1 cinit CODE >693:C:\Users\ciro_\AppData\Local\Temp\s910.s
+B1 cinit CODE >731:C:\Users\ciro_\AppData\Local\Temp\s910.s
+B2 cinit CODE >732:C:\Users\ciro_\AppData\Local\Temp\s910.s
+B3 cinit CODE >733:C:\Users\ciro_\AppData\Local\Temp\s910.s
+B4 cinit CODE >734:C:\Users\ciro_\AppData\Local\Temp\s910.s
+B5 cinit CODE >739:C:\Users\ciro_\AppData\Local\Temp\s910.s
+B6 cinit CODE >743:C:\Users\ciro_\AppData\Local\Temp\s910.s
+B7 cinit CODE >744:C:\Users\ciro_\AppData\Local\Temp\s910.s
+B8 cinit CODE >745:C:\Users\ciro_\AppData\Local\Temp\s910.s
+B9 cinit CODE >746:C:\Users\ciro_\AppData\Local\Temp\s910.s
+BA cinit CODE >747:C:\Users\ciro_\AppData\Local\Temp\s910.s
+BB cinit CODE >748:C:\Users\ciro_\AppData\Local\Temp\s910.s
+BC cinit CODE >749:C:\Users\ciro_\AppData\Local\Temp\s910.s
+BD cinit CODE >750:C:\Users\ciro_\AppData\Local\Temp\s910.s
+BE cinit CODE >751:C:\Users\ciro_\AppData\Local\Temp\s910.s
+BF cinit CODE >757:C:\Users\ciro_\AppData\Local\Temp\s910.s
+BF cinit CODE >759:C:\Users\ciro_\AppData\Local\Temp\s910.s
+C0 cinit CODE >760:C:\Users\ciro_\AppData\Local\Temp\s910.s
+C1 cinit CODE >761:C:\Users\ciro_\AppData\Local\Temp\s910.s
+4 intentry CODE >126:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+6 intentry CODE >128:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+9 intentry CODE >130:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+A intentry CODE >131:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+D intentry CODE >132:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+11 intentry CODE >133:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+1C intentry CODE >134:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+21 intentry CODE >135:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+23 intentry CODE >138:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+27 intentry CODE >139:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+32 intentry CODE >140:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+35 intentry CODE >141:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+37 intentry CODE >144:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+3D intentry CODE >145:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+3F intentry CODE >146:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+40 intentry CODE >151:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+42 intentry CODE >153:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+43 intentry CODE >154:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+45 intentry CODE >155:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+48 intentry CODE >157:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+4A intentry CODE >159:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+54 intentry CODE >160:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+55 intentry CODE >162:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+57 intentry CODE >164:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+61 intentry CODE >165:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+62 intentry CODE >168:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+64 intentry CODE >170:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+66 intentry CODE >172:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+68 intentry CODE >173:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+6D intentry CODE >174:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+6F intentry CODE >176:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+71 intentry CODE >178:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+74 intentry CODE >179:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+78 intentry CODE >180:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+79 intentry CODE >181:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+7A intentry CODE >184:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+7E intentry CODE >186:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+8A intentry CODE >187:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+8B intentry CODE >188:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+90 intentry CODE >191:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+93 intentry CODE >193:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+94 intentry CODE >194:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+99 intentry CODE >196:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+9B intentry CODE >199:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+9D intentry CODE >200:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+9E intentry CODE >201:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+A0 intentry CODE >204:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+A3 intentry CODE >206:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+A9 intentry CODE >207:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+AA intentry CODE >208:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+AC intentry CODE >209:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+AE intentry CODE >211:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+143 text5 CODE >97:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+143 text5 CODE >99:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+14A text5 CODE >102:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+14D text5 CODE >104:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
 10E text3 CODE >106:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
 10F text3 CODE >107:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
 119 text3 CODE >108:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
@@ -184,54 +184,55 @@ AE intentry CODE >210:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\Power
 122 text3 CODE >110:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
 124 text3 CODE >111:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
 126 text3 CODE >112:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-12A text3 CODE >113:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-12B text2 CODE >60:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-12B text2 CODE >90:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-12E text2 CODE >91:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-131 text2 CODE >92:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-132 text2 CODE >93:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-134 text2 CODE >94:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-136 text2 CODE >95:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-137 text1 CODE >115:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-137 text1 CODE >117:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-13C text1 CODE >118:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+127 text3 CODE >113:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+12B text3 CODE >114:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+12C text2 CODE >60:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+12C text2 CODE >90:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+12F text2 CODE >91:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+132 text2 CODE >92:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+133 text2 CODE >93:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+135 text2 CODE >94:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+137 text2 CODE >95:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+138 text1 CODE >116:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+138 text1 CODE >118:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
 13D text1 CODE >119:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-13F text1 CODE >120:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-141 text1 CODE >121:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-C2 maintext CODE >212:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+13E text1 CODE >120:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+140 text1 CODE >121:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+142 text1 CODE >122:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
 C2 maintext CODE >213:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-C5 maintext CODE >214:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-C6 maintext CODE >215:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-C9 maintext CODE >216:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-CC maintext CODE >217:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-CF maintext CODE >218:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-D1 maintext CODE >219:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-D3 maintext CODE >220:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-D6 maintext CODE >221:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-D9 maintext CODE >222:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-DB maintext CODE >223:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-DC maintext CODE >224:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-DD maintext CODE >225:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-DE maintext CODE >226:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-DF maintext CODE >227:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-E1 maintext CODE >228:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-E3 maintext CODE >229:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-E4 maintext CODE >230:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-E6 maintext CODE >231:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-E7 maintext CODE >232:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-E8 maintext CODE >233:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-E9 maintext CODE >234:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-EB maintext CODE >235:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-ED maintext CODE >236:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-EF maintext CODE >237:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-F1 maintext CODE >238:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-F2 maintext CODE >240:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+C2 maintext CODE >214:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+C5 maintext CODE >215:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+C6 maintext CODE >216:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+C9 maintext CODE >217:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+CC maintext CODE >218:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+CF maintext CODE >219:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+D1 maintext CODE >220:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+D3 maintext CODE >221:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+D6 maintext CODE >222:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+D9 maintext CODE >223:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+DB maintext CODE >224:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+DC maintext CODE >225:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+DD maintext CODE >226:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+DE maintext CODE >227:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+DF maintext CODE >228:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+E1 maintext CODE >229:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+E3 maintext CODE >230:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+E4 maintext CODE >231:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+E6 maintext CODE >232:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+E7 maintext CODE >233:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+E8 maintext CODE >234:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+E9 maintext CODE >235:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+EB maintext CODE >236:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+ED maintext CODE >237:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+EF maintext CODE >238:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+F1 maintext CODE >239:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
 F2 maintext CODE >241:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-F3 maintext CODE >242:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-F6 maintext CODE >243:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-F7 maintext CODE >245:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-FE maintext CODE >246:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-105 maintext CODE >247:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+F2 maintext CODE >242:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+F3 maintext CODE >243:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+F6 maintext CODE >244:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+F7 maintext CODE >246:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+FE maintext CODE >247:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+105 maintext CODE >248:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -254,33 +255,33 @@ _SSP1STATbits 214 0 ABS 0 - dist/default/production\firmware.production.o
 isr@junk 28 0 BANK0 1 bssBANK0 dist/default/production\firmware.production.o
 _index_i2c 7A 0 COMMON 1 bssCOMMON dist/default/production\firmware.production.o
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
-__end_of_init_I2C_buffer 284 0 CODE 0 text1 dist/default/production\firmware.production.o
+__end_of_init_I2C_buffer 286 0 CODE 0 text1 dist/default/production\firmware.production.o
 __CFG_MCLRE$ON 0 0 ABS 0 - dist/default/production\firmware.production.o
 _T1CONbits 18 0 ABS 0 - dist/default/production\firmware.production.o
 __Hstrings 0 0 ABS 0 strings -
 _WPUA 20C 0 ABS 0 - dist/default/production\firmware.production.o
-___sp 0 0 STACK 2 stack C:\Users\ciro_\AppData\Local\Temp\sguo.o
+___sp 0 0 STACK 2 stack C:\Users\ciro_\AppData\Local\Temp\s910.o
 _main 184 0 CODE 0 maintext dist/default/production\firmware.production.o
 btemp 7E 0 ABS 0 - dist/default/production\firmware.production.o
-start 160 0 CODE 0 init C:\Users\ciro_\AppData\Local\Temp\sguo.o
+start 160 0 CODE 0 init C:\Users\ciro_\AppData\Local\Temp\s910.o
 __size_of_main 0 0 ABS 0 - dist/default/production\firmware.production.o
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
 _OPTION_REGbits 95 0 ABS 0 - dist/default/production\firmware.production.o
 __Hpowerup 0 0 CODE 0 powerup -
 __size_of_ADC_read 0 0 ABS 0 - dist/default/production\firmware.production.o
 __HdataCOMMON 0 0 ABS 0 dataCOMMON -
-intlevel0 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\sguo.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\sguo.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\sguo.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\sguo.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\sguo.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\sguo.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\s910.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\s910.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\s910.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\s910.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\s910.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\s910.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 wtemp0 7E 0 ABS 0 - dist/default/production\firmware.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
-_init_I2C_buffer 26E 0 CODE 0 text1 dist/default/production\firmware.production.o
+_init_I2C_buffer 270 0 CODE 0 text1 dist/default/production\firmware.production.o
 __Hclrtext 0 0 ABS 0 clrtext -
-__pidataCOMMON 29A 0 CODE 0 idataCOMMON dist/default/production\firmware.production.o
+__pidataCOMMON 29C 0 CODE 0 idataCOMMON dist/default/production\firmware.production.o
 _ADCON0 9D 0 ABS 0 - dist/default/production\firmware.production.o
 _ADCON1 9E 0 ABS 0 - dist/default/production\firmware.production.o
 _ADRESH 9C 0 ABS 0 - dist/default/production\firmware.production.o
@@ -291,9 +292,9 @@ _CCPR1L 291 0 ABS 0 - dist/default/production\firmware.production.o
 __Lmaintext 0 0 ABS 0 maintext -
 _ADC_read 21C 0 CODE 0 text3 dist/default/production\firmware.production.o
 _INTCON B 0 ABS 0 - dist/default/production\firmware.production.o
-__end_of_ADC_read 256 0 CODE 0 text3 dist/default/production\firmware.production.o
-___stackhi 206F 0 ABS 0 - C:\Users\ciro_\AppData\Local\Temp\sguo.o
-___stacklo 200D 0 ABS 0 - C:\Users\ciro_\AppData\Local\Temp\sguo.o
+__end_of_ADC_read 258 0 CODE 0 text3 dist/default/production\firmware.production.o
+___stackhi 206F 0 ABS 0 - C:\Users\ciro_\AppData\Local\Temp\s910.o
+___stacklo 200D 0 ABS 0 - C:\Users\ciro_\AppData\Local\Temp\s910.o
 __LidataCOMMON 0 0 ABS 0 idataCOMMON -
 __CFG_FCMEN$OFF 0 0 ABS 0 - dist/default/production\firmware.production.o
 start_initialization 162 0 CODE 0 cinit dist/default/production\firmware.production.o
@@ -302,8 +303,8 @@ _APFCONbits 11D 0 ABS 0 - dist/default/production\firmware.production.o
 __size_of_init_I2C_buffer 0 0 ABS 0 - dist/default/production\firmware.production.o
 __pcstackBANK0 29 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
 _first_i2c 79 0 COMMON 1 dataCOMMON dist/default/production\firmware.production.o
-__end_of_RX_ELMNTS 2A0 0 STRCODE 0 stringtext1 dist/default/production\firmware.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\ciro_\AppData\Local\Temp\sguo.o
+__end_of_RX_ELMNTS 2A2 0 STRCODE 0 stringtext1 dist/default/production\firmware.production.o
+___int_sp 0 0 STACK 2 stack C:\Users\ciro_\AppData\Local\Temp\s910.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 BANK2 1 bank2 -
@@ -431,7 +432,7 @@ __Lsfr7 0 0 ABS 0 sfr7 -
 __Lsfr8 0 0 ABS 0 sfr8 -
 __Lsfr9 0 0 ABS 0 sfr9 -
 __Ltext 0 0 ABS 0 text -
-__pstringtext1 29E 0 STRCODE 0 stringtext1 dist/default/production\firmware.production.o
+__pstringtext1 2A0 0 STRCODE 0 stringtext1 dist/default/production\firmware.production.o
 _SSP1CON1 215 0 ABS 0 - dist/default/production\firmware.production.o
 _SSP1STAT 214 0 ABS 0 - dist/default/production\firmware.production.o
 __LcstackBANK0 0 0 ABS 0 cstackBANK0 -
@@ -447,11 +448,11 @@ _isr 8 0 CODE 0 intentry dist/default/production\firmware.production.o
 ?_ADC_read 73 0 COMMON 1 cstackCOMMON dist/default/production\firmware.production.o
 __CFG_PLLEN$ON 0 0 ABS 0 - dist/default/production\firmware.production.o
 __HidataCOMMON 0 0 ABS 0 idataCOMMON -
-_PWM_set_duty 284 0 CODE 0 text5 dist/default/production\firmware.production.o
+_PWM_set_duty 286 0 CODE 0 text5 dist/default/production\firmware.production.o
 __end_of_isr 160 0 CODE 0 intentry dist/default/production\firmware.production.o
 __CFG_BOREN$ON 0 0 ABS 0 - dist/default/production\firmware.production.o
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\ciro_\AppData\Local\Temp\sguo.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\ciro_\AppData\Local\Temp\s910.o
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
 __Lstringtext1 0 0 ABS 0 stringtext1 -
 _ledDim 26 0 BANK0 1 bssBANK0 dist/default/production\firmware.production.o
@@ -487,7 +488,7 @@ __Lcommon 0 0 ABS 0 common -
 __Lconfig 1000E 0 CONFIG 0 config -
 __CFG_CP$OFF 0 0 ABS 0 - dist/default/production\firmware.production.o
 _I2C_buffer 20 0 BANK0 1 bssBANK0 dist/default/production\firmware.production.o
-__end_of_PWM_set_duty 29A 0 CODE 0 text5 dist/default/production\firmware.production.o
+__end_of_PWM_set_duty 29C 0 CODE 0 text5 dist/default/production\firmware.production.o
 _ADCON0bits 9D 0 ABS 0 - dist/default/production\firmware.production.o
 __CFG_LVP$OFF 0 0 ABS 0 - dist/default/production\firmware.production.o
 __Lspace_0 0 0 ABS 0 - -
@@ -507,10 +508,10 @@ __Lstrings 0 0 ABS 0 strings -
 __Hreset_vec 2 0 CODE 0 reset_vec -
 __HbssBANK0 0 0 ABS 0 bssBANK0 -
 __size_of_PWM_Init 0 0 ABS 0 - dist/default/production\firmware.production.o
-__ptext1 26E 0 CODE 0 text1 dist/default/production\firmware.production.o
-__ptext2 256 0 CODE 0 text2 dist/default/production\firmware.production.o
+__ptext1 270 0 CODE 0 text1 dist/default/production\firmware.production.o
+__ptext2 258 0 CODE 0 text2 dist/default/production\firmware.production.o
 __ptext3 21C 0 CODE 0 text3 dist/default/production\firmware.production.o
-__ptext5 284 0 CODE 0 text5 dist/default/production\firmware.production.o
+__ptext5 286 0 CODE 0 text5 dist/default/production\firmware.production.o
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
 __Lreset_vec 0 0 CODE 0 reset_vec -
@@ -525,7 +526,7 @@ _SSP1CON2bits 216 0 ABS 0 - dist/default/production\firmware.production.o
 _SSP1CON3bits 217 0 ABS 0 - dist/default/production\firmware.production.o
 __CFG_PWRTE$ON 0 0 ABS 0 - dist/default/production\firmware.production.o
 __pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\firmware.production.o
-_PWM_Init 256 0 CODE 0 text2 dist/default/production\firmware.production.o
+_PWM_Init 258 0 CODE 0 text2 dist/default/production\firmware.production.o
 _SSP1ADD 212 0 ABS 0 - dist/default/production\firmware.production.o
 _SSP1BUF 211 0 ABS 0 - dist/default/production\firmware.production.o
 __Hend_init 162 0 CODE 0 end_init -
@@ -533,7 +534,7 @@ __end_of_main 21C 0 CODE 0 maintext dist/default/production\firmware.production.
 _T1CON 18 0 ABS 0 - dist/default/production\firmware.production.o
 _T2CON 1C 0 ABS 0 - dist/default/production\firmware.production.o
 _TRISA 8C 0 ABS 0 - dist/default/production\firmware.production.o
-__end_of_PWM_Init 26E 0 CODE 0 text2 dist/default/production\firmware.production.o
+__end_of_PWM_Init 270 0 CODE 0 text2 dist/default/production\firmware.production.o
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
 __CFG_CPD$OFF 0 0 ABS 0 - dist/default/production\firmware.production.o
@@ -571,8 +572,8 @@ PWM_set_duty@duty 70 0 COMMON 1 cstackCOMMON dist/default/production\firmware.pr
 # All other numeric quantities are in decimal.
 %SEGMENTS
 cstackCOMMON 1 70 70 B 1
-stringtext1 0 14F 29E 1 2
-intentry 0 4 8 14B 2
+stringtext1 0 150 2A0 1 2
+intentry 0 4 8 14C 2
 reset_vec 0 0 0 1 2
 bssBANK0 1 20 20 D 1
 config 0 8007 1000E 2 2

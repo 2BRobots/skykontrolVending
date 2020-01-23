@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files (x86)\Microchip\xc8\v2.10\pic\dat\en_msgs.txt \
   -cs -h+dist/default/production\firmware.production.sym \
   --cmf=dist/default/production\firmware.production.cmf -z -Q12F1822 \
-  -oC:\Users\ciro_\AppData\Local\Temp\sguo.2 --defsym=__MPLAB_BUILD=1 \
+  -oC:\Users\ciro_\AppData\Local\Temp\s910.2 --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/firmware.production.map -E1 -ver=XC8 \
   --acfsm=1493 -ASTACK=0200Dh-0206Fh -pstack=STACK -ACODE=00h-07FFh \
   -ASTRCODE=00h-07FFh -ASTRING=00h-0FFhx8 -ACONST=00h-0FFhx8 \
@@ -26,7 +26,7 @@ Linker command line:
   -pfunctab=ENTRY -ACONFIG=08007h-08008h -pconfig=CONFIG -DCONFIG=2 \
   -AIDLOC=08000h-08003h -pidloc=IDLOC -DIDLOC=2 -AEEDATA=00h-0FFh/0F000h \
   -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 \
-  -DENTRY=2 -k C:\Users\ciro_\AppData\Local\Temp\sguo.o \
+  -DENTRY=2 -k C:\Users\ciro_\AppData\Local\Temp\s910.o \
   dist/default/production\firmware.production.o 
 
 Object code version is 3.11
@@ -36,25 +36,25 @@ Machine type is 12F1822
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\ciro_\AppData\Local\Temp\sguo.o
+C:\Users\ciro_\AppData\Local\Temp\s910.o
                 end_init                             B0       B0        1        8       0
                 reset_vec                             0        0        1        0       0
                 config                             8007     8007        2    1000E       0
 dist/default/production\firmware.production.o
                 cinit                                B1       B1       11        8       0
                 intentry                              4        4       AC        8       0
-                text5                               142      142        B        8       0
-                text3                               10E      10E       1D        8       0
-                text2                               12B      12B        C        8       0
-                text1                               137      137        B        8       0
+                text5                               143      143        B        8       0
+                text3                               10E      10E       1E        8       0
+                text2                               12C      12C        C        8       0
+                text1                               138      138        B        8       0
                 maintext                             C2       C2       4C        8       0
                 cstackBANK0                          29       29        4       20       1
                 cstackCOMMON                         70       70        8       70       1
                 bssBANK0                             20       20        9       20       1
                 dataCOMMON                           78       78        2       70       1
                 bssCOMMON                            7A       7A        1       70       1
-                stringtext1                         14F      14F        1      29E       0
-                idataCOMMON                         14D      14D        2        8       0
+                stringtext1                         150      150        1      2A0       0
+                idataCOMMON                         14E      14E        2        8       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   STACK          
@@ -64,15 +64,15 @@ TOTAL           Name                               Link     Load   Length     Sp
                 cinit                                B1       B1       11         0
                 intentry                              4        4       AC         0
                 reset_vec                             0        0        1         0
-                text5                               142      142        B         0
-                text3                               10E      10E       1D         0
-                text2                               12B      12B        C         0
-                text1                               137      137        B         0
+                text5                               143      143        B         0
+                text3                               10E      10E       1E         0
+                text2                               12C      12C        C         0
+                text1                               138      138        B         0
                 maintext                             C2       C2       4C         0
-                idataCOMMON                         14D      14D        2         0
+                idataCOMMON                         14E      14E        2         0
 
         CLASS   STRCODE        
-                stringtext1                         14F      14F        1         0
+                stringtext1                         150      150        1         0
 
         CLASS   STRING         
 
@@ -234,10 +234,10 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
 
                 reset_vec                      000000  000001  000001         0       0  CODE        2
-                intentry                       000004  00014B  00014F         8       0  CODE        2
+                intentry                       000004  00014C  000150         8       0  CODE        2
                 bssBANK0                       000020  00000D  00002D        20       1  BANK0       1
                 cstackCOMMON                   000070  00000B  00007B        70       1  COMMON      1
-                stringtext1                    00014F  000001  000150       29E       0  STRCODE     2
+                stringtext1                    000150  000001  000151       2A0       0  STRCODE     2
                 config                         008007  000002  008009     1000E       0  CONFIG      2
 
 
@@ -248,13 +248,13 @@ UNUSED ADDRESS RANGES
         BANK1            000A0-000BF              20           1
         BIGRAM           02000-0206F              70           1
         CODE             00001-00003               3           2
-                         00150-007FF             6B0
+                         00151-007FF             6AF
         COMMON           0007B-0007D               3           1
         CONST            00001-00003               3           2
-                         00150-007FF             100
+                         00151-007FF             100
         EEDATA           0F000-0F0FF             100           2
         ENTRY            00001-00003               3           2
-                         00150-007FF             100
+                         00151-007FF             100
         IDLOC            08000-08003               4           2
         RAM              0002D-0006F              43           1
                          000A0-000BF              20
@@ -292,9 +292,9 @@ UNUSED ADDRESS RANGES
         SFR9             00480-004EF              70           1
         STACK            0200D-0206F              63           1
         STRCODE          00001-00003               3           2
-                         00150-007FF             6B0
+                         00151-007FF             6AF
         STRING           00001-00003               3           2
-                         00150-007FF             100
+                         00151-007FF             100
 
                                   Symbol Table
 
@@ -321,8 +321,8 @@ _PIE2bits                 (abs)        00092
 _PIR1bits                 (abs)        00011
 _PIR2bits                 (abs)        00012
 _PR2                      (abs)        0001B
-_PWM_Init                 text2        0012B
-_PWM_set_duty             text5        00142
+_PWM_Init                 text2        0012C
+_PWM_set_duty             text5        00143
 _SSP1ADD                  (abs)        00212
 _SSP1BUF                  (abs)        00211
 _SSP1CON1                 (abs)        00215
@@ -550,12 +550,12 @@ ___latbits                (abs)        00000
 ___sp                     stack        00000
 ___stackhi                (abs)        0206F
 ___stacklo                (abs)        0200D
-__end_of_ADC_read         text3        0012B
-__end_of_PWM_Init         text2        00137
-__end_of_PWM_set_duty     text5        0014D
-__end_of_RX_ELMNTS        stringtext1  00150
+__end_of_ADC_read         text3        0012C
+__end_of_PWM_Init         text2        00138
+__end_of_PWM_set_duty     text5        0014E
+__end_of_RX_ELMNTS        stringtext1  00151
 __end_of__initialization  cinit        000BF
-__end_of_init_I2C_buffer  text1        00142
+__end_of_init_I2C_buffer  text1        00143
 __end_of_isr              intentry     000B0
 __end_of_main             maintext     0010E
 __initialization          cinit        000B1
@@ -564,14 +564,14 @@ __pbssCOMMON              bssCOMMON    0007A
 __pcstackBANK0            cstackBANK0  00029
 __pcstackCOMMON           cstackCOMMON 00070
 __pdataCOMMON             dataCOMMON   00078
-__pidataCOMMON            idataCOMMON  0014D
+__pidataCOMMON            idataCOMMON  0014E
 __pintentry               intentry     00004
 __pmaintext               maintext     000C2
-__pstringtext1            stringtext1  0014F
-__ptext1                  text1        00137
-__ptext2                  text2        0012B
+__pstringtext1            stringtext1  00150
+__ptext1                  text1        00138
+__ptext2                  text2        0012C
 __ptext3                  text3        0010E
-__ptext5                  text5        00142
+__ptext5                  text5        00143
 __size_of_ADC_read        (abs)        00000
 __size_of_PWM_Init        (abs)        00000
 __size_of_PWM_set_duty    (abs)        00000
@@ -581,7 +581,7 @@ __size_of_main            (abs)        00000
 _dir                      dataCOMMON   00078
 _first_i2c                dataCOMMON   00079
 _index_i2c                bssCOMMON    0007A
-_init_I2C_buffer          text1        00137
+_init_I2C_buffer          text1        00138
 _isr                      intentry     00004
 _ledDim                   bssBANK0     00026
 _main                     maintext     000C2
@@ -605,7 +605,7 @@ FUNCTION INFORMATION:
 
  *************** function _main *****************
  Defined at:
-		line 212 in file "main.c"
+		line 213 in file "main.c"
  Parameters:    Size  Location     Type
   argc            2    0[BANK0 ] int 
   argv            2    2[BANK0 ] PTR PTR unsigned char 
@@ -637,7 +637,7 @@ Total ram usage:        5 bytes
 
  *************** function _init_I2C_buffer *****************
  Defined at:
-		line 115 in file "main.c"
+		line 116 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -727,7 +727,7 @@ Total ram usage:        4 bytes
 
  *************** function _isr *****************
  Defined at:
-		line 125 in file "main.c"
+		line 126 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -796,11 +796,11 @@ shared estimated size: 15
 
 main.c
 		_main          		CODE           	00C2	0000	77
-		_ADC_read      		CODE           	010E	0000	30
-		_init_I2C_buffer		CODE           	0137	0000	12
+		_ADC_read      		CODE           	010E	0000	31
+		_init_I2C_buffer		CODE           	0138	0000	12
 		_isr           		CODE           	0004	0000	173
-		_PWM_set_duty  		CODE           	0142	0000	12
-		_PWM_Init      		CODE           	012B	0000	13
+		_PWM_set_duty  		CODE           	0143	0000	12
+		_PWM_Init      		CODE           	012C	0000	13
 
-main.c estimated size: 317
+main.c estimated size: 318
 

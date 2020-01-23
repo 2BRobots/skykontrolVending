@@ -106,9 +106,10 @@ void PWM_set_duty(unsigned int duty) // change the duty of PWM
 unsigned int ADC_read(unsigned char channel) {
     ADCON0 = (unsigned char)(channel << 2); //select channel
     ADCON0bits.ADON = 1; //enable ADC
-    __delay_ms(2); //wait to charge holding capacitor
-    ADCON0bits.GO = 1;//start conversion
-    while (ADCON0bits.GO); //wait ADC to finish
+    __delay_ms(1); //wait to charge holding capacitor
+    ADCON0bits.GO_nDONE = 1;//start conversion
+    while (ADCON0bits.GO_nDONE); //wait ADC to finish
+    ADCON0bits.ADON = 0; //disable ADC
     return (((unsigned int)ADRESH) << 8) | ((unsigned int)ADRESL & 0xFF); //return ADC result
 }
 

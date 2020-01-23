@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head runat="server">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>SkyKontrol</title>
+    <link rel='shortcut icon' type='image/x-icon' href='https://2brobots.com/skykontrol/images/favicon.ico' />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-42181368-3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-42181368-3');
+    </script>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script>
+        function ingresar() {
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    if (this.responseText == "FAIL") {
+                        document.getElementById("message").innerHTML = "Datos incorrectos.";
+                        return false;
+                    }
+                    if (this.responseText == "ERROR") {
+                        alert('Ha ocurrido un error en el sistema.');
+                        return false;
+                    }
+                    if (this.responseText == "DENI") {
+                        document.getElementById("message").innerHTML = "Dispositivo suspendido.";
+                        return false;
+                    }
+                    if (this.responseText == "PASS") {
+                        window.location.replace("main");
+                        return true;
+                    }
+                }
+            };
+            var id = document.getElementById("idf").value;
+            var psw = document.getElementById("pswf").value;
+            var str = "id=" + id + "&psw=" + psw;
+            xmlhttp.open("POST", "api/access.php", true);
+            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xmlhttp.send(str);
+        }
+    </script>
+</head>
+
+<body>
+
+    <!--- Header --->
+    <form id="form1" runat="server">
+        <div>
+            <div class="navbar-default navbar-fixed-top" role="navigation">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle Navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="login" style="padding: 0; padding-left: 10px;">
+                            <span> <img alt="Logo" src="images/logo.png" class="img-rounded" style="max-height: calc(100%);"/></span>
+                            </span> <span class="lead"><kbd> SkyKontrol </kbd></></span>
+                        </a>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="terms">Términos y condiciones</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--- Content --->
+        <div class="container">
+            <div class="row">
+                <style>
+                    body {
+                        background-color: #C0C0C0;
+                    }
+                </style>
+                <div class="container-fluid">
+                    <div class="center-block">
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <h2 class="text-center">Accede a tu terminal IoT</h2>
+                        <img class="img-responsive img-rounded center-block" style="max-width: calc(60%);" src="images/2b_logo.png" />
+                        <br />
+                        <div class="container" align='center'>
+                            <form action="">
+                                <label for="id"><b>ID del dispositivo:</b></label>
+                                <br />
+                                <input type="text" class="form-control form-control-lg text-center" style="max-width: calc(50%);" autocomplete="off" placeholder="Ingresa ID del dispositivo" name="idf" id="idf" required>
+                                <br />
+                                <label for="psw"><b>Contraseña:</b></label>
+                                <br />
+                                <input type="password" class="form-control form-control-lg text-center" style="max-width: calc(50%);" autocomplete="off" placeholder="Ingresa contraseña" name="pswf" id="pswf" required>
+                                <br />
+                                <p class="text-center text-danger" id="message"></p>
+                                <button type="button" class="btn btn-success btn-lg" onclick="ingresar()">Ingresar</button>
+                            </form>
+                        </div>
+                        <br />
+                        <p class="text-center small">
+                            *Al iniciar sesión aceptas nuestros
+                            <a href="terms">términos y condiciones</a>.
+                        </p>
+                        <br />
+                        <p class="text-center small">
+                            Obten el manual de la tarjeta
+                            <a href="documents/instructivo_skykontrol_timer_2br.pdf">aqui</a>.
+                        </p>
+                        <br />
+                        <br />
+                        <br />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--- Footer --->
+        <div class="container">
+            <!---<footer class="footer navbar-fixed-bottom">--->
+            <footer class="panel-footer navbar-fixed-bottom">
+                <div class="container">
+                    <p class="text-center">
+                        &copy; 2018 - SkyKontrol powered by
+                        <a href="https://www.2brobots.com">2BRobots</a>.
+                    </p>
+                </div>
+            </footer>
+        </div>
+    </form>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head runat="server">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>SkyKontrol</title>
+    <link rel='shortcut icon' type='image/x-icon' href='https://2brobots.com/skykontrol/images/favicon.ico' />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-42181368-3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-42181368-3');
+    </script>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <!--- Header --->
+    <form id="form1" runat="server">
+        <div>
+            <div class="navbar-default navbar-fixed-top" role="navigation">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle Navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="login" style="padding: 0; padding-left: 10px;">
+                            <span> <img alt="Logo" src="images/logo.png" class="img-rounded" style="max-height: calc(100%);"/></span>
+                            <span class="lead"><kbd> SkyKontrol </kbd></></span>
+                        </a>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="login">Iniciar sesión</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--- Content --->
+        <div class="container">
+            <div class="row">
+                <style>
+                    body {
+                        background-color: #C0C0C0;
+                    }
+                </style>
+                <div class="container-fluid">
+                    <div class="center-block container" align='center'>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <h2 class="text-center center-block">Términos y condiciones</h2>
+                        <br />
+                        <p class="text-justify">Al usar esta plataforma haz leído y aceptas los siguientes términos y condiciones de uso:</p>
+                        <p class="text-justify">1.- Al ser este un servicio gratuito (exclusivamente para el usuario final) aceptas que no somos responsables por la informacion almacenada, asi como tampoco por la disponibilidad del servicio. </p>
+                        <p class="text-justify">2.- Nos reservamos el derecho de cesar el servico a cualquier usuario y/o dispositivo sin previo aviso. </p>
+                        <p class="text-justify">3.- Queda totalmente prohibida cualquier actividad de fraude hacia nuestro sistema. Si detectamos alguna actividad desleal tomaremos las acciones pertinentes para castigar dicho abuso. </p>
+                        <p class="text-justify">4.- Tenemos derecho a utilizar y distribuir la informacion recabada por el sistema con fines estadiscos y de estudio de mercado, e incluso comercialmente. </p>
+                        <p class="text-justify">5.- Este servicio es de uso exclusivo para los dispositivos de 2BRobots y sus socios. Toma en cuenta que podemos utilizar tu infraestructura en cualquier momento para impulsar nuestros servicios y dispositivos. </p>
+                        <p class="text-justify">6.- No somos responsables en caso de perdida o robo de información, así como tampoco por desperfectos en el servicio que impidan su estabilidad y/o funcionamiento. </p>
+                        <p class="text-justify">7.- La informacion puede tardar varios minutos en propagarse entre nuestros sistemas y tus dispositivos. </p>
+                        <p class="text-justify">8.- Es necesario que tu dispositvo cuente con una conexion a internet de banda ancha y alimentacion estables en todo momento para evitar perdidas de datos. En caso de no cumplir este requisito podrias perder informacion, sufrir desperfectos e incluso dañar tu dispositivo. </p>
+                        <p class="text-center">Si necesitas ayuda o quieres convertirte en socio envianos un correo a: <b>hi@2brobots.com</b> </p>
+                        <h3 class="text-center">¡Gracias por tu apoyo!</h3>
+                        <img class="img-responsive center-block img-rounded" style="max-width: calc(35%);" src="images/logo.png" />
+                        <br />
+                        <h4 class="text-center">Desarrollado por:</h4>
+                        <br />
+                        <img class="img-responsive center-block" style="max-width: calc(75%);" src="images/2b_logo.png" />
+                        <br />
+                        <br />
+                        <p class="text-center">*SkyKontrol es una plataforma de 2BRobots, queda prohibido su uso, distribucion y copia sin autorizacion. Todos los derechos reservados.</p>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--- Footer --->
+        <div class="container">
+            <!---<footer class="footer navbar-fixed-bottom">--->
+            <footer class="panel-footer navbar-fixed-bottom">
+                <div class="container">
+                    <p class="text-center">
+                        &copy; 2018 - SkyKontrol powered by
+                        <a href="https://www.2brobots.com">2BRobots</a>.
+                    </p>
+                </div>
+            </footer>
+        </div>
+    </form>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

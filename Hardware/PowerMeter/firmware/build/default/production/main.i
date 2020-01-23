@@ -3483,15 +3483,16 @@ CCPR1L = (0xFF & ((unsigned int) duty));
 unsigned int ADC_read(unsigned char channel) {
 ADCON0 = (unsigned char)(channel << 2);
 ADCON0bits.ADON = 1;
-_delay((unsigned long)((2)*(32000000/4000.0)));
-ADCON0bits.GO = 1;
-while (ADCON0bits.GO);
+_delay((unsigned long)((1)*(32000000/4000.0)));
+ADCON0bits.GO_nDONE = 1;
+while (ADCON0bits.GO_nDONE);
+ADCON0bits.ADON = 0;
 return (((unsigned int)ADRESH) << 8) | ((unsigned int)ADRESL & 0xFF);
 }
 
 void init_I2C_buffer()
 {
-I2C_buffer.data.ID = 0xF4;
+I2C_buffer.data.ID = 0x02;
 I2C_buffer.data.RESET = 0;
 I2C_buffer.data.AN0 = 0;
 I2C_buffer.data.AN4 = 0;
