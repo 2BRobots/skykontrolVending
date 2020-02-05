@@ -5,7 +5,7 @@
  * Created on 13 de enero de 2020, 06:30 PM
  */
 
-// PIC12LF1822 Configuration Bit Settings
+// PIC12LF1840 Configuration Bit Settings
 
 // CONFIG1
 #pragma config FOSC = INTOSC    // Oscillator Selection (INTOSC oscillator: I/O function on CLKIN pin)
@@ -23,8 +23,8 @@
 #pragma config WRT = OFF        // Flash Memory Self-Write Protection (Write protection off)
 #pragma config PLLEN = ON       // PLL Enable (4x PLL enabled)
 #pragma config STVREN = ON      // Stack Overflow/Underflow Reset Enable (Stack Overflow or Underflow will cause a Reset)
-#pragma config BORV = LO        // Brown-out Reset Voltage Selection (Brown-out Reset Voltage (Vbor), low trip point selected.)
-#pragma config LVP = OFF        // Low-Voltage Programming Enable (High-voltage on MCLR/VPP must be used for programming)
+#pragma config BORV = LO        // Brown-out Reset adc Selection (Brown-out Reset adc (Vbor), low trip point selected.)
+#pragma config LVP = OFF        // Low-adc Programming Enable (High-voltage on MCLR/VPP must be used for programming)
 
 // Includes and definitions
 
@@ -32,19 +32,38 @@
 #define DEVICE_ID 0x02
 #define I2C_slave_address 0x3E // any value from 0 to 127, this will be the default address
 
+#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <xc.h>
 
+//EEPROM default values and function prototypes for memory access on program
+
+__EEPROM_DATA(0x10, 0x00, 0x10, 0x00, 0x42, 0x80, 0x34, 0x7B); //set ctRatio, ctRl, trRatio
+__EEPROM_DATA(0x10, 0x00, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF); //samples
+unsigned char eeprom_read(unsigned char address);
+void eeprom_write(unsigned char address, unsigned char value);
+
 // Global variables declation
+
+float adc = 0;
+float iacc = 0;
+float vacc = 0;
 
 volatile union _I2C_buffer {
 
     struct _data {
         unsigned char ID;
         unsigned char RESET;
-        unsigned int AN0;
-        unsigned int AN4;
+        unsigned char SAVE;
+        int ctRatio;
+        int ctRl;
+        float trRatio;
+        int samples;
+        float Irms;
+        float Vrms;
+        float Power;
+        float AvPower;
     } data;
     unsigned char byte[];
 } I2C_buffer;
@@ -52,99 +71,39 @@ volatile union _I2C_buffer {
 const unsigned char RX_ELMNTS = sizeof (I2C_buffer);
 unsigned char first_i2c = 1;
 unsigned char index_i2c = 0;
-int ledDim = 0;
-char dir = 1;
 
 // Functions
 
-void PWM_Init(void) // start the PWM with a 0% duty
-{
-    /*
-    //10 bit mode PWM at 1.95kHz
-    PR2 = 0xFF; //load PR2 register
-    CCP1CON = 0b00001100; //configure CCP1 for PWM operation
-    CCPR1L = 0b00000000; //set duty to 0    
-    PIR1bits.TMR2IF = 0; //clear the interrupt flag
-    T2CON = 0b00000110; //start timer 2 and select prescaler as 4
-     */
-
-    /*    
-    //10 bit mode PWM at 7.81kHz
-    PR2 = 0xFF; //load PR2 register
-    CCP1CON = 0b00001100; //configure CCP1 for PWM operation
-    CCPR1L = 0b00000000; //set duty to 0    
-    PIR1bits.TMR2IF = 0; //clear the interrupt flag
-    T2CON = 0b00000101; //start timer 2 and select prescaler as 4
-     */
-
-    /* 
-    //10 bit mode PWM at 31.25kHz
-    PR2 = 0xFF; //load PR2 register
-    CCP1CON = 0b00001100; //configure CCP1 for PWM operation
-    CCPR1L = 0b00000000; //set duty to 0    
-    PIR1bits.TMR2IF = 0; //clear the interrupt flag
-    T2CON = 0b00000100; //start timer 2 and select prescaler as 1
-     */
-
-    //8 bit mode PWM at 125kHz
-    PR2 = 0x3F; //load PR2 register
-    CCP1CON = 0b00001100; //configure CCP1 for PWM operation
-    CCPR1L = 0b00000000; //set duty to 0    
-    PIR1bits.TMR2IF = 0; //clear the interrupt flag
-    T2CON = 0b00000100; //start timer 2 and select prescaler as 1
-}
-
-void PWM_set_duty(unsigned int duty) // change the duty of PWM
-{
-    if (duty < 255) {
-        //CCPR1L = (0xFF & ((unsigned int) duty >> 2)); //discard 2 LSB and write the rest to register, 10 bit mode
-        //CCP1CON = (0x0C | (0x30 & ((unsigned int) duty << 4))); //filter the reamaining 2 LSB and then write it to DC1B (bit 5,4 in the register), 10 bit mode
-        CCPR1L = (0xFF & ((unsigned int) duty)); //to be used in 8 bit mode
-    }
-}
-
 unsigned int ADC_read(unsigned char channel) {
-    ADCON0 = (unsigned char)(channel << 2); //select channel
+    ADCON0 = (unsigned char) (channel << 2); //select channel
     ADCON0bits.ADON = 1; //enable ADC
     __delay_ms(1); //wait to charge holding capacitor
-    ADCON0bits.GO_nDONE = 1;//start conversion
+    ADCON0bits.GO_nDONE = 1; //start conversion
     while (ADCON0bits.GO_nDONE); //wait ADC to finish
     ADCON0bits.ADON = 0; //disable ADC
-    return (((unsigned int)ADRESH) << 8) | ((unsigned int)ADRESL & 0xFF); //return ADC result
+    return (((unsigned int) ADRESH) << 8) | ((unsigned int) ADRESL & 0xFF); //return ADC result
 }
 
 void init_I2C_buffer() //load default values of vars
 {
     I2C_buffer.data.ID = DEVICE_ID;
     I2C_buffer.data.RESET = 0;
-    I2C_buffer.data.AN0 = 0;
-    I2C_buffer.data.AN4 = 0;
+    I2C_buffer.data.SAVE = 0;
+    I2C_buffer.byte[0x03] = eeprom_read(0); //ctRatio
+    I2C_buffer.byte[0x04] = eeprom_read(1);
+    I2C_buffer.byte[0x05] = eeprom_read(2); //ctRl;
+    I2C_buffer.byte[0x06] = eeprom_read(3);
+    I2C_buffer.byte[0x07] = eeprom_read(4); //trRatio;
+    I2C_buffer.byte[0x08] = eeprom_read(5);
+    I2C_buffer.byte[0x09] = eeprom_read(6);
+    I2C_buffer.byte[0x0A] = eeprom_read(7);
+    I2C_buffer.byte[0x0B] = eeprom_read(8); //samples;
+    I2C_buffer.byte[0x0C] = eeprom_read(9);
 }
 
 // Interrupts
 
 void __interrupt isr() {
-
-    if (PIR1bits.TMR1IF == 1) //timer1 interrupt, called every 65.536ms
-    {
-        T1CONbits.TMR1ON = 0; //stop timer1
-        if (dir == 1) {
-            ledDim += 2;
-            if (ledDim >= 50) {
-                ledDim = 50;
-                dir = 0;
-            }
-        } else {
-            ledDim -= 2;
-            if (ledDim <= 0) {
-                ledDim = 0;
-                dir = 1;
-            }
-        }
-        PWM_set_duty((unsigned int) ledDim); //dim LED dinamically
-        PIR1bits.TMR1IF = 0; //clear interrutp flag
-        T1CONbits.TMR1ON = 1; //start timer1
-    }
 
     static unsigned char junk = 0;
 
@@ -216,8 +175,7 @@ int main(int argc, char** argv) {
     TRISA = 0b00011111; //configure IO
     ANSELA = 0b00010001; //analog functions of pins enabled
     WPUA = 0b00001110; //configure weak pull-ups on input pins
-    OPTION_REGbits.nWPUEN = 1; //enable/disable weak pull-ups
-    APFCONbits.CCP1SEL = 1; //select RA5 as CCP output pin
+    OPTION_REGbits.nWPUEN = 1; //enable weak pull-ups
     ADCON1 = 0b11110000; //configure ADC
     SSP1STAT = 0b10000000; // Slew rate control disabled for standardspeed mode (100 kHz and 1 MHz)
     SSP1CON1 = 0b00110110; // Enable serial port, I2C slave mode, 7-bit address
@@ -231,21 +189,58 @@ int main(int argc, char** argv) {
     PIE2bits.BCL1IE = 1; // Enable bus collision interrupts
     PIE1bits.SSP1IE = 1; // Enable serial port interrupts
     INTCONbits.PEIE = 1; // Enable peripheral interrupts
-    PWM_Init(); //start pwm
     INTCON = 0b01001000; //enables interrupts
-    T1CON = 0b00110100; //configure timer1 to run at 1 MHz
-    PIE1bits.TMR1IE = 1; //enable timer1 interrupt
-    T1CONbits.TMR1ON = 1; //start timer1
     INTCONbits.GIE = 1; //run interrupts
+
+    LATAbits.LATA5 = 1; //turn led ON
 
     while (1) {
         asm("CLRWDT");
         if (I2C_buffer.data.RESET == 1) {
             asm("RESET");
         }
-        I2C_buffer.data.AN0 = ADC_read(0x00);
-        I2C_buffer.data.AN4 = ADC_read(0x03);
-        __delay_ms(1);
+
+        if (I2C_buffer.data.SAVE == 1) { //Save non-volatile data into the EEPROM
+            eeprom_write(0, I2C_buffer.byte[0x03]); //ctRatio
+            eeprom_write(1, I2C_buffer.byte[0x04]);
+            eeprom_write(2, I2C_buffer.byte[0x05]); //ctRl
+            eeprom_write(3, I2C_buffer.byte[0x06]);
+            eeprom_write(4, I2C_buffer.byte[0x07]); //trRatio
+            eeprom_write(5, I2C_buffer.byte[0x08]);
+            eeprom_write(6, I2C_buffer.byte[0x09]);
+            eeprom_write(7, I2C_buffer.byte[0x0A]);
+            eeprom_write(8, I2C_buffer.byte[0x0B]); //samples
+            eeprom_write(9, I2C_buffer.byte[0x0C]);
+            __delay_ms(5);
+            I2C_buffer.data.SAVE = 0;
+        }
+
+        iacc = 0;
+        vacc = 0;
+
+        for (int i = 0; i < I2C_buffer.data.samples; i++) //rms current in transformer primary
+        {
+            asm("CLRWDT");
+
+            adc = (float) ADC_read(0x00); //read adc for current transformer
+
+            adc = ((adc * 5) / 1023) - 2.5; //convert ADC to voltage
+            adc = (adc / (float)I2C_buffer.data.ctRl) * (float) I2C_buffer.data.ctRatio; //conver to current in the line
+            iacc += pow(adc, 2); //acumulate RMS value for sampling
+
+            adc = (float) ADC_read(0x03); //read adc for voltage transformer
+
+            adc = ((adc * 5) / 1023) - 2.5; //convert ADC to voltage
+            adc = adc * I2C_buffer.data.trRatio; //multiply voltage for the transformer relation 
+            vacc += pow(adc, 2); //acumulate RMS value for sampling
+        }
+
+        I2C_buffer.data.Irms = sqrt(iacc / (float)I2C_buffer.data.samples); //RMS current
+        I2C_buffer.data.Vrms = sqrt(vacc / (float)I2C_buffer.data.samples); //RMS voltage
+        I2C_buffer.data.Power = I2C_buffer.data.Vrms * I2C_buffer.data.Irms; //apparent Power
+        I2C_buffer.data.AvPower = (I2C_buffer.data.Power + I2C_buffer.data.AvPower) / 2; //average apparent power
+        LATAbits.LATA5 = (char)!LATAbits.LATA5; //toggle led
+        __delay_ms(10);
     }
 
     return (EXIT_SUCCESS);

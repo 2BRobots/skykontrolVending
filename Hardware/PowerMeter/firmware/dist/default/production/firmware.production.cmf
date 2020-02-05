@@ -11,39 +11,42 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\ciro_\AppData\Local\Temp\s910.o
-reset_vec CODE 0 0 0 1 2
-end_init CODE 0 B0 B0 1 2
+$C:\Users\Agualu2\AppData\Local\Temp\s3m8.o
+reset_vec CODE 0 0 0 2 2
+end_init CODE 0 6E 6E 2 2
 config CONFIG 0 8007 8007 2 2
 $dist/default/production\firmware.production.o
-cinit CODE 0 B1 B1 11 2
-text1 CODE 0 138 138 B 2
-text2 CODE 0 12C 12C C 2
-text3 CODE 0 10E 10E 1E 2
-text5 CODE 0 143 143 B 2
-idataCOMMON CODE 0 14E 14E 2 2
-maintext CODE 0 C2 C2 4C 2
-cstackCOMMON COMMON 1 70 70 8 1
-cstackBANK0 BANK0 1 29 29 4 1
-stringtext1 STRCODE 0 150 150 1 2
-intentry CODE 0 4 4 AC 2
-bssBANK0 BANK0 1 20 20 9 1
-dataCOMMON COMMON 1 78 78 2 1
-bssCOMMON COMMON 1 7A 7A 1 1
+cinit CODE 0 835 835 7CB 2
+text1 CODE 0 638 638 F1 2
+text3 CODE 0 70 70 348 2
+text13 CODE 0 3B8 3B8 176 2
+text18 CODE 0 52E 52E 10A 2
+cstackCOMMON COMMON 1 70 70 E 1
+cstackBANK0 BANK0 1 20 20 4F 1
+cstackBANK1 BANK1 1 A0 A0 4E 1
+cstackBANK2 BANK2 1 149 149 E 1
+stringtext1 STRCODE 0 729 729 28 2
+stringtext2 STRCODE 0 751 751 24 2
+intentry CODE 0 4 4 6A 2
+bssBANK0 BANK0 1 6F 6F 1 1
+bssBANK2 BANK2 1 120 120 29 1
+eeprom_data EEDATA 3 0 F000 10 2
+dataBANK1 BANK1 1 EE EE 1 1
+clrtext CODE 0 775 775 6 2
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
 # is described on a single line as follows:
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM 2D-6F 1
-RAM A0-BF 1
-BANK0 2D-6F 1
-BANK1 A0-BF 1
-CONST 1-3 2
-CONST 151-7FF 2
-ENTRY 1-3 2
-ENTRY 151-7FF 2
+RAM EF-EF 1
+RAM 157-16F 1
+BANK1 EF-EF 1
+BANK2 157-16F 1
+CONST 2-3 2
+CONST 77B-834 2
+ENTRY 2-3 2
+ENTRY 77B-834 2
 IDLOC 8000-8003 2
 SFR10 500-56F 1
 SFR11 580-5EF 1
@@ -67,12 +70,12 @@ SFR28 E00-E6F 1
 SFR29 E80-EEF 1
 SFR30 F00-F6F 1
 SFR31 F80-FEF 1
-STACK 200D-206F 1
-CODE 1-3 2
-CODE 151-7FF 2
+STACK 20D7-20EF 1
+CODE 2-3 2
+CODE 77B-834 2
 SFR0 0-1F 1
 SFR1 80-9F 1
-SFR2 100-16F 1
+SFR2 100-11F 1
 SFR3 180-1EF 1
 SFR4 200-26F 1
 SFR5 280-2EF 1
@@ -80,13 +83,12 @@ SFR6 300-36F 1
 SFR7 380-3EF 1
 SFR8 400-46F 1
 SFR9 480-4EF 1
-BIGRAM 2000-206F 1
-COMMON 7B-7D 1
-EEDATA F000-F0FF 2
-STRCODE 1-3 2
-STRCODE 151-7FF 2
-STRING 1-3 2
-STRING 151-7FF 2
+BIGRAM 2000-20EF 1
+EEDATA F010-F0FF 2
+STRCODE 2-3 2
+STRCODE 77B-834 2
+STRING 2-3 2
+STRING 77B-834 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -101,138 +103,667 @@ STRING 151-7FF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\firmware.production.o
-B1 cinit CODE >690:C:\Users\ciro_\AppData\Local\Temp\s910.s
-B1 cinit CODE >693:C:\Users\ciro_\AppData\Local\Temp\s910.s
-B1 cinit CODE >731:C:\Users\ciro_\AppData\Local\Temp\s910.s
-B2 cinit CODE >732:C:\Users\ciro_\AppData\Local\Temp\s910.s
-B3 cinit CODE >733:C:\Users\ciro_\AppData\Local\Temp\s910.s
-B4 cinit CODE >734:C:\Users\ciro_\AppData\Local\Temp\s910.s
-B5 cinit CODE >739:C:\Users\ciro_\AppData\Local\Temp\s910.s
-B6 cinit CODE >743:C:\Users\ciro_\AppData\Local\Temp\s910.s
-B7 cinit CODE >744:C:\Users\ciro_\AppData\Local\Temp\s910.s
-B8 cinit CODE >745:C:\Users\ciro_\AppData\Local\Temp\s910.s
-B9 cinit CODE >746:C:\Users\ciro_\AppData\Local\Temp\s910.s
-BA cinit CODE >747:C:\Users\ciro_\AppData\Local\Temp\s910.s
-BB cinit CODE >748:C:\Users\ciro_\AppData\Local\Temp\s910.s
-BC cinit CODE >749:C:\Users\ciro_\AppData\Local\Temp\s910.s
-BD cinit CODE >750:C:\Users\ciro_\AppData\Local\Temp\s910.s
-BE cinit CODE >751:C:\Users\ciro_\AppData\Local\Temp\s910.s
-BF cinit CODE >757:C:\Users\ciro_\AppData\Local\Temp\s910.s
-BF cinit CODE >759:C:\Users\ciro_\AppData\Local\Temp\s910.s
-C0 cinit CODE >760:C:\Users\ciro_\AppData\Local\Temp\s910.s
-C1 cinit CODE >761:C:\Users\ciro_\AppData\Local\Temp\s910.s
-4 intentry CODE >126:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-6 intentry CODE >128:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-9 intentry CODE >130:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-A intentry CODE >131:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-D intentry CODE >132:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-11 intentry CODE >133:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-1C intentry CODE >134:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-21 intentry CODE >135:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-23 intentry CODE >138:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-27 intentry CODE >139:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-32 intentry CODE >140:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-35 intentry CODE >141:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-37 intentry CODE >144:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-3D intentry CODE >145:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-3F intentry CODE >146:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-40 intentry CODE >151:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-42 intentry CODE >153:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-43 intentry CODE >154:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-45 intentry CODE >155:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-48 intentry CODE >157:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-4A intentry CODE >159:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-54 intentry CODE >160:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-55 intentry CODE >162:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-57 intentry CODE >164:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-61 intentry CODE >165:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-62 intentry CODE >168:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-64 intentry CODE >170:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-66 intentry CODE >172:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-68 intentry CODE >173:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-6D intentry CODE >174:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-6F intentry CODE >176:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-71 intentry CODE >178:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-74 intentry CODE >179:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-78 intentry CODE >180:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-79 intentry CODE >181:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-7A intentry CODE >184:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-7E intentry CODE >186:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-8A intentry CODE >187:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-8B intentry CODE >188:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-90 intentry CODE >191:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-93 intentry CODE >193:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-94 intentry CODE >194:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-99 intentry CODE >196:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-9B intentry CODE >199:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-9D intentry CODE >200:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-9E intentry CODE >201:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-A0 intentry CODE >204:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-A3 intentry CODE >206:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-A9 intentry CODE >207:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-AA intentry CODE >208:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-AC intentry CODE >209:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-AE intentry CODE >211:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-143 text5 CODE >97:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-143 text5 CODE >99:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-14A text5 CODE >102:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-14D text5 CODE >104:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-10E text3 CODE >106:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-10F text3 CODE >107:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-119 text3 CODE >108:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-11A text3 CODE >109:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-122 text3 CODE >110:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-124 text3 CODE >111:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-126 text3 CODE >112:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-127 text3 CODE >113:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-12B text3 CODE >114:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-12C text2 CODE >60:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-12C text2 CODE >90:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-12F text2 CODE >91:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-132 text2 CODE >92:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-133 text2 CODE >93:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-135 text2 CODE >94:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-137 text2 CODE >95:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-138 text1 CODE >116:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-138 text1 CODE >118:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-13D text1 CODE >119:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-13E text1 CODE >120:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-140 text1 CODE >121:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-142 text1 CODE >122:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-C2 maintext CODE >213:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-C2 maintext CODE >214:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-C5 maintext CODE >215:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-C6 maintext CODE >216:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-C9 maintext CODE >217:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-CC maintext CODE >218:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-CF maintext CODE >219:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-D1 maintext CODE >220:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-D3 maintext CODE >221:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-D6 maintext CODE >222:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-D9 maintext CODE >223:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-DB maintext CODE >224:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-DC maintext CODE >225:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-DD maintext CODE >226:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-DE maintext CODE >227:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-DF maintext CODE >228:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-E1 maintext CODE >229:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-E3 maintext CODE >230:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-E4 maintext CODE >231:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-E6 maintext CODE >232:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-E7 maintext CODE >233:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-E8 maintext CODE >234:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-E9 maintext CODE >235:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-EB maintext CODE >236:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-ED maintext CODE >237:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-EF maintext CODE >238:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-F1 maintext CODE >239:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-F2 maintext CODE >241:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-F2 maintext CODE >242:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-F3 maintext CODE >243:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-F6 maintext CODE >244:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-F7 maintext CODE >246:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-FE maintext CODE >247:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-105 maintext CODE >248:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+835 cinit CODE >1316:C:\Users\Agualu2\AppData\Local\Temp\s3m8.s
+835 cinit CODE >1319:C:\Users\Agualu2\AppData\Local\Temp\s3m8.s
+835 cinit CODE >1354:C:\Users\Agualu2\AppData\Local\Temp\s3m8.s
+836 cinit CODE >72:C:\Users\Agualu2\AppData\Local\Temp\s3m8.s
+837 cinit CODE >1356:C:\Users\Agualu2\AppData\Local\Temp\s3m8.s
+838 cinit CODE >1373:C:\Users\Agualu2\AppData\Local\Temp\s3m8.s
+839 cinit CODE >1378:C:\Users\Agualu2\AppData\Local\Temp\s3m8.s
+83A cinit CODE >1374:C:\Users\Agualu2\AppData\Local\Temp\s3m8.s
+83B cinit CODE >1379:C:\Users\Agualu2\AppData\Local\Temp\s3m8.s
+83C cinit CODE >1380:C:\Users\Agualu2\AppData\Local\Temp\s3m8.s
+83D cinit CODE >1381:C:\Users\Agualu2\AppData\Local\Temp\s3m8.s
+83E cinit CODE >1382:C:\Users\Agualu2\AppData\Local\Temp\s3m8.s
+83F cinit CODE >1383:C:\Users\Agualu2\AppData\Local\Temp\s3m8.s
+842 cinit CODE >1389:C:\Users\Agualu2\AppData\Local\Temp\s3m8.s
+842 cinit CODE >1391:C:\Users\Agualu2\AppData\Local\Temp\s3m8.s
+843 cinit CODE >1392:C:\Users\Agualu2\AppData\Local\Temp\s3m8.s
+844 cinit CODE >1393:C:\Users\Agualu2\AppData\Local\Temp\s3m8.s
+845 cinit CODE >172:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+845 cinit CODE >173:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+848 cinit CODE >174:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+84A cinit CODE >175:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+84D cinit CODE >176:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+850 cinit CODE >177:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+853 cinit CODE >178:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+855 cinit CODE >179:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+857 cinit CODE >180:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+85A cinit CODE >181:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+85C cinit CODE >182:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+85D cinit CODE >183:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+85E cinit CODE >184:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+85F cinit CODE >185:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+860 cinit CODE >186:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+862 cinit CODE >187:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+864 cinit CODE >188:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+865 cinit CODE >189:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+867 cinit CODE >190:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+868 cinit CODE >191:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+869 cinit CODE >192:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+86B cinit CODE >193:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+86C cinit CODE >195:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+86E cinit CODE >197:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+86E cinit CODE >198:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+86F cinit CODE >199:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+872 cinit CODE >200:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+873 cinit CODE >203:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+876 cinit CODE >204:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+87B cinit CODE >205:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+881 cinit CODE >206:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+887 cinit CODE >207:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+88D cinit CODE >208:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+893 cinit CODE >209:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+899 cinit CODE >210:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+89F cinit CODE >211:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+8A5 cinit CODE >212:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+8AB cinit CODE >213:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+8B1 cinit CODE >214:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+8BA cinit CODE >215:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+8BC cinit CODE >218:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+8C0 cinit CODE >219:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+8C4 cinit CODE >221:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+8D2 cinit CODE >223:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+8D3 cinit CODE >225:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+8DB cinit CODE >227:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+8E8 cinit CODE >228:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+91F cinit CODE >229:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+943 cinit CODE >231:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+94B cinit CODE >233:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+958 cinit CODE >234:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+970 cinit CODE >235:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+994 cinit CODE >221:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+998 cinit CODE >238:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+9C6 cinit CODE >239:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+9F3 cinit CODE >240:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+A12 cinit CODE >241:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+A55 cinit CODE >242:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+A5F cinit CODE >243:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+A69 cinit CODE >6:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\pic\__eewrite.c
+A6A cinit CODE >8:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\pic\__eewrite.c
+A81 cinit CODE >9:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\pic\__eewrite.c
+A82 cinit CODE >77:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+A83 cinit CODE >78:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+A87 cinit CODE >79:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+A88 cinit CODE >80:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+A90 cinit CODE >81:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+A92 cinit CODE >82:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+A94 cinit CODE >83:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+A95 cinit CODE >84:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+A9A cinit CODE >85:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+A9B cinit CODE >5:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\pow.c
+A9B cinit CODE >7:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\pow.c
+A9C cinit CODE >10:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\pow.c
+AAF cinit CODE >11:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\pow.c
+ABE cinit CODE >14:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\pow.c
+ABF cinit CODE >16:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\pow.c
+AD3 cinit CODE >17:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\pow.c
+ADC cinit CODE >18:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\pow.c
+AEB cinit CODE >19:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\pow.c
+AFD cinit CODE >20:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\pow.c
+B24 cinit CODE >22:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\pow.c
+B26 cinit CODE >24:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\pow.c
+B2B cinit CODE >25:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\pow.c
+B36 cinit CODE >27:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\pow.c
+B8C cinit CODE >28:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\pow.c
+B91 cinit CODE >29:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\pow.c
+B9B cinit CODE >4:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\fleq.c
+B9B cinit CODE >7:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\fleq.c
+BA8 cinit CODE >8:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\fleq.c
+BAC cinit CODE >9:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\fleq.c
+BB9 cinit CODE >10:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\fleq.c
+BBB cinit CODE >11:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\fleq.c
+BCE cinit CODE >12:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\fleq.c
+BCF cinit CODE >12:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\exp.c
+BCF cinit CODE >31:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\exp.c
+BD7 cinit CODE >32:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\exp.c
+BE0 cinit CODE >34:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\exp.c
+BF5 cinit CODE >36:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\exp.c
+BFC cinit CODE >38:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\exp.c
+C0B cinit CODE >40:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\exp.c
+C0C cinit CODE >43:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\exp.c
+C18 cinit CODE >44:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\exp.c
+C1B cinit CODE >45:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\exp.c
+C2C cinit CODE >46:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\exp.c
+C57 cinit CODE >47:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\exp.c
+C78 cinit CODE >48:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\exp.c
+C98 cinit CODE >49:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\exp.c
+CC0 cinit CODE >50:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\exp.c
+CC5 cinit CODE >52:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\exp.c
+CCF cinit CODE >53:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\exp.c
+CD1 cinit CODE >54:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\exp.c
+CF9 cinit CODE >4:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\flge.c
+CF9 cinit CODE >7:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\flge.c
+D06 cinit CODE >8:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\flge.c
+D0A cinit CODE >9:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\flge.c
+D17 cinit CODE >10:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\flge.c
+D1B cinit CODE >12:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\flge.c
+D1D cinit CODE >13:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\flge.c
+D2F cinit CODE >14:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\flge.c
+D33 cinit CODE >15:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\flge.c
+D43 cinit CODE >16:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\flge.c
+D45 cinit CODE >17:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\flge.c
+D46 cinit CODE >18:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\flge.c
+D55 cinit CODE >10:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\xxtofl.c
+D57 cinit CODE >15:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\xxtofl.c
+D5B cinit CODE >16:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\xxtofl.c
+D6A cinit CODE >17:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\xxtofl.c
+D6B cinit CODE >19:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\xxtofl.c
+D73 cinit CODE >20:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\xxtofl.c
+D73 cinit CODE >21:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\xxtofl.c
+D79 cinit CODE >22:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\xxtofl.c
+D7E cinit CODE >23:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\xxtofl.c
+D80 cinit CODE >24:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\xxtofl.c
+D84 cinit CODE >25:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\xxtofl.c
+D85 cinit CODE >26:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\xxtofl.c
+D87 cinit CODE >24:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\xxtofl.c
+D88 cinit CODE >29:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\xxtofl.c
+D88 cinit CODE >30:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\xxtofl.c
+D89 cinit CODE >29:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\xxtofl.c
+D8A cinit CODE >30:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\xxtofl.c
+D91 cinit CODE >28:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\xxtofl.c
+D96 cinit CODE >33:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\xxtofl.c
+D9A cinit CODE >34:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\xxtofl.c
+D9B cinit CODE >35:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\xxtofl.c
+D9F cinit CODE >33:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\xxtofl.c
+DA1 cinit CODE >37:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\xxtofl.c
+DA2 cinit CODE >38:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\xxtofl.c
+DA3 cinit CODE >39:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\xxtofl.c
+DA4 cinit CODE >40:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\xxtofl.c
+DB1 cinit CODE >41:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\xxtofl.c
+DB5 cinit CODE >42:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\xxtofl.c
+DB6 cinit CODE >43:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\xxtofl.c
+DBE cinit CODE >44:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\xxtofl.c
+DBF cinit CODE >15:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\flneg.c
+DBF cinit CODE >17:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\flneg.c
+DC5 cinit CODE >18:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\flneg.c
+DC7 cinit CODE >20:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\flneg.c
+DC8 cinit CODE >43:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\fltol.c
+DC8 cinit CODE >47:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\fltol.c
+DCF cinit CODE >48:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\fltol.c
+DD4 cinit CODE >49:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\fltol.c
+DE5 cinit CODE >52:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\fltol.c
+DE6 cinit CODE >50:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\fltol.c
+DE7 cinit CODE >51:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\fltol.c
+DE8 cinit CODE >52:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\fltol.c
+DE9 cinit CODE >53:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\fltol.c
+DEB cinit CODE >54:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\fltol.c
+DF0 cinit CODE >57:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\fltol.c
+DF4 cinit CODE >58:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\fltol.c
+DF7 cinit CODE >60:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\fltol.c
+DFB cinit CODE >62:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\fltol.c
+DFE cinit CODE >63:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\fltol.c
+E02 cinit CODE >64:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\fltol.c
+E03 cinit CODE >62:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\fltol.c
+E04 cinit CODE >67:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\fltol.c
+E07 cinit CODE >68:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\fltol.c
+E12 cinit CODE >70:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\fltol.c
+E13 cinit CODE >242:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+E13 cinit CODE >248:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+E15 cinit CODE >249:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+E2F cinit CODE >250:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+F4E cinit CODE >87:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+F4E cinit CODE >89:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+F51 cinit CODE >90:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+F52 cinit CODE >91:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+F53 cinit CODE >92:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+F58 cinit CODE >93:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+F5D cinit CODE >94:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+F62 cinit CODE >95:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+F67 cinit CODE >96:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+F6C cinit CODE >97:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+F71 cinit CODE >98:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+F76 cinit CODE >99:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+F7B cinit CODE >100:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+F80 cinit CODE >101:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+F84 cinit CODE >102:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+F85 cinit CODE >6:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\pic\__eeread.c
+F86 cinit CODE >12:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\pic\__eeread.c
+F88 cinit CODE >8:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\pic\__eeread.c
+F88 cinit CODE >9:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\pic\__eeread.c
+F89 cinit CODE >12:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\pic\__eeread.c
+F8C cinit CODE >18:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\pic\__eeread.c
+F93 cinit CODE >19:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\pic\__eeread.c
+F94 cinit CODE >277:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\frexp.c
+F94 cinit CODE >279:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\frexp.c
+FA7 cinit CODE >280:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\frexp.c
+FA9 cinit CODE >282:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\frexp.c
+FB4 cinit CODE >283:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\frexp.c
+FBA cinit CODE >287:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\frexp.c
+FBD cinit CODE >291:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\frexp.c
+FC8 cinit CODE >293:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\frexp.c
+FD7 cinit CODE >294:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\frexp.c
+FDB cinit CODE >296:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\frexp.c
+FDE cinit CODE >300:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\frexp.c
+FEB cinit CODE >301:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\frexp.c
+FF5 cinit CODE >307:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\frexp.c
+4 intentry CODE >85:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+4 intentry CODE >106:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+6 intentry CODE >110:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+9 intentry CODE >112:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+A intentry CODE >113:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+C intentry CODE >114:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+F intentry CODE >116:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+11 intentry CODE >118:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+1C intentry CODE >119:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+1E intentry CODE >121:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+20 intentry CODE >123:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+2B intentry CODE >124:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+2D intentry CODE >127:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+2F intentry CODE >129:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+31 intentry CODE >131:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+34 intentry CODE >132:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+36 intentry CODE >133:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+37 intentry CODE >135:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+39 intentry CODE >137:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+3D intentry CODE >138:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+41 intentry CODE >139:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+43 intentry CODE >140:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+44 intentry CODE >143:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+49 intentry CODE >145:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+53 intentry CODE >146:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+54 intentry CODE >147:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+56 intentry CODE >150:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+59 intentry CODE >152:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+5A intentry CODE >153:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+5B intentry CODE >155:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+5C intentry CODE >158:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+5E intentry CODE >159:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+5F intentry CODE >160:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+61 intentry CODE >163:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+64 intentry CODE >165:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+66 intentry CODE >166:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+68 intentry CODE >167:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+6A intentry CODE >168:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+6C intentry CODE >170:C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+52E text18 CODE >8:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+52E text18 CODE >26:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+532 text18 CODE >27:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+534 text18 CODE >28:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+535 text18 CODE >29:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+536 text18 CODE >33:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+539 text18 CODE >35:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+53B text18 CODE >37:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+53F text18 CODE >38:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+53F text18 CODE >40:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+541 text18 CODE >44:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+541 text18 CODE >46:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+545 text18 CODE >49:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+548 text18 CODE >50:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+54A text18 CODE >51:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+54B text18 CODE >52:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+54C text18 CODE >56:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+54F text18 CODE >58:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+551 text18 CODE >60:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+555 text18 CODE >61:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+555 text18 CODE >63:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+557 text18 CODE >67:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+557 text18 CODE >69:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+55B text18 CODE >75:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+561 text18 CODE >77:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+562 text18 CODE >76:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+566 text18 CODE >77:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+569 text18 CODE >78:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+56B text18 CODE >79:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+574 text18 CODE >83:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+577 text18 CODE >85:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+57C text18 CODE >89:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+587 text18 CODE >92:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+58F text18 CODE >93:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+593 text18 CODE >94:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+597 text18 CODE >96:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+598 text18 CODE >97:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+59C text18 CODE >100:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+59F text18 CODE >101:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+5A3 text18 CODE >102:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+5A7 text18 CODE >103:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+5A8 text18 CODE >104:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+5A9 text18 CODE >106:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+5AD text18 CODE >112:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+5BD text18 CODE >115:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+5BE text18 CODE >116:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+5C6 text18 CODE >118:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+5C7 text18 CODE >97:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+5C8 text18 CODE >122:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+5CD text18 CODE >123:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+5CE text18 CODE >127:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+5D0 text18 CODE >128:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+5D4 text18 CODE >129:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+5D5 text18 CODE >130:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+5D6 text18 CODE >133:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+5D7 text18 CODE >132:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+5DB text18 CODE >133:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+5DE text18 CODE >127:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+5DF text18 CODE >139:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+5E0 text18 CODE >140:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+5E2 text18 CODE >141:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+5EF text18 CODE >145:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+5F2 text18 CODE >142:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+5F4 text18 CODE >150:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+5F7 text18 CODE >151:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+5FD text18 CODE >152:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+5FF text18 CODE >153:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+603 text18 CODE >154:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+606 text18 CODE >159:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+60E text18 CODE >160:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+613 text18 CODE >162:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+613 text18 CODE >165:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+61C text18 CODE >166:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+620 text18 CODE >169:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+621 text18 CODE >173:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+624 text18 CODE >175:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+626 text18 CODE >176:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+627 text18 CODE >177:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+628 text18 CODE >179:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+628 text18 CODE >180:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+629 text18 CODE >182:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
+3B8 text13 CODE >8:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+3B8 text13 CODE >17:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+3BC text13 CODE >18:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+3BE text13 CODE >19:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+3BF text13 CODE >20:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+3C0 text13 CODE >24:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+3C3 text13 CODE >26:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+3C5 text13 CODE >28:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+3C7 text13 CODE >29:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+3C7 text13 CODE >31:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+3C8 text13 CODE >33:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+3C9 text13 CODE >34:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+3CB text13 CODE >39:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+3CE text13 CODE >40:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+3D0 text13 CODE >41:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+3D1 text13 CODE >42:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+3D2 text13 CODE >45:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+3D5 text13 CODE >48:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+3D7 text13 CODE >50:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+3D9 text13 CODE >51:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+3D9 text13 CODE >53:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+3DA text13 CODE >54:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+3DB text13 CODE >55:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+3DD text13 CODE >65:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+3E2 text13 CODE >66:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+3E7 text13 CODE >119:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+3F0 text13 CODE >120:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+3F4 text13 CODE >121:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+3F9 text13 CODE >122:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+401 text13 CODE >124:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+409 text13 CODE >125:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+411 text13 CODE >127:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+413 text13 CODE >129:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+41A text13 CODE >131:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+421 text13 CODE >133:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+428 text13 CODE >134:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+42F text13 CODE >136:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+436 text13 CODE >138:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+43B text13 CODE >140:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+442 text13 CODE >141:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+456 text13 CODE >145:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+459 text13 CODE >149:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+461 text13 CODE >158:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+464 text13 CODE >152:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+466 text13 CODE >153:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+46A text13 CODE >154:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+46B text13 CODE >155:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+46C text13 CODE >158:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+46D text13 CODE >157:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+471 text13 CODE >152:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+472 text13 CODE >163:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+473 text13 CODE >164:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+475 text13 CODE >165:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+482 text13 CODE >169:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+485 text13 CODE >166:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+487 text13 CODE >174:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+48A text13 CODE >175:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+490 text13 CODE >176:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+492 text13 CODE >177:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+496 text13 CODE >178:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+499 text13 CODE >183:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+4A1 text13 CODE >184:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+4A8 text13 CODE >185:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+4A9 text13 CODE >187:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+4B2 text13 CODE >188:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+4B7 text13 CODE >190:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+4B8 text13 CODE >191:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+4B9 text13 CODE >194:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+4BC text13 CODE >195:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+4C3 text13 CODE >196:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+4C4 text13 CODE >197:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+4C5 text13 CODE >199:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+4C7 text13 CODE >200:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+4C7 text13 CODE >201:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+4C9 text13 CODE >203:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+4D1 text13 CODE >205:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
+4D2 text13 CODE >4:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\Umul8_16.c
+4D3 text13 CODE >5:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\Umul8_16.c
+4D5 text13 CODE >6:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\Umul8_16.c
+4D8 text13 CODE >51:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\Umul8_16.c
+4DA text13 CODE >52:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\Umul8_16.c
+4DE text13 CODE >54:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\Umul8_16.c
+4E0 text13 CODE >55:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\Umul8_16.c
+4E1 text13 CODE >56:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\Umul8_16.c
+4E4 text13 CODE >59:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\Umul8_16.c
+4E8 text13 CODE >60:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\Umul8_16.c
+70 text3 CODE >5:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\log.c
+70 text3 CODE >24:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\log.c
+7D text3 CODE >26:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\log.c
+7E text3 CODE >28:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\log.c
+93 text3 CODE >30:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\log.c
+95 text3 CODE >32:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\log.c
+CC text3 CODE >33:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\log.c
+D0 text3 CODE >34:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\log.c
+E8 text3 CODE >35:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\log.c
+119 text3 CODE >36:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\log.c
+11A text3 CODE >13:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\floor.c
+11A text3 CODE >18:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\floor.c
+12D text3 CODE >19:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\floor.c
+130 text3 CODE >20:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\floor.c
+138 text3 CODE >21:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\floor.c
+140 text3 CODE >22:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\floor.c
+145 text3 CODE >24:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\floor.c
+14C text3 CODE >26:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\floor.c
+16D text3 CODE >27:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\floor.c
+17B text3 CODE >28:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\floor.c
+193 text3 CODE >29:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\floor.c
+19B text3 CODE >30:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\floor.c
+19C text3 CODE >254:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\frexp.c
+19C text3 CODE >256:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\frexp.c
+1AC text3 CODE >257:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\frexp.c
+1B2 text3 CODE >258:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\frexp.c
+1B7 text3 CODE >261:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\frexp.c
+1C4 text3 CODE >262:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\frexp.c
+1D0 text3 CODE >263:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\frexp.c
+1D9 text3 CODE >268:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\frexp.c
+1DD text3 CODE >269:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\frexp.c
+1DE text3 CODE >274:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\frexp.c
+1DF text3 CODE >10:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+1DF text3 CODE >21:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+1E3 text3 CODE >22:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+1E5 text3 CODE >23:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+1E6 text3 CODE >24:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+1E7 text3 CODE >28:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+1EA text3 CODE >30:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+1EC text3 CODE >32:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+1EE text3 CODE >33:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+1EE text3 CODE >35:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+1EF text3 CODE >37:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+1F0 text3 CODE >38:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+1F1 text3 CODE >39:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+1F3 text3 CODE >44:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+1F7 text3 CODE >46:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+1FA text3 CODE >47:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+1FB text3 CODE >49:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+1FD text3 CODE >50:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+1FE text3 CODE >51:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+1FF text3 CODE >55:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+202 text3 CODE >57:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+204 text3 CODE >59:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+206 text3 CODE >60:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+206 text3 CODE >62:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+207 text3 CODE >64:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+208 text3 CODE >65:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+209 text3 CODE >66:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+20B text3 CODE >75:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+20F text3 CODE >77:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+211 text3 CODE >78:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+213 text3 CODE >81:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+215 text3 CODE >82:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+217 text3 CODE >83:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+219 text3 CODE >84:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+21B text3 CODE >85:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+21D text3 CODE >86:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+21F text3 CODE >87:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+221 text3 CODE >88:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+223 text3 CODE >89:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+225 text3 CODE >90:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+227 text3 CODE >91:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+229 text3 CODE >92:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+22B text3 CODE >93:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+22D text3 CODE >94:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+22F text3 CODE >95:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+231 text3 CODE >98:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+232 text3 CODE >100:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+247 text3 CODE >101:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+252 text3 CODE >102:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+256 text3 CODE >103:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+258 text3 CODE >104:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+259 text3 CODE >106:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+259 text3 CODE >109:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+25B text3 CODE >110:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+25E text3 CODE >111:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+25F text3 CODE >112:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+25F text3 CODE >113:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+260 text3 CODE >114:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+260 text3 CODE >115:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+262 text3 CODE >106:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+267 text3 CODE >121:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+267 text3 CODE >124:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+269 text3 CODE >127:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+26C text3 CODE >128:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+26D text3 CODE >132:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+275 text3 CODE >134:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+277 text3 CODE >135:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+279 text3 CODE >136:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+27C text3 CODE >137:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+27D text3 CODE >138:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+27D text3 CODE >139:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+27E text3 CODE >140:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+280 text3 CODE >145:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+281 text3 CODE >153:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+295 text3 CODE >154:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+2B6 text3 CODE >155:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+2B8 text3 CODE >156:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+2BA text3 CODE >157:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+2BB text3 CODE >158:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+2BE text3 CODE >162:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+2C6 text3 CODE >163:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+2C6 text3 CODE >166:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+2D0 text3 CODE >172:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+2D4 text3 CODE >173:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+2D5 text3 CODE >174:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+2D6 text3 CODE >176:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+2D8 text3 CODE >177:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+2DA text3 CODE >178:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+2DB text3 CODE >179:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+2DB text3 CODE >180:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+2DC text3 CODE >182:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+2DE text3 CODE >183:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+2DF text3 CODE >171:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+2E1 text3 CODE >192:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+2E2 text3 CODE >193:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+2E4 text3 CODE >194:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+2E7 text3 CODE >198:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+2EA text3 CODE >195:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+2EC text3 CODE >203:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+2F1 text3 CODE >205:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+2F3 text3 CODE >206:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+2F7 text3 CODE >207:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+2F8 text3 CODE >208:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+2F9 text3 CODE >215:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+2FE text3 CODE >216:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+302 text3 CODE >218:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+304 text3 CODE >219:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+305 text3 CODE >225:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+307 text3 CODE >226:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+308 text3 CODE >227:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+309 text3 CODE >229:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+309 text3 CODE >230:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+30A text3 CODE >232:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+30C text3 CODE >233:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+30D text3 CODE >234:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+30E text3 CODE >237:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+30F text3 CODE >4:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\evalpoly.c
+30F text3 CODE >8:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\evalpoly.c
+317 text3 CODE >10:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\evalpoly.c
+318 text3 CODE >9:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\evalpoly.c
+31C text3 CODE >10:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\evalpoly.c
+355 text3 CODE >9:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\evalpoly.c
+356 text3 CODE >11:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\evalpoly.c
+35E text3 CODE >12:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\evalpoly.c
+638 text1 CODE >9:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+638 text1 CODE >20:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+63C text1 CODE >21:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+63E text1 CODE >22:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+63F text1 CODE >23:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+640 text1 CODE >26:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+643 text1 CODE >27:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+651 text1 CODE >30:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+655 text1 CODE >31:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+656 text1 CODE >34:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+65A text1 CODE >37:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+65E text1 CODE >49:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+662 text1 CODE >50:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+667 text1 CODE >54:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+66A text1 CODE >55:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+66D text1 CODE >57:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+66E text1 CODE >55:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+670 text1 CODE >57:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+673 text1 CODE >59:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+674 text1 CODE >63:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+678 text1 CODE >64:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+67F text1 CODE >69:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+683 text1 CODE >70:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+687 text1 CODE >72:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+688 text1 CODE >71:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+68A text1 CODE >72:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+68D text1 CODE >75:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+695 text1 CODE >77:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+696 text1 CODE >76:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+69A text1 CODE >77:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+69E text1 CODE >80:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+6A1 text1 CODE >81:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+6A5 text1 CODE >84:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+6A6 text1 CODE >85:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+6A6 text1 CODE >110:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+6AA text1 CODE >87:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+6B2 text1 CODE >90:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+6C2 text1 CODE >93:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+6CA text1 CODE >96:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+6CC text1 CODE >97:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+6CD text1 CODE >100:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+6DD text1 CODE >104:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+6E1 text1 CODE >107:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+6E5 text1 CODE >109:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+6E6 text1 CODE >85:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+6E7 text1 CODE >112:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+6EB text1 CODE >115:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+6F8 text1 CODE >116:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+6FE text1 CODE >118:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+700 text1 CODE >119:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+704 text1 CODE >120:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+707 text1 CODE >124:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+70F text1 CODE >125:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+711 text1 CODE >126:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+712 text1 CODE >127:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+713 text1 CODE >129:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+715 text1 CODE >130:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
+775 clrtext CODE >1362:C:\Users\Agualu2\AppData\Local\Temp\s3m8.s
+775 clrtext CODE >1363:C:\Users\Agualu2\AppData\Local\Temp\s3m8.s
+776 clrtext CODE >1364:C:\Users\Agualu2\AppData\Local\Temp\s3m8.s
+776 clrtext CODE >1365:C:\Users\Agualu2\AppData\Local\Temp\s3m8.s
+777 clrtext CODE >1366:C:\Users\Agualu2\AppData\Local\Temp\s3m8.s
+778 clrtext CODE >1367:C:\Users\Agualu2\AppData\Local\Temp\s3m8.s
+779 clrtext CODE >1368:C:\Users\Agualu2\AppData\Local\Temp\s3m8.s
+77A clrtext CODE >1369:C:\Users\Agualu2\AppData\Local\Temp\s3m8.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -245,307 +776,657 @@ FE maintext CODE >247:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\Power
 # was defined in a psect then <psect> will be "-". File-name
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
-___latbits 0 0 ABS 0 - dist/default/production\firmware.production.o
+___latbits 1 0 ABS 0 - dist/default/production\firmware.production.o
+__LdataBANK1 20 1E000 ABS 0 dataBANK1 -
+_pow$1333 E1 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
+_pow$1334 E5 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
 __Hspace_0 8009 0 ABS 0 - -
-__Hspace_1 7B 0 ABS 0 - -
+__Hspace_1 157 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
-__Hspace_3 0 0 ABS 0 - -
+__Hspace_3 10 0 ABS 0 - -
 __CFG_IESO$OFF 0 0 ABS 0 - dist/default/production\firmware.production.o
+__HidataBANK1 20 1E000 ABS 0 idataBANK1 -
 _SSP1STATbits 214 0 ABS 0 - dist/default/production\firmware.production.o
-isr@junk 28 0 BANK0 1 bssBANK0 dist/default/production\firmware.production.o
-_index_i2c 7A 0 COMMON 1 bssCOMMON dist/default/production\firmware.production.o
-__Heeprom_data 0 0 EEDATA 3 eeprom_data -
-__end_of_init_I2C_buffer 286 0 CODE 0 text1 dist/default/production\firmware.production.o
+frexp@eptr 3A 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
+_index_i2c 6F 0 BANK0 1 bssBANK0 dist/default/production\firmware.production.o
+__BbssBANK0 1E020 1E000 ABS 0 bssBANK0 -
+__BbssBANK2 1E020 1E000 ABS 0 bssBANK2 -
+__Heeprom_data 20 1E000 EEDATA 3 eeprom_data -
+__end_of_init_I2C_buffer 1F0A 0 CODE 0 cinit dist/default/production\firmware.production.o
 __CFG_MCLRE$ON 0 0 ABS 0 - dist/default/production\firmware.production.o
-_T1CONbits 18 0 ABS 0 - dist/default/production\firmware.production.o
-__Hstrings 0 0 ABS 0 strings -
+PL2 1C60 0 CODE 0 cinit dist/default/production\firmware.production.o
+PL4 1CBE 0 CODE 0 cinit dist/default/production\firmware.production.o
+PL6 1D0A 0 CODE 0 cinit dist/default/production\firmware.production.o
+PL8 6BE 0 CODE 0 text3 dist/default/production\firmware.production.o
+?_exp CE 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
+?_log C6 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
+?_pow D9 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
+main@i 151 0 BANK2 1 cstackBANK2 dist/default/production\firmware.production.o
+__Hstrings 20 1E000 ABS 0 strings -
 _WPUA 20C 0 ABS 0 - dist/default/production\firmware.production.o
-___sp 0 0 STACK 2 stack C:\Users\ciro_\AppData\Local\Temp\s910.o
-_main 184 0 CODE 0 maintext dist/default/production\firmware.production.o
+___sp 0 0 STACK 2 stack C:\Users\Agualu2\AppData\Local\Temp\s3m8.o
+_iacc 141 0 BANK2 1 bssBANK2 dist/default/production\firmware.production.o
+_main 108A 0 CODE 0 cinit dist/default/production\firmware.production.o
+_sqrt C70 0 CODE 0 text1 dist/default/production\firmware.production.o
+_vacc 13D 0 BANK2 1 bssBANK2 dist/default/production\firmware.production.o
 btemp 7E 0 ABS 0 - dist/default/production\firmware.production.o
-start 160 0 CODE 0 init C:\Users\ciro_\AppData\Local\Temp\s910.o
+exp@x CE 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
+log@x C6 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
+pow@x D9 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
+pow@y DD 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
+start DC 0 CODE 0 init C:\Users\Agualu2\AppData\Local\Temp\s3m8.o
+___flmul@aexp 4A 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
+___flmul@bexp 4F 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
+___flmul@prod 50 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
+___flmul@sign 49 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
+___flmul@temp 54 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
+__size_of___fladd 0 0 ABS 0 - dist/default/production\firmware.production.o
+__size_of___fldiv 0 0 ABS 0 - dist/default/production\firmware.production.o
+__size_of___flmul 0 0 ABS 0 - dist/default/production\firmware.production.o
+__size_of___flneg 0 0 ABS 0 - dist/default/production\firmware.production.o
+__size_of___flsub 0 0 ABS 0 - dist/default/production\firmware.production.o
+__size_of___fltol 0 0 ABS 0 - dist/default/production\firmware.production.o
 __size_of_main 0 0 ABS 0 - dist/default/production\firmware.production.o
-__HbssCOMMON 0 0 ABS 0 bssCOMMON -
+__size_of_sqrt 0 0 ABS 0 - dist/default/production\firmware.production.o
+pow@yi EA 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
 _OPTION_REGbits 95 0 ABS 0 - dist/default/production\firmware.production.o
+__LidataBANK1 20 1E000 ABS 0 idataBANK1 -
 __Hpowerup 0 0 CODE 0 powerup -
+sqrt@a A0 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
+sqrt@i A9 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
+sqrt@p B2 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
+log@coeff EA2 0 STRCODE 0 stringtext2 dist/default/production\firmware.production.o
 __size_of_ADC_read 0 0 ABS 0 - dist/default/production\firmware.production.o
-__HdataCOMMON 0 0 ABS 0 dataCOMMON -
-intlevel0 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\s910.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\s910.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\s910.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\s910.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\s910.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\s910.o
-__LbssCOMMON 0 0 ABS 0 bssCOMMON -
+__Bpa_nodes0 1E020 1E000 ABS 0 pa_nodes0 -
+intlevel0 0 0 ENTRY 0 functab C:\Users\Agualu2\AppData\Local\Temp\s3m8.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\Agualu2\AppData\Local\Temp\s3m8.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\Agualu2\AppData\Local\Temp\s3m8.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\Agualu2\AppData\Local\Temp\s3m8.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\Agualu2\AppData\Local\Temp\s3m8.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\Agualu2\AppData\Local\Temp\s3m8.o
+__end_oflog@coeff EEA 0 STRCODE 0 stringtext2 dist/default/production\firmware.production.o
+sqrt@tfrac AA 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production\firmware.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
-_init_I2C_buffer 270 0 CODE 0 text1 dist/default/production\firmware.production.o
-__Hclrtext 0 0 ABS 0 clrtext -
-__pidataCOMMON 29C 0 CODE 0 idataCOMMON dist/default/production\firmware.production.o
+_init_I2C_buffer 1E9C 0 CODE 0 cinit dist/default/production\firmware.production.o
+__Hclrtext 20 1E000 ABS 0 clrtext -
 _ADCON0 9D 0 ABS 0 - dist/default/production\firmware.production.o
 _ADCON1 9E 0 ABS 0 - dist/default/production\firmware.production.o
 _ADRESH 9C 0 ABS 0 - dist/default/production\firmware.production.o
 _ADRESL 9B 0 ABS 0 - dist/default/production\firmware.production.o
 _ANSELA 18C 0 ABS 0 - dist/default/production\firmware.production.o
-__LdataCOMMON 0 0 ABS 0 dataCOMMON -
-_CCPR1L 291 0 ABS 0 - dist/default/production\firmware.production.o
-__Lmaintext 0 0 ABS 0 maintext -
-_ADC_read 21C 0 CODE 0 text3 dist/default/production\firmware.production.o
+__end_of__Umul8_16 9D2 0 CODE 0 text13 dist/default/production\firmware.production.o
+__size_of__Umul8_16 0 0 ABS 0 - dist/default/production\firmware.production.o
+_EECON1bits 195 0 ABS 0 - dist/default/production\firmware.production.o
+__Hpa_nodes0 20 1E000 ABS 0 pa_nodes0 -
+__end_of___fleq 179E 0 CODE 0 cinit dist/default/production\firmware.production.o
+__end_of___flge 1AAA 0 CODE 0 cinit dist/default/production\firmware.production.o
+_EECON1 195 0 ABS 0 - dist/default/production\firmware.production.o
+_EECON2 196 0 ABS 0 - dist/default/production\firmware.production.o
+_EEDATA 193 0 ABS 0 - dist/default/production\firmware.production.o
+__Lmaintext 20 1E000 ABS 0 maintext -
+___fldiv@aexp 6E 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
+___fldiv@bexp 6D 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
+___fldiv@sign 66 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
+_ADC_read 1504 0 CODE 0 cinit dist/default/production\firmware.production.o
+__Umul8_16 9A4 0 CODE 0 text13 dist/default/production\firmware.production.o
+__end_of___fladd 61E 0 CODE 0 text3 dist/default/production\firmware.production.o
+__end_of___fldiv C58 0 CODE 0 text18 dist/default/production\firmware.production.o
+__end_of___flmul 9A4 0 CODE 0 text13 dist/default/production\firmware.production.o
+__end_of___flneg 1B90 0 CODE 0 cinit dist/default/production\firmware.production.o
+__end_of___flsub 1C60 0 CODE 0 cinit dist/default/production\firmware.production.o
+__end_of___fltol 1C26 0 CODE 0 cinit dist/default/production\firmware.production.o
+eeprom_write@addr 71 0 COMMON 1 cstackCOMMON dist/default/production\firmware.production.o
 _INTCON B 0 ABS 0 - dist/default/production\firmware.production.o
-__end_of_ADC_read 258 0 CODE 0 text3 dist/default/production\firmware.production.o
-___stackhi 206F 0 ABS 0 - C:\Users\ciro_\AppData\Local\Temp\s910.o
-___stacklo 200D 0 ABS 0 - C:\Users\ciro_\AppData\Local\Temp\s910.o
-__LidataCOMMON 0 0 ABS 0 idataCOMMON -
+__Umul8_16@multiplicand 70 0 COMMON 1 cstackCOMMON dist/default/production\firmware.production.o
+__end_of_ADC_read 1536 0 CODE 0 cinit dist/default/production\firmware.production.o
+___stackhi 20EF 0 ABS 0 - C:\Users\Agualu2\AppData\Local\Temp\s3m8.o
+___stacklo 20D7 0 ABS 0 - C:\Users\Agualu2\AppData\Local\Temp\s3m8.o
+?_eval_poly B4 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
+__Lpa_nodes0 20 1E000 ABS 0 pa_nodes0 -
+_eeprom_read 1F0A 0 CODE 0 cinit dist/default/production\firmware.production.o
+__size_of_floor 0 0 ABS 0 - dist/default/production\firmware.production.o
+__size_of_frexp 0 0 ABS 0 - dist/default/production\firmware.production.o
+___fladd@a A4 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
+___fladd@b A0 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
+___fldiv@a 56 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
+___fldiv@b 5A 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
+__size_of_ldexp 0 0 ABS 0 - dist/default/production\firmware.production.o
+___flmul@a 41 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
+___flmul@b 3D 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
+___flsub@a B4 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
+___flsub@b B8 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
 __CFG_FCMEN$OFF 0 0 ABS 0 - dist/default/production\firmware.production.o
-start_initialization 162 0 CODE 0 cinit dist/default/production\firmware.production.o
+start_initialization 106A 0 CODE 0 cinit dist/default/production\firmware.production.o
 _OSCCON 99 0 ABS 0 - dist/default/production\firmware.production.o
-_APFCONbits 11D 0 ABS 0 - dist/default/production\firmware.production.o
+pow@sign E9 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
 __size_of_init_I2C_buffer 0 0 ABS 0 - dist/default/production\firmware.production.o
-__pcstackBANK0 29 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
-_first_i2c 79 0 COMMON 1 dataCOMMON dist/default/production\firmware.production.o
-__end_of_RX_ELMNTS 2A2 0 STRCODE 0 stringtext1 dist/default/production\firmware.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\ciro_\AppData\Local\Temp\s910.o
-__Hbank0 0 0 ABS 0 bank0 -
-__Hbank1 0 0 ABS 0 bank1 -
-__Hbank2 0 0 BANK2 1 bank2 -
-__Hbank3 0 0 BANK3 1 bank3 -
-__Hbank4 0 0 BANK4 1 bank4 -
-__Hbank5 0 0 BANK5 1 bank5 -
-__Hbank6 0 0 BANK6 1 bank6 -
-__Hbank7 0 0 BANK7 1 bank7 -
-__Hbank8 0 0 BANK8 1 bank8 -
-__Hbank9 0 0 BANK9 1 bank9 -
-__Hcinit 184 0 CODE 0 cinit -
+__end_ofPL2 1CBE 0 CODE 0 cinit dist/default/production\firmware.production.o
+__end_ofPL4 1D0A 0 CODE 0 cinit dist/default/production\firmware.production.o
+__end_ofPL6 1D4A 0 CODE 0 cinit dist/default/production\firmware.production.o
+__end_ofPL8 6DE 0 CODE 0 text3 dist/default/production\firmware.production.o
+__Bbank0 1E020 1E000 ABS 0 bank0 -
+__Bbank1 1E020 1E000 ABS 0 bank1 -
+__Bbank2 1E020 1E000 ABS 0 bank2 -
+__Bbank3 1E020 1E000 BANK3 1 bank3 -
+__Bbank4 1E020 1E000 BANK4 1 bank4 -
+__Bbank5 1E020 1E000 BANK5 1 bank5 -
+__Bbank6 1E020 1E000 BANK6 1 bank6 -
+__Bbank7 1E020 1E000 BANK7 1 bank7 -
+__Bbank8 1E020 1E000 BANK8 1 bank8 -
+__Bbank9 1E020 1E000 BANK9 1 bank9 -
+__Bsfr10 1E020 1E000 ABS 0 sfr10 -
+__Bsfr11 1E020 1E000 ABS 0 sfr11 -
+__Bsfr12 1E020 1E000 ABS 0 sfr12 -
+__Bsfr13 1E020 1E000 ABS 0 sfr13 -
+__Bsfr14 1E020 1E000 ABS 0 sfr14 -
+__Bsfr15 1E020 1E000 ABS 0 sfr15 -
+__Bsfr16 1E020 1E000 ABS 0 sfr16 -
+__Bsfr17 1E020 1E000 ABS 0 sfr17 -
+__Bsfr18 1E020 1E000 ABS 0 sfr18 -
+__Bsfr19 1E020 1E000 ABS 0 sfr19 -
+__Bsfr20 1E020 1E000 ABS 0 sfr20 -
+__Bsfr21 1E020 1E000 ABS 0 sfr21 -
+__Bsfr22 1E020 1E000 ABS 0 sfr22 -
+__Bsfr23 1E020 1E000 ABS 0 sfr23 -
+__Bsfr24 1E020 1E000 ABS 0 sfr24 -
+__Bsfr25 1E020 1E000 ABS 0 sfr25 -
+__Bsfr26 1E020 1E000 ABS 0 sfr26 -
+__Bsfr27 1E020 1E000 ABS 0 sfr27 -
+__Bsfr28 1E020 1E000 ABS 0 sfr28 -
+__Bsfr29 1E020 1E000 ABS 0 sfr29 -
+__Bsfr30 1E020 1E000 ABS 0 sfr30 -
+__Bsfr31 1E020 1E000 ABS 0 sfr31 -
+clear_ram0 EEA 0 CODE 0 clrtext dist/default/production\firmware.production.o
+__pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
+__pcstackBANK1 A0 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
+__pcstackBANK2 149 0 BANK2 1 cstackBANK2 dist/default/production\firmware.production.o
+_first_i2c EE 0 BANK1 1 dataBANK1 dist/default/production\firmware.production.o
+___int_sp 0 0 STACK 2 stack C:\Users\Agualu2\AppData\Local\Temp\s3m8.o
+__Hbank0 20 1E000 ABS 0 bank0 -
+__Hbank1 20 1E000 ABS 0 bank1 -
+__Hbank2 20 1E000 ABS 0 bank2 -
+__Hbank3 20 1E000 BANK3 1 bank3 -
+__Hbank4 20 1E000 BANK4 1 bank4 -
+__Hbank5 20 1E000 BANK5 1 bank5 -
+__Hbank6 20 1E000 BANK6 1 bank6 -
+__Hbank7 20 1E000 BANK7 1 bank7 -
+__Hbank8 20 1E000 BANK8 1 bank8 -
+__Hbank9 20 1E000 BANK9 1 bank9 -
+__Hcinit 2000 0 CODE 0 cinit -
+exp@exponent D6 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
 __Hidloc 0 0 IDLOC 0 idloc -
-__Hsfr10 0 0 ABS 0 sfr10 -
-__Hsfr11 0 0 ABS 0 sfr11 -
-__Hsfr12 0 0 ABS 0 sfr12 -
-__Hsfr13 0 0 ABS 0 sfr13 -
-__Hsfr14 0 0 ABS 0 sfr14 -
-__Hsfr15 0 0 ABS 0 sfr15 -
-__Hsfr16 0 0 ABS 0 sfr16 -
-__Hsfr17 0 0 ABS 0 sfr17 -
-__Hsfr18 0 0 ABS 0 sfr18 -
-__Hsfr19 0 0 ABS 0 sfr19 -
-__Hsfr20 0 0 ABS 0 sfr20 -
-__Hsfr21 0 0 ABS 0 sfr21 -
-__Hsfr22 0 0 ABS 0 sfr22 -
-__Hsfr23 0 0 ABS 0 sfr23 -
-__Hsfr24 0 0 ABS 0 sfr24 -
-__Hsfr25 0 0 ABS 0 sfr25 -
-__Hsfr26 0 0 ABS 0 sfr26 -
-__Hsfr27 0 0 ABS 0 sfr27 -
-__Hsfr28 0 0 ABS 0 sfr28 -
-__Hsfr29 0 0 ABS 0 sfr29 -
-__Hsfr30 0 0 ABS 0 sfr30 -
-__Hsfr31 0 0 ABS 0 sfr31 -
+__Hsfr10 20 1E000 ABS 0 sfr10 -
+__Hsfr11 20 1E000 ABS 0 sfr11 -
+__Hsfr12 20 1E000 ABS 0 sfr12 -
+__Hsfr13 20 1E000 ABS 0 sfr13 -
+__Hsfr14 20 1E000 ABS 0 sfr14 -
+__Hsfr15 20 1E000 ABS 0 sfr15 -
+__Hsfr16 20 1E000 ABS 0 sfr16 -
+__Hsfr17 20 1E000 ABS 0 sfr17 -
+__Hsfr18 20 1E000 ABS 0 sfr18 -
+__Hsfr19 20 1E000 ABS 0 sfr19 -
+__Hsfr20 20 1E000 ABS 0 sfr20 -
+__Hsfr21 20 1E000 ABS 0 sfr21 -
+__Hsfr22 20 1E000 ABS 0 sfr22 -
+__Hsfr23 20 1E000 ABS 0 sfr23 -
+__Hsfr24 20 1E000 ABS 0 sfr24 -
+__Hsfr25 20 1E000 ABS 0 sfr25 -
+__Hsfr26 20 1E000 ABS 0 sfr26 -
+__Hsfr27 20 1E000 ABS 0 sfr27 -
+__Hsfr28 20 1E000 ABS 0 sfr28 -
+__Hsfr29 20 1E000 ABS 0 sfr29 -
+__Hsfr30 20 1E000 ABS 0 sfr30 -
+__Hsfr31 20 1E000 ABS 0 sfr31 -
 __Hstack 0 0 STACK 2 stack -
-__Hbank10 0 0 BANK10 1 bank10 -
-__Hbank11 0 0 BANK11 1 bank11 -
-__Hbank12 0 0 BANK12 1 bank12 -
-__Hbank13 0 0 BANK13 1 bank13 -
-__Hbank14 0 0 BANK14 1 bank14 -
-__Hbank15 0 0 BANK15 1 bank15 -
-__Hbank16 0 0 BANK16 1 bank16 -
-__Hbank17 0 0 BANK17 1 bank17 -
-__Hbank18 0 0 BANK18 1 bank18 -
-__Hbank19 0 0 BANK19 1 bank19 -
-__Hbank20 0 0 BANK20 1 bank20 -
-__Hbank21 0 0 BANK21 1 bank21 -
-__Hbank22 0 0 BANK22 1 bank22 -
-__Hbank23 0 0 BANK23 1 bank23 -
-__Hbank24 0 0 BANK24 1 bank24 -
-__Hbank25 0 0 BANK25 1 bank25 -
-__Hbank26 0 0 BANK26 1 bank26 -
-__Hbank27 0 0 BANK27 1 bank27 -
-__Hbank28 0 0 BANK28 1 bank28 -
-__Hbank29 0 0 BANK29 1 bank29 -
-__Hbank30 0 0 BANK30 1 bank30 -
-__Hbank31 0 0 BANK31 1 bank31 -
-__Hbigram 0 0 ABS 0 bigram -
-__Hmaintext 0 0 ABS 0 maintext -
-ADC_read@channel 76 0 COMMON 1 cstackCOMMON dist/default/production\firmware.production.o
+_main$1332 153 0 BANK2 1 cstackBANK2 dist/default/production\firmware.production.o
+__Hbank10 20 1E000 BANK10 1 bank10 -
+__Hbank11 20 1E000 BANK11 1 bank11 -
+__Hbank12 20 1E000 BANK12 1 bank12 -
+__Hbank13 20 1E000 BANK13 1 bank13 -
+__Hbank14 20 1E000 BANK14 1 bank14 -
+__Hbank15 20 1E000 BANK15 1 bank15 -
+__Hbank16 20 1E000 BANK16 1 bank16 -
+__Hbank17 20 1E000 BANK17 1 bank17 -
+__Hbank18 20 1E000 BANK18 1 bank18 -
+__Hbank19 20 1E000 BANK19 1 bank19 -
+__Hbank20 20 1E000 BANK20 1 bank20 -
+__Hbank21 20 1E000 BANK21 1 bank21 -
+__Hbank22 20 1E000 BANK22 1 bank22 -
+__Hbank23 20 1E000 BANK23 1 bank23 -
+__Hbank24 20 1E000 BANK24 1 bank24 -
+__Hbank25 20 1E000 BANK25 1 bank25 -
+__Hbank26 20 1E000 BANK26 1 bank26 -
+__Hbank27 20 1E000 BANK27 1 bank27 -
+__Hbank28 20 1E000 BANK28 1 bank28 -
+__Hbank29 20 1E000 BANK29 1 bank29 -
+__Hbank30 20 1E000 BANK30 1 bank30 -
+__Hbank31 20 1E000 BANK31 1 bank31 -
+__size_of___xxtofl 0 0 ABS 0 - dist/default/production\firmware.production.o
+__Hbigram 20 1E000 ABS 0 bigram -
+__Hmaintext 20 1E000 ABS 0 maintext -
+___xxtofl@arg 26 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
+___xxtofl@exp 25 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
+___xxtofl@val 7A 0 COMMON 1 cstackCOMMON dist/default/production\firmware.production.o
+ADC_read@channel 73 0 COMMON 1 cstackCOMMON dist/default/production\firmware.production.o
 __CFG_FOSC$INTOSC 0 0 ABS 0 - dist/default/production\firmware.production.o
-__Hcommon 0 0 ABS 0 common -
+__Hcommon 20 1E000 ABS 0 common -
 __Hconfig 10012 0 CONFIG 0 config -
-__Lbank0 0 0 ABS 0 bank0 -
-__Lbank1 0 0 ABS 0 bank1 -
-__Lbank2 0 0 BANK2 1 bank2 -
-__Lbank3 0 0 BANK3 1 bank3 -
-__Lbank4 0 0 BANK4 1 bank4 -
-__Lbank5 0 0 BANK5 1 bank5 -
-__Lbank6 0 0 BANK6 1 bank6 -
-__Lbank7 0 0 BANK7 1 bank7 -
-__Lbank8 0 0 BANK8 1 bank8 -
-__Lbank9 0 0 BANK9 1 bank9 -
-__Lcinit 162 0 CODE 0 cinit -
+__Lbank0 20 1E000 ABS 0 bank0 -
+__Lbank1 20 1E000 ABS 0 bank1 -
+__Lbank2 20 1E000 ABS 0 bank2 -
+__Lbank3 20 1E000 BANK3 1 bank3 -
+__Lbank4 20 1E000 BANK4 1 bank4 -
+__Lbank5 20 1E000 BANK5 1 bank5 -
+__Lbank6 20 1E000 BANK6 1 bank6 -
+__Lbank7 20 1E000 BANK7 1 bank7 -
+__Lbank8 20 1E000 BANK8 1 bank8 -
+__Lbank9 20 1E000 BANK9 1 bank9 -
+__Lcinit 106A 0 CODE 0 cinit -
 __Lidloc 0 0 IDLOC 0 idloc -
-__Lsfr10 0 0 ABS 0 sfr10 -
-__Lsfr11 0 0 ABS 0 sfr11 -
-__Lsfr12 0 0 ABS 0 sfr12 -
-__Lsfr13 0 0 ABS 0 sfr13 -
-__Lsfr14 0 0 ABS 0 sfr14 -
-__Lsfr15 0 0 ABS 0 sfr15 -
-__Lsfr16 0 0 ABS 0 sfr16 -
-__Lsfr17 0 0 ABS 0 sfr17 -
-__Lsfr18 0 0 ABS 0 sfr18 -
-__Lsfr19 0 0 ABS 0 sfr19 -
-__Lsfr20 0 0 ABS 0 sfr20 -
-__Lsfr21 0 0 ABS 0 sfr21 -
-__Lsfr22 0 0 ABS 0 sfr22 -
-__Lsfr23 0 0 ABS 0 sfr23 -
-__Lsfr24 0 0 ABS 0 sfr24 -
-__Lsfr25 0 0 ABS 0 sfr25 -
-__Lsfr26 0 0 ABS 0 sfr26 -
-__Lsfr27 0 0 ABS 0 sfr27 -
-__Lsfr28 0 0 ABS 0 sfr28 -
-__Lsfr29 0 0 ABS 0 sfr29 -
-__Lsfr30 0 0 ABS 0 sfr30 -
-__Lsfr31 0 0 ABS 0 sfr31 -
+__Lsfr10 20 1E000 ABS 0 sfr10 -
+__Lsfr11 20 1E000 ABS 0 sfr11 -
+__Lsfr12 20 1E000 ABS 0 sfr12 -
+__Lsfr13 20 1E000 ABS 0 sfr13 -
+__Lsfr14 20 1E000 ABS 0 sfr14 -
+__Lsfr15 20 1E000 ABS 0 sfr15 -
+__Lsfr16 20 1E000 ABS 0 sfr16 -
+__Lsfr17 20 1E000 ABS 0 sfr17 -
+__Lsfr18 20 1E000 ABS 0 sfr18 -
+__Lsfr19 20 1E000 ABS 0 sfr19 -
+__Lsfr20 20 1E000 ABS 0 sfr20 -
+__Lsfr21 20 1E000 ABS 0 sfr21 -
+__Lsfr22 20 1E000 ABS 0 sfr22 -
+__Lsfr23 20 1E000 ABS 0 sfr23 -
+__Lsfr24 20 1E000 ABS 0 sfr24 -
+__Lsfr25 20 1E000 ABS 0 sfr25 -
+__Lsfr26 20 1E000 ABS 0 sfr26 -
+__Lsfr27 20 1E000 ABS 0 sfr27 -
+__Lsfr28 20 1E000 ABS 0 sfr28 -
+__Lsfr29 20 1E000 ABS 0 sfr29 -
+__Lsfr30 20 1E000 ABS 0 sfr30 -
+__Lsfr31 20 1E000 ABS 0 sfr31 -
 __Lstack 0 0 STACK 2 stack -
+___flmul@grs 4B 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
 _INTCONbits B 0 ABS 0 - dist/default/production\firmware.production.o
-__Habs1 0 0 ABS 0 abs1 -
-__Hcode 0 0 ABS 0 code -
-__Hinit 160 0 CODE 0 init -
-__Hsfr0 0 0 ABS 0 sfr0 -
-__Hsfr1 0 0 ABS 0 sfr1 -
-__Hsfr2 0 0 ABS 0 sfr2 -
-__Hsfr3 0 0 ABS 0 sfr3 -
-__Hsfr4 0 0 ABS 0 sfr4 -
-__Hsfr5 0 0 ABS 0 sfr5 -
-__Hsfr6 0 0 ABS 0 sfr6 -
-__Hsfr7 0 0 ABS 0 sfr7 -
-__Hsfr8 0 0 ABS 0 sfr8 -
-__Hsfr9 0 0 ABS 0 sfr9 -
-__Htext 0 0 ABS 0 text -
-__Labs1 0 0 ABS 0 abs1 -
-__Lcode 0 0 ABS 0 code -
-__Linit 160 0 CODE 0 init -
-__Lsfr0 0 0 ABS 0 sfr0 -
-__Lsfr1 0 0 ABS 0 sfr1 -
-__Lsfr2 0 0 ABS 0 sfr2 -
-__Lsfr3 0 0 ABS 0 sfr3 -
-__Lsfr4 0 0 ABS 0 sfr4 -
-__Lsfr5 0 0 ABS 0 sfr5 -
-__Lsfr6 0 0 ABS 0 sfr6 -
-__Lsfr7 0 0 ABS 0 sfr7 -
-__Lsfr8 0 0 ABS 0 sfr8 -
-__Lsfr9 0 0 ABS 0 sfr9 -
-__Ltext 0 0 ABS 0 text -
-__pstringtext1 2A0 0 STRCODE 0 stringtext1 dist/default/production\firmware.production.o
+__Babs1 1E020 1E000 ABS 0 abs1 -
+__Bcode 1E020 1E000 ABS 0 code -
+__Bsfr0 1E020 1E000 ABS 0 sfr0 -
+__Bsfr1 1E020 1E000 ABS 0 sfr1 -
+__Bsfr2 1E020 1E000 ABS 0 sfr2 -
+__Bsfr3 1E020 1E000 ABS 0 sfr3 -
+__Bsfr4 1E020 1E000 ABS 0 sfr4 -
+__Bsfr5 1E020 1E000 ABS 0 sfr5 -
+__Bsfr6 1E020 1E000 ABS 0 sfr6 -
+__Bsfr7 1E020 1E000 ABS 0 sfr7 -
+__Bsfr8 1E020 1E000 ABS 0 sfr8 -
+__Bsfr9 1E020 1E000 ABS 0 sfr9 -
+__Btext 1E020 1E000 ABS 0 text -
+__Habs1 20 1E000 ABS 0 abs1 -
+__Hcode 20 1E000 ABS 0 code -
+__Hinit DC 0 CODE 0 init -
+__Hsfr0 20 1E000 ABS 0 sfr0 -
+__Hsfr1 20 1E000 ABS 0 sfr1 -
+__Hsfr2 20 1E000 ABS 0 sfr2 -
+__Hsfr3 20 1E000 ABS 0 sfr3 -
+__Hsfr4 20 1E000 ABS 0 sfr4 -
+__Hsfr5 20 1E000 ABS 0 sfr5 -
+__Hsfr6 20 1E000 ABS 0 sfr6 -
+__Hsfr7 20 1E000 ABS 0 sfr7 -
+__Hsfr8 20 1E000 ABS 0 sfr8 -
+__Hsfr9 20 1E000 ABS 0 sfr9 -
+__Htext 20 1E000 ABS 0 text -
+__Labs1 20 1E000 ABS 0 abs1 -
+__Lcode 20 1E000 ABS 0 code -
+__Linit DC 0 CODE 0 init -
+__Lsfr0 20 1E000 ABS 0 sfr0 -
+__Lsfr1 20 1E000 ABS 0 sfr1 -
+__Lsfr2 20 1E000 ABS 0 sfr2 -
+__Lsfr3 20 1E000 ABS 0 sfr3 -
+__Lsfr4 20 1E000 ABS 0 sfr4 -
+__Lsfr5 20 1E000 ABS 0 sfr5 -
+__Lsfr6 20 1E000 ABS 0 sfr6 -
+__Lsfr7 20 1E000 ABS 0 sfr7 -
+__Lsfr8 20 1E000 ABS 0 sfr8 -
+__Lsfr9 20 1E000 ABS 0 sfr9 -
+__Ltext 20 1E000 ABS 0 text -
+__pstringtext1 E52 0 STRCODE 0 stringtext1 dist/default/production\firmware.production.o
+__pstringtext2 EA2 0 STRCODE 0 stringtext2 dist/default/production\firmware.production.o
 _SSP1CON1 215 0 ABS 0 - dist/default/production\firmware.production.o
 _SSP1STAT 214 0 ABS 0 - dist/default/production\firmware.production.o
-__LcstackBANK0 0 0 ABS 0 cstackBANK0 -
+___fleq 1736 0 CODE 0 cinit dist/default/production\firmware.production.o
+___flge 19F2 0 CODE 0 cinit dist/default/production\firmware.production.o
+__LcstackBANK0 20 1E000 ABS 0 cstackBANK0 -
+__LcstackBANK1 20 1E000 ABS 0 cstackBANK1 -
+__LcstackBANK2 20 1E000 ABS 0 cstackBANK2 -
 int$flags 7E 0 ABS 0 - dist/default/production\firmware.production.o
-__HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
-_PR2 1B 0 ABS 0 - dist/default/production\firmware.production.o
+__HcstackCOMMON 20 1E000 ABS 0 cstackCOMMON -
+PL10 6DE 0 CODE 0 text3 dist/default/production\firmware.production.o
+PL12 1D4A 0 CODE 0 cinit dist/default/production\firmware.production.o
+PL14 9D2 0 CODE 0 text13 dist/default/production\firmware.production.o
+PL16 1D58 0 CODE 0 cinit dist/default/production\firmware.production.o
+PL18 1D78 0 CODE 0 cinit dist/default/production\firmware.production.o
+PL20 1D98 0 CODE 0 cinit dist/default/production\firmware.production.o
+PL22 1DB8 0 CODE 0 cinit dist/default/production\firmware.production.o
+PL24 1DD8 0 CODE 0 cinit dist/default/production\firmware.production.o
+PL26 9E8 0 CODE 0 text13 dist/default/production\firmware.production.o
+PL28 1DF8 0 CODE 0 cinit dist/default/production\firmware.production.o
+PL30 E2E 0 CODE 0 text1 dist/default/production\firmware.production.o
+PL32 A08 0 CODE 0 text13 dist/default/production\firmware.production.o
+PL34 1E0C 0 CODE 0 cinit dist/default/production\firmware.production.o
+PL36 1E1A 0 CODE 0 cinit dist/default/production\firmware.production.o
+PL38 A22 0 CODE 0 text13 dist/default/production\firmware.production.o
+PL40 70E 0 CODE 0 text3 dist/default/production\firmware.production.o
+PL42 71A 0 CODE 0 text3 dist/default/production\firmware.production.o
+PL44 1E34 0 CODE 0 cinit dist/default/production\firmware.production.o
+PL46 1E46 0 CODE 0 cinit dist/default/production\firmware.production.o
+PL48 1E56 0 CODE 0 cinit dist/default/production\firmware.production.o
+PL50 E40 0 CODE 0 text1 dist/default/production\firmware.production.o
+PL52 72A 0 CODE 0 text3 dist/default/production\firmware.production.o
+PL54 1E68 0 CODE 0 cinit dist/default/production\firmware.production.o
+PL56 73A 0 CODE 0 text3 dist/default/production\firmware.production.o
+PL58 C58 0 CODE 0 text18 dist/default/production\firmware.production.o
+PL60 1E72 0 CODE 0 cinit dist/default/production\firmware.production.o
+PL62 748 0 CODE 0 text3 dist/default/production\firmware.production.o
+PL64 1E7C 0 CODE 0 cinit dist/default/production\firmware.production.o
+PL66 1E88 0 CODE 0 cinit dist/default/production\firmware.production.o
+PL68 752 0 CODE 0 text3 dist/default/production\firmware.production.o
+PL70 A3C 0 CODE 0 text13 dist/default/production\firmware.production.o
+PL72 1FEC 0 CODE 0 cinit dist/default/production\firmware.production.o
+PL74 1FF6 0 CODE 0 cinit dist/default/production\firmware.production.o
+PL76 C64 0 CODE 0 text18 dist/default/production\firmware.production.o
+PL78 75C 0 CODE 0 text3 dist/default/production\firmware.production.o
+PL80 A48 0 CODE 0 text13 dist/default/production\firmware.production.o
+PL82 A52 0 CODE 0 text13 dist/default/production\firmware.production.o
+PL84 766 0 CODE 0 text3 dist/default/production\firmware.production.o
+PL86 1E92 0 CODE 0 cinit dist/default/production\firmware.production.o
 __S0 8009 0 ABS 0 - -
-__S1 7B 0 ABS 0 - -
+__S1 157 0 ABS 0 - -
 __S2 0 0 ABS 0 - -
-__S3 0 0 ABS 0 - -
-_dir 78 0 COMMON 1 dataCOMMON dist/default/production\firmware.production.o
+__S3 F010 0 ABS 0 - -
+_adc 145 0 BANK2 1 bssBANK2 dist/default/production\firmware.production.o
+_exp 179E 0 CODE 0 cinit dist/default/production\firmware.production.o
 _isr 8 0 CODE 0 intentry dist/default/production\firmware.production.o
-?_ADC_read 73 0 COMMON 1 cstackCOMMON dist/default/production\firmware.production.o
+_log E0 0 CODE 0 text3 dist/default/production\firmware.production.o
+_pow 1536 0 CODE 0 cinit dist/default/production\firmware.production.o
+_exp$1335 D2 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
+?_ADC_read 70 0 COMMON 1 cstackCOMMON dist/default/production\firmware.production.o
 __CFG_PLLEN$ON 0 0 ABS 0 - dist/default/production\firmware.production.o
-__HidataCOMMON 0 0 ABS 0 idataCOMMON -
-_PWM_set_duty 286 0 CODE 0 text5 dist/default/production\firmware.production.o
-__end_of_isr 160 0 CODE 0 intentry dist/default/production\firmware.production.o
+__Bstrings 1E020 1E000 ABS 0 strings -
+eval_poly@res C2 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
+___xxtofl 1AAA 0 CODE 0 cinit dist/default/production\firmware.production.o
+__end_ofPL10 70E 0 CODE 0 text3 dist/default/production\firmware.production.o
+__end_ofPL12 1D58 0 CODE 0 cinit dist/default/production\firmware.production.o
+__end_ofPL14 9E8 0 CODE 0 text13 dist/default/production\firmware.production.o
+__end_ofPL16 1D78 0 CODE 0 cinit dist/default/production\firmware.production.o
+__end_ofPL18 1D98 0 CODE 0 cinit dist/default/production\firmware.production.o
+__end_ofPL20 1DB8 0 CODE 0 cinit dist/default/production\firmware.production.o
+__end_ofPL22 1DD8 0 CODE 0 cinit dist/default/production\firmware.production.o
+__end_ofPL24 1DF8 0 CODE 0 cinit dist/default/production\firmware.production.o
+__end_ofPL26 A08 0 CODE 0 text13 dist/default/production\firmware.production.o
+__end_ofPL28 1E0C 0 CODE 0 cinit dist/default/production\firmware.production.o
+__end_ofPL30 E40 0 CODE 0 text1 dist/default/production\firmware.production.o
+__end_ofPL32 A22 0 CODE 0 text13 dist/default/production\firmware.production.o
+__end_ofPL34 1E1A 0 CODE 0 cinit dist/default/production\firmware.production.o
+__end_ofPL36 1E34 0 CODE 0 cinit dist/default/production\firmware.production.o
+__end_ofPL38 A3C 0 CODE 0 text13 dist/default/production\firmware.production.o
+__end_ofPL40 71A 0 CODE 0 text3 dist/default/production\firmware.production.o
+__end_ofPL42 72A 0 CODE 0 text3 dist/default/production\firmware.production.o
+__end_ofPL44 1E46 0 CODE 0 cinit dist/default/production\firmware.production.o
+__end_ofPL46 1E56 0 CODE 0 cinit dist/default/production\firmware.production.o
+__end_ofPL48 1E68 0 CODE 0 cinit dist/default/production\firmware.production.o
+__end_ofPL50 E52 0 CODE 0 text1 dist/default/production\firmware.production.o
+__end_ofPL52 73A 0 CODE 0 text3 dist/default/production\firmware.production.o
+__end_ofPL54 1E72 0 CODE 0 cinit dist/default/production\firmware.production.o
+__end_ofPL56 748 0 CODE 0 text3 dist/default/production\firmware.production.o
+__end_ofPL58 C64 0 CODE 0 text18 dist/default/production\firmware.production.o
+__end_ofPL60 1E7C 0 CODE 0 cinit dist/default/production\firmware.production.o
+__end_ofPL62 752 0 CODE 0 text3 dist/default/production\firmware.production.o
+__end_ofPL64 1E88 0 CODE 0 cinit dist/default/production\firmware.production.o
+__end_ofPL66 1E92 0 CODE 0 cinit dist/default/production\firmware.production.o
+__end_ofPL68 75C 0 CODE 0 text3 dist/default/production\firmware.production.o
+__end_ofPL70 A48 0 CODE 0 text13 dist/default/production\firmware.production.o
+__end_ofPL72 1FF6 0 CODE 0 cinit dist/default/production\firmware.production.o
+__end_ofPL74 2000 0 CODE 0 cinit dist/default/production\firmware.production.o
+__end_ofPL76 C70 0 CODE 0 text18 dist/default/production\firmware.production.o
+__end_ofPL78 766 0 CODE 0 text3 dist/default/production\firmware.production.o
+__end_ofPL80 A52 0 CODE 0 text13 dist/default/production\firmware.production.o
+__end_ofPL82 A5C 0 CODE 0 text13 dist/default/production\firmware.production.o
+__end_ofPL84 770 0 CODE 0 text3 dist/default/production\firmware.production.o
+__end_ofPL86 1E9C 0 CODE 0 cinit dist/default/production\firmware.production.o
+__end_of_exp 19F2 0 CODE 0 cinit dist/default/production\firmware.production.o
+__end_of_isr DC 0 CODE 0 intentry dist/default/production\firmware.production.o
+__end_of_log 234 0 CODE 0 text3 dist/default/production\firmware.production.o
+__end_of_pow 1736 0 CODE 0 cinit dist/default/production\firmware.production.o
 __CFG_BOREN$ON 0 0 ABS 0 - dist/default/production\firmware.production.o
+eeprom_write@value 70 0 COMMON 1 cstackCOMMON dist/default/production\firmware.production.o
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\ciro_\AppData\Local\Temp\s910.o
-__LbssBANK0 0 0 ABS 0 bssBANK0 -
-__Lstringtext1 0 0 ABS 0 stringtext1 -
-_ledDim 26 0 BANK0 1 bssBANK0 dist/default/production\firmware.production.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\Agualu2\AppData\Local\Temp\s3m8.o
+_eeprom_write 14D2 0 CODE 0 cinit dist/default/production\firmware.production.o
+__BcstackBANK0 1E020 1E000 ABS 0 cstackBANK0 -
+__BcstackBANK1 1E020 1E000 ABS 0 cstackBANK1 -
+__BcstackBANK2 1E020 1E000 ABS 0 cstackBANK2 -
+__end_of___xxtofl 1B7E 0 CODE 0 cinit dist/default/production\firmware.production.o
+__pdataBANK1 EE 0 BANK1 1 dataBANK1 dist/default/production\firmware.production.o
+__size_of___fleq 0 0 ABS 0 - dist/default/production\firmware.production.o
+__size_of___flge 0 0 ABS 0 - dist/default/production\firmware.production.o
+__LbssBANK0 20 1E000 ABS 0 bssBANK0 -
+__LbssBANK2 20 1E000 ABS 0 bssBANK2 -
+__Lstringtext1 20 1E000 ABS 0 stringtext1 -
+__Lstringtext2 20 1E000 ABS 0 stringtext2 -
 _PIE1bits 91 0 ABS 0 - dist/default/production\firmware.production.o
 _PIE2bits 92 0 ABS 0 - dist/default/production\firmware.production.o
-__Lbank10 0 0 BANK10 1 bank10 -
-__Lbank11 0 0 BANK11 1 bank11 -
-__Lbank12 0 0 BANK12 1 bank12 -
-__Lbank13 0 0 BANK13 1 bank13 -
-__Lbank14 0 0 BANK14 1 bank14 -
-__Lbank15 0 0 BANK15 1 bank15 -
-__Lbank16 0 0 BANK16 1 bank16 -
-__Lbank17 0 0 BANK17 1 bank17 -
-__Lbank18 0 0 BANK18 1 bank18 -
-__Lbank19 0 0 BANK19 1 bank19 -
-__Lbank20 0 0 BANK20 1 bank20 -
-__Lbank21 0 0 BANK21 1 bank21 -
-__Lbank22 0 0 BANK22 1 bank22 -
-__Lbank23 0 0 BANK23 1 bank23 -
-__Lbank24 0 0 BANK24 1 bank24 -
-__Lbank25 0 0 BANK25 1 bank25 -
-__Lbank26 0 0 BANK26 1 bank26 -
-__Lbank27 0 0 BANK27 1 bank27 -
-__Lbank28 0 0 BANK28 1 bank28 -
-__Lbank29 0 0 BANK29 1 bank29 -
-__Lbank30 0 0 BANK30 1 bank30 -
-__Lbank31 0 0 BANK31 1 bank31 -
-__pmaintext 184 0 CODE 0 maintext dist/default/production\firmware.production.o
-__Lbigram 0 0 ABS 0 bigram -
+floor@expon BC 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
+___fladd@signs B0 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
+__ptext10 1B90 0 CODE 0 cinit dist/default/production\firmware.production.o
+__ptext11 19F2 0 CODE 0 cinit dist/default/production\firmware.production.o
+__ptext12 61E 0 CODE 0 text3 dist/default/production\firmware.production.o
+__ptext13 770 0 CODE 0 text13 dist/default/production\firmware.production.o
+__ptext14 9A4 0 CODE 0 text13 dist/default/production\firmware.production.o
+__ptext15 1C26 0 CODE 0 cinit dist/default/production\firmware.production.o
+__ptext16 3BE 0 CODE 0 text3 dist/default/production\firmware.production.o
+__ptext17 1B7E 0 CODE 0 cinit dist/default/production\firmware.production.o
+__ptext18 A5C 0 CODE 0 text18 dist/default/production\firmware.production.o
+__ptext19 1E9C 0 CODE 0 cinit dist/default/production\firmware.production.o
+__ptext20 1F0A 0 CODE 0 cinit dist/default/production\firmware.production.o
+__ptext21 14D2 0 CODE 0 cinit dist/default/production\firmware.production.o
+__ptext22 1504 0 CODE 0 cinit dist/default/production\firmware.production.o
+__Bbank10 1E020 1E000 BANK10 1 bank10 -
+__Bbank11 1E020 1E000 BANK11 1 bank11 -
+__Bbank12 1E020 1E000 BANK12 1 bank12 -
+__Bbank13 1E020 1E000 BANK13 1 bank13 -
+__Bbank14 1E020 1E000 BANK14 1 bank14 -
+__Bbank15 1E020 1E000 BANK15 1 bank15 -
+__Bbank16 1E020 1E000 BANK16 1 bank16 -
+__Bbank17 1E020 1E000 BANK17 1 bank17 -
+__Bbank18 1E020 1E000 BANK18 1 bank18 -
+__Bbank19 1E020 1E000 BANK19 1 bank19 -
+__Bbank20 1E020 1E000 BANK20 1 bank20 -
+__Bbank21 1E020 1E000 BANK21 1 bank21 -
+__Bbank22 1E020 1E000 BANK22 1 bank22 -
+__Bbank23 1E020 1E000 BANK23 1 bank23 -
+__Bbank24 1E020 1E000 BANK24 1 bank24 -
+__Bbank25 1E020 1E000 BANK25 1 bank25 -
+__Bbank26 1E020 1E000 BANK26 1 bank26 -
+__Bbank27 1E020 1E000 BANK27 1 bank27 -
+__Bbank28 1E020 1E000 BANK28 1 bank28 -
+__Bbank29 1E020 1E000 BANK29 1 bank29 -
+__Bbank30 1E020 1E000 BANK30 1 bank30 -
+__Bbank31 1E020 1E000 BANK31 1 bank31 -
+__Bbigram 1E020 1E000 ABS 0 bigram -
+___fladd 3BE 0 CODE 0 text3 dist/default/production\firmware.production.o
+___fldiv A5C 0 CODE 0 text18 dist/default/production\firmware.production.o
+___flmul 770 0 CODE 0 text13 dist/default/production\firmware.production.o
+___flneg 1B7E 0 CODE 0 cinit dist/default/production\firmware.production.o
+___flsub 1C26 0 CODE 0 cinit dist/default/production\firmware.production.o
+___fltol 1B90 0 CODE 0 cinit dist/default/production\firmware.production.o
+__Lbank10 20 1E000 BANK10 1 bank10 -
+__Lbank11 20 1E000 BANK11 1 bank11 -
+__Lbank12 20 1E000 BANK12 1 bank12 -
+__Lbank13 20 1E000 BANK13 1 bank13 -
+__Lbank14 20 1E000 BANK14 1 bank14 -
+__Lbank15 20 1E000 BANK15 1 bank15 -
+__Lbank16 20 1E000 BANK16 1 bank16 -
+__Lbank17 20 1E000 BANK17 1 bank17 -
+__Lbank18 20 1E000 BANK18 1 bank18 -
+__Lbank19 20 1E000 BANK19 1 bank19 -
+__Lbank20 20 1E000 BANK20 1 bank20 -
+__Lbank21 20 1E000 BANK21 1 bank21 -
+__Lbank22 20 1E000 BANK22 1 bank22 -
+__Lbank23 20 1E000 BANK23 1 bank23 -
+__Lbank24 20 1E000 BANK24 1 bank24 -
+__Lbank25 20 1E000 BANK25 1 bank25 -
+__Lbank26 20 1E000 BANK26 1 bank26 -
+__Lbank27 20 1E000 BANK27 1 bank27 -
+__Lbank28 20 1E000 BANK28 1 bank28 -
+__Lbank29 20 1E000 BANK29 1 bank29 -
+__Lbank30 20 1E000 BANK30 1 bank30 -
+__Lbank31 20 1E000 BANK31 1 bank31 -
+__BcstackCOMMON 1E020 1E000 ABS 0 cstackCOMMON -
+__pmaintext 108A 0 CODE 0 cinit dist/default/production\firmware.production.o
+__Lbigram 20 1E000 ABS 0 bigram -
 __CFG_BORV$LO 0 0 ABS 0 - dist/default/production\firmware.production.o
-__size_of_PWM_set_duty 0 0 ABS 0 - dist/default/production\firmware.production.o
-__Lcommon 0 0 ABS 0 common -
+__Bcommon 1E020 1E000 ABS 0 common -
+__Umul8_16@multiplier 77 0 COMMON 1 cstackCOMMON dist/default/production\firmware.production.o
+__Bclrtext 1E020 1E000 ABS 0 clrtext -
+?_sqrt A0 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
+__Lcommon 20 1E000 ABS 0 common -
 __Lconfig 1000E 0 CONFIG 0 config -
 __CFG_CP$OFF 0 0 ABS 0 - dist/default/production\firmware.production.o
-_I2C_buffer 20 0 BANK0 1 bssBANK0 dist/default/production\firmware.production.o
-__end_of_PWM_set_duty 29C 0 CODE 0 text5 dist/default/production\firmware.production.o
+_I2C_buffer 120 0 BANK2 1 bssBANK2 dist/default/production\firmware.production.o
+_LATAbits 10C 0 ABS 0 - dist/default/production\firmware.production.o
+___fldiv@grs 69 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
+___fldiv@rem 62 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
+__size_of_eeprom_write 0 0 ABS 0 - dist/default/production\firmware.production.o
+sqrt@exp B3 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
+sqrt@grs AE 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
+___fldiv@new_exp 67 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
+__Bstringtext1 1E020 1E000 ABS 0 stringtext1 -
+__Bstringtext2 1E020 1E000 ABS 0 stringtext2 -
+__end_of_eval_poly 6BE 0 CODE 0 text3 dist/default/production\firmware.production.o
+__end_of_eeprom_read 1F28 0 CODE 0 cinit dist/default/production\firmware.production.o
 _ADCON0bits 9D 0 ABS 0 - dist/default/production\firmware.production.o
+__Bmaintext 1E020 1E000 ABS 0 maintext -
+___fladd@grs B3 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
 __CFG_LVP$OFF 0 0 ABS 0 - dist/default/production\firmware.production.o
+___fleq@ff1 2A 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
+___fleq@ff2 2E 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
+__size_of_eval_poly 0 0 ABS 0 - dist/default/production\firmware.production.o
+floor@i B8 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
+floor@x B4 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
 __Lspace_3 0 0 ABS 0 - -
-__pbssCOMMON 7A 0 COMMON 1 bssCOMMON dist/default/production\firmware.production.o
-__HcstackBANK0 0 0 ABS 0 cstackBANK0 -
+__HcstackBANK0 20 1E000 ABS 0 cstackBANK0 -
+__HcstackBANK1 20 1E000 ABS 0 cstackBANK1 -
+__HcstackBANK2 20 1E000 ABS 0 cstackBANK2 -
+__Umul8_16@product 73 0 COMMON 1 cstackCOMMON dist/default/production\firmware.production.o
+___flge@ff1 70 0 COMMON 1 cstackCOMMON dist/default/production\firmware.production.o
+___flge@ff2 74 0 COMMON 1 cstackCOMMON dist/default/production\firmware.production.o
 _PIR1bits 11 0 ABS 0 - dist/default/production\firmware.production.o
 _PIR2bits 12 0 ABS 0 - dist/default/production\firmware.production.o
-__Lend_init 160 0 CODE 0 end_init -
-__LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
-end_of_initialization 17E 0 CODE 0 cinit dist/default/production\firmware.production.o
-__Hintentry 160 0 CODE 0 intentry -
+__Lend_init DC 0 CODE 0 end_init -
+__LcstackCOMMON 20 1E000 ABS 0 cstackCOMMON -
+___fltol@exp1 79 0 COMMON 1 cstackCOMMON dist/default/production\firmware.production.o
+__end_of_eeprom_write 1504 0 CODE 0 cinit dist/default/production\firmware.production.o
+end_of_initialization 1084 0 CODE 0 cinit dist/default/production\firmware.production.o
+__Hintentry DC 0 CODE 0 intentry -
 __CFG_STVREN$ON 0 0 ABS 0 - dist/default/production\firmware.production.o
-__Lstrings 0 0 ABS 0 strings -
-__Hreset_vec 2 0 CODE 0 reset_vec -
-__HbssBANK0 0 0 ABS 0 bssBANK0 -
-__size_of_PWM_Init 0 0 ABS 0 - dist/default/production\firmware.production.o
-__ptext1 270 0 CODE 0 text1 dist/default/production\firmware.production.o
-__ptext2 258 0 CODE 0 text2 dist/default/production\firmware.production.o
-__ptext3 21C 0 CODE 0 text3 dist/default/production\firmware.production.o
-__ptext5 286 0 CODE 0 text5 dist/default/production\firmware.production.o
+__Lstrings 20 1E000 ABS 0 strings -
+_eval_poly 61E 0 CODE 0 text3 dist/default/production\firmware.production.o
+?___fladd A0 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
+?___fldiv 56 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
+?___flmul 3D 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
+?___flneg 70 0 COMMON 1 cstackCOMMON dist/default/production\firmware.production.o
+?___flsub B4 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
+?___fltol 70 0 COMMON 1 cstackCOMMON dist/default/production\firmware.production.o
+__Hreset_vec 4 0 CODE 0 reset_vec -
+ldexp@value C6 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
+__HbssBANK0 20 1E000 ABS 0 bssBANK0 -
+__HbssBANK2 20 1E000 ABS 0 bssBANK2 -
+___flneg@f1 70 0 COMMON 1 cstackCOMMON dist/default/production\firmware.production.o
+__ptext1 C70 0 CODE 0 text1 dist/default/production\firmware.production.o
+__ptext2 1536 0 CODE 0 cinit dist/default/production\firmware.production.o
+__ptext3 E0 0 CODE 0 text3 dist/default/production\firmware.production.o
+__ptext4 179E 0 CODE 0 cinit dist/default/production\firmware.production.o
+__ptext5 1F28 0 CODE 0 cinit dist/default/production\firmware.production.o
+__ptext6 234 0 CODE 0 text3 dist/default/production\firmware.production.o
+__ptext7 338 0 CODE 0 text3 dist/default/production\firmware.production.o
+__ptext8 1736 0 CODE 0 cinit dist/default/production\firmware.production.o
+__ptext9 1AAA 0 CODE 0 cinit dist/default/production\firmware.production.o
+?__Umul8_16 70 0 COMMON 1 cstackCOMMON dist/default/production\firmware.production.o
 __Lpowerup 0 0 CODE 0 powerup -
-__Leeprom_data 0 0 EEDATA 3 eeprom_data -
+?___xxtofl 7A 0 COMMON 1 cstackCOMMON dist/default/production\firmware.production.o
+__Leeprom_data 0 1E000 EEDATA 3 eeprom_data -
+___fladd@aexp B1 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
+___fladd@bexp B2 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
+__Umul8_16@word_mpld 75 0 COMMON 1 cstackCOMMON dist/default/production\firmware.production.o
+___fltol@sign1 78 0 COMMON 1 cstackCOMMON dist/default/production\firmware.production.o
+exp@sign D8 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
 __Lreset_vec 0 0 CODE 0 reset_vec -
-__Hstringtext1 0 0 ABS 0 stringtext1 -
+__Hstringtext1 20 1E000 ABS 0 stringtext1 -
+__Hstringtext2 20 1E000 ABS 0 stringtext2 -
+eval_poly@d B8 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
+eval_poly@n BA 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
+eval_poly@x B4 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
+___fltol@f1 70 0 COMMON 1 cstackCOMMON dist/default/production\firmware.production.o
 __CFG_CLKOUTEN$OFF 0 0 ABS 0 - dist/default/production\firmware.production.o
 __CFG_WDTE$ON 0 0 ABS 0 - dist/default/production\firmware.production.o
-__end_of__initialization 17E 0 CODE 0 cinit dist/default/production\firmware.production.o
+__end_of__initialization 1084 0 CODE 0 cinit dist/default/production\firmware.production.o
 __Lfunctab 0 0 ENTRY 0 functab -
-__Lclrtext 0 0 ABS 0 clrtext -
+__BdataBANK1 1E020 1E000 ABS 0 dataBANK1 -
+frexp@value 36 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
+?_floor B4 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
+?_frexp 36 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
+__pidataBANK1 0 0 CODE 0 idataBANK1 dist/default/production\firmware.production.o
+?_ldexp C6 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
+__Lclrtext 20 1E000 ABS 0 clrtext -
 _SSP1CON1bits 215 0 ABS 0 - dist/default/production\firmware.production.o
 _SSP1CON2bits 216 0 ABS 0 - dist/default/production\firmware.production.o
 _SSP1CON3bits 217 0 ABS 0 - dist/default/production\firmware.production.o
 __CFG_PWRTE$ON 0 0 ABS 0 - dist/default/production\firmware.production.o
 __pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\firmware.production.o
-_PWM_Init 258 0 CODE 0 text2 dist/default/production\firmware.production.o
+__Beeprom_data 1E000 1E000 EEDATA 3 eeprom_data -
+__BidataBANK1 1E020 1E000 ABS 0 idataBANK1 -
 _SSP1ADD 212 0 ABS 0 - dist/default/production\firmware.production.o
 _SSP1BUF 211 0 ABS 0 - dist/default/production\firmware.production.o
-__Hend_init 162 0 CODE 0 end_init -
-__end_of_main 21C 0 CODE 0 maintext dist/default/production\firmware.production.o
-_T1CON 18 0 ABS 0 - dist/default/production\firmware.production.o
-_T2CON 1C 0 ABS 0 - dist/default/production\firmware.production.o
+__Hend_init E0 0 CODE 0 end_init -
+__end_of_main 14D2 0 CODE 0 cinit dist/default/production\firmware.production.o
+__end_of_sqrt E2E 0 CODE 0 text1 dist/default/production\firmware.production.o
+sqrt@frac B5 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
+sqrt@root B9 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
+sqrt@sign A8 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
+log@exponent CA 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
+_EEADR 191 0 ABS 0 - dist/default/production\firmware.production.o
+__end_of_floor 338 0 CODE 0 text3 dist/default/production\firmware.production.o
+__end_of_frexp 3BE 0 CODE 0 text3 dist/default/production\firmware.production.o
+__end_of_ldexp 1FEC 0 CODE 0 cinit dist/default/production\firmware.production.o
 _TRISA 8C 0 ABS 0 - dist/default/production\firmware.production.o
-__end_of_PWM_Init 270 0 CODE 0 text2 dist/default/production\firmware.production.o
-__Hram 0 0 ABS 0 ram -
-__Lram 0 0 ABS 0 ram -
+__Bram 1E020 1E000 ABS 0 ram -
+__Hram 20 1E000 ABS 0 ram -
+__Lram 20 1E000 ABS 0 ram -
+_floor 234 0 CODE 0 text3 dist/default/production\firmware.production.o
+_frexp 338 0 CODE 0 text3 dist/default/production\firmware.production.o
+_ldexp 1F28 0 CODE 0 cinit dist/default/production\firmware.production.o
+ldexp@newexp CA 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
 __CFG_CPD$OFF 0 0 ABS 0 - dist/default/production\firmware.production.o
-_CCP1CON 293 0 ABS 0 - dist/default/production\firmware.production.o
+eeprom_read@addr 70 0 COMMON 1 cstackCOMMON dist/default/production\firmware.production.o
 __pintentry 8 0 CODE 0 intentry dist/default/production\firmware.production.o
+exp@coeff E52 0 STRCODE 0 stringtext1 dist/default/production\firmware.production.o
+__size_of_exp 0 0 ABS 0 - dist/default/production\firmware.production.o
 __size_of_isr 0 0 ABS 0 - dist/default/production\firmware.production.o
-__initialization 162 0 CODE 0 cinit dist/default/production\firmware.production.o
-__pbssBANK0 20 0 BANK0 1 bssBANK0 dist/default/production\firmware.production.o
-__pdataCOMMON 78 0 COMMON 1 dataCOMMON dist/default/production\firmware.production.o
+__size_of_log 0 0 ABS 0 - dist/default/production\firmware.production.o
+__size_of_pow 0 0 ABS 0 - dist/default/production\firmware.production.o
+__HdataBANK1 20 1E000 ABS 0 dataBANK1 -
+__initialization 106A 0 CODE 0 cinit dist/default/production\firmware.production.o
+___xxtofl@sign 24 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
+__size_of_eeprom_read 0 0 ABS 0 - dist/default/production\firmware.production.o
+__pbssBANK0 6F 0 BANK0 1 bssBANK0 dist/default/production\firmware.production.o
+__pbssBANK2 120 0 BANK2 1 bssBANK2 dist/default/production\firmware.production.o
 __CFG_WRT$OFF 0 0 ABS 0 - dist/default/production\firmware.production.o
-PWM_set_duty@duty 70 0 COMMON 1 cstackCOMMON dist/default/production\firmware.production.o
+__end_ofexp@coeff EA2 0 STRCODE 0 stringtext1 dist/default/production\firmware.production.o
+_STATUSbits 3 0 ABS 0 - dist/default/production\firmware.production.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -571,11 +1452,16 @@ PWM_set_duty@duty 70 0 COMMON 1 cstackCOMMON dist/default/production\firmware.pr
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-cstackCOMMON 1 70 70 B 1
-stringtext1 0 150 2A0 1 2
-intentry 0 4 8 14C 2
-reset_vec 0 0 0 1 2
-bssBANK0 1 20 20 D 1
+cinit 0 835 106A 7CB 2
+cstackCOMMON 1 70 70 E 1
+cstackBANK0 1 20 20 50 1
+cstackBANK1 1 A0 A0 4F 1
+stringtext1 0 729 E52 4C 2
+intentry 0 4 8 725 2
+reset_vec 0 0 0 2 2
+bssBANK2 1 120 120 37 1
+eeprom_data 3 0 1E000 10 2
+clrtext 0 775 EEA 6 2
 config 0 8007 1000E 2 2
 # OTES Section
 # This section contains data of all the note-psects.  The beginning of the section

@@ -1,0 +1,2 @@
+The microcontroller in the design was changed for the 12F1840 instead of the 12F1822 due to memory restrictions.
+Also you will require the XC8 Pro license to compile the firmware, otherway the code will not fit in the microcontroller.
