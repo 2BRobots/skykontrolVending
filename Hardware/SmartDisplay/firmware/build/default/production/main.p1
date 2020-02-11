@@ -2929,9 +2929,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 232: WPUA = 0b00011110;
 "232
 [e = _WPUA -> -> 30 `i `uc ]
-[; ;main.c: 233: OPTION_REGbits.nWPUEN = 1;
+[; ;main.c: 233: OPTION_REGbits.nWPUEN = 0;
 "233
-[e = . . _OPTION_REGbits 0 7 -> -> 1 `i `uc ]
+[e = . . _OPTION_REGbits 0 7 -> -> 0 `i `uc ]
 [; ;main.c: 234: APFCONbits.CCP1SEL = 1;
 "234
 [e = . . _APFCONbits 0 0 -> -> 1 `i `uc ]

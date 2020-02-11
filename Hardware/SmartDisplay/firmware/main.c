@@ -230,7 +230,7 @@ int main(int argc, char** argv) {
     TRISA = 0b00011110; //configure IO
     ANSELA = 0b00000000; //analog functions of pins disabled
     WPUA = 0b00011110; //configure weak pull-ups on input pins
-    OPTION_REGbits.nWPUEN = 1; //enable/disable weak pull-ups
+    OPTION_REGbits.nWPUEN = 0; //enable/disable weak pull-ups
     APFCONbits.CCP1SEL = 1; //select RA5 as CCP output pin
     LATAbits.LATA0 = 0; //keep buzzer off
     SSP1STAT = 0b10000000; // Slew rate control disabled for standardspeed mode (100 kHz and 1 MHz)

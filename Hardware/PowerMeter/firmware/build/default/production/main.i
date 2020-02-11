@@ -3329,8 +3329,8 @@ extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 
 # 42 "main.c"
-asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x10" "," "0x00" "," "0x10" "," "0x00" "," "0x42" "," "0x80" "," "0x34" "," "0x7B");
-asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x10" "," "0x00" "," "0xFF" "," "0xFF" "," "0xFF" "," "0xFF" "," "0xFF" "," "0xFF");
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00");
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x00" "," "0x00" "," "0xFF" "," "0xFF" "," "0xFF" "," "0xFF" "," "0xFF" "," "0xFF");
 unsigned char eeprom_read(unsigned char address);
 void eeprom_write(unsigned char address, unsigned char value);
 
@@ -3389,6 +3389,10 @@ I2C_buffer.byte[0x09] = eeprom_read(6);
 I2C_buffer.byte[0x0A] = eeprom_read(7);
 I2C_buffer.byte[0x0B] = eeprom_read(8);
 I2C_buffer.byte[0x0C] = eeprom_read(9);
+I2C_buffer.data.Irms = 0;
+I2C_buffer.data.Vrms = 0;
+I2C_buffer.data.Power = 0;
+I2C_buffer.data.AvPower = 0;
 }
 
 
@@ -3465,8 +3469,8 @@ init_I2C_buffer();
 TRISA = 0b00011111;
 ANSELA = 0b00010001;
 WPUA = 0b00001110;
-OPTION_REGbits.nWPUEN = 1;
-ADCON1 = 0b11110000;
+OPTION_REGbits.nWPUEN = 0;
+ADCON1 = 0b10100000;
 SSP1STAT = 0b10000000;
 SSP1CON1 = 0b00110110;
 SSP1CON2bits.SEN = 1;
@@ -3479,7 +3483,7 @@ PIR2bits.BCL1IF = 0;
 PIE2bits.BCL1IE = 1;
 PIE1bits.SSP1IE = 1;
 INTCONbits.PEIE = 1;
-INTCON = 0b01001000;
+INTCON = 0b01000000;
 INTCONbits.GIE = 1;
 
 LATAbits.LATA5 = 1;
@@ -3501,8 +3505,8 @@ eeprom_write(6, I2C_buffer.byte[0x09]);
 eeprom_write(7, I2C_buffer.byte[0x0A]);
 eeprom_write(8, I2C_buffer.byte[0x0B]);
 eeprom_write(9, I2C_buffer.byte[0x0C]);
-_delay((unsigned long)((5)*(32000000/4000.0)));
 I2C_buffer.data.SAVE = 0;
+_delay((unsigned long)((10)*(32000000/4000.0)));
 }
 
 iacc = 0;
@@ -3514,23 +3518,24 @@ asm("CLRWDT");
 
 adc = (float) ADC_read(0x00);
 
-adc = ((adc * 5) / 1023) - 2.5;
-adc = (adc / (float)I2C_buffer.data.ctRl) * (float) I2C_buffer.data.ctRatio;
-iacc += pow(adc, 2);
+adc = ((adc * 3.3F) / 1024.0F) - 1.65F;
+adc = (adc / (float)I2C_buffer.data.ctRl) * (float)I2C_buffer.data.ctRatio;
+iacc += adc*adc;
 
 adc = (float) ADC_read(0x03);
 
-adc = ((adc * 5) / 1023) - 2.5;
+adc = ((adc * 3.3F) / 1024.0F) - 1.65F;
 adc = adc * I2C_buffer.data.trRatio;
-vacc += pow(adc, 2);
+vacc += adc*adc;
 }
 
-I2C_buffer.data.Irms = sqrt(iacc / (float)I2C_buffer.data.samples);
-I2C_buffer.data.Vrms = sqrt(vacc / (float)I2C_buffer.data.samples);
+I2C_buffer.data.Irms = sqrt((iacc / (float)I2C_buffer.data.samples)) * 2.0F;
+I2C_buffer.data.Vrms = sqrt((vacc / (float)I2C_buffer.data.samples));
 I2C_buffer.data.Power = I2C_buffer.data.Vrms * I2C_buffer.data.Irms;
-I2C_buffer.data.AvPower = (I2C_buffer.data.Power + I2C_buffer.data.AvPower) / 2;
+I2C_buffer.data.AvPower = (I2C_buffer.data.Power + I2C_buffer.data.AvPower) / 2.0F;
 LATAbits.LATA5 = (char)!LATAbits.LATA5;
-_delay((unsigned long)((10)*(32000000/4000.0)));
+
+
 }
 
 return (0);

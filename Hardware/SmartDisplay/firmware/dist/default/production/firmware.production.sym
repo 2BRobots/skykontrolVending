@@ -303,7 +303,7 @@ bssBANK0 20 37 BANK0 20 1
 stringtext1 312 313 STRCODE 312 0
 %locals
 dist/default/production\firmware.production.o
-C:\Users\ciro_\AppData\Local\Temp\s64g.s
+C:\Users\ciro_\AppData\Local\Temp\sgr0.s
 684 BC 0 CODE 0
 687 BC 0 CODE 0
 725 BC 0 CODE 0

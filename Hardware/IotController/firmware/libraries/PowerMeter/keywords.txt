@@ -1,0 +1,17 @@
+PowerMeter2BRobots	KEYWORD1
+begin	           KEYWORD1
+getID      	KEYWORD2
+SAVE       	KEYWORD2
+RESET      	KEYWORD2
+getCtRatio      	KEYWORD2
+setCtRatio      	KEYWORD2
+getCtRl     	KEYWORD2
+setCtRl     	KEYWORD2
+getTrRatio     	KEYWORD2
+setTrRatio		KEYWORD2
+getSamples		KEYWORD2
+setSamples		KEYWORD2
+getIrms		KEYWORD2
+getVrms		KEYWORD2
+getPower		KEYWORD2
+getAvPower		KEYWORD2

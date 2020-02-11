@@ -39,8 +39,8 @@
 
 //EEPROM default values and function prototypes for memory access on program
 
-__EEPROM_DATA(0x10, 0x00, 0x10, 0x00, 0x42, 0x80, 0x34, 0x7B); //set ctRatio, ctRl, trRatio
-__EEPROM_DATA(0x10, 0x00, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF); //samples
+__EEPROM_DATA(0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00); //set ctRatio, ctRl, trRatio
+__EEPROM_DATA(0x00, 0x00, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF); //samples
 unsigned char eeprom_read(unsigned char address);
 void eeprom_write(unsigned char address, unsigned char value);
 
@@ -99,6 +99,10 @@ void init_I2C_buffer() //load default values of vars
     I2C_buffer.byte[0x0A] = eeprom_read(7);
     I2C_buffer.byte[0x0B] = eeprom_read(8); //samples;
     I2C_buffer.byte[0x0C] = eeprom_read(9);
+    I2C_buffer.data.Irms = 0;
+    I2C_buffer.data.Vrms = 0;
+    I2C_buffer.data.Power = 0;
+    I2C_buffer.data.AvPower = 0;
 }
 
 // Interrupts
@@ -175,8 +179,8 @@ int main(int argc, char** argv) {
     TRISA = 0b00011111; //configure IO
     ANSELA = 0b00010001; //analog functions of pins enabled
     WPUA = 0b00001110; //configure weak pull-ups on input pins
-    OPTION_REGbits.nWPUEN = 1; //enable weak pull-ups
-    ADCON1 = 0b11110000; //configure ADC
+    OPTION_REGbits.nWPUEN = 0; //enable weak pull-ups
+    ADCON1 = 0b10100000; //configure ADC
     SSP1STAT = 0b10000000; // Slew rate control disabled for standardspeed mode (100 kHz and 1 MHz)
     SSP1CON1 = 0b00110110; // Enable serial port, I2C slave mode, 7-bit address
     SSP1CON2bits.SEN = 1; // Clock stretching is enabled
@@ -189,7 +193,7 @@ int main(int argc, char** argv) {
     PIE2bits.BCL1IE = 1; // Enable bus collision interrupts
     PIE1bits.SSP1IE = 1; // Enable serial port interrupts
     INTCONbits.PEIE = 1; // Enable peripheral interrupts
-    INTCON = 0b01001000; //enables interrupts
+    INTCON = 0b01000000; //enables interrupts
     INTCONbits.GIE = 1; //run interrupts
 
     LATAbits.LATA5 = 1; //turn led ON
@@ -211,8 +215,8 @@ int main(int argc, char** argv) {
             eeprom_write(7, I2C_buffer.byte[0x0A]);
             eeprom_write(8, I2C_buffer.byte[0x0B]); //samples
             eeprom_write(9, I2C_buffer.byte[0x0C]);
-            __delay_ms(5);
             I2C_buffer.data.SAVE = 0;
+            __delay_ms(10);
         }
 
         iacc = 0;
@@ -224,23 +228,24 @@ int main(int argc, char** argv) {
 
             adc = (float) ADC_read(0x00); //read adc for current transformer
 
-            adc = ((adc * 5) / 1023) - 2.5; //convert ADC to voltage
-            adc = (adc / (float)I2C_buffer.data.ctRl) * (float) I2C_buffer.data.ctRatio; //conver to current in the line
-            iacc += pow(adc, 2); //acumulate RMS value for sampling
+            adc = ((adc * 3.3F) / 1024.0F) - 1.65F; //convert ADC to voltage
+            adc = (adc / (float)I2C_buffer.data.ctRl) * (float)I2C_buffer.data.ctRatio; //conver to current in the line
+            iacc += adc*adc; //acumulate RMS value for sampling
 
             adc = (float) ADC_read(0x03); //read adc for voltage transformer
 
-            adc = ((adc * 5) / 1023) - 2.5; //convert ADC to voltage
+            adc = ((adc * 3.3F) / 1024.0F) - 1.65F; //convert ADC to voltage
             adc = adc * I2C_buffer.data.trRatio; //multiply voltage for the transformer relation 
-            vacc += pow(adc, 2); //acumulate RMS value for sampling
+            vacc += adc*adc; //acumulate RMS value for sampling
         }
 
-        I2C_buffer.data.Irms = sqrt(iacc / (float)I2C_buffer.data.samples); //RMS current
-        I2C_buffer.data.Vrms = sqrt(vacc / (float)I2C_buffer.data.samples); //RMS voltage
+        I2C_buffer.data.Irms = sqrt((iacc / (float)I2C_buffer.data.samples)) * 2.0F; //RMS current, I can't understand why it needs to be multiplied by 2. If you know please help.
+        I2C_buffer.data.Vrms = sqrt((vacc / (float)I2C_buffer.data.samples)); //RMS voltage
         I2C_buffer.data.Power = I2C_buffer.data.Vrms * I2C_buffer.data.Irms; //apparent Power
-        I2C_buffer.data.AvPower = (I2C_buffer.data.Power + I2C_buffer.data.AvPower) / 2; //average apparent power
+        I2C_buffer.data.AvPower = (I2C_buffer.data.Power + I2C_buffer.data.AvPower) / 2.0F; //average apparent power
         LATAbits.LATA5 = (char)!LATAbits.LATA5; //toggle led
-        __delay_ms(10);
+        
+       //to do = add instantaneous power calculation to be able to calculate real power
     }
 
     return (EXIT_SUCCESS);

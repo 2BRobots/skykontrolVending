@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\ciro_\AppData\Local\Temp\s64g.o
+$C:\Users\ciro_\AppData\Local\Temp\sgr0.o
 reset_vec CODE 0 0 0 1 2
 end_init CODE 0 BB BB 1 2
 config CONFIG 0 8007 8007 2 2
@@ -101,21 +101,21 @@ STRING 18A-7FF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\firmware.production.o
-BC cinit CODE >684:C:\Users\ciro_\AppData\Local\Temp\s64g.s
-BC cinit CODE >687:C:\Users\ciro_\AppData\Local\Temp\s64g.s
-BC cinit CODE >725:C:\Users\ciro_\AppData\Local\Temp\s64g.s
-BD cinit CODE >726:C:\Users\ciro_\AppData\Local\Temp\s64g.s
-BE cinit CODE >743:C:\Users\ciro_\AppData\Local\Temp\s64g.s
-BF cinit CODE >747:C:\Users\ciro_\AppData\Local\Temp\s64g.s
-C0 cinit CODE >748:C:\Users\ciro_\AppData\Local\Temp\s64g.s
-C1 cinit CODE >749:C:\Users\ciro_\AppData\Local\Temp\s64g.s
-C2 cinit CODE >750:C:\Users\ciro_\AppData\Local\Temp\s64g.s
-C3 cinit CODE >751:C:\Users\ciro_\AppData\Local\Temp\s64g.s
-C4 cinit CODE >752:C:\Users\ciro_\AppData\Local\Temp\s64g.s
-C5 cinit CODE >758:C:\Users\ciro_\AppData\Local\Temp\s64g.s
-C5 cinit CODE >760:C:\Users\ciro_\AppData\Local\Temp\s64g.s
-C6 cinit CODE >761:C:\Users\ciro_\AppData\Local\Temp\s64g.s
-C7 cinit CODE >762:C:\Users\ciro_\AppData\Local\Temp\s64g.s
+BC cinit CODE >684:C:\Users\ciro_\AppData\Local\Temp\sgr0.s
+BC cinit CODE >687:C:\Users\ciro_\AppData\Local\Temp\sgr0.s
+BC cinit CODE >725:C:\Users\ciro_\AppData\Local\Temp\sgr0.s
+BD cinit CODE >726:C:\Users\ciro_\AppData\Local\Temp\sgr0.s
+BE cinit CODE >743:C:\Users\ciro_\AppData\Local\Temp\sgr0.s
+BF cinit CODE >747:C:\Users\ciro_\AppData\Local\Temp\sgr0.s
+C0 cinit CODE >748:C:\Users\ciro_\AppData\Local\Temp\sgr0.s
+C1 cinit CODE >749:C:\Users\ciro_\AppData\Local\Temp\sgr0.s
+C2 cinit CODE >750:C:\Users\ciro_\AppData\Local\Temp\sgr0.s
+C3 cinit CODE >751:C:\Users\ciro_\AppData\Local\Temp\sgr0.s
+C4 cinit CODE >752:C:\Users\ciro_\AppData\Local\Temp\sgr0.s
+C5 cinit CODE >758:C:\Users\ciro_\AppData\Local\Temp\sgr0.s
+C5 cinit CODE >760:C:\Users\ciro_\AppData\Local\Temp\sgr0.s
+C6 cinit CODE >761:C:\Users\ciro_\AppData\Local\Temp\sgr0.s
+C7 cinit CODE >762:C:\Users\ciro_\AppData\Local\Temp\sgr0.s
 4 intentry CODE >66:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SmartDisplay\firmware\main.c
 6 intentry CODE >68:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SmartDisplay\firmware\main.c
 B intentry CODE >70:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SmartDisplay\firmware\main.c
@@ -243,14 +243,14 @@ FD maintext CODE >259:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\Smart
 12A maintext CODE >273:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SmartDisplay\firmware\main.c
 12F maintext CODE >274:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SmartDisplay\firmware\main.c
 130 maintext CODE >277:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SmartDisplay\firmware\main.c
-182 clrtext CODE >732:C:\Users\ciro_\AppData\Local\Temp\s64g.s
-182 clrtext CODE >733:C:\Users\ciro_\AppData\Local\Temp\s64g.s
-183 clrtext CODE >734:C:\Users\ciro_\AppData\Local\Temp\s64g.s
-183 clrtext CODE >735:C:\Users\ciro_\AppData\Local\Temp\s64g.s
-184 clrtext CODE >736:C:\Users\ciro_\AppData\Local\Temp\s64g.s
-185 clrtext CODE >737:C:\Users\ciro_\AppData\Local\Temp\s64g.s
-186 clrtext CODE >738:C:\Users\ciro_\AppData\Local\Temp\s64g.s
-187 clrtext CODE >739:C:\Users\ciro_\AppData\Local\Temp\s64g.s
+182 clrtext CODE >732:C:\Users\ciro_\AppData\Local\Temp\sgr0.s
+182 clrtext CODE >733:C:\Users\ciro_\AppData\Local\Temp\sgr0.s
+183 clrtext CODE >734:C:\Users\ciro_\AppData\Local\Temp\sgr0.s
+183 clrtext CODE >735:C:\Users\ciro_\AppData\Local\Temp\sgr0.s
+184 clrtext CODE >736:C:\Users\ciro_\AppData\Local\Temp\sgr0.s
+185 clrtext CODE >737:C:\Users\ciro_\AppData\Local\Temp\sgr0.s
+186 clrtext CODE >738:C:\Users\ciro_\AppData\Local\Temp\sgr0.s
+187 clrtext CODE >739:C:\Users\ciro_\AppData\Local\Temp\sgr0.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -280,10 +280,10 @@ __CFG_MCLRE$ON 0 0 ABS 0 - dist/default/production\firmware.production.o
 _T1CONbits 18 0 ABS 0 - dist/default/production\firmware.production.o
 __Hstrings 0 0 ABS 0 strings -
 _WPUA 20C 0 ABS 0 - dist/default/production\firmware.production.o
-___sp 0 0 STACK 2 stack C:\Users\ciro_\AppData\Local\Temp\s64g.o
+___sp 0 0 STACK 2 stack C:\Users\ciro_\AppData\Local\Temp\sgr0.o
 _main 190 0 CODE 0 maintext dist/default/production\firmware.production.o
 btemp 7E 0 ABS 0 - dist/default/production\firmware.production.o
-start 176 0 CODE 0 init C:\Users\ciro_\AppData\Local\Temp\s64g.o
+start 176 0 CODE 0 init C:\Users\ciro_\AppData\Local\Temp\sgr0.o
 __size_of_main 0 0 ABS 0 - dist/default/production\firmware.production.o
 _pulseLenght 30 0 BANK0 1 bssBANK0 dist/default/production\firmware.production.o
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
@@ -291,12 +291,12 @@ _OPTION_REGbits 95 0 ABS 0 - dist/default/production\firmware.production.o
 __LidataBANK0 0 0 ABS 0 idataBANK0 -
 _trigger 32 0 BANK0 1 bssBANK0 dist/default/production\firmware.production.o
 __Hpowerup 0 0 CODE 0 powerup -
-intlevel0 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\s64g.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\s64g.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\s64g.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\s64g.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\s64g.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\s64g.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\sgr0.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\sgr0.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\sgr0.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\sgr0.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\sgr0.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\sgr0.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 wtemp0 7E 0 ABS 0 - dist/default/production\firmware.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
@@ -306,8 +306,8 @@ _ANSELA 18C 0 ABS 0 - dist/default/production\firmware.production.o
 _CCPR1L 291 0 ABS 0 - dist/default/production\firmware.production.o
 __Lmaintext 0 0 ABS 0 maintext -
 _INTCON B 0 ABS 0 - dist/default/production\firmware.production.o
-___stackhi 206F 0 ABS 0 - C:\Users\ciro_\AppData\Local\Temp\s64g.o
-___stacklo 2018 0 ABS 0 - C:\Users\ciro_\AppData\Local\Temp\s64g.o
+___stackhi 206F 0 ABS 0 - C:\Users\ciro_\AppData\Local\Temp\sgr0.o
+___stacklo 2018 0 ABS 0 - C:\Users\ciro_\AppData\Local\Temp\sgr0.o
 __CFG_FCMEN$OFF 0 0 ABS 0 - dist/default/production\firmware.production.o
 start_initialization 178 0 CODE 0 cinit dist/default/production\firmware.production.o
 _OSCCON 99 0 ABS 0 - dist/default/production\firmware.production.o
@@ -317,7 +317,7 @@ clear_ram0 304 0 CODE 0 clrtext dist/default/production\firmware.production.o
 __pcstackBANK0 33 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
 _first_i2c 37 0 BANK0 1 dataBANK0 dist/default/production\firmware.production.o
 __end_of_RX_ELMNTS 314 0 STRCODE 0 stringtext1 dist/default/production\firmware.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\ciro_\AppData\Local\Temp\s64g.o
+___int_sp 0 0 STACK 2 stack C:\Users\ciro_\AppData\Local\Temp\sgr0.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 BANK2 1 bank2 -
@@ -462,7 +462,7 @@ _PWM_set_duty 2B0 0 CODE 0 text2 dist/default/production\firmware.production.o
 __end_of_isr 176 0 CODE 0 intentry dist/default/production\firmware.production.o
 __CFG_BOREN$ON 0 0 ABS 0 - dist/default/production\firmware.production.o
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\ciro_\AppData\Local\Temp\s64g.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\ciro_\AppData\Local\Temp\sgr0.o
 __pdataBANK0 37 0 BANK0 1 dataBANK0 dist/default/production\firmware.production.o
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
 __Lstringtext1 0 0 ABS 0 stringtext1 -

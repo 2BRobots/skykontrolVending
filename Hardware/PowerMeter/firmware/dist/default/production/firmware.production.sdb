@@ -1,34 +1,10 @@
-[p PRO_MODE GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PIC14E SPACEOPT ]
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PIC14E ]
 [d version 1.1 ]
 [d edition pro ]
 [d chip 12F1840 ]
 [d frameptr 6 ]
-"4 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\evalpoly.c
-[v _eval_poly eval_poly `(d  1 e 4 0 ]
-"12 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\exp.c
-[v _exp exp `(d  1 e 4 0 ]
-"4 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\fleq.c
-[v ___fleq __fleq `(b  1 e 0 0 ]
-"4 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\flge.c
-[v ___flge __flge `(b  1 e 0 0 ]
-"15 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\flneg.c
-[v ___flneg __flneg `(d  1 e 4 0 ]
-"13 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\floor.c
-[v _floor floor `(d  1 e 4 0 ]
-"43 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\fltol.c
-[v ___fltol __fltol `(l  1 e 4 0 ]
-"254 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\frexp.c
-[v _frexp frexp `(d  1 e 4 0 ]
-"277
-[v _ldexp ldexp `(d  1 e 4 0 ]
-"5 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\log.c
-[v _log log `(d  1 e 4 0 ]
-"5 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\pow.c
-[v _pow pow `(d  1 e 4 0 ]
 "10 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
-"242
-[v ___flsub __flsub `(d  1 e 4 0 ]
 "8 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
 [v ___fldiv __fldiv `(d  1 e 4 0 ]
 "8 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
@@ -47,27 +23,27 @@
 [v _eeprom_read eeprom_read `(uc  1 e 1 0 ]
 "6 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\pic\__eewrite.c
 [v _eeprom_write eeprom_write `(v  1 e 1 0 ]
-"77 C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+"77 E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
 [v _ADC_read ADC_read `(ui  1 e 2 0 ]
 "87
 [v _init_I2C_buffer init_I2C_buffer `(v  1 e 1 0 ]
-"106
+"110
 [v _isr isr `II(v  1 e 1 0 ]
-"172
+"176
 [v _main main `(i  1 e 2 0 ]
-[s S534 . 1 `uc 1 C 1 0 :1:0 
+[s S528 . 1 `uc 1 C 1 0 :1:0 
 `uc 1 DC 1 0 :1:1 
 `uc 1 Z 1 0 :1:2 
 `uc 1 nPD 1 0 :1:3 
 `uc 1 nTO 1 0 :1:4 
 ]
 "131 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic12f1840.h
-[s S540 . 1 `uc 1 CARRY 1 0 :1:0 
+[s S534 . 1 `uc 1 CARRY 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 ZERO 1 0 :1:2 
 ]
-[u S544 . 1 `S534 1 . 1 0 `S540 1 . 1 0 ]
-[v _STATUSbits STATUSbits `VES544  1 e 1 @3 ]
+[u S538 . 1 `S528 1 . 1 0 `S534 1 . 1 0 ]
+[v _STATUSbits STATUSbits `VES538  1 e 1 @3 ]
 "351
 [v _INTCON INTCON `VEuc  1 e 1 @11 ]
 [s S107 . 1 `uc 1 IOCIF 1 0 :1:0 
@@ -196,7 +172,7 @@
 [v _EEDATA EEDATA `VEuc  1 e 1 @403 ]
 "2554
 [v _EECON1 EECON1 `VEuc  1 e 1 @405 ]
-[s S510 . 1 `uc 1 RD 1 0 :1:0 
+[s S504 . 1 `uc 1 RD 1 0 :1:0 
 `uc 1 WR 1 0 :1:1 
 `uc 1 WREN 1 0 :1:2 
 `uc 1 WRERR 1 0 :1:3 
@@ -206,8 +182,8 @@
 `uc 1 EEPGD 1 0 :1:7 
 ]
 "2571
-[u S519 . 1 `S510 1 . 1 0 ]
-[v _EECON1bits EECON1bits `VES519  1 e 1 @405 ]
+[u S513 . 1 `S504 1 . 1 0 ]
+[v _EECON1bits EECON1bits `VES513  1 e 1 @405 ]
 "2616
 [v _EECON2 EECON2 `VEuc  1 e 1 @406 ]
 "2985
@@ -270,7 +246,9 @@
 "3627
 [u S294 . 1 `S285 1 . 1 0 ]
 [v _SSP1CON3bits SSP1CON3bits `VES294  1 e 1 @535 ]
-"49 C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+"3 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\errno.c
+[v _errno errno `i  1 e 2 0 ]
+"49 E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
 [v _adc adc `f  1 e 4 0 ]
 "50
 [v _iacc iacc `f  1 e 4 0 ]
@@ -284,104 +262,59 @@
 [v _first_i2c first_i2c `uc  1 e 1 0 ]
 "73
 [v _index_i2c index_i2c `uc  1 e 1 0 ]
-"172
+"176
 [v _main main `(i  1 e 2 0 ]
 {
-"221
-[v main@i i `i  1 a 2 8 ]
-"247
+"225
+[v main@i i `i  1 a 2 10 ]
+"252
 } 0
 "9 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
 [v _sqrt sqrt `(d  1 e 4 0 ]
 {
-[s S875 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
-"11
-[s S880 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
-[u S883 . 4 `l 1 i 4 0 `d 1 f 4 0 `S875 1 fAsBytes 4 0 `S880 1 fAsWords 4 0 ]
-[v sqrt@root root `S883  1 a 4 25 ]
 "14
-[v sqrt@frac frac `ul  1 a 4 21 ]
+[v sqrt@frac frac `ul  1 a 4 17 ]
+[s S869 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+"11
+[s S874 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
+[u S877 . 4 `l 1 i 4 0 `d 1 f 4 0 `S869 1 fAsBytes 4 0 `S874 1 fAsWords 4 0 ]
+[v sqrt@root root `S877  1 a 4 13 ]
 "16
-[v sqrt@grs grs `ul  1 a 4 14 ]
+[v sqrt@grs grs `ul  1 a 4 7 ]
 "15
-[v sqrt@tfrac tfrac `ul  1 a 4 10 ]
+[v sqrt@tfrac tfrac `ul  1 a 4 2 ]
 "13
-[v sqrt@exp exp `i  1 a 2 19 ]
+[v sqrt@exp exp `i  1 a 2 11 ]
 "12
-[v sqrt@p p `uc  1 a 1 18 ]
-[v sqrt@i i `uc  1 a 1 9 ]
-[v sqrt@sign sign `uc  1 a 1 8 ]
+[v sqrt@p p `uc  1 a 1 6 ]
+[v sqrt@i i `uc  1 a 1 1 ]
+[v sqrt@sign sign `uc  1 a 1 0 ]
 "9
-[v sqrt@a a `d  1 p 4 0 ]
+[v sqrt@a a `d  1 p 4 62 ]
 "159
 } 0
-"5 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\pow.c
-[v _pow pow `(d  1 e 4 0 ]
+"87 E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+[v _init_I2C_buffer init_I2C_buffer `(v  1 e 1 0 ]
 {
-"8
-[v pow@yi yi `ul  1 a 4 74 ]
-"7
-[v pow@sign sign `uc  1 a 1 73 ]
-"5
-[v pow@x x `d  1 p 4 57 ]
-[v pow@y y `d  1 p 4 61 ]
-"31
+"106
 } 0
-"5 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\log.c
-[v _log log `(d  1 e 4 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\pic\__eeread.c
+[v _eeprom_read eeprom_read `(uc  1 e 1 0 ]
 {
-"7
-[v log@exponent exponent `i  1 a 2 42 ]
-"5
-[v log@x x `d  1 p 4 38 ]
+[v eeprom_read@addr addr `uc  1 a 1 wreg ]
+[v eeprom_read@addr addr `uc  1 a 1 wreg ]
 "9
-[v log@coeff coeff `DC[9]d  1 s 36 coeff ]
-"36
+[v eeprom_read@addr addr `uc  1 a 1 4 ]
+"19
 } 0
-"12 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\exp.c
-[v _exp exp `(d  1 e 4 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\pic\__eewrite.c
+[v _eeprom_write eeprom_write `(v  1 e 1 0 ]
 {
-"14
-[v exp@exponent exponent `i  1 a 2 54 ]
-"15
-[v exp@sign sign `uc  1 a 1 56 ]
-"12
-[v exp@x x `d  1 p 4 46 ]
-"17
-[v exp@coeff coeff `DC[10]d  1 s 40 coeff ]
-"57
-} 0
-"277 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\frexp.c
-[v _ldexp ldexp `(d  1 e 4 0 ]
-{
-[v ldexp@value value `d  1 p 4 38 ]
-[v ldexp@newexp newexp `i  1 p 2 42 ]
-"307
-} 0
-"13 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\floor.c
-[v _floor floor `(d  1 e 4 0 ]
-{
-"15
-[v floor@i i `d  1 a 4 24 ]
-"16
-[v floor@expon expon `i  1 a 2 28 ]
-"13
-[v floor@x x `d  1 p 4 20 ]
-"30
-} 0
-"254 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\frexp.c
-[v _frexp frexp `(d  1 e 4 0 ]
-{
-[v frexp@value value `d  1 p 4 22 ]
-[v frexp@eptr eptr `*.4i  1 p 1 26 ]
-"274
-} 0
-"4 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\fleq.c
-[v ___fleq __fleq `(b  1 e 0 0 ]
-{
-[v ___fleq@ff1 ff1 `d  1 p 4 10 ]
-[v ___fleq@ff2 ff2 `d  1 p 4 14 ]
-"12
+[v eeprom_write@addr addr `uc  1 a 1 wreg ]
+[v eeprom_write@addr addr `uc  1 a 1 wreg ]
+[v eeprom_write@value value `uc  1 p 1 1 ]
+[v eeprom_write@addr addr `uc  1 a 1 4 ]
+"9
 } 0
 "10 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\xxtofl.c
 [v ___xxtofl __xxtofl `(d  1 e 4 0 ]
@@ -393,62 +326,34 @@
 [v ___xxtofl@exp exp `uc  1 a 1 5 ]
 "10
 [v ___xxtofl@sign sign `uc  1 a 1 wreg ]
-[v ___xxtofl@val val `l  1 p 4 10 ]
+[v ___xxtofl@val val `l  1 p 4 5 ]
 "15
 [v ___xxtofl@sign sign `uc  1 a 1 4 ]
 "44
 } 0
-"43 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\fltol.c
-[v ___fltol __fltol `(l  1 e 4 0 ]
-{
-"45
-[v ___fltol@exp1 exp1 `uc  1 a 1 9 ]
-[v ___fltol@sign1 sign1 `uc  1 a 1 8 ]
-"43
-[v ___fltol@f1 f1 `d  1 p 4 0 ]
-"70
-} 0
-"4 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\flge.c
-[v ___flge __flge `(b  1 e 0 0 ]
-{
-[v ___flge@ff1 ff1 `d  1 p 4 0 ]
-[v ___flge@ff2 ff2 `d  1 p 4 4 ]
-"19
-} 0
-"4 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\evalpoly.c
-[v _eval_poly eval_poly `(d  1 e 4 0 ]
-{
-"6
-[v eval_poly@res res `d  1 a 4 34 ]
-"4
-[v eval_poly@x x `d  1 p 4 20 ]
-[v eval_poly@d d `*.25DCd  1 p 2 24 ]
-[v eval_poly@n n `i  1 p 2 26 ]
-"12
-} 0
 "8 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S875 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S869 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S880 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
-[u S883 . 4 `l 1 i 4 0 `d 1 f 4 0 `S875 1 fAsBytes 4 0 `S880 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S883  1 a 4 48 ]
+[s S874 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
+[u S877 . 4 `l 1 i 4 0 `d 1 f 4 0 `S869 1 fAsBytes 4 0 `S874 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S877  1 a 4 30 ]
 "12
-[v ___flmul@grs grs `ul  1 a 4 43 ]
-[s S952 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[v ___flmul@grs grs `ul  1 a 4 26 ]
+[s S946 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S955 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S952 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S955  1 a 2 52 ]
+[u S949 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S946 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S949  1 a 2 34 ]
 "10
-[v ___flmul@bexp bexp `uc  1 a 1 47 ]
+[v ___flmul@bexp bexp `uc  1 a 1 25 ]
 "11
-[v ___flmul@aexp aexp `uc  1 a 1 42 ]
+[v ___flmul@aexp aexp `uc  1 a 1 24 ]
 "9
-[v ___flmul@sign sign `uc  1 a 1 41 ]
+[v ___flmul@sign sign `uc  1 a 1 23 ]
 "8
-[v ___flmul@b b `d  1 p 4 29 ]
-[v ___flmul@a a `d  1 p 4 33 ]
+[v ___flmul@b b `d  1 p 4 10 ]
+[v ___flmul@a a `d  1 p 4 14 ]
 "205
 } 0
 "4 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\Umul8_16.c
@@ -456,97 +361,63 @@
 {
 [v __Umul8_16@multiplier multiplier `uc  1 a 1 wreg ]
 "6
-[v __Umul8_16@word_mpld word_mpld `ui  1 a 2 5 ]
+[v __Umul8_16@word_mpld word_mpld `ui  1 a 2 7 ]
 "5
-[v __Umul8_16@product product `ui  1 a 2 3 ]
+[v __Umul8_16@product product `ui  1 a 2 5 ]
 "4
 [v __Umul8_16@multiplier multiplier `uc  1 a 1 wreg ]
-[v __Umul8_16@multiplicand multiplicand `uc  1 p 1 0 ]
-[v __Umul8_16@multiplier multiplier `uc  1 a 1 7 ]
+[v __Umul8_16@multiplicand multiplicand `uc  1 p 1 1 ]
+[v __Umul8_16@multiplier multiplier `uc  1 a 1 9 ]
 "60
-} 0
-"242 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
-[v ___flsub __flsub `(d  1 e 4 0 ]
-{
-[v ___flsub@a a `d  1 p 4 20 ]
-[v ___flsub@b b `d  1 p 4 24 ]
-"250
-} 0
-"10
-[v ___fladd __fladd `(d  1 e 4 0 ]
-{
-"17
-[v ___fladd@grs grs `uc  1 a 1 19 ]
-"15
-[v ___fladd@bexp bexp `uc  1 a 1 18 ]
-"16
-[v ___fladd@aexp aexp `uc  1 a 1 17 ]
-"13
-[v ___fladd@signs signs `uc  1 a 1 16 ]
-"10
-[v ___fladd@b b `d  1 p 4 0 ]
-[v ___fladd@a a `d  1 p 4 4 ]
-"237
-} 0
-"15 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\flneg.c
-[v ___flneg __flneg `(d  1 e 4 0 ]
-{
-[v ___flneg@f1 f1 `d  1 p 4 0 ]
-"20
 } 0
 "8 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
 [v ___fldiv __fldiv `(d  1 e 4 0 ]
 {
 "21
-[v ___fldiv@grs grs `ul  1 a 4 73 ]
+[v ___fldiv@grs grs `ul  1 a 4 56 ]
 "22
-[v ___fldiv@rem rem `ul  1 a 4 66 ]
+[v ___fldiv@rem rem `ul  1 a 4 49 ]
 "20
-[v ___fldiv@new_exp new_exp `i  1 a 2 71 ]
+[v ___fldiv@new_exp new_exp `i  1 a 2 54 ]
 "19
-[v ___fldiv@aexp aexp `uc  1 a 1 78 ]
+[v ___fldiv@aexp aexp `uc  1 a 1 61 ]
 "18
-[v ___fldiv@bexp bexp `uc  1 a 1 77 ]
+[v ___fldiv@bexp bexp `uc  1 a 1 60 ]
 "16
-[v ___fldiv@sign sign `uc  1 a 1 70 ]
+[v ___fldiv@sign sign `uc  1 a 1 53 ]
 "8
-[v ___fldiv@a a `d  1 p 4 54 ]
-[v ___fldiv@b b `d  1 p 4 58 ]
+[v ___fldiv@a a `d  1 p 4 36 ]
+[v ___fldiv@b b `d  1 p 4 40 ]
 "185
 } 0
-"87 C:\Users\Agualu2\Documents\netdrive\firmware\main.c
-[v _init_I2C_buffer init_I2C_buffer `(v  1 e 1 0 ]
+"10 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
 {
-"102
+"17
+[v ___fladd@grs grs `uc  1 a 1 3 ]
+"15
+[v ___fladd@bexp bexp `uc  1 a 1 2 ]
+"16
+[v ___fladd@aexp aexp `uc  1 a 1 1 ]
+"13
+[v ___fladd@signs signs `uc  1 a 1 0 ]
+"10
+[v ___fladd@b b `d  1 p 4 62 ]
+[v ___fladd@a a `d  1 p 4 66 ]
+"237
 } 0
-"6 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\pic\__eeread.c
-[v _eeprom_read eeprom_read `(uc  1 e 1 0 ]
-{
-[v eeprom_read@addr addr `uc  1 a 1 wreg ]
-[v eeprom_read@addr addr `uc  1 a 1 wreg ]
-"9
-[v eeprom_read@addr addr `uc  1 a 1 0 ]
-"19
-} 0
-"6 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\pic\__eewrite.c
-[v _eeprom_write eeprom_write `(v  1 e 1 0 ]
-{
-[v eeprom_write@addr addr `uc  1 a 1 wreg ]
-[v eeprom_write@addr addr `uc  1 a 1 wreg ]
-[v eeprom_write@value value `uc  1 p 1 0 ]
-[v eeprom_write@addr addr `uc  1 a 1 1 ]
-"9
-} 0
-"77 C:\Users\Agualu2\Documents\netdrive\firmware\main.c
+"77 E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
 [v _ADC_read ADC_read `(ui  1 e 2 0 ]
 {
 [v ADC_read@channel channel `uc  1 a 1 wreg ]
 [v ADC_read@channel channel `uc  1 a 1 wreg ]
-[v ADC_read@channel channel `uc  1 a 1 3 ]
+[v ADC_read@channel channel `uc  1 a 1 4 ]
 "85
 } 0
-"106
+"110
 [v _isr isr `II(v  1 e 1 0 ]
 {
-"170
+"112
+[v isr@junk junk `uc  1 s 1 junk ]
+"174
 } 0
