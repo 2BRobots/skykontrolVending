@@ -97,6 +97,12 @@ float PowerMeter2BRobots::getAvPower(void) {
 	return temp.f;
 }
 
+float PowerMeter2BRobots::getPowerFactor(void) {
+	conv temp;
+	temp.i = read32(PWMT_REG_PwFactor);
+	return temp.f;
+}
+
 void PowerMeter2BRobots::write32(uint8_t reg, uint32_t value) {
 	Wire.beginTransmission(_i2caddr);
 	Wire.write((uint8_t)reg);

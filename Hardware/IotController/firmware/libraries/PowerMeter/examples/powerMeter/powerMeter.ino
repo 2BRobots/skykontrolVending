@@ -42,7 +42,8 @@ void loop()
   Serial.print("Vrms: "); Serial.print(powerMeter.getVrms(),4);
   Serial.print(" V - Irms: "); Serial.print(powerMeter.getIrms(),4);
   Serial.print(" A - Power: "); Serial.print(powerMeter.getPower(),4);
-  Serial.print(" VA - Average Power: "); Serial.print(powerMeter.getAvPower(),4);
-  Serial.println(" VA.");
+  Serial.print(" W - Average Power: "); Serial.print(powerMeter.getAvPower(),4);
+  Serial.print(" W - Power factor: "); Serial.print(powerMeter.getPowerFactor(),4);
+  Serial.println();
   delay(500);
 }

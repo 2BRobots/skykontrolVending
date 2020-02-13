@@ -3,6 +3,12 @@
 [d edition pro ]
 [d chip 12F1840 ]
 [d frameptr 6 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\fabs.c
+[v _fabs fabs `(d  1 e 4 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\flge.c
+[v ___flge __flge `(b  1 e 0 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\flneg.c
+[v ___flneg __flneg `(d  1 e 4 0 ]
 "10 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "8 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcdiv.c
@@ -23,30 +29,30 @@
 [v _eeprom_read eeprom_read `(uc  1 e 1 0 ]
 "6 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\pic\__eewrite.c
 [v _eeprom_write eeprom_write `(v  1 e 1 0 ]
-"77 E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+"86 E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
 [v _ADC_read ADC_read `(ui  1 e 2 0 ]
-"87
+"96
 [v _init_I2C_buffer init_I2C_buffer `(v  1 e 1 0 ]
-"110
+"120
 [v _isr isr `II(v  1 e 1 0 ]
-"176
+"186
 [v _main main `(i  1 e 2 0 ]
-[s S528 . 1 `uc 1 C 1 0 :1:0 
+[s S543 . 1 `uc 1 C 1 0 :1:0 
 `uc 1 DC 1 0 :1:1 
 `uc 1 Z 1 0 :1:2 
 `uc 1 nPD 1 0 :1:3 
 `uc 1 nTO 1 0 :1:4 
 ]
 "131 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic12f1840.h
-[s S534 . 1 `uc 1 CARRY 1 0 :1:0 
+[s S549 . 1 `uc 1 CARRY 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 ZERO 1 0 :1:2 
 ]
-[u S538 . 1 `S528 1 . 1 0 `S534 1 . 1 0 ]
-[v _STATUSbits STATUSbits `VES538  1 e 1 @3 ]
+[u S553 . 1 `S543 1 . 1 0 `S549 1 . 1 0 ]
+[v _STATUSbits STATUSbits `VES553  1 e 1 @3 ]
 "351
 [v _INTCON INTCON `VEuc  1 e 1 @11 ]
-[s S107 . 1 `uc 1 IOCIF 1 0 :1:0 
+[s S108 . 1 `uc 1 IOCIF 1 0 :1:0 
 `uc 1 INTF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 IOCIE 1 0 :1:3 
@@ -56,14 +62,14 @@
 `uc 1 GIE 1 0 :1:7 
 ]
 "374
-[s S116 . 1 `uc 1 . 1 0 :2:0 
+[s S117 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 T0IE 1 0 :1:5 
 ]
-[u S121 . 1 `S107 1 . 1 0 `S116 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES121  1 e 1 @11 ]
-[s S86 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[u S122 . 1 `S108 1 . 1 0 `S117 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES122  1 e 1 @11 ]
+[s S87 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
 `uc 1 SSP1IF 1 0 :1:3 
@@ -73,9 +79,9 @@
 `uc 1 TMR1GIF 1 0 :1:7 
 ]
 "496
-[u S95 . 1 `S86 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES95  1 e 1 @17 ]
-[s S208 . 1 `uc 1 . 1 0 :3:0 
+[u S96 . 1 `S87 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES96  1 e 1 @17 ]
+[s S209 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 BCL1IF 1 0 :1:3 
 `uc 1 EEIF 1 0 :1:4 
 `uc 1 C1IF 1 0 :1:5 
@@ -83,11 +89,11 @@
 `uc 1 OSFIF 1 0 :1:7 
 ]
 "556
-[u S215 . 1 `S208 1 . 1 0 ]
-[v _PIR2bits PIR2bits `VES215  1 e 1 @18 ]
+[u S216 . 1 `S209 1 . 1 0 ]
+[v _PIR2bits PIR2bits `VES216  1 e 1 @18 ]
 "1002
 [v _TRISA TRISA `VEuc  1 e 1 @140 ]
-[s S139 . 1 `uc 1 TMR1IE 1 0 :1:0 
+[s S140 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 CCP1IE 1 0 :1:2 
 `uc 1 SSP1IE 1 0 :1:3 
@@ -97,9 +103,9 @@
 `uc 1 TMR1GIE 1 0 :1:7 
 ]
 "1069
-[u S148 . 1 `S139 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES148  1 e 1 @145 ]
-[s S307 . 1 `uc 1 . 1 0 :3:0 
+[u S149 . 1 `S140 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES149  1 e 1 @145 ]
+[s S308 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 BCL1IE 1 0 :1:3 
 `uc 1 EEIE 1 0 :1:4 
 `uc 1 C1IE 1 0 :1:5 
@@ -107,9 +113,9 @@
 `uc 1 OSFIE 1 0 :1:7 
 ]
 "1129
-[u S314 . 1 `S307 1 . 1 0 ]
-[v _PIE2bits PIE2bits `VES314  1 e 1 @146 ]
-[s S229 . 1 `uc 1 PS0 1 0 :1:0 
+[u S315 . 1 `S308 1 . 1 0 ]
+[v _PIE2bits PIE2bits `VES315  1 e 1 @146 ]
+[s S230 . 1 `uc 1 PS0 1 0 :1:0 
 `uc 1 PS1 1 0 :1:1 
 `uc 1 PS2 1 0 :1:2 
 `uc 1 PSA 1 0 :1:3 
@@ -119,13 +125,13 @@
 `uc 1 nWPUEN 1 0 :1:7 
 ]
 "1177
-[s S238 . 1 `uc 1 PS 1 0 :3:0 
+[s S239 . 1 `uc 1 PS 1 0 :3:0 
 `uc 1 . 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
 ]
-[u S243 . 1 `S229 1 . 1 0 `S238 1 . 1 0 ]
-[v _OPTION_REGbits OPTION_REGbits `VES243  1 e 1 @149 ]
+[u S244 . 1 `S230 1 . 1 0 `S239 1 . 1 0 ]
+[v _OPTION_REGbits OPTION_REGbits `VES244  1 e 1 @149 ]
 "1405
 [v _OSCCON OSCCON `VEuc  1 e 1 @153 ]
 "1546
@@ -134,7 +140,7 @@
 [v _ADRESH ADRESH `VEuc  1 e 1 @156 ]
 "1586
 [v _ADCON0 ADCON0 `VEuc  1 e 1 @157 ]
-[s S38 . 1 `uc 1 ADON 1 0 :1:0 
+[s S39 . 1 `uc 1 ADON 1 0 :1:0 
 `uc 1 GO_nDONE 1 0 :1:1 
 `uc 1 CHS0 1 0 :1:2 
 `uc 1 CHS1 1 0 :1:3 
@@ -143,18 +149,18 @@
 `uc 1 CHS4 1 0 :1:6 
 ]
 "1611
-[s S46 . 1 `uc 1 . 1 0 :1:0 
+[s S47 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 ADGO 1 0 :1:1 
 `uc 1 CHS 1 0 :5:2 
 ]
-[s S50 . 1 `uc 1 . 1 0 :1:0 
+[s S51 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO 1 0 :1:1 
 ]
-[u S53 . 1 `S38 1 . 1 0 `S46 1 . 1 0 `S50 1 . 1 0 ]
-[v _ADCON0bits ADCON0bits `VES53  1 e 1 @157 ]
+[u S54 . 1 `S39 1 . 1 0 `S47 1 . 1 0 `S51 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES54  1 e 1 @157 ]
 "1666
 [v _ADCON1 ADCON1 `VEuc  1 e 1 @158 ]
-[s S325 . 1 `uc 1 LATA0 1 0 :1:0 
+[s S326 . 1 `uc 1 LATA0 1 0 :1:0 
 `uc 1 LATA1 1 0 :1:1 
 `uc 1 LATA2 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -162,8 +168,8 @@
 `uc 1 LATA5 1 0 :1:5 
 ]
 "1747
-[u S332 . 1 `S325 1 . 1 0 ]
-[v _LATAbits LATAbits `VES332  1 e 1 @268 ]
+[u S333 . 1 `S326 1 . 1 0 ]
+[v _LATAbits LATAbits `VES333  1 e 1 @268 ]
 "2395
 [v _ANSELA ANSELA `VEuc  1 e 1 @396 ]
 "2442
@@ -172,7 +178,7 @@
 [v _EEDATA EEDATA `VEuc  1 e 1 @403 ]
 "2554
 [v _EECON1 EECON1 `VEuc  1 e 1 @405 ]
-[s S504 . 1 `uc 1 RD 1 0 :1:0 
+[s S519 . 1 `uc 1 RD 1 0 :1:0 
 `uc 1 WR 1 0 :1:1 
 `uc 1 WREN 1 0 :1:2 
 `uc 1 WRERR 1 0 :1:3 
@@ -182,8 +188,8 @@
 `uc 1 EEPGD 1 0 :1:7 
 ]
 "2571
-[u S513 . 1 `S504 1 . 1 0 ]
-[v _EECON1bits EECON1bits `VES513  1 e 1 @405 ]
+[u S528 . 1 `S519 1 . 1 0 ]
+[v _EECON1bits EECON1bits `VES528  1 e 1 @405 ]
 "2616
 [v _EECON2 EECON2 `VEuc  1 e 1 @406 ]
 "2985
@@ -194,7 +200,7 @@
 [v _SSP1ADD SSP1ADD `VEuc  1 e 1 @530 ]
 "3157
 [v _SSP1STAT SSP1STAT `VEuc  1 e 1 @532 ]
-[s S160 . 1 `uc 1 BF 1 0 :1:0 
+[s S161 . 1 `uc 1 BF 1 0 :1:0 
 `uc 1 UA 1 0 :1:1 
 `uc 1 R_nW 1 0 :1:2 
 `uc 1 S 1 0 :1:3 
@@ -204,11 +210,11 @@
 `uc 1 SMP 1 0 :1:7 
 ]
 "3179
-[u S169 . 1 `S160 1 . 1 0 ]
-[v _SSP1STATbits SSP1STATbits `VES169  1 e 1 @532 ]
+[u S170 . 1 `S161 1 . 1 0 ]
+[v _SSP1STATbits SSP1STATbits `VES170  1 e 1 @532 ]
 "3279
 [v _SSP1CON1 SSP1CON1 `VEuc  1 e 1 @533 ]
-[s S182 . 1 `uc 1 SSPM0 1 0 :1:0 
+[s S183 . 1 `uc 1 SSPM0 1 0 :1:0 
 `uc 1 SSPM1 1 0 :1:1 
 `uc 1 SSPM2 1 0 :1:2 
 `uc 1 SSPM3 1 0 :1:3 
@@ -218,11 +224,11 @@
 `uc 1 WCOL 1 0 :1:7 
 ]
 "3308
-[s S191 . 1 `uc 1 SSPM 1 0 :4:0 
+[s S192 . 1 `uc 1 SSPM 1 0 :4:0 
 ]
-[u S193 . 1 `S182 1 . 1 0 `S191 1 . 1 0 ]
-[v _SSP1CON1bits SSP1CON1bits `VES193  1 e 1 @533 ]
-[s S264 . 1 `uc 1 SEN 1 0 :1:0 
+[u S194 . 1 `S183 1 . 1 0 `S192 1 . 1 0 ]
+[v _SSP1CON1bits SSP1CON1bits `VES194  1 e 1 @533 ]
+[s S265 . 1 `uc 1 SEN 1 0 :1:0 
 `uc 1 RSEN 1 0 :1:1 
 `uc 1 PEN 1 0 :1:2 
 `uc 1 RCEN 1 0 :1:3 
@@ -232,9 +238,9 @@
 `uc 1 GCEN 1 0 :1:7 
 ]
 "3505
-[u S273 . 1 `S264 1 . 1 0 ]
-[v _SSP1CON2bits SSP1CON2bits `VES273  1 e 1 @534 ]
-[s S285 . 1 `uc 1 DHEN 1 0 :1:0 
+[u S274 . 1 `S265 1 . 1 0 ]
+[v _SSP1CON2bits SSP1CON2bits `VES274  1 e 1 @534 ]
+[s S286 . 1 `uc 1 DHEN 1 0 :1:0 
 `uc 1 AHEN 1 0 :1:1 
 `uc 1 SBCDE 1 0 :1:2 
 `uc 1 SDAHT 1 0 :1:3 
@@ -244,41 +250,53 @@
 `uc 1 ACKTIM 1 0 :1:7 
 ]
 "3627
-[u S294 . 1 `S285 1 . 1 0 ]
-[v _SSP1CON3bits SSP1CON3bits `VES294  1 e 1 @535 ]
+[u S295 . 1 `S286 1 . 1 0 ]
+[v _SSP1CON3bits SSP1CON3bits `VES295  1 e 1 @535 ]
 "3 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\errno.c
 [v _errno errno `i  1 e 2 0 ]
-"49 E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
-[v _adc adc `f  1 e 4 0 ]
-"50
+"51 E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+[v _adc0 adc0 `f  1 e 4 0 ]
+"52
+[v _adc1 adc1 `f  1 e 4 0 ]
+"53
+[v _ical ical `f  1 e 4 0 ]
+"54
+[v _vcal vcal `f  1 e 4 0 ]
+"55
 [v _iacc iacc `f  1 e 4 0 ]
-"51
+"56
 [v _vacc vacc `f  1 e 4 0 ]
-[s S22 _data 29 `uc 1 ID 1 0 `uc 1 RESET 1 1 `uc 1 SAVE 1 2 `i 1 ctRatio 2 3 `i 1 ctRl 2 5 `f 1 trRatio 4 7 `i 1 samples 2 11 `f 1 Irms 4 13 `f 1 Vrms 4 17 `f 1 Power 4 21 `f 1 AvPower 4 25 ]
-"69
-[u S34 _I2C_buffer 29 `S22 1 data 29 0 `[0]uc 1 byte 0 0 ]
-[v _I2C_buffer I2C_buffer `VES34  1 e 29 0 ]
-"72
+"57
+[v _pacc pacc `f  1 e 4 0 ]
+"58
+[v _apaPower apaPower `f  1 e 4 0 ]
+"59
+[v _pf pf `f  1 e 4 0 ]
+[s S22 _data 33 `uc 1 ID 1 0 `uc 1 RESET 1 1 `uc 1 SAVE 1 2 `i 1 ctRatio 2 3 `i 1 ctRl 2 5 `f 1 trRatio 4 7 `i 1 samples 2 11 `f 1 Irms 4 13 `f 1 Vrms 4 17 `f 1 Power 4 21 `f 1 AvPower 4 25 `f 1 PwFactor 4 29 ]
+"78
+[u S35 _I2C_buffer 33 `S22 1 data 33 0 `[0]uc 1 byte 0 0 ]
+[v _I2C_buffer I2C_buffer `VES35  1 e 33 0 ]
+"81
 [v _first_i2c first_i2c `uc  1 e 1 0 ]
-"73
+"82
 [v _index_i2c index_i2c `uc  1 e 1 0 ]
-"176
+"186
 [v _main main `(i  1 e 2 0 ]
 {
-"225
+"236
 [v main@i i `i  1 a 2 10 ]
-"252
+"270
 } 0
 "9 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
 [v _sqrt sqrt `(d  1 e 4 0 ]
 {
 "14
 [v sqrt@frac frac `ul  1 a 4 17 ]
-[s S869 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S884 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "11
-[s S874 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
-[u S877 . 4 `l 1 i 4 0 `d 1 f 4 0 `S869 1 fAsBytes 4 0 `S874 1 fAsWords 4 0 ]
-[v sqrt@root root `S877  1 a 4 13 ]
+[s S889 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
+[u S892 . 4 `l 1 i 4 0 `d 1 f 4 0 `S884 1 fAsBytes 4 0 `S889 1 fAsWords 4 0 ]
+[v sqrt@root root `S892  1 a 4 13 ]
 "16
 [v sqrt@grs grs `ul  1 a 4 7 ]
 "15
@@ -293,10 +311,10 @@
 [v sqrt@a a `d  1 p 4 62 ]
 "159
 } 0
-"87 E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+"96 E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
 [v _init_I2C_buffer init_I2C_buffer `(v  1 e 1 0 ]
 {
-"106
+"116
 } 0
 "6 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\pic\__eeread.c
 [v _eeprom_read eeprom_read `(uc  1 e 1 0 ]
@@ -305,6 +323,25 @@
 [v eeprom_read@addr addr `uc  1 a 1 wreg ]
 "9
 [v eeprom_read@addr addr `uc  1 a 1 4 ]
+"19
+} 0
+"4 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\fabs.c
+[v _fabs fabs `(d  1 e 4 0 ]
+{
+[v fabs@d d `d  1 p 4 36 ]
+"9
+} 0
+"15 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\flneg.c
+[v ___flneg __flneg `(d  1 e 4 0 ]
+{
+[v ___flneg@f1 f1 `d  1 p 4 1 ]
+"20
+} 0
+"4 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\flge.c
+[v ___flge __flge `(b  1 e 0 0 ]
+{
+[v ___flge@ff1 ff1 `d  1 p 4 1 ]
+[v ___flge@ff2 ff2 `d  1 p 4 5 ]
 "19
 } 0
 "6 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\pic\__eewrite.c
@@ -334,17 +371,17 @@
 "8 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S869 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S884 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S874 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
-[u S877 . 4 `l 1 i 4 0 `d 1 f 4 0 `S869 1 fAsBytes 4 0 `S874 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S877  1 a 4 30 ]
+[s S889 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
+[u S892 . 4 `l 1 i 4 0 `d 1 f 4 0 `S884 1 fAsBytes 4 0 `S889 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S892  1 a 4 30 ]
 "12
 [v ___flmul@grs grs `ul  1 a 4 26 ]
-[s S946 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[s S961 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S949 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S946 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S949  1 a 2 34 ]
+[u S964 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S961 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S964  1 a 2 34 ]
 "10
 [v ___flmul@bexp bexp `uc  1 a 1 25 ]
 "11
@@ -406,18 +443,18 @@
 [v ___fladd@a a `d  1 p 4 66 ]
 "237
 } 0
-"77 E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+"86 E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
 [v _ADC_read ADC_read `(ui  1 e 2 0 ]
 {
 [v ADC_read@channel channel `uc  1 a 1 wreg ]
 [v ADC_read@channel channel `uc  1 a 1 wreg ]
 [v ADC_read@channel channel `uc  1 a 1 4 ]
-"85
+"94
 } 0
-"110
+"120
 [v _isr isr `II(v  1 e 1 0 ]
 {
-"112
+"122
 [v isr@junk junk `uc  1 s 1 junk ]
-"174
+"184
 } 0

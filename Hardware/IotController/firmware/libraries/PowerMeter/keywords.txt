@@ -15,3 +15,4 @@ getIrms		KEYWORD2
 getVrms		KEYWORD2
 getPower		KEYWORD2
 getAvPower		KEYWORD2
+getPowerFactor		KEYWORD2

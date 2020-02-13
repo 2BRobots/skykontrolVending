@@ -31,6 +31,8 @@
 #define _XTAL_FREQ 32000000
 #define DEVICE_ID 0x02
 #define I2C_slave_address 0x3E // any value from 0 to 127, this will be the default address
+#define VCAL 234.26F
+#define ICAL 111.11F
 
 #include <math.h>
 #include <stdio.h>
@@ -46,9 +48,15 @@ void eeprom_write(unsigned char address, unsigned char value);
 
 // Global variables declation
 
-float adc = 0;
+float adc0 = 0;
+float adc1 = 0;
+float ical = 0;
+float vcal = 0;
 float iacc = 0;
 float vacc = 0;
+float pacc = 0;
+float apaPower = 0;
+float pf = 0;
 
 volatile union _I2C_buffer {
 
@@ -64,6 +72,7 @@ volatile union _I2C_buffer {
         float Vrms;
         float Power;
         float AvPower;
+        float PwFactor;
     } data;
     unsigned char byte[];
 } I2C_buffer;
@@ -103,6 +112,7 @@ void init_I2C_buffer() //load default values of vars
     I2C_buffer.data.Vrms = 0;
     I2C_buffer.data.Power = 0;
     I2C_buffer.data.AvPower = 0;
+    I2C_buffer.data.PwFactor = 1.0F;
 }
 
 // Interrupts
@@ -221,31 +231,39 @@ int main(int argc, char** argv) {
 
         iacc = 0;
         vacc = 0;
+        pacc = 0;
 
         for (int i = 0; i < I2C_buffer.data.samples; i++) //rms current in transformer primary
         {
             asm("CLRWDT");
 
-            adc = (float) ADC_read(0x00); //read adc for current transformer
+            adc0 = (float) ADC_read(0x00); //read adc for current transformer
+            adc1 = (float) ADC_read(0x03); //read adc for voltage transformer
 
-            adc = ((adc * 3.3F) / 1024.0F) - 1.65F; //convert ADC to voltage
-            adc = (adc / (float)I2C_buffer.data.ctRl) * (float)I2C_buffer.data.ctRatio; //conver to current in the line
-            iacc += adc*adc; //acumulate RMS value for sampling
+            ical = ((adc0 * 3.3F) / 1023.0F) - 1.65F; //convert ADC to voltage
+            ical = (ical / (float) I2C_buffer.data.ctRl) * (float) I2C_buffer.data.ctRatio; //conver to current in the line
+            iacc += ical * ical; //acumulate RMS value for sampling
 
-            adc = (float) ADC_read(0x03); //read adc for voltage transformer
+            vcal = ((adc1 * 3.3F) / 1023.0F) - 1.65F; //convert ADC to voltage
+            vcal = vcal * I2C_buffer.data.trRatio; //multiply voltage for the transformer relation 
+            vacc += vcal * vcal; //acumulate RMS value for sampling
 
-            adc = ((adc * 3.3F) / 1024.0F) - 1.65F; //convert ADC to voltage
-            adc = adc * I2C_buffer.data.trRatio; //multiply voltage for the transformer relation 
-            vacc += adc*adc; //acumulate RMS value for sampling
+            pacc += vcal * ical;
         }
 
-        I2C_buffer.data.Irms = sqrt((iacc / (float)I2C_buffer.data.samples)) * 2.0F; //RMS current, I can't understand why it needs to be multiplied by 2. If you know please help.
-        I2C_buffer.data.Vrms = sqrt((vacc / (float)I2C_buffer.data.samples)); //RMS voltage
-        I2C_buffer.data.Power = I2C_buffer.data.Vrms * I2C_buffer.data.Irms; //apparent Power
+        I2C_buffer.data.Irms = sqrt((iacc / (float) I2C_buffer.data.samples)); //RMS current
+        I2C_buffer.data.Vrms = sqrt((vacc / (float) I2C_buffer.data.samples)); //RMS voltage
+        apaPower = I2C_buffer.data.Vrms * I2C_buffer.data.Irms; //apparent Power
+        pf = ((VCAL * (3.3F / 1023.0F)) * (ICAL * (3.3F / 1023.0F)) * pacc / (float) I2C_buffer.data.samples);
+        do 
+        {
+            pf = pf / 2;
+        } while (pf > 1.00F);
+        I2C_buffer.data.PwFactor = pf;
+        I2C_buffer.data.Power = fabs(apaPower * I2C_buffer.data.PwFactor);
         I2C_buffer.data.AvPower = (I2C_buffer.data.Power + I2C_buffer.data.AvPower) / 2.0F; //average apparent power
-        LATAbits.LATA5 = (char)!LATAbits.LATA5; //toggle led
-        
-       //to do = add instantaneous power calculation to be able to calculate real power
+        LATAbits.LATA5 = (char) !LATAbits.LATA5; //toggle led
+
     }
 
     return (EXIT_SUCCESS);

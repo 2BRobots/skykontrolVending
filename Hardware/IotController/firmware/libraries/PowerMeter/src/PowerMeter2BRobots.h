@@ -25,6 +25,7 @@
 #define PWMT_REG_Vrms               0x11
 #define PWMT_REG_power              0x15
 #define PWMT_REG_avPower            0x19
+#define PWMT_REG_PwFactor           0x1D
 
 class PowerMeter2BRobots {
 public:
@@ -49,6 +50,7 @@ public:
 	float getVrms(void);
 	float getPower(void);
 	float getAvPower(void);
+	float getPowerFactor(void);
 
 	void write32(uint8_t reg, uint32_t val);
 	uint32_t read32(uint8_t reg);
