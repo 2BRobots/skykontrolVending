@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-
+<html lang="en">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head runat="server">
@@ -45,47 +45,42 @@
                 if (this.readyState == 4 && this.status == 200) {
                     if (this.responseText != "FAIL" && this.responseText != "ERROR") {
                         if (this.responseText == "EMPTY") {
-                            document.getElementById("message").innerHTML = "No hay resumenes en el historial.";
-                            document.getElementById("message2").innerHTML = "Ya han sido eliminados o no han sido procesados.";
+                            document.getElementById("message").innerHTML = "There are no records in the history.";
+                            document.getElementById("message2").innerHTML = "They have already been deleted or have not been sent.";
                             document.getElementById("message2").style.display = "block";
                             return true;
                         } else {
-                            document.getElementById("message").innerHTML = "Este es el historial que tenemos:";
+                            document.getElementById("message").innerHTML = "This is the history we have:";
                             document.getElementById("message2").style.display = "block";
                             var lines = this.responseText.split('\n');
-                            var eventos = 0;
+                            var events = 0;
                             for (var i = 0; i < lines.length - 1; i++) {
                                 var data = lines[i].split(',');
-                                eventos = eventos + 1;
-                                $('#register > tbody').append("<tr><td>" + data[0] + "</td><td>" + data[1] + "</td><td>" + data[2] + "</td><td>" + data[3] + "</td>");
+                                events = events + 1;
+                                $('#register > tbody').append("<tr><td>" + data[0] + "</td><td>" + data[1] + "</td><td>" + data[2] + "</td><td>" + data[3] + "</td><td>" + data[4] + "</td></tr>");
                             }
-                            document.getElementById("message2").innerHTML = "Se recuperaron " + eventos + " resumenes.";
+                            document.getElementById("message2").innerHTML = events + " records were recovered.";
                             return true;
                         }
                     } else {
-                        document.getElementById("message").innerHTML = "Ocurrio un problema inesperado.";
+                        document.getElementById("message").innerHTML = "An unexpected error occurred.";
                         return false;
                     }
                 }
             };
             var str = "token=" + token;
-            xmlhttp.open("POST", "api/getResumes.php", true);
+            xmlhttp.open("POST", "api/getSummaries.php", true);
             xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             xmlhttp.send(str);
         }
 
         function printDetails() {
-            var details = "MAC: " + mac + " - Dominio: " + customer + " <br> Firmware: " + firmware + "  - Fabricado: " + madeDate;
+            var details = "MAC: " + mac + " - Owner: " + customer + " <br> Firmware: " + firmware + "  - Manufactured: " + madeDate;
             document.getElementById("resume").innerHTML = details;
         }
 
         function customize() {
-            if (customer == "2BRobots") {
-                document.getElementById("brand").src = "images/2brobots.png";
-            }
-            if (customer == "EcoFill") {
-                document.getElementById("brand").src = "images/ecofill.png";
-            }
+            document.getElementById("brand").src = "images/" + customer.toLowerCase() + ".png";
         }
     </script>
 </head>
@@ -111,11 +106,12 @@
                     </div>
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="main">Inicio</a></li>
-                            <li><a href="sales">Ventas</a></li>
-                            <li><a href="logs">Registros</a></li>
-                            <li><a href="location">Ubicación</a></li>
-                            <li><a href="logout">Cerrar sesión</a></li>
+                            <li><a href="main">Main</a></li>
+                            <li><a href="sales">Sales</a></li>
+                            <li><a href="events">Events</a></li>
+                            <li><a href="location">Location</a></li>
+                            <li><a href="location">Console</a></li>
+                            <li><a href="logout">Logout</a></li>
                         </ul>
                     </div>
                 </div>
@@ -136,28 +132,30 @@
                         <br />
                         <br />
                         <br />
-                        <h2 class="text-center center-block">Resumenes de tu dispositivo SkyKontrol</h2>
+                        <h2 class="text-center center-block">Summaries of your SkyKontrol device</h2>
                         <img class="img-responsive img-rounded center-block" id="brand" style="max-width: calc(35%);" src="images/2brobots.png" />
                         <br />
-                        <label class="text-center" id="message">Recuperando historial...</label>
-                        <label class="text-center" style="display: none;" id="message2">calculo en proceso...</label>
-                        <table class="table table-striped table-bordered table-responsive table-condensed text-center" style="max-width: calc(96%);" id="register">
+                        <label class="text-center" id="message">Retrieving history...</label>
+                        <label class="text-center" style="display: none;" id="message2">Calculation in process...</label>
+                        <table class="table table-striped table-bordered table-responsive table-condensed text-center" style="max-width: calc(96%); font-size: calc(90%);" id="register">
                             <thead>
                                 <tr>
-                                    <th class="text-center">Inicio</th>
-                                    <th class="text-center">Termino</th>
-                                    <th class="text-center">Ventas</th>
-                                    <th class="text-center">Ingresos</th>
+                                    <th class="text-center" width="30%">Begins</th>
+                                    <th class="text-center" width="30%">Finish</th>
+                                    <th class="text-center">kWh</th>
+                                    <th class="text-center">Sales</th>
+                                    <th class="text-center">Income</th>
                                 </tr>
                             </thead>
                             <tbody>
                         </table>
-                        <p class="text-center">Zona horaria: Tiempo del centro (Ciudad de México)</p>
-                        <p class="text-center">Recuerda que todos los registros mayores a 3 años se borran automaticamente.</p>
+                        <p class="text-center">Time zone: CST (Mexico City)</p>
+                        <p class="text-center">Remember that all records older than 3 years are automatically deleted.</p>
+                        <p class="text-center"><b>Note:</b> This summary only reflects transactions made with Cash!</p>
                         <br />
-                        <label class="text-center">Datos del controlador</label>
+                        <label class="text-center">Controller info</label>
                         <br />
-                        <label class="text-center" id="resume">Leyendo datos del controlador...</label>
+                        <label class="text-center" id="resume">Reading controller data...</label>
                         <br />
                         <br />
                         <br />

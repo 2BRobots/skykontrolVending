@@ -19,10 +19,13 @@ if (empty($_SESSION["id"])) {
 
 readfile("uix/main.html");
 
-$charLCD  = $_SESSION["charLCD"];
-$customer = $_SESSION["company"];
+$powerMeter = $_SESSION["powerMeter"];
+$datalogger = $_SESSION["datalogger"];
+$slots      = $_SESSION["slots"];
+$charLCD    = $_SESSION["charLCD"];
+$customer   = $_SESSION["company"];
 
 $token = generateRandomString();
 
-echo "\n<html><script> var customer = '$customer'; var token = '$token'; var charLCD = '$charLCD'; obtener(); accessories(); customize(); </script></html>";
+echo "\n<html><script> var customer = '$customer'; var token = '$token'; var charLCD = '$charLCD'; var powerMeter = '$powerMeter'; var datalogger = '$datalogger'; var slots = '$slots'; obtain(); accessories(); customize(); </script></html>";
 ?>

@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-
+<html lang="en">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head runat="server">
@@ -33,7 +33,10 @@
     <![endif]-->
 
     <script>
-        function actualizar() {
+        var smessageStatus;
+
+        function update() {
+            smessageStatus = "";
             if (window.XMLHttpRequest) {
                 // code for IE7+, Firefox, Chrome, Opera, Safari
                 xmlhttp = new XMLHttpRequest();
@@ -41,58 +44,61 @@
                 // code for IE6, IE5
                 xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
             }
-            xmlhttp.onreadystatechange = function() {
+            xmlhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
-                    if (this.responseText == "FAIL") {
-                        obtener();
-                        document.getElementById("message").innerHTML = "Intentalo de nuevo";
-                        document.getElementById("message").className = "text-center text-warning";
+                    if (this.responseText == "FAIL" || smessageStatus == "FAIL") {
+                        obtain();
+                        smessageStatus = "FAIL";
+                        document.getElementById("smessage").innerHTML = "Try again";
+                        document.getElementById("smessage").className = "text-center text-warning";
                         return false;
                     }
-                    if (this.responseText == "ERROR") {
-                        obtener();
-                        document.getElementById("message").innerHTML = "Ocurrio un problema";
-                        document.getElementById("message").className = "text-center text-danger";
+                    if (this.responseText == "ERROR" || smessageStatus == "ERROR") {
+                        obtain();
+                        smessageStatus = "ERROR";
+                        document.getElementById("smessage").innerHTML = "There's been an error";
+                        document.getElementById("smessage").className = "text-center text-danger";
                         return false;
                     }
                     if (this.responseText == "PASS") {
-                        obtener();
-                        document.getElementById("message").innerHTML = "Guardado correctamente";
-                        document.getElementById("message").className = "text-center text-success";
+                        obtain();
+                        document.getElementById("smessage").innerHTML = "Saved correctly";
+                        document.getElementById("smessage").className = "text-center text-success";
                         return true;
                     }
                 }
             };
-            document.getElementById("message").innerHTML = "enviando...";
-            document.getElementById("message").className = "text-center text-primary";
-            var costo = document.getElementById("costo").value;
-            var tiempo = document.getElementById("tiempo").value;
-            var estado = document.getElementById("estado").checked;
-            var mensaje = document.getElementById("mensaje").value;
-            mensaje = mensaje.slice(0, document.getElementById("mensaje").maxLength);
-            mensaje = mensaje.replace(/[^A-Za-z0-9\!\#\+\-\*\/\?\$\%\(\)\=\.\& ]/g, '');
-            if (mensaje == "") {
-                mensaje = "Powered by 2BRobots IoT network.";
+            document.getElementById("smessage").innerHTML = "sending...";
+            document.getElementById("smessage").className = "text-center text-primary";
+            var cost = document.getElementById("cost").value;
+            var time = document.getElementById("time").value;
+            var state = document.getElementById("state").checked;
+            var message = document.getElementById("message").value;
+            message = message.slice(0, document.getElementById("message").maxLength);
+            message = message.replace(/[^A-Za-z0-9\!\#\+\-\*\/\?\$\%\(\)\=\.\& ]/g, '');
+            if (message == "") {
+                message = "Powered by 2BRobots IoT network.";
             }
-            if (costo < 1) {
-                costo = 1;
+            if (cost < 1) {
+                cost = 1;
             }
-            if (tiempo < 1) {
-                tiempo = 1;
+            if (time < 1) {
+                time = 1;
             }
-            if (costo > 65535) {
-                costo = 65535;
+            if (cost > 4294967295) {
+                cost = 4294967295;
             }
-            if (tiempo > 65535) {
-                tiempo = 65535;
+            if (time > 4294967295) {
+                time = 4294967295;
             }
-            var str = "cost=" + costo + "&time=" + tiempo + "&state=" + estado + "&message=" + mensaje + "&token=" + token;
+            var str = "cost=" + cost + "&time=" + time + "&state=" + state + "&message=" + message + "&token=" + token;
             xmlhttp.open("POST", "api/setData.php", true);
             xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             xmlhttp.send(str);
+            setSlots();
         }
 
-        function obtener() {
+        function obtain() {
             if (window.XMLHttpRequest) {
                 // code for IE7+, Firefox, Chrome, Opera, Safari
                 xmlhttp = new XMLHttpRequest();
@@ -100,18 +106,18 @@
                 // code for IE6, IE5
                 xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
             }
-            xmlhttp.onreadystatechange = function() {
+            xmlhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
                     if (this.responseText != "FAIL" && this.responseText != "ERROR") {
                         var data = this.responseText.split(',');
                         document.getElementById("last").innerHTML = data[0];
-                        document.getElementById("mensaje").value = data[1];
-                        document.getElementById("costo").value = data[2];
-                        document.getElementById("tiempo").value = data[3];
+                        document.getElementById("message").value = data[1];
+                        document.getElementById("cost").value = data[2];
+                        document.getElementById("time").value = data[3];
                         if (data[4] == 1) {
-                            document.getElementById("estado").checked = true;
+                            document.getElementById("state").checked = true;
                         } else {
-                            document.getElementById("estado").checked = false;
+                            document.getElementById("state").checked = false;
                         }
                         return true;
                     } else {
@@ -123,22 +129,188 @@
             xmlhttp.open("POST", "api/getData.php", true);
             xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             xmlhttp.send(str);
+            obtainSlots();
+        }
+
+        function setSlot(slot) {
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    if (this.responseText == "FAIL" || smessageStatus == "FAIL") {
+                        obtain();
+                        smessageStatus = "FAIL";
+                        document.getElementById("smessage").innerHTML = "Try again";
+                        document.getElementById("smessage").className = "text-center text-warning";
+                        return false;
+                    }
+                    if (this.responseText == "ERROR" || smessageStatus == "ERROR") {
+                        obtain();
+                        smessageStatus = "ERROR";
+                        document.getElementById("smessage").innerHTML = "There's been an error";
+                        document.getElementById("smessage").className = "text-center text-danger";
+                        return false;
+                    }
+                    if (this.responseText == "PASS") {
+                        obtain();
+                        document.getElementById("smessage").innerHTML = "Saved correctly";
+                        document.getElementById("smessage").className = "text-center text-success";
+                        return true;
+                    }
+                }
+            };
+            document.getElementById("smessage").innerHTML = "sending...";
+            document.getElementById("smessage").className = "text-center text-primary";
+            var setProduct = document.getElementById("product" + slot).value;
+            var setCost = document.getElementById("cost" + slot).value;
+            var setTime = document.getElementById("time" + slot).value;
+            var setCounter = document.getElementById("counter" + slot).value;
+            var setQuantity = document.getElementById("quantity" + slot).value;
+            setProduct = setProduct.slice(0, document.getElementById("product" + slot).maxLength);
+            setProduct = setProduct.replace(/[^A-Za-z0-9\!\#\+\-\*\/\?\$\%\(\)\=\.\& ]/g, '');
+            if (setProduct == "") {
+                setProduct = "000000000000";
+            }
+            if (setCounter < 1) {
+                setCounter = 1;
+            }
+            if (setCounter > 4294967295) {
+                setCounter = 4294967295;
+            }
+            if (setTime < 1) {
+                setTime = 1;
+            }
+            if (setTime > 4294967295) {
+                setTime = 4294967295;
+            }
+            if (setCost < 1) {
+                setCost = 1;
+            }
+            if (setCost > 4294967295) {
+                setCost = 4294967295;
+            }
+            if (setQuantity < 1) {
+                setQuantity = 1;
+            }
+            if (setQuantity > 4294967295) {
+                setQuantity = 4294967295;
+            }
+            var str = "slot=" + slot + "&product_id=" + setProduct + "&cost=" + setCost + "&time=" + setTime + "&counter=" + setCounter + "&quantity=" + setQuantity + "&token=" + token;
+            xmlhttp.open("POST", "api/setSlot.php", true);
+            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xmlhttp.send(str);
+        }
+
+        function setSlots() {
+            if (slots != "0") {
+                if (slots == "1") {
+                    setSlot(1);
+                }
+                if (slots == "2") {
+                    setSlot(1);
+                    setSlot(2);
+                }
+                if (slots == "3") {
+                    setSlot(1);
+                    setSlot(2);
+                    setSlot(3);
+                }
+                if (slots == "4") {
+                    setSlot(1);
+                    setSlot(2);
+                    setSlot(3);
+                    setSlot(4);
+                }
+            }
+        }
+
+        function getSlot(slot) {
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    if (this.responseText != "FAIL" && this.responseText != "ERROR") {
+                        var data = this.responseText.split(',');
+                        document.getElementById("product" + slot).value = data[0];
+                        document.getElementById("cost" + slot).value = data[1];
+                        document.getElementById("time" + slot).value = data[2];
+                        document.getElementById("counter" + slot).value = data[3];
+                        document.getElementById("quantity" + slot).value = data[4];
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            };
+            var str = "slot=" + slot + "&token=" + token;
+            xmlhttp.open("POST", "api/getSlot.php", true);
+            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xmlhttp.send(str);
+        }
+
+        function obtainSlots() {
+            if (slots != "0") {
+                if (slots == "1") {
+                    getSlot(1);
+                }
+                if (slots == "2") {
+                    getSlot(1);
+                    getSlot(2);
+                }
+                if (slots == "3") {
+                    getSlot(1);
+                    getSlot(2);
+                    getSlot(3);
+                }
+                if (slots == "4") {
+                    getSlot(1);
+                    getSlot(2);
+                    getSlot(3);
+                    getSlot(4);
+                }
+            }
         }
 
         function customize() {
-            if (customer == "2BRobots") {
-                document.getElementById("brand").src = "images/2brobots.png";
-            }
-            if (customer == "EcoFill") {
-                document.getElementById("brand").src = "images/ecofill.png";
-            }
+            document.getElementById("brand").src = "images/" + customer.toLowerCase() + ".png";
         }
 
         function accessories() {
             if (charLCD == "0") {
-                document.getElementById("mensaje").style.display = "none";
-                document.getElementById("emensaje").style.display = "none";
-                document.getElementById("e2mensaje").style.display = "none";
+                document.getElementById("charLCD").style.display = "none";
+            }
+            if (powerMeter == "0") {
+                document.getElementById("powerMeter").style.display = "none";
+            }
+            if (datalogger == "0") {
+                document.getElementById("datalogger").style.display = "none";
+            }
+            if (slots == "0") {
+                document.getElementById("multiVending").style.display = "none";
+            } else {
+                document.getElementById("uniVending").style.display = "none";
+                if (slots == "1") {
+                    document.getElementById("slot2").style.display = "none";
+                    document.getElementById("slot3").style.display = "none";
+                    document.getElementById("slot4").style.display = "none";
+                }
+                if (slots == "2") {
+                    document.getElementById("slot3").style.display = "none";
+                    document.getElementById("slot4").style.display = "none";
+                }
+                if (slots == "3") {
+                    document.getElementById("slot4").style.display = "none";
+                }
             }
         }
     </script>
@@ -159,17 +331,18 @@
                             <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand" href="login" style="padding: 0; padding-left: 10px;">
-                            <span> <img alt="Logo" src="images/logo.png" class="img-rounded" style="max-height: calc(100%);"/></span>
+                            <span> <img alt="Logo" src="images/logo.png" class="img-rounded" style="max-height: calc(100%);" /></span>
                             <span class="lead"><kbd> SkyKontrol </kbd></></span>
                         </a>
                     </div>
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="sales">Ventas</a></li>
-                            <li><a href="logs">Registros</a></li>
-                            <li><a href="resumes">Resumenes</a></li>
-                            <li><a href="location">Ubicación</a></li>
-                            <li><a href="logout">Cerrar sesión</a></li>
+                            <li><a href="sales">Sales</a></li>
+                            <li><a href="events">Events</a></li>
+                            <li><a href="summaries">Summaries</a></li>
+                            <li><a href="location">Location</a></li>
+                            <li><a href="console">Console</a></li>
+                            <li><a href="logout">Logout</a></li>
                         </ul>
                     </div>
                 </div>
@@ -190,31 +363,86 @@
                         <br />
                         <br />
                         <br />
-                        <h2 class="text-center center-block">Bienvenido a tu dispositivo SkyKontrol</h2>
+                        <h2 class="text-center center-block">Welcome to your SkyKontrol device</h2>
                         <img class="img-responsive img-rounded center-block" id="brand" style="max-width: calc(35%);" src="images/2brobots.png" />
-                        <h3 class="text-center">Configuración de parametros</h3>
-                        <form id="entrada">
-                            <label for="mensaje" id="emensaje"><b>Mensaje:</b></label>
-                            <br />
-                            <input type="text" maxlength="32" size="32" value="" oninput="this.value = this.value.replace(/[^A-Za-z0-9\!\#\+\-\*\/\?\$\%\(\)\=\.\& ]/g, '');  if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" onkeydown="return (event.keyCode!=13);" class="form-control text-center" style="width: auto; box-sizing: border-box;" autocomplete="off" placeholder="mensaje" name="mensaje" id="mensaje" required>
-                            <p id="e2mensaje">Maximo 32 caracteres UTF-8</p>
-                            <div class="input-group mb-3">
-                                <label for="costo"><b>Costo ($):&#160&#160&#160&#160&#160&#160&#160&#160&#160Tiempo (ms):</b></label>
-                                <br />
-                                <div class="input-group-append">
-                                    <input type="number" min="1" step="1" max="65535" value="" oninput="this.value = this.value.replace(/[^0-9]/, '')" onkeydown="return (event.keyCode!=13);" class="form-control text-center" style="max-width: calc(50%);" autocomplete="off" placeholder="$" name="costo" id="costo" required>
-                                    <input type="number" min="1" step="1" max="65535" value="" oninput="this.value = this.value.replace(/[^0-9]/, '')" onkeydown="return (event.keyCode!=13);" class="form-control text-center" style="max-width: calc(50%);" autocomplete="off" placeholder="ms" name="tiempo" id="tiempo" required>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" value="true" id="estado">Activar y permitir ventas</label>
-                                </div>
-                                <button type="button" class="btn btn-warning btn-md" onclick="actualizar()">Guardar</button>
+                        <h3 class="text-center">Parameter Settings</h3>
+                        <form id="configs" class="form-group">
+                            <div class="justify-content-center" id="charLCD">
+                                <label for="message"><b>Message in the LCD</b></label>
+                                <input type="text" maxlength="32" size="32" value="" oninput="this.value = this.value.replace(/[^A-Za-z0-9\!\#\+\-\*\/\?\$\%\(\)\=\.\& ]/g, '');  if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" onkeydown="return (event.keyCode!=13);" class="form-control text-center" style="max-width: calc(86%);" autocomplete="off" placeholder="LCD Message" name="message" id="message" required>
+                                <p>Maximum 32 characters UTF-8</p>
                             </div>
+                            <div class="justify-content-center" id="uniVending">
+                                <label><b>Simple Vending Mode</b></label>
+                                <div class="form-inline block label-group text-center mx-auto" style="word-spacing: 4.5em; max-width: calc(100%);">
+                                    <label for="cost" class="control-label" style="vertical-align: middle"><b>Cost</b></label>
+                                    <label for="time" class="control-label" style="vertical-align: middle"><b>Time</b></label>
+                                </div>
+                                <div class="form-group input-group" id="slot0">
+                                    <input type="number" min="1" step="1" max="4294967295" value="" oninput="this.value = this.value.replace(/[^0-9]/, '')" onkeydown="return (event.keyCode!=13);" class="form-control text-center" style="max-width: calc(50%);" autocomplete="off" placeholder="$" name="cost" id="cost" required>
+                                    <input type="number" min="1" step="1" max="4294967295" value="" oninput="this.value = this.value.replace(/[^0-9]/, '')" onkeydown="return (event.keyCode!=13);" class="form-control text-center" style="max-width: calc(50%);" autocomplete="off" placeholder="ms" name="time" id="time" required>
+                                </div>
+                            </div>
+                            <div class="justify-content-center" id="multiVending">
+                                <label><b>Multi Vending Mode</b></label>
+                                <table class="table table-condensed table-borderless" style="max-width: calc(100%); margin: 0px;" id="multiVending_labels">
+                                    <thead>
+                                        <tr>
+                                            <td class="text-center" width="3.5%"><b>S</b></td>
+                                            <td class="text-center" width="26.5%"><b>Product ID</b></td>
+                                            <td class="text-center" width="17.5%"><b>Cost</b></td>
+                                            <td class="text-center" width="17.5%"><b>Time</b></td>
+                                            <td class="text-center" width="17.5%"><b>Cnt.</b></td>
+                                            <td class="text-center" width="17.5%"><b>Qty.</b></td>
+                                        </tr>
+                                    </thead>
+                                </table>
+                                <div class="form-group input-group" id="slot1">
+                                    <span class="input-group-addon input-group-text">1</span>
+                                    <input type="text" maxlength="12" size="12" value="" oninput="this.value = this.value.replace(/[^A-Za-z0-9\!\#\+\-\*\/\?\$\%\(\)\=\.\& ]/g, '');  if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" onkeydown="return (event.keyCode!=13);" class="form-control text-center" style="max-width: calc(28%);" autocomplete="off" placeholder="Product ID" name="product1" id="product1" required>
+                                    <input type="number" min="1" step="1" max="4294967295" value="" oninput="this.value = this.value.replace(/[^0-9]/, '')" onkeydown="return (event.keyCode!=13);" class="form-control text-center" style="max-width: calc(18%);" autocomplete="off" placeholder="$" name="cost1" id="cost1" required>
+                                    <input type="number" min="1" step="1" max="4294967295" value="" oninput="this.value = this.value.replace(/[^0-9]/, '')" onkeydown="return (event.keyCode!=13);" class="form-control text-center" style="max-width: calc(18%);" autocomplete="off" placeholder="ms" name="time1" id="time1" required>
+                                    <input type="number" min="1" step="1" max="4294967295" value="" oninput="this.value = this.value.replace(/[^0-9]/, '')" onkeydown="return (event.keyCode!=13);" class="form-control text-center" style="max-width: calc(18%);" autocomplete="off" placeholder="Cnt" name="counter1" id="counter1" required>
+                                    <input type="number" min="1" step="1" max="4294967295" value="" oninput="this.value = this.value.replace(/[^0-9]/, '')" onkeydown="return (event.keyCode!=13);" class="form-control text-center" style="max-width: calc(18%);" autocomplete="off" placeholder="Qty" name="quantity1" id="quantity1" required>
+                                </div>
+                                <div class="form-group input-group" id="slot2">
+                                    <span class="input-group-addon input-group-text">2</span>
+                                    <input type="text" maxlength="12" size="12" value="" oninput="this.value = this.value.replace(/[^A-Za-z0-9\!\#\+\-\*\/\?\$\%\(\)\=\.\& ]/g, '');  if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" onkeydown="return (event.keyCode!=13);" class="form-control text-center" style="max-width: calc(28%);" autocomplete="off" placeholder="Product ID" name="product2" id="product2" required>
+                                    <input type="number" min="1" step="1" max="4294967295" value="" oninput="this.value = this.value.replace(/[^0-9]/, '')" onkeydown="return (event.keyCode!=13);" class="form-control text-center" style="max-width: calc(18%);" autocomplete="off" placeholder="$" name="cost2" id="cost2" required>
+                                    <input type="number" min="1" step="1" max="4294967295" value="" oninput="this.value = this.value.replace(/[^0-9]/, '')" onkeydown="return (event.keyCode!=13);" class="form-control text-center" style="max-width: calc(18%);" autocomplete="off" placeholder="ms" name="time2" id="time2" required>
+                                    <input type="number" min="1" step="1" max="4294967295" value="" oninput="this.value = this.value.replace(/[^0-9]/, '')" onkeydown="return (event.keyCode!=13);" class="form-control text-center" style="max-width: calc(18%);" autocomplete="off" placeholder="Cnt" name="counter2" id="counter2" required>
+                                    <input type="number" min="1" step="1" max="4294967295" value="" oninput="this.value = this.value.replace(/[^0-9]/, '')" onkeydown="return (event.keyCode!=13);" class="form-control text-center" style="max-width: calc(18%);" autocomplete="off" placeholder="Qty" name="quantity2" id="quantity2" required>
+                                </div>
+                                <div class="form-group input-group" id="slot3">
+                                    <span class="input-group-addon input-group-text">3</span>
+                                    <input type="text" maxlength="12" size="12" value="" oninput="this.value = this.value.replace(/[^A-Za-z0-9\!\#\+\-\*\/\?\$\%\(\)\=\.\& ]/g, '');  if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" onkeydown="return (event.keyCode!=13);" class="form-control text-center" style="max-width: calc(28%);" autocomplete="off" placeholder="Product ID" name="product3" id="product3" required>
+                                    <input type="number" min="1" step="1" max="4294967295" value="" oninput="this.value = this.value.replace(/[^0-9]/, '')" onkeydown="return (event.keyCode!=13);" class="form-control text-center" style="max-width: calc(18%);" autocomplete="off" placeholder="$" name="cost3" id="cost3" required>
+                                    <input type="number" min="1" step="1" max="4294967295" value="" oninput="this.value = this.value.replace(/[^0-9]/, '')" onkeydown="return (event.keyCode!=13);" class="form-control text-center" style="max-width: calc(18%);" autocomplete="off" placeholder="ms" name="time3" id="time3" required>
+                                    <input type="number" min="1" step="1" max="4294967295" value="" oninput="this.value = this.value.replace(/[^0-9]/, '')" onkeydown="return (event.keyCode!=13);" class="form-control text-center" style="max-width: calc(18%);" autocomplete="off" placeholder="Cnt" name="counter3" id="counter3" required>
+                                    <input type="number" min="1" step="1" max="4294967295" value="" oninput="this.value = this.value.replace(/[^0-9]/, '')" onkeydown="return (event.keyCode!=13);" class="form-control text-center" style="max-width: calc(18%);" autocomplete="off" placeholder="Qty" name="quantity3" id="quantity3" required>
+                                </div>
+                                <div class="form-group input-group" id="slot4">
+                                    <span class="input-group-addon input-group-text">4</span>
+                                    <input type="text" maxlength="12" size="12" value="" oninput="this.value = this.value.replace(/[^A-Za-z0-9\!\#\+\-\*\/\?\$\%\(\)\=\.\& ]/g, '');  if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" onkeydown="return (event.keyCode!=13);" class="form-control text-center" style="max-width: calc(28%);" autocomplete="off" placeholder="Product ID" name="product4" id="product4" required>
+                                    <input type="number" min="1" step="1" max="4294967295" value="" oninput="this.value = this.value.replace(/[^0-9]/, '')" onkeydown="return (event.keyCode!=13);" class="form-control text-center" style="max-width: calc(18%);" autocomplete="off" placeholder="$" name="cost4" id="cost4" required>
+                                    <input type="number" min="1" step="1" max="4294967295" value="" oninput="this.value = this.value.replace(/[^0-9]/, '')" onkeydown="return (event.keyCode!=13);" class="form-control text-center" style="max-width: calc(18%);" autocomplete="off" placeholder="ms" name="time4" id="time4" required>
+                                    <input type="number" min="1" step="1" max="4294967295" value="" oninput="this.value = this.value.replace(/[^0-9]/, '')" onkeydown="return (event.keyCode!=13);" class="form-control text-center" style="max-width: calc(18%);" autocomplete="off" placeholder="Cnt" name="counter4" id="counter4" required>
+                                    <input type="number" min="1" step="1" max="4294967295" value="" oninput="this.value = this.value.replace(/[^0-9]/, '')" onkeydown="return (event.keyCode!=13);" class="form-control text-center" style="max-width: calc(18%);" autocomplete="off" placeholder="Qty" name="quantity4" id="quantity4" required>
+                                </div>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" value="true" id="state">Activate and allow sales
+                                </label>
+                            </div>
+                            <button type="button" style="width: calc(40%);" class="btn btn-warning btn-md" onclick="update()">Save</button>
+                            <p class="text-center text-muted" id="smessage">Stored data</p>
                         </form>
-                        <p class="text-center text-muted" id="message">Datos almacenados</p>
-                        <label for="last" class="text-center">Ultima sincronización (CST - CDMX):</label>
-                        <p class="text-center" id="last">recuperando...</p>
+                        <p id="powerMeter"><b>Power Meter module installed.</b></p>
+                        <p id="datalogger"><b>Data Logger module installed.</b></p>
+                        <label for="last" class="text-center">Last sync:</label>
+                        <p class="text-center" id="last">recovering...</p>
+                        <p class="text-center">Time zone: CST (Mexico City)</p>
                         <br />
                         <br />
                         <br />

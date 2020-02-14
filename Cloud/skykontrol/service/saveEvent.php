@@ -13,7 +13,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mac     = process_input($_POST["mac"]);
-    $mensaje = process_input($_POST["mensaje"]);
+    $message = process_input($_POST["message"]);
 } else {
     echo "ERROR";
     $conn->close();
@@ -29,7 +29,7 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     $row       = $result->fetch_assoc();
     $device_id = $row["device_id"];
-    $sql       = "INSERT INTO `$dbname`.`controller_events` (`device_id`, `message`) VALUES ('$device_id', '$mensaje');";
+    $sql       = "INSERT INTO `$dbname`.`controller_events` (`device_id`, `message`) VALUES ('$device_id', '$message');";
     $result    = $conn->query($sql);
     if ($result === TRUE) {
         echo "PASS";

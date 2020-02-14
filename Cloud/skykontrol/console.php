@@ -17,14 +17,15 @@ if (empty($_SESSION["id"])) {
     exit();
 }
 
-readfile("uix/resumes.html");
+readfile("uix/console.html");
 
-$mac      = $_SESSION["mac"];
 $customer = $_SESSION["company"];
-$firmware = $_SESSION["firmware"];
-$madeDate = $_SESSION["manufacture_date"];
+$mac = $_SESSION["mac"];
 
 $token = generateRandomString();
 
-echo "<html><script> var customer = '$customer'; var token = '$token'; customize(); var firmware = '$firmware'; var mac = '$mac'; var madeDate = '$madeDate'; printDetails(); getResumes(); </script></html>";
+echo "<html><script> var customer = '$customer'; var token = '$token'; customize(); var mac = '$mac';</script>";
+echo '<script src="js/mqttws31.min.js" type="text/javascript"></script>';
+echo '<script src="js/mqtt2br.js" type="text/javascript"></script>';
+echo "<script>Connect();</script></html>";
 ?>

@@ -1,5 +1,4 @@
 <?php
-include('credentials.php');
 session_start();
 
 function generateRandomString($length = 10)
@@ -18,21 +17,11 @@ if (empty($_SESSION["id"])) {
     exit();
 }
 
-readfile("uix/location.html");
+readfile("uix/events.html");
 
 $customer = $_SESSION["company"];
-$lat      = $_SESSION["latitude"];
-$lng      = $_SESSION["longitude"];
-$rad      = $_SESSION["accuracy"];
-
-if ($lat == "NA" or $lng == "NA" or $rad == "NA") {
-    $lat = 0;
-    $rad = 0;
-    $lng = 0;
-}
 
 $token = generateRandomString();
 
-echo "<html><script> var customer = '$customer'; var token = '$token'; customize(); lat = '$lat'; lng = '$lng'; rad = '$rad';</script></html>\n";
-echo "<script async defer src='https://maps.googleapis.com/maps/api/js?key=$mapsAPIkey&language=en&callback=initMap'></script>";
+echo "<html><script> var customer = '$customer'; var token = '$token'; customize(); getEvents(); </script></html>";
 ?>

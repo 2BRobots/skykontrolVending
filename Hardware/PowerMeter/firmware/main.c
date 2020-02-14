@@ -55,7 +55,6 @@ float vcal = 0;
 float iacc = 0;
 float vacc = 0;
 float pacc = 0;
-float apaPower = 0;
 float pf = 0;
 
 volatile union _I2C_buffer {
@@ -190,7 +189,7 @@ int main(int argc, char** argv) {
     ANSELA = 0b00010001; //analog functions of pins enabled
     WPUA = 0b00001110; //configure weak pull-ups on input pins
     OPTION_REGbits.nWPUEN = 0; //enable weak pull-ups
-    ADCON1 = 0b10100000; //configure ADC
+    ADCON1 = 0b11110000; //configure ADC
     SSP1STAT = 0b10000000; // Slew rate control disabled for standardspeed mode (100 kHz and 1 MHz)
     SSP1CON1 = 0b00110110; // Enable serial port, I2C slave mode, 7-bit address
     SSP1CON2bits.SEN = 1; // Clock stretching is enabled
@@ -240,27 +239,21 @@ int main(int argc, char** argv) {
             adc0 = (float) ADC_read(0x00); //read adc for current transformer
             adc1 = (float) ADC_read(0x03); //read adc for voltage transformer
 
-            ical = ((adc0 * 3.3F) / 1023.0F) - 1.65F; //convert ADC to voltage
+            ical = ((adc0 * 3.3F) / 1024.0F) - 1.65F; //convert ADC to voltage
             ical = (ical / (float) I2C_buffer.data.ctRl) * (float) I2C_buffer.data.ctRatio; //conver to current in the line
-            iacc += ical * ical; //acumulate RMS value for sampling
+            iacc += fabs(ical * ical); //acumulate RMS value for sampling
 
-            vcal = ((adc1 * 3.3F) / 1023.0F) - 1.65F; //convert ADC to voltage
+            vcal = ((adc1 * 3.3F) / 1024.0F) - 1.65F; //convert ADC to voltage
             vcal = vcal * I2C_buffer.data.trRatio; //multiply voltage for the transformer relation 
-            vacc += vcal * vcal; //acumulate RMS value for sampling
+            vacc += fabs(vcal * vcal); //acumulate RMS value for sampling
 
-            pacc += vcal * ical;
+            pacc += fabs(vcal * ical);
         }
 
         I2C_buffer.data.Irms = sqrt((iacc / (float) I2C_buffer.data.samples)); //RMS current
         I2C_buffer.data.Vrms = sqrt((vacc / (float) I2C_buffer.data.samples)); //RMS voltage
-        apaPower = I2C_buffer.data.Vrms * I2C_buffer.data.Irms; //apparent Power
-        pf = ((VCAL * (3.3F / 1023.0F)) * (ICAL * (3.3F / 1023.0F)) * pacc / (float) I2C_buffer.data.samples);
-        do 
-        {
-            pf = pf / 2;
-        } while (pf > 1.00F);
-        I2C_buffer.data.PwFactor = pf;
-        I2C_buffer.data.Power = fabs(apaPower * I2C_buffer.data.PwFactor);
+        I2C_buffer.data.PwFactor = (pacc / (float) I2C_buffer.data.samples) / (I2C_buffer.data.Vrms * I2C_buffer.data.Irms); //pf;
+        I2C_buffer.data.Power = I2C_buffer.data.Vrms * I2C_buffer.data.Irms * I2C_buffer.data.PwFactor; //apparent Power 
         I2C_buffer.data.AvPower = (I2C_buffer.data.Power + I2C_buffer.data.AvPower) / 2.0F; //average apparent power
         LATAbits.LATA5 = (char) !LATAbits.LATA5; //toggle led
 

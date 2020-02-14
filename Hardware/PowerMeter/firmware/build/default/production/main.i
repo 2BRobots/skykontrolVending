@@ -3343,7 +3343,6 @@ float vcal = 0;
 float iacc = 0;
 float vacc = 0;
 float pacc = 0;
-float apaPower = 0;
 float pf = 0;
 
 volatile union _I2C_buffer {
@@ -3478,7 +3477,7 @@ TRISA = 0b00011111;
 ANSELA = 0b00010001;
 WPUA = 0b00001110;
 OPTION_REGbits.nWPUEN = 0;
-ADCON1 = 0b10100000;
+ADCON1 = 0b11110000;
 SSP1STAT = 0b10000000;
 SSP1CON1 = 0b00110110;
 SSP1CON2bits.SEN = 1;
@@ -3528,27 +3527,21 @@ asm("CLRWDT");
 adc0 = (float) ADC_read(0x00);
 adc1 = (float) ADC_read(0x03);
 
-ical = ((adc0 * 3.3F) / 1023.0F) - 1.65F;
+ical = ((adc0 * 3.3F) / 1024.0F) - 1.65F;
 ical = (ical / (float) I2C_buffer.data.ctRl) * (float) I2C_buffer.data.ctRatio;
-iacc += ical * ical;
+iacc += fabs(ical * ical);
 
-vcal = ((adc1 * 3.3F) / 1023.0F) - 1.65F;
+vcal = ((adc1 * 3.3F) / 1024.0F) - 1.65F;
 vcal = vcal * I2C_buffer.data.trRatio;
-vacc += vcal * vcal;
+vacc += fabs(vcal * vcal);
 
-pacc += vcal * ical;
+pacc += fabs(vcal * ical);
 }
 
 I2C_buffer.data.Irms = sqrt((iacc / (float) I2C_buffer.data.samples));
 I2C_buffer.data.Vrms = sqrt((vacc / (float) I2C_buffer.data.samples));
-apaPower = I2C_buffer.data.Vrms * I2C_buffer.data.Irms;
-pf = ((234.26F * (3.3F / 1023.0F)) * (111.11F * (3.3F / 1023.0F)) * pacc / (float) I2C_buffer.data.samples);
-do
-{
-pf = pf / 2;
-} while (pf > 1.00F);
-I2C_buffer.data.PwFactor = pf;
-I2C_buffer.data.Power = fabs(apaPower * I2C_buffer.data.PwFactor);
+I2C_buffer.data.PwFactor = (pacc / (float) I2C_buffer.data.samples) / (I2C_buffer.data.Vrms * I2C_buffer.data.Irms);
+I2C_buffer.data.Power = I2C_buffer.data.Vrms * I2C_buffer.data.Irms * I2C_buffer.data.PwFactor;
 I2C_buffer.data.AvPower = (I2C_buffer.data.Power + I2C_buffer.data.AvPower) / 2.0F;
 LATAbits.LATA5 = (char) !LATAbits.LATA5;
 

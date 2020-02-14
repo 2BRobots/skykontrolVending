@@ -32,48 +32,46 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <style>
-        /* Set the size of the div element that contains the map */
-        
-        #map {
-            height: 450px;
-            /* The height is 400 pixels */
-            width: 100%;
-            /* The width is the width of the web page */
-        }
-    </style>
-
     <script>
-        var lat = 0;
-        var lng = 0;
-        var rad = 0;
-
-        function initMap() {
-            var device = {
-                lat: Number(lat),
-                lng: Number(lng)
+        function getEvents() {
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    if (this.responseText != "FAIL" && this.responseText != "ERROR") {
+                        if (this.responseText == "EMPTY") {
+                            document.getElementById("message").innerHTML = "There are no records in the history.";
+                            document.getElementById("message2").innerHTML = "They have already been deleted or have not been sent.";
+                            document.getElementById("message2").style.display = "block";
+                            return true;
+                        } else {
+                            document.getElementById("message").innerHTML = "This is the history we have:";
+                            document.getElementById("message2").style.display = "block";
+                            var lines = this.responseText.split('\n');
+                            var events = 0;
+                            for (var i = 0; i < lines.length - 1; i++) {
+                                var data = lines[i].split(',');
+                                events = events + 1;
+                                $('#register > tbody').append("<tr><td>" + data[0] + "</td><td>" + data[1] + "</td><td>" + data[2] + "</td></tr>");
+                            }
+                            document.getElementById("message2").innerHTML = events + " records were recovered.";
+                            return true;
+                        }
+                    } else {
+                        document.getElementById("message").innerHTML = "An unexpected error occurred.";
+                        return false;
+                    }
+                }
             };
-            var map = new google.maps.Map(
-                document.getElementById('map'), {
-                    zoom: 18,
-                    center: device,
-                    mapTypeControl: false,
-                    streetViewControl: false
-                });
-            var marker = new google.maps.Marker({
-                position: device,
-                map: map,
-                icon: 'images/device.ico'
-            });
-            var circle = new google.maps.Circle({
-                center: marker.getPosition(),
-                radius: Number(rad),
-                strokeColor: "#6B2E6E",
-                fillOpacity: 0.30,
-                fillColor: "#FF00FF",
-                tag: "SkyKontrol IoT Controller",
-                map: map
-            });
+            var str = "token=" + token;
+            xmlhttp.open("POST", "api/getEvents.php", true);
+            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xmlhttp.send(str);
         }
 
         function customize() {
@@ -98,15 +96,15 @@
                         </button>
                         <a class="navbar-brand" href="login" style="padding: 0; padding-left: 10px;">
                             <span> <img alt="Logo" src="images/logo.png" class="img-rounded" style="max-height: calc(100%);"/></span>
-                            <span class="lead"><kbd> SkyKontrol </kbd></></span>
+                            </span> <span class="lead"><kbd> SkyKontrol </kbd></></span>
                         </a>
                     </div>
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="main">Main</a></li>
                             <li><a href="sales">Sales</a></li>
-                            <li><a href="events">Events</a></li>
                             <li><a href="summaries">Summaries</a></li>
+                            <li><a href="location">Location</a></li>
                             <li><a href="console">Console</a></li>
                             <li><a href="logout">Logout</a></li>
                         </ul>
@@ -129,14 +127,23 @@
                         <br />
                         <br />
                         <br />
-                        <h2 class="text-center center-block">Location of your SkyKontrol device</h2>
+                        <h2 class="text-center center-block">Events of your SkyKontrol device</h2>
                         <img class="img-responsive img-rounded center-block" id="brand" style="max-width: calc(35%);" src="images/2brobots.png" />
                         <br />
-                        <label class="text-center" id="message">Your device is here:</label>
-                        <div id="map"></div>
-                        <br />
-                        <p class="text-center">The location is approximated.
-                            <br />It's accuracy is not guaranteed!</p>
+                        <label class="text-center" id="message">Retrieving history...</label>
+                        <label class="text-center" style="display: none;" id="message2">Calculation in process...</label>
+                        <table class="table table-striped table-bordered table-responsive table-condensed text-center" style="max-width: calc(96%); font-size: calc(90%);" id="register">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">Message</th>
+                                    <th class="text-center" width="30%">Date</th>
+                                    <th class="text-center" width="30%">Time</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                        </table>
+                        <p class="text-center">Time zone: CST (Mexico City)</p>
+                        <p class="text-center">Remember that all records older than 60 days are automatically deleted.</p>
                         <br />
                         <br />
                         <br />

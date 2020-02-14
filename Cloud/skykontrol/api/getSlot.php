@@ -1,6 +1,15 @@
 <?php
 include('../credentials.php');
 
+session_start();
+
+if (empty($_SESSION["id"])) {
+    echo "ERROR";
+    exit();
+}
+
+$id = $_SESSION["id"];
+
 function process_input($data)
 {
     $data = trim($data);
@@ -12,17 +21,10 @@ function process_input($data)
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $mac    = process_input($_POST["mac"]);
-    $costo  = process_input($_POST["costo"]);
-    $metodo = process_input($_POST["metodo"]);
-    if ($costo == 0) {
-        echo "ERROR";
-        $conn->close();
-        exit();
-    }
+    $token = process_input($_POST["token"]);
+    $slot  = process_input($_POST["slot"]);
 } else {
     echo "ERROR";
-    $conn->close();
     exit();
 }
 
@@ -30,15 +32,16 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql    = "SELECT `device_id` FROM `$dbname`.`controller_boards` WHERE mac_addr='$mac' LIMIT 1;";
+$sql    = "SELECT `device_id` FROM `$dbname`.`controller_boards` WHERE user_id='$id' LIMIT 1;";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     $row       = $result->fetch_assoc();
     $device_id = $row["device_id"];
-    $sql       = "INSERT INTO `$dbname`.`sales` (`device_id`, `price`, `method`) VALUES ('$device_id', '$costo', '$metodo');";
+    $sql       = "SELECT `product_id`,`cost`,`time`,`counter`,`quantity` FROM `$dbname`.`controller_slots` WHERE device_id='$device_id' AND slot='$slot' LIMIT 1;";
     $result    = $conn->query($sql);
-    if ($result === TRUE) {
-        echo "PASS";
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        echo $row["product_id"] . "," . $row["cost"] . "," . $row["time"] . "," . $row["counter"] . "," . $row["quantity"];
     } else {
         echo "FAIL";
     }

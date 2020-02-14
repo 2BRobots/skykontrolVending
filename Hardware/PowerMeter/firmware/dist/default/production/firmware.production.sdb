@@ -29,27 +29,27 @@
 [v _eeprom_read eeprom_read `(uc  1 e 1 0 ]
 "6 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\pic\__eewrite.c
 [v _eeprom_write eeprom_write `(v  1 e 1 0 ]
-"86 E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+"85 E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
 [v _ADC_read ADC_read `(ui  1 e 2 0 ]
-"96
+"95
 [v _init_I2C_buffer init_I2C_buffer `(v  1 e 1 0 ]
-"120
+"119
 [v _isr isr `II(v  1 e 1 0 ]
-"186
+"185
 [v _main main `(i  1 e 2 0 ]
-[s S543 . 1 `uc 1 C 1 0 :1:0 
+[s S542 . 1 `uc 1 C 1 0 :1:0 
 `uc 1 DC 1 0 :1:1 
 `uc 1 Z 1 0 :1:2 
 `uc 1 nPD 1 0 :1:3 
 `uc 1 nTO 1 0 :1:4 
 ]
 "131 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic12f1840.h
-[s S549 . 1 `uc 1 CARRY 1 0 :1:0 
+[s S548 . 1 `uc 1 CARRY 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 ZERO 1 0 :1:2 
 ]
-[u S553 . 1 `S543 1 . 1 0 `S549 1 . 1 0 ]
-[v _STATUSbits STATUSbits `VES553  1 e 1 @3 ]
+[u S552 . 1 `S542 1 . 1 0 `S548 1 . 1 0 ]
+[v _STATUSbits STATUSbits `VES552  1 e 1 @3 ]
 "351
 [v _INTCON INTCON `VEuc  1 e 1 @11 ]
 [s S108 . 1 `uc 1 IOCIF 1 0 :1:0 
@@ -178,7 +178,7 @@
 [v _EEDATA EEDATA `VEuc  1 e 1 @403 ]
 "2554
 [v _EECON1 EECON1 `VEuc  1 e 1 @405 ]
-[s S519 . 1 `uc 1 RD 1 0 :1:0 
+[s S518 . 1 `uc 1 RD 1 0 :1:0 
 `uc 1 WR 1 0 :1:1 
 `uc 1 WREN 1 0 :1:2 
 `uc 1 WRERR 1 0 :1:3 
@@ -188,8 +188,8 @@
 `uc 1 EEPGD 1 0 :1:7 
 ]
 "2571
-[u S528 . 1 `S519 1 . 1 0 ]
-[v _EECON1bits EECON1bits `VES528  1 e 1 @405 ]
+[u S527 . 1 `S518 1 . 1 0 ]
+[v _EECON1bits EECON1bits `VES527  1 e 1 @405 ]
 "2616
 [v _EECON2 EECON2 `VEuc  1 e 1 @406 ]
 "2985
@@ -268,35 +268,31 @@
 [v _vacc vacc `f  1 e 4 0 ]
 "57
 [v _pacc pacc `f  1 e 4 0 ]
-"58
-[v _apaPower apaPower `f  1 e 4 0 ]
-"59
-[v _pf pf `f  1 e 4 0 ]
 [s S22 _data 33 `uc 1 ID 1 0 `uc 1 RESET 1 1 `uc 1 SAVE 1 2 `i 1 ctRatio 2 3 `i 1 ctRl 2 5 `f 1 trRatio 4 7 `i 1 samples 2 11 `f 1 Irms 4 13 `f 1 Vrms 4 17 `f 1 Power 4 21 `f 1 AvPower 4 25 `f 1 PwFactor 4 29 ]
-"78
+"77
 [u S35 _I2C_buffer 33 `S22 1 data 33 0 `[0]uc 1 byte 0 0 ]
 [v _I2C_buffer I2C_buffer `VES35  1 e 33 0 ]
-"81
+"80
 [v _first_i2c first_i2c `uc  1 e 1 0 ]
-"82
+"81
 [v _index_i2c index_i2c `uc  1 e 1 0 ]
-"186
+"185
 [v _main main `(i  1 e 2 0 ]
 {
-"236
-[v main@i i `i  1 a 2 10 ]
-"270
+"235
+[v main@i i `i  1 a 2 37 ]
+"263
 } 0
 "9 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcsqrt.c
 [v _sqrt sqrt `(d  1 e 4 0 ]
 {
 "14
 [v sqrt@frac frac `ul  1 a 4 17 ]
-[s S884 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S883 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "11
-[s S889 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
-[u S892 . 4 `l 1 i 4 0 `d 1 f 4 0 `S884 1 fAsBytes 4 0 `S889 1 fAsWords 4 0 ]
-[v sqrt@root root `S892  1 a 4 13 ]
+[s S888 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
+[u S891 . 4 `l 1 i 4 0 `d 1 f 4 0 `S883 1 fAsBytes 4 0 `S888 1 fAsWords 4 0 ]
+[v sqrt@root root `S891  1 a 4 13 ]
 "16
 [v sqrt@grs grs `ul  1 a 4 7 ]
 "15
@@ -311,10 +307,10 @@
 [v sqrt@a a `d  1 p 4 62 ]
 "159
 } 0
-"96 E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+"95 E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
 [v _init_I2C_buffer init_I2C_buffer `(v  1 e 1 0 ]
 {
-"116
+"115
 } 0
 "6 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\pic\__eeread.c
 [v _eeprom_read eeprom_read `(uc  1 e 1 0 ]
@@ -371,19 +367,19 @@
 "8 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S884 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S883 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S889 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
-[u S892 . 4 `l 1 i 4 0 `d 1 f 4 0 `S884 1 fAsBytes 4 0 `S889 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S892  1 a 4 30 ]
+[s S888 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
+[u S891 . 4 `l 1 i 4 0 `d 1 f 4 0 `S883 1 fAsBytes 4 0 `S888 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S891  1 a 4 30 ]
 "12
-[v ___flmul@grs grs `ul  1 a 4 26 ]
-[s S961 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[v ___flmul@grs grs `ul  1 a 4 25 ]
+[s S960 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S964 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S961 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S964  1 a 2 34 ]
+[u S963 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S960 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S963  1 a 2 34 ]
 "10
-[v ___flmul@bexp bexp `uc  1 a 1 25 ]
+[v ___flmul@bexp bexp `uc  1 a 1 29 ]
 "11
 [v ___flmul@aexp aexp `uc  1 a 1 24 ]
 "9
@@ -443,18 +439,18 @@
 [v ___fladd@a a `d  1 p 4 66 ]
 "237
 } 0
-"86 E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
+"85 E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\PowerMeter\firmware\main.c
 [v _ADC_read ADC_read `(ui  1 e 2 0 ]
 {
 [v ADC_read@channel channel `uc  1 a 1 wreg ]
 [v ADC_read@channel channel `uc  1 a 1 wreg ]
 [v ADC_read@channel channel `uc  1 a 1 4 ]
-"94
+"93
 } 0
-"120
+"119
 [v _isr isr `II(v  1 e 1 0 ]
 {
-"122
+"121
 [v isr@junk junk `uc  1 s 1 junk ]
-"184
+"183
 } 0

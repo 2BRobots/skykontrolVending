@@ -36,11 +36,11 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     $row       = $result->fetch_assoc();
     $device_id = $row["device_id"];
-    $sql       = "SELECT `price`, `method`, `slot`, `datetime` FROM `$dbname`.`sales` WHERE  device_id='$device_id' ORDER BY `datetime` DESC;";
+    $sql       = "SELECT `start_date`, `end_date`, `power`, `sales`, `ammount` FROM `$dbname`.`summaries` WHERE  device_id='$device_id' ORDER BY `datetime` DESC;";
     $result    = $conn->query($sql);
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            echo $row["price"] . "," . $row["method"] . "," . $row["slot"] . "," . date('d-m-Y', strtotime($row["datetime"])) . "," . date('H:i:s', strtotime($row["datetime"])) . "\n";
+            echo date('d-m-Y', strtotime($row["start_date"]))  . "," . date('d-m-Y', strtotime($row["end_date"])) . "," . $row["power"] . "," . $row["sales"] . ",$" . $row["ammount"] ."\n";
         }
     } else {
         echo "EMPTY";

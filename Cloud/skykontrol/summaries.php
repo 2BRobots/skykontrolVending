@@ -17,11 +17,14 @@ if (empty($_SESSION["id"])) {
     exit();
 }
 
-readfile("uix/logs.html");
+readfile("uix/summaries.html");
 
+$mac      = $_SESSION["mac"];
 $customer = $_SESSION["company"];
+$firmware = $_SESSION["firmware"];
+$madeDate = $_SESSION["manufacture_date"];
 
 $token = generateRandomString();
 
-echo "<html><script> var customer = '$customer'; var token = '$token'; customize(); getLogs(); </script></html>";
+echo "<html><script> var customer = '$customer'; var token = '$token'; customize(); var firmware = '$firmware'; var mac = '$mac'; var madeDate = '$madeDate'; printDetails(); getResumes(); </script></html>";
 ?>

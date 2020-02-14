@@ -13,14 +13,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mac    = process_input($_POST["mac"]);
-    $cost   = process_input($_POST["cost"]);
-    $method = process_input($_POST["method"]);
-    $slot   = process_input($_POST["slot"]);
-    if ($cost == 0) {
-        echo "ERROR";
-        $conn->close();
-        exit();
-    }
+    $kwh    = process_input($_POST["kwh"]);
 } else {
     echo "ERROR";
     $conn->close();
@@ -36,7 +29,7 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     $row       = $result->fetch_assoc();
     $device_id = $row["device_id"];
-    $sql       = "INSERT INTO `$dbname`.`sales` (`device_id`, `price`, `method`, `slot`) VALUES ('$device_id', '$cost', '$method', '$slot');";
+    $sql       = "INSERT INTO `$dbname`.`power_meter` (`device_id`, `kwh`) VALUES ('$device_id', '$kwh');";
     $result    = $conn->query($sql);
     if ($result === TRUE) {
         echo "PASS";

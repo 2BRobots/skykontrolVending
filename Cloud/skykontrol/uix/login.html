@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-
+<html lang="en">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head runat="server">
@@ -33,7 +33,7 @@
     <![endif]-->
 
     <script>
-        function ingresar() {
+        function access() {
             if (window.XMLHttpRequest) {
                 // code for IE7+, Firefox, Chrome, Opera, Safari
                 xmlhttp = new XMLHttpRequest();
@@ -44,7 +44,7 @@
             xmlhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
                     if (this.responseText == "FAIL") {
-                        document.getElementById("message").innerHTML = "Datos incorrectos.";
+                        document.getElementById("message").innerHTML = "Incorrect credentials.";
                         return false;
                     }
                     if (this.responseText == "ERROR") {
@@ -52,7 +52,7 @@
                         return false;
                     }
                     if (this.responseText == "DENI") {
-                        document.getElementById("message").innerHTML = "Dispositivo suspendido.";
+                        document.getElementById("message").innerHTML = "Suspended device!";
                         return false;
                     }
                     if (this.responseText == "PASS") {
@@ -92,7 +92,7 @@
                     </div>
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="terms">Términos y condiciones</a></li>
+                            <li><a href="terms">Terms of Service</a></li>
                         </ul>
                     </div>
                 </div>
@@ -113,32 +113,32 @@
                         <br />
                         <br />
                         <br />
-                        <h2 class="text-center">Accede a tu terminal IoT</h2>
+                        <h2 class="text-center">Access your SkyKontrol device</h2>
                         <img class="img-responsive img-rounded center-block" style="max-width: calc(60%);" src="images/2b_logo.png" />
                         <br />
                         <div class="container" align='center'>
                             <form action="">
-                                <label for="id"><b>ID del dispositivo:</b></label>
+                                <label for="id"><b>Device ID:</b></label>
                                 <br />
-                                <input type="text" class="form-control form-control-lg text-center" style="max-width: calc(50%);" autocomplete="off" placeholder="Ingresa ID del dispositivo" name="idf" id="idf" required>
+                                <input type="text" class="form-control form-control-lg text-center" style="max-width: calc(50%);" autocomplete="off" placeholder="Enter Device ID" name="idf" id="idf" required>
                                 <br />
-                                <label for="psw"><b>Contraseña:</b></label>
+                                <label for="psw"><b>Password:</b></label>
                                 <br />
-                                <input type="password" class="form-control form-control-lg text-center" style="max-width: calc(50%);" autocomplete="off" placeholder="Ingresa contraseña" name="pswf" id="pswf" required>
+                                <input type="password" class="form-control form-control-lg text-center" style="max-width: calc(50%);" autocomplete="off" placeholder="Enter Password" name="pswf" id="pswf" required>
                                 <br />
                                 <p class="text-center text-danger" id="message"></p>
-                                <button type="button" class="btn btn-success btn-lg" onclick="ingresar()">Ingresar</button>
+                                <button type="button" style="width: calc(40%);" class="btn btn-success btn-md" onclick="access()">Login</button>
                             </form>
                         </div>
                         <br />
                         <p class="text-center small">
-                            *Al iniciar sesión aceptas nuestros
-                            <a href="terms">términos y condiciones</a>.
+                            *By logging in you accept our
+                            <a href="terms">Terms of Service</a>.
                         </p>
                         <br />
                         <p class="text-center small">
-                            Obten el manual de la tarjeta
-                            <a href="documents/instructivo_skykontrol_timer_2br.pdf">aqui</a>.
+                            Get the device user manual
+                            <a target="_blank" href="documents/skykontrol_iot_controller_en.pdf">here</a>.
                         </p>
                         <br />
                         <br />

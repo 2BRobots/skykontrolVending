@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-
+<html lang="en">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head runat="server">
@@ -45,27 +45,27 @@
                 if (this.readyState == 4 && this.status == 200) {
                     if (this.responseText != "FAIL" && this.responseText != "ERROR") {
                         if (this.responseText == "EMPTY") {
-                            document.getElementById("message").innerHTML = "No hay ventas en el historial.";
-                            document.getElementById("message2").innerHTML = "Ya han sido eliminadas o no han sido enviadas.";
+                            document.getElementById("message").innerHTML = "There are no records in the history.";
+                            document.getElementById("message2").innerHTML = "They have already been deleted or have not been sent.";
                             document.getElementById("message2").style.display = "block";
                             return true;
                         } else {
-                            document.getElementById("message").innerHTML = "Este es el historial que tenemos:";
+                            document.getElementById("message").innerHTML = "This is the history we have:";
                             document.getElementById("message2").style.display = "block";
                             var lines = this.responseText.split('\n');
-                            var eventos = 0;
+                            var events = 0;
                             var total = 0;
                             for (var i = 0; i < lines.length - 1; i++) {
                                 var data = lines[i].split(',');
-                                eventos = eventos + 1;
-                                total = total + parseInt(data[0]);
-                                $('#register > tbody').append("<tr><td>$" + data[0] + "</td><td>" + data[1] + "</td><td>" + data[2] + "</td><td>" + data[3] + "</td></tr>");
+                                events = events + 1;
+                                total = total + parseFloat(data[0]);
+                                $('#register > tbody').append("<tr><td>$" + data[0] + "</td><td>" + data[1] + "</td><td>" + data[2] + "</td><td>" + data[3] + "</td><td>" + data[4] + "</td></tr>");
                             }
-                            document.getElementById("message2").innerHTML = "Se recuperaron " + eventos + " ventas por un total de $" + total;
+                            document.getElementById("message2").innerHTML = events + " sales were recovered for a total of $" + total;
                             return true;
                         }
                     } else {
-                        document.getElementById("message").innerHTML = "Ocurrio un problema inesperado.";
+                        document.getElementById("message").innerHTML = "An unexpected error occurred.";
                         return false;
                     }
                 }
@@ -77,12 +77,7 @@
         }
 
         function customize() {
-            if (customer == "2BRobots") {
-                document.getElementById("brand").src = "images/2brobots.png";
-            }
-            if (customer == "EcoFill") {
-                document.getElementById("brand").src = "images/ecofill.png";
-            }
+            document.getElementById("brand").src = "images/" + customer.toLowerCase() + ".png";
         }
     </script>
 </head>
@@ -108,11 +103,12 @@
                     </div>
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="main">Inicio</a></li>
-                            <li><a href="logs">Registros</a></li>
-                            <li><a href="resumes">Resumenes</a></li>
-                            <li><a href="location">Ubicación</a></li>
-                            <li><a href="logout">Cerrar sesión</a></li>
+                            <li><a href="main">Main</a></li>
+                            <li><a href="events">Events</a></li>
+                            <li><a href="summaries">Summaries</a></li>
+                            <li><a href="location">Location</a></li>
+                            <li><a href="console">Console</a></li>
+                            <li><a href="logout">Logout</a></li>
                         </ul>
                     </div>
                 </div>
@@ -133,24 +129,25 @@
                         <br />
                         <br />
                         <br />
-                        <h2 class="text-center center-block">Ventas de tu dispositivo SkyKontrol</h2>
+                        <h2 class="text-center center-block">Sales of your SkyKontrol device</h2>
                         <img class="img-responsive img-rounded center-block" id="brand" style="max-width: calc(35%);" src="images/2brobots.png" />
                         <br />
-                        <label class="text-center" id="message">Recuperando historial...</label>
-                        <label class="text-center" style="display: none;" id="message2">calculo en proceso...</label>
-                        <table class="table table-striped table-bordered table-responsive table-condensed text-center" style="max-width: calc(96%);" id="register">
+                        <label class="text-center" id="message">Retrieving history...</label>
+                        <label class="text-center" style="display: none;" id="message2">Calculation in process...</label>
+                        <table class="table table-striped table-bordered table-responsive table-condensed text-center" style="max-width: calc(96%); font-size: calc(90%);" id="register">
                             <thead>
                                 <tr>
-                                    <th class="text-center">Importe</th>
-                                    <th class="text-center">Metodo</th>
-                                    <th class="text-center">Fecha</th>
-                                    <th class="text-center">Hora</th>
+                                    <th class="text-center">Price</th>
+                                    <th class="text-center">Method</th>
+                                    <th class="text-center">Slot</th>
+                                    <th class="text-center"width="30%">Date</th>
+                                    <th class="text-center"width="30%">Time</th>
                                 </tr>
                             </thead>
                             <tbody>
                         </table>
-                        <p class="text-center">Zona horaria: Tiempo del centro (Ciudad de México)</p>
-                        <p class="text-center">Recuerda que todos los registros mayores a 35 dias se borran automaticamente.</p>
+                        <p class="text-center">Time zone: CST (Mexico City)</p>
+                        <p class="text-center">Remember that all records older than 35 days are automatically deleted.</p>
                         <br />
                         <br />
                         <br />

@@ -9,21 +9,23 @@ function process_input($data)
     return $data;
 }
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+$updateCords = true;
+$conn        = new mysqli($servername, $username, $password, $dbname);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $mac         = process_input($_POST["mac"]);
-    $ssid        = process_input($_POST["ssid"]);
-    $pass        = process_input($_POST["pass"]);
-    $lat         = process_input($_POST["lat"]);
-    $lng         = process_input($_POST["lng"]);
-    $accuracy    = process_input($_POST["accuracy"]);
-    $has_charLCD = process_input($_POST["has_charLCD"]);
-    $rev         = process_input($_POST["rev"]);
+    $mac            = process_input($_POST["mac"]);
+    $ssid           = process_input($_POST["ssid"]);
+    $pass           = process_input($_POST["pass"]);
+    $lat            = process_input($_POST["lat"]);
+    $lng            = process_input($_POST["lng"]);
+    $accuracy       = process_input($_POST["accuracy"]);
+    $has_charLCD    = process_input($_POST["has_charLCD"]);
+    $has_powerMeter = process_input($_POST["has_powerMeter"]);
+    $has_datalogger = process_input($_POST["has_datalogger"]);
+    $has_slots      = process_input($_POST["has_slots"]);
+    $rev            = process_input($_POST["rev"]);
     if ($lat == "NA" or $lng == "NA" or $accuracy == "NA") {
-        echo "ERROR";
-        $conn->close();
-        exit();
+        $updateCords = false;
     }
 } else {
     echo "ERROR";
@@ -40,8 +42,12 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     $row       = $result->fetch_assoc();
     $device_id = $row["device_id"];
-    $sql       = "UPDATE `$dbname`.`controller_boards` SET ssid = '$ssid', pass = '$pass', latitude = '$lat', longitude = '$lng', accuracy = '$accuracy', has_charLCD = $has_charLCD, firmware = '$rev' WHERE device_id='$device_id';";
-    $result    = $conn->query($sql);
+    if ($updateCords == true) {
+        $sql = "UPDATE `$dbname`.`controller_boards` SET ssid = '$ssid', pass = '$pass', latitude = '$lat', longitude = '$lng', accuracy = '$accuracy', has_charLCD = $has_charLCD, has_powerMeter = $has_powerMeter, has_datalogger = $has_datalogger, has_slots = $has_slots, firmware = '$rev' WHERE device_id='$device_id';";
+    } else {
+        $sql = "UPDATE `$dbname`.`controller_boards` SET ssid = '$ssid', pass = '$pass', has_charLCD = $has_charLCD, has_powerMeter = $has_powerMeter, has_datalogger = $has_datalogger, has_slots = $has_slots, firmware = '$rev' WHERE device_id='$device_id';";
+    }
+    $result = $conn->query($sql);
     if ($result === TRUE) {
         echo "PASS";
     } else {

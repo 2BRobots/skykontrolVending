@@ -1,8 +1,6 @@
 <?php
 include('../credentials.php');
 
-$current = 5;
-
 function process_input($data)
 {
     $data = trim($data);
@@ -15,7 +13,6 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mac = process_input($_POST["mac"]);
-    $rev = process_input($_POST["rev"]);
 } else {
     echo "ERROR";
     exit();
@@ -28,11 +25,8 @@ if ($conn->connect_error) {
 $sql    = "SELECT EXISTS (SELECT * FROM `$dbname`.`controller_boards` WHERE mac_addr='$mac');";
 $result = $conn->query($sql);
 if ($result->fetch_row()[0] == 1) {
-    if ($rev < $current) {
-        echo "UPDATE";
-    } else {
-        echo "UPTODATE";
-    }
+    $epoch = new DateTime(null, new DateTimeZone('America/Mexico_City'));
+    echo ($epoch->getTimestamp() + $epoch->getOffset()); //Unixtime is always in UTC, so we consider the timezone difference
 } else {
     echo "FAIL";
 }

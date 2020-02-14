@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html>
+<head runat="server">
+<meta charset="utf-8">
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>SkyKontrol - 2BR Wifi Setup</title>
+<link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
+</head>
+<center>
+<body>
+<style>
+header {
+font-family: 'Arial Rounded MT';
+padding: 4px 8px;
+display: block;
+color: white;
+background-color: #6b2b6f;
+}
+footer {
+font-family: 'Arial Rounded MT';
+}
+form {
+font-family: 'Arial Rounded MT';
+font-style: oblique;
+font-weight: bolder;
+}
+.Botones {
+display: inline-block;
+text-align: center;
+border-radius: 8px;
+color: white;
+background-color: #6b2b6f;
+font-family: 'Arial Rounded MT';
+font-weight: bold;
+font-size: 200%;
+padding: 20px 8px 50px 8px;
+border: none;
+}
+input {
+border-color: #6b2b6f;
+border-style: solid;
+border-width: 3px;
+margin: 3.5px 0 3.5px 0;
+text-indent: 4px;
+display: inline-block;
+clear: both;
+font-family: 'Arial Rounded MT';
+font-size: 17px;
+height: 32px;
+box-sizing: border-box;
+width: 250px;
+}
+select {
+border-color: #6b2b6f;
+border-style: solid;
+border-width: 3px;
+margin: 3.5px 0 3.5px 0;
+text-indent: 4px;
+display: inline-block;
+clear: both;
+font-family: 'Arial Rounded MT';
+font-size: 17px;
+height: 32px;
+box-sizing: border-box;
+width: 250px;
+}
+.Botones:hover {
+background-color: #cb13e8;
+}
+</style>
+<script>
+function showPass() {
+    var x = document.getElementById("pass");
+    var y = document.getElementById("box");
+    if (x.type === "password" && y.checked == true) {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
+}
+</script>
+<header class="container-fluid">
+<h1>SkyKontrol</h1>
+<h1>WiFi easyConfig</h1>
+</header>
+<br>
+<img style="max-width: calc(95%);" src="2brobots.png"/><br><br>
+<form method="get" action="done">
+<label>SSID: </label><input list="ssid" name="ssid" autocomplete="off">
+<br>
+<label>PASS: </label><input type=password name="pass" id=pass><br><br>
+<label><input type="checkbox" id="box" style="width: 60px; position: relative; vertical-align: middle;" onclick="showPass()">Show password</label><br><br>
+<input class='Botones' type=submit value='Save';>
+</form>
+<p style="font-style:'Arial Rounded MT';line-height: 14px;">
+For information on how to configure <br> your IoT controller correctly please <br> refer to the user manual.
+</p>
+<footer>
+<h3>2BRobots &copy 2016</h3>
+</footer>
+</body>
+</center>
+</html>
+<html><datalist id="ssid">

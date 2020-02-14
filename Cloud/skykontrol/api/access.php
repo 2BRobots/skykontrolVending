@@ -26,7 +26,7 @@ if ($conn->connect_error) {
 $sql    = "SELECT EXISTS (SELECT * FROM `$dbname`.`controller_boards` WHERE  user_id='$id' AND password='$psw');";
 $result = $conn->query($sql);
 if ($result->fetch_row()[0] == 1) {
-    $sql    = "SELECT `enabled`, `mac_addr`,`has_charLCD`,`company`,`latitude`,`longitude`,`accuracy`, `firmware`, `manufacture_date` FROM `$dbname`.`controller_boards` WHERE  user_id='$id' LIMIT 1;";
+    $sql    = "SELECT `enabled`, `mac_addr`,`has_charLCD`,`has_powerMeter`,`has_datalogger`,`has_slots`,`company`,`latitude`,`longitude`,`accuracy`, `firmware`, `manufacture_date` FROM `$dbname`.`controller_boards` WHERE  user_id='$id' LIMIT 1;";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
@@ -37,6 +37,12 @@ if ($result->fetch_row()[0] == 1) {
             $_SESSION["mac"]              = $mac;
             $charLCD                      = $row["has_charLCD"];
             $_SESSION["charLCD"]          = $charLCD;
+            $powerMeter                   = $row["has_powerMeter"];
+            $_SESSION["powerMeter"]       = $powerMeter;
+            $datalogger                   = $row["has_datalogger"];
+            $_SESSION["datalogger"]       = $datalogger;
+            $slots                        = $row["has_slots"];
+            $_SESSION["slots"]            = $slots;
             $company                      = $row["company"];
             $_SESSION["company"]          = $company;
             $latitude                     = $row["latitude"];

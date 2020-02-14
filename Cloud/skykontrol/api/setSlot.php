@@ -21,7 +21,13 @@ function process_input($data)
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $token = process_input($_POST["token"]);
+    $slot       = process_input($_POST["slot"]);
+    $product_id = process_input($_POST["product_id"]);
+    $cost       = process_input($_POST["cost"]);
+    $time       = process_input($_POST["time"]);
+    $counter    = process_input($_POST["counter"]);
+    $quantity   = process_input($_POST["quantity"]);
+    $token      = process_input($_POST["token"]);
 } else {
     echo "ERROR";
     exit();
@@ -31,19 +37,17 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql    = "SELECT `device_id` FROM `$dbname`.`controller_boards` WHERE  user_id='$id' LIMIT 1;";
+$sql    = "SELECT `device_id` FROM `$dbname`.`controller_boards` WHERE user_id='$id' LIMIT 1;";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     $row       = $result->fetch_assoc();
     $device_id = $row["device_id"];
-    $sql       = "SELECT `start_date`, `end_date`, `sales`, `ammount` FROM `$dbname`.`resumes` WHERE  device_id='$device_id' ORDER BY `datetime` DESC;";
+    $sql       = "UPDATE `$dbname`.`controller_slots` SET `product_id`='$product_id', `cost`='$cost', `time`='$time', `counter`='$counter', `quantity`='$quantity' WHERE device_id='$device_id' AND slot='$slot' LIMIT 1;";
     $result    = $conn->query($sql);
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            echo date('d-m-Y', strtotime($row["start_date"]))  . "," . date('d-m-Y', strtotime($row["end_date"])) . "," . $row["sales"] . ",$" . $row["ammount"] ."\n";
-        }
+    if ($result === TRUE) {
+        echo "PASS";
     } else {
-        echo "EMPTY";
+        echo "FAIL";
     }
 } else {
     echo "FAIL";
