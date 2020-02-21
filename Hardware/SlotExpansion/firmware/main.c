@@ -30,7 +30,7 @@
 
 #define _XTAL_FREQ 32000000    //frequency of th MCU
 #define DEVICE_ID 0x03         //this is the device ID used for I2C validation
-#define I2C_slave_address 0x3F // any value from 0 to 127, this will be the default
+#define I2C_slave_address 0x40 // any value from 0 to 127, this will be the default
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -38,7 +38,34 @@
 
 //EEPROM default values and function prototypes for memory access on program
 
-__EEPROM_DATA(I2C_slave_address, 0x00, 0x01, 0xB8, 0x0B, 0xFF, 0xFF, 0xFF); //set default program values stored on EEPROM at programming
+__EEPROM_DATA(0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00); //set default program values stored on EEPROM at programming
+__EEPROM_DATA(0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00);
+__EEPROM_DATA(0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00);
+__EEPROM_DATA(0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00);
+__EEPROM_DATA(0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00);
+__EEPROM_DATA(0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00);
+__EEPROM_DATA(0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00);
+__EEPROM_DATA(0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00);
+__EEPROM_DATA(0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00);
+__EEPROM_DATA(0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00);
+__EEPROM_DATA(0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00);
+__EEPROM_DATA(0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00);
+__EEPROM_DATA(0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00);
+__EEPROM_DATA(0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00);
+__EEPROM_DATA(0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00);
+__EEPROM_DATA(0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00);
+__EEPROM_DATA(0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00);
+__EEPROM_DATA(0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00);
+__EEPROM_DATA(0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00);
+__EEPROM_DATA(0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00);
+__EEPROM_DATA(0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00);
+__EEPROM_DATA(0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00);
+__EEPROM_DATA(0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00);
+__EEPROM_DATA(0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00);
+__EEPROM_DATA(0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00);
+__EEPROM_DATA(0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00);
+__EEPROM_DATA(0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00);
+__EEPROM_DATA(0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00);
 unsigned char eeprom_read(unsigned char address);
 void eeprom_write(unsigned char address, unsigned char value);
 
@@ -47,20 +74,72 @@ void eeprom_write(unsigned char address, unsigned char value);
 volatile union _I2C_buffer {
 
     struct _data {
-        unsigned char ID;
-        unsigned char ADDRESS;
-        unsigned char SAVE;
-        unsigned char RESET;
-        unsigned char ENABLE;
-        unsigned char BUZZER;
-        unsigned int OBS_TIME;
-        unsigned char OBSTRUCT;
-        unsigned long UPA;
-        unsigned long DWA;
-        signed long NWA;
-        unsigned long UPK;
-        unsigned long DWK;
-        signed long NWK;
+        unsigned char ID; //0x00
+        unsigned char RESET; //0x01
+        unsigned char SAVE; //0x02
+        unsigned char dispense; //0x03
+        unsigned char selected; //0x04
+        unsigned char cancel; //0x05
+        unsigned long counter; //0x06
+        unsigned long time; //0x0A
+        unsigned char calibrate; //0x0E
+        unsigned char relay1; //0x0F
+        unsigned char relay2; //0x10
+        unsigned char relay3; //0x11
+        unsigned char relay4; //0x12
+
+        unsigned char selected1; //0x13
+        unsigned char product_id1[13]; //0x14
+        unsigned char name1[21]; //0x21
+        unsigned char unit1[3]; //0x36
+        unsigned long time1; //0x39
+        unsigned long counter1; //0x3D
+        unsigned int cost1; //0x41
+        unsigned int quantity1; //0x43
+        unsigned int stock1; //0x45
+        unsigned int capacity1; //0x47
+        unsigned int emptyLevel1; //0x49
+        unsigned int fullLevel1; //0x4B
+
+        unsigned char selected2; //0x4D
+        unsigned char product_id2[13]; //0x4E
+        unsigned char name2[21]; //0x5B
+        unsigned char unit2[3]; //0x70
+        unsigned long time2; //0x73
+        unsigned long counter2; //0x77
+        unsigned int cost2; //0x7B
+        unsigned int quantity2; //0x7D
+        unsigned int stock2; //0x7F
+        unsigned int capacity2; //0x81
+        unsigned int emptyLevel2; //0x83
+        unsigned int fullLevel2; //0x85
+
+        unsigned char selected3; //0x87
+        unsigned char product_id3[13]; //0x88
+        unsigned char name3[21]; //0x95
+        unsigned char unit3[3]; //0xAA
+        unsigned long time3; //0xAD
+        unsigned long counter3; //0xB1
+        unsigned int cost3; //0xB5
+        unsigned int quantity3; //0xB7
+        unsigned int stock3; //0xB9
+        unsigned int capacity3; //0xBB
+        unsigned int emptyLevel3; //0xBD
+        unsigned int fullLevel3; //0xBF
+
+        unsigned char selected4; //0xC1
+        unsigned char product_id4[13]; //0xC2
+        unsigned char name4[21]; //0xCF
+        unsigned char unit4[3]; //0xE4
+        unsigned long time4; //0xE7
+        unsigned long counter4; //0xEB
+        unsigned int cost4; //0xEF
+        unsigned int quantity4; //0xF1
+        unsigned int stock4; //0xF3
+        unsigned int capacity4; //0xF5
+        unsigned int emptyLevel4; //0xF7
+        unsigned int fullLevel4; //0xF9
+
     } data;
     unsigned char byte[];
 } I2C_buffer; //this allows to access vars directly as set types or bytes. Shared with main program and I2C communication
@@ -68,78 +147,142 @@ volatile union _I2C_buffer {
 const unsigned char RX_ELMNTS = sizeof (I2C_buffer); //used in I2C data transfer routines
 volatile unsigned char first_i2c = 1;
 volatile unsigned char index_i2c = 0;
-volatile unsigned char blockStop = 1;
-volatile unsigned int obstructHold = 0;
-volatile unsigned char triggerUP = 0;
-volatile unsigned char triggerDW = 0;
-volatile unsigned char ignoreCount = 1;
-volatile unsigned char middleSen = 0;
-volatile unsigned char topSen = 0;
+unsigned char average = 0;
+unsigned int stock1 = 0;
+unsigned int stock2 = 0;
+unsigned int stock3 = 0;
+unsigned int stock4 = 0;
+
+// Functions
+
+unsigned long map(unsigned long x, unsigned long in_min, unsigned long in_max, unsigned long out_min, unsigned long out_max) {
+    return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+}
+
+unsigned int ADC_read(unsigned char channel) {
+    ADCON0 = (unsigned char) (channel << 2); //select channel
+    ADCON0bits.ADON = 1; //enable ADC
+    __delay_ms(1); //wait to charge holding capacitor
+    ADCON0bits.GO_nDONE = 1; //start conversion
+    while (ADCON0bits.GO_nDONE); //wait ADC to finish
+    ADCON0bits.ADON = 0; //disable ADC
+    return (((unsigned int) ADRESH) << 8) | ((unsigned int) ADRESL & 0xFF); //return ADC result
+}
+
+void init_I2C_buffer() { //load default values of vars
+    I2C_buffer.data.ID = DEVICE_ID;
+    I2C_buffer.data.RESET = 0;
+    I2C_buffer.data.SAVE = 0;
+    I2C_buffer.data.dispense = 0;
+    I2C_buffer.data.selected = 0;
+    I2C_buffer.data.cancel = 0;
+    I2C_buffer.data.counter = 0;
+    I2C_buffer.data.time = 0;
+    I2C_buffer.data.calibrate = 0;
+    I2C_buffer.data.relay1 = 0;
+    I2C_buffer.data.relay2 = 0;
+    I2C_buffer.data.relay3 = 0;
+    I2C_buffer.data.relay4 = 0;
+    I2C_buffer.data.selected1 = 0;
+    for (unsigned char i = 0; i < 57; i++) //data for slot1 (56 bytes) (product_id, name, unit, time, counter, cost, quantity, stock, capacity, emptyLevel, fullLevel)
+    {
+        I2C_buffer.byte[(unsigned char) (0x14 + i)] = eeprom_read(i);
+    }
+    I2C_buffer.data.selected2 = 0;
+    for (unsigned char i = 0; i < 57; i++) //data for slot2 (product_id, name, unit, time, counter, cost, quantity, stock, capacity, emptyLevel, fullLevel)
+    {
+        I2C_buffer.byte[(unsigned char) (0x4E + i)] = eeprom_read((unsigned char) (57 + i));
+    }
+    I2C_buffer.data.selected3 = 0;
+    for (unsigned char i = 0; i < 57; i++) //data for slot3 (product_id, name, unit, time, counter, cost, quantity, stock, capacity, emptyLevel, fullLevel)
+    {
+        I2C_buffer.byte[(unsigned char) (0x88 + i)] = eeprom_read((unsigned char) (113 + i));
+    }
+    I2C_buffer.data.selected4 = 0;
+    for (unsigned char i = 0; i < 57; i++) //data for slot4 (product_id, name, unit, time, counter, cost, quantity, stock, capacity, emptyLevel, fullLevel)
+    {
+        I2C_buffer.byte[(unsigned char) (0xC2 + i)] = eeprom_read((unsigned char) (167 + i));
+    }
+
+}
 
 // Interrupts
 
 void __interrupt isr() {
 
+    if (INTCONbits.INTF == 1) {//interrupt on CNC input
+        INTCONbits.INTE = 0; //disable this interrupt
+        if (I2C_buffer.data.dispense == 0) {
+            I2C_buffer.data.cancel = 1;
+            I2C_buffer.data.selected1 = 0;
+            I2C_buffer.data.selected2 = 0;
+            I2C_buffer.data.selected3 = 0;
+            I2C_buffer.data.selected4 = 0;
+        } else {
+            I2C_buffer.data.counter++;
+        }
+        INTCONbits.INTF = 0; //clear this interrupt flag
+        INTCONbits.INTE = 1; //enable this interrupt
+    }
+
     if (INTCONbits.IOCIF == 1) {//interrupt on change
         INTCONbits.IOCIE = 0; //disable on change interrupts
-        if (I2C_buffer.data.ENABLE == 1 && ignoreCount == 0) {
-            if (IOCBFbits.IOCBF0 == 1 && IOCBFbits.IOCBF7 == 0 && triggerDW == 0) {//if up botton sensor triggers
-                triggerUP = 1; //sets a flag if someone is getting up for later validation in main
-                IOCBFbits.IOCBF0 = 0; //clear interrupt flag
-            }
-            if (IOCBFbits.IOCBF7 == 1 && IOCBFbits.IOCBF0 == 0 && triggerUP == 0) {//if down botton sensor triggers
-                triggerDW = 1; //sets a flag if someone is getting down for later validation in main
-                IOCBFbits.IOCBF7 = 0; //clear interrupt flag
-            }
-            if ((IOCBFbits.IOCBF2 == 1 || IOCBFbits.IOCBF6 == 1) && (triggerUP == 1 || triggerDW == 1)) {//if middle sensors triggers after up/down signal
-                middleSen = 1; //sets a flag if someone is passing for later validation in main
-                IOCBFbits.IOCBF2 = 0; //clear interrupt flag
-                IOCBFbits.IOCBF6 = 0; //clear interrupt flag
-            }
-            if ((IOCBFbits.IOCBF3 == 1 || IOCBFbits.IOCBF5 == 1) && (triggerUP == 1 || triggerDW == 1)) {//if top sensors triggers after up/down signal
-                topSen = 1; //sets a flag if someone is passing for later validation in main
-                IOCBFbits.IOCBF3 = 0; //clear interrupt flag
-                IOCBFbits.IOCBF5 = 0; //clear interrupt flag
-            }
-            IOCBF = 0; //clear interrupt on change flags
-            INTCONbits.IOCIE = 1; //enable on change interrupts
-        } else {
-            IOCBF = 0; //clear interrupt on change flags
-            INTCONbits.IOCIE = 1; //enable on change interrupts
+        if (IOCBFbits.IOCBF2 == 1) {
+            I2C_buffer.data.selected1 = 1;
+            I2C_buffer.data.selected2 = 0;
+            I2C_buffer.data.selected3 = 0;
+            I2C_buffer.data.selected4 = 0;
         }
+        if (IOCBFbits.IOCBF3 == 1) {
+            I2C_buffer.data.selected1 = 0;
+            I2C_buffer.data.selected2 = 1;
+            I2C_buffer.data.selected3 = 0;
+            I2C_buffer.data.selected4 = 0;
+        }
+        if (IOCBFbits.IOCBF6 == 1) {
+            I2C_buffer.data.selected1 = 0;
+            I2C_buffer.data.selected2 = 0;
+            I2C_buffer.data.selected3 = 1;
+            I2C_buffer.data.selected4 = 0;
+        }
+        if (IOCBFbits.IOCBF7 == 1) {
+            I2C_buffer.data.selected1 = 0;
+            I2C_buffer.data.selected2 = 0;
+            I2C_buffer.data.selected3 = 0;
+            I2C_buffer.data.selected4 = 1;
+        }
+        IOCBF = 0; //clear interrupt on change flags
+        INTCONbits.IOCIE = 1; //enable on change interrupts
     }
 
     if (PIR1bits.TMR1IF == 1) //timer1 interrupt, called every 65.536 ms
     {
-        INTCONbits.IOCIE = 0; //disable on change interrupts
         T1CONbits.TMR1ON = 0; //stop timer1
-        asm("CLRWDT"); //reset the watchdog timer to avoid unwanted resets if system is working correctly
-        if (I2C_buffer.data.ENABLE == 1) {
-            blockStop = 0;
-            if (PORTBbits.RB0 == 1 || PORTBbits.RB2 == 1 || PORTBbits.RB3 == 1 || PORTBbits.RB5 == 1 || PORTBbits.RB6 == 1 || PORTBbits.RB7 == 1) {//detect obstruction
-                if (I2C_buffer.data.OBSTRUCT != 1) {
-                    obstructHold++; //acumulates consecutive obstruction time
-                }
-                if ((obstructHold * 66) >= I2C_buffer.data.OBS_TIME) { //wait until the minimun configured time is reached
-                    I2C_buffer.data.OBSTRUCT = 1; //counter is obstructed more than the allowed time
-                } else {
-                    I2C_buffer.data.OBSTRUCT = 0;
-                }
-            } else {
-                I2C_buffer.data.OBSTRUCT = 0;
-                obstructHold = 0; //clears the acumulator and resets obstruction alert
-            }
-            if (I2C_buffer.data.OBSTRUCT == 1 && I2C_buffer.data.BUZZER == 1) { //beep if obstruction occurs and buzzer is enabled
-                LATAbits.LATA6 = 1;
-            } else {
-                LATAbits.LATA6 = 0;
-            }
+        asm("CLRWDT");
+        if (average < 10) {
+            stock1 += ADC_read(0x00);
+            stock2 += ADC_read(0x01);
+            stock3 += ADC_read(0x02);
+            stock4 += ADC_read(0x03);
+            average++;
         } else {
-            blockStop = 1;
-            I2C_buffer.data.OBSTRUCT = 0;
-            LATAbits.LATA6 = 0;
+            if (I2C_buffer.data.calibrate == 1) {
+                I2C_buffer.data.stock1 = stock1 / 10;
+                I2C_buffer.data.stock2 = stock2 / 10;
+                I2C_buffer.data.stock3 = stock3 / 10;
+                I2C_buffer.data.stock4 = stock4 / 10;
+            } else {
+                I2C_buffer.data.stock1 = map((stock1 / 10), I2C_buffer.data.emptyLevel1, I2C_buffer.data.fullLevel1, 0, I2C_buffer.data.capacity1);
+                I2C_buffer.data.stock2 = map((stock2 / 10), I2C_buffer.data.emptyLevel2, I2C_buffer.data.fullLevel2, 0, I2C_buffer.data.capacity2);
+                I2C_buffer.data.stock3 = map((stock3 / 10), I2C_buffer.data.emptyLevel3, I2C_buffer.data.fullLevel3, 0, I2C_buffer.data.capacity3);
+                I2C_buffer.data.stock4 = map((stock4 / 10), I2C_buffer.data.emptyLevel4, I2C_buffer.data.fullLevel4, 0, I2C_buffer.data.capacity4);
+            }
+            stock1 = 0;
+            stock2 = 0;
+            stock3 = 0;
+            stock4 = 0;
+            average = 0;
         }
-        INTCONbits.IOCIE = 1; //enable on change interrupts
         PIR1bits.TMR1IF = 0; //clear interrutp flag
         T1CONbits.TMR1ON = 1; //start timer1
     }
@@ -208,159 +351,149 @@ void __interrupt isr() {
     }
 }
 
-// Functions
-
-void init_I2C_buffer() { //load default values of vars
-    I2C_buffer.data.ID = DEVICE_ID;
-    I2C_buffer.data.ADDRESS = eeprom_read(0);
-    I2C_buffer.data.SAVE = 0;
-    I2C_buffer.data.RESET = 0;
-    I2C_buffer.data.ENABLE = eeprom_read(1);
-    I2C_buffer.data.BUZZER = eeprom_read(2);
-    I2C_buffer.byte[0x06] = eeprom_read(3); //OBS_TIME
-    I2C_buffer.byte[0x07] = eeprom_read(4);
-    I2C_buffer.data.OBSTRUCT = 0;
-    I2C_buffer.data.UPA = 0;
-    I2C_buffer.data.DWA = 0;
-    I2C_buffer.data.NWA = 0;
-    I2C_buffer.data.UPA = 0;
-    I2C_buffer.data.DWA = 0;
-    I2C_buffer.data.NWA = 0;
-}
-
-PWM_Init(void) // start the PWM with a 0% duty
-{
-    //10 bit mode PWM at 38kHz, CCP2
-    PR2 = 211; //load PR2 register, this value gives us 38KHz frequency
-    CCP2CON = 0b00001100; //configure CCP2 for PWM operation
-    CCPR2L = 0b00000000; //set duty to 0    
-    PIR1bits.TMR2IF = 0; //clear the interrupt flag
-    T2CON = 0b00000100; //start timer 2 and select prescaler as 1
-}
-
-PWM_set_duty(int duty) // change the duty of PWM in CCP2
-{
-    if (duty < 1024) {
-        CCPR2L = (0xFF & ((unsigned int) duty >> 2)); //discard 2 LSB and write the rest to register, 10 bit mode
-        CCP2CON = (0x0C | (0x30 & ((unsigned int) duty << 4))); //filter the reamaining 2 LSB and then write it to DC1B (bit 5,4 in the register), 10 bit mode
-        //CCPR1L = (0xFF & ((unsigned int)duty)); //to be used in 8 bit mode
-    }
-}
-
-void main(void) {
+int main(int argc, char** argv) {
     OSCCON = 0b11110000; //configure internal oscilator for 32Mhz
     init_I2C_buffer(); //load default values and configurations
     OPTION_REGbits.nWPUEN = 0; //allow weak pull-ups to activate
-    TRISA = 0b00100000; //configure IO
-    ANSELA = 0b00000000; //analog functions of pins disabled
-    TRISB = 0b11111111; //configure IO
+    TRISA = 0b00101111; //configure IO
+    ANSELA = 0b00001111; //analog functions of pins disabled
+    TRISB = 0b11011111; //configure IO
     ANSELB = 0b00000000; //analog functions of pins disabled
-    WPUA = 0b00100000; //configure weak pull-ups on input pins
-    WPUB = 0b11111111; //configure weak pull-ups on input pins
+    WPUA = 0b00000000; //configure weak pull-ups on input pins
+    WPUB = 0b00000000; //configure weak pull-ups on input pins
     PORTA = 0b00000000; //set all to LOW
     PORTB = 0b00000000; //set all to LOW
-    APFCON0bits.CCP2SEL = 1; //select PWM output on RA7
     SSP1STAT = 0b10000000; // Slew rate control disabled for standardspeed I2C mode (100 kHz and 1 MHz)
     SSP1CON1 = 0b00110110; // Enable serial port, I2C slave mode, 7-bit address
     SSP1CON2bits.SEN = 1; // Clock stretching on I2C is enabled
     SSP1CON3bits.BOEN = 1; // I2C SSPBUF is updated and NACK is generated for a received address/data byte, ignoring the state of the SSPOV bit only if the BF bit = 0
     SSP1CON3bits.SDAHT = 1; // Minimum of 300 ns hold time on SDA after the falling edge of SCL
     SSP1CON3bits.SBCDE = 1; // Enable I2C slave bus collision detect interrupts
-    SSP1ADD = (char) (I2C_buffer.data.ADDRESS << 1); // Load the slave address for I2C
+    SSP1ADD = (char) (I2C_slave_address << 1); // Load the slave address for I2C
     PIR1bits.SSP1IF = 0; // Clear the serial port interrupt flag
     PIR2bits.BCL1IF = 0; // Clear the bus collision interrupt flag
     PIE2bits.BCL1IE = 1; // Enable bus collision interrupts
     PIE1bits.SSP1IE = 1; // Enable serial port interrupts
     INTCONbits.PEIE = 1; // Enable peripheral interrupts
-    PWM_Init(); //start pwm
-    PWM_set_duty(0); //put duty of pwm to 0
-    IOCBP = 0b11101101; //configure interrupt on rising edge for sensors
-    INTCON = 0b01001000; //enables interrupts
+    IOCBN = 0b11001100; //configure interrupt on falling edge for buttons
+    INTCON = 0b01011000; //enables interrupts
     T1CON = 0b00110100; //configure timer 1 to run at 1 MHz, interrupt time is 65.536 ms
     PIE1bits.TMR1IE = 1; //enable timer 1 interrupt
     T1CONbits.TMR1ON = 1; //start timer 1
-    __delay_ms(50);
-    LATAbits.LATA6 = 1; //make sound at start
-    __delay_ms(450);
-    LATAbits.LATA6 = 0;
     INTCONbits.GIE = 1; //run interrupts
 
     while (1) {
-
-        if (I2C_buffer.data.ENABLE == 0 && blockStop == 1) {
-            ignoreCount = 1;
-            __delay_ms(2); //give some time to the MCU to apply changes to hardware
-            PWM_set_duty(0); //put duty of pwm to 0
-        } else {
-            PWM_set_duty(512); //put duty of pwm to 512
-            __delay_ms(2);
-            ignoreCount = 0;
-        }
-
+        asm("CLRWDT");
         if (I2C_buffer.data.RESET == 1) { //Reset the device
             asm("RESET");
         }
 
         if (I2C_buffer.data.SAVE == 1) { //Save non-volatile data into the EEPROM
-            eeprom_write(0, I2C_buffer.data.ADDRESS);
-            eeprom_write(1, I2C_buffer.data.ENABLE);
-            eeprom_write(2, I2C_buffer.data.BUZZER);
-            eeprom_write(3, I2C_buffer.byte[0x06]);
-            eeprom_write(4, I2C_buffer.byte[0x07]);
-            __delay_ms(10);
+            //eeprom_write(0, I2C_buffer.data.ADDRESS);
+            for (unsigned char i = 0; i < 57; i++) //data for slot1 (56 bytes) (product_id, name, unit, time, counter, cost, quantity, stock, capacity, emptyLevel, fullLevel)
+            {
+                eeprom_write(i, I2C_buffer.byte[(unsigned char) (0x14 + i)]);
+            }
+            for (unsigned char i = 0; i < 57; i++) //data for slot2 (product_id, name, unit, time, counter, cost, quantity, stock, capacity, emptyLevel, fullLevel)
+            {
+                eeprom_write((unsigned char) (57 + i), I2C_buffer.byte[(unsigned char) (0x4E + i)]);
+            }
+            for (unsigned char i = 0; i < 57; i++) //data for slot3 (product_id, name, unit, time, counter, cost, quantity, stock, capacity, emptyLevel, fullLevel)
+            {
+                eeprom_write((unsigned char) (113 + i), I2C_buffer.byte[(unsigned char) (0x88 + i)]);
+            }
+            for (unsigned char i = 0; i < 57; i++) //data for slot4 (product_id, name, unit, time, counter, cost, quantity, stock, capacity, emptyLevel, fullLevel)
+            {
+                eeprom_write((unsigned char) (167 + i), I2C_buffer.byte[(unsigned char) (0xC2 + i)]);
+            }
             I2C_buffer.data.SAVE = 0;
+            __delay_ms(10);
         }
 
-        if (triggerUP == 1) { //validates it is was a person(adult or kid) and wait until it pass the barries before re-enabling detection, if not discards the event and re-enables detection
-            __delay_ms(500);
-            while (PORTBbits.RB0 == 1 || PORTBbits.RB2 == 1 || PORTBbits.RB3 == 1 || PORTBbits.RB5 == 1 || PORTBbits.RB6 == 1 || PORTBbits.RB7 == 1) {
-                __delay_ms(10);
+        if (I2C_buffer.data.dispense == 1) {
+            I2C_buffer.data.time = 0;
+            I2C_buffer.data.counter = 0;
+            I2C_buffer.data.cancel = 0;
+            I2C_buffer.data.selected1 = 0;
+            I2C_buffer.data.selected2 = 0;
+            I2C_buffer.data.selected3 = 0;
+            I2C_buffer.data.selected4 = 0;
+            switch (I2C_buffer.data.selected) {
+                case 1:
+                    while (I2C_buffer.data.time <= I2C_buffer.data.time1 && I2C_buffer.data.counter <= I2C_buffer.data.counter1 && I2C_buffer.data.dispense == 1) {
+                        LATAbits.LATA4 = 1;
+                        I2C_buffer.data.time++;
+                        __delay_ms(1);
+                        if (I2C_buffer.data.calibrate == 1 && I2C_buffer.data.selected1 == 1) break;
+                    }
+                    LATAbits.LATA4 = 0;
+                    I2C_buffer.data.dispense = 0;
+                    break;
+                case 2:
+                    while (I2C_buffer.data.time <= I2C_buffer.data.time2 && I2C_buffer.data.counter <= I2C_buffer.data.counter2 && I2C_buffer.data.dispense == 1) {
+                        LATAbits.LATA6 = 1;
+                        I2C_buffer.data.time++;
+                        __delay_ms(1);
+                        if (I2C_buffer.data.calibrate == 1 && I2C_buffer.data.selected2 == 1) break;
+                    }
+                    LATAbits.LATA6 = 0;
+                    I2C_buffer.data.dispense = 0;
+                    break;
+                case 3:
+                    while (I2C_buffer.data.time <= I2C_buffer.data.time3 && I2C_buffer.data.counter <= I2C_buffer.data.counter3 && I2C_buffer.data.dispense == 1) {
+                        LATAbits.LATA7 = 1;
+                        I2C_buffer.data.time++;
+                        __delay_ms(1);
+                        if (I2C_buffer.data.calibrate == 1 && I2C_buffer.data.selected3 == 1) break;
+                    }
+                    LATAbits.LATA7 = 0;
+                    I2C_buffer.data.dispense = 0;
+                    break;
+                case 4:
+                    while (I2C_buffer.data.time <= I2C_buffer.data.time4 && I2C_buffer.data.counter <= I2C_buffer.data.counter4 && I2C_buffer.data.dispense == 1) {
+                        LATBbits.LATB5 = 1;
+                        I2C_buffer.data.time++;
+                        __delay_ms(1);
+                        if (I2C_buffer.data.calibrate == 1 && I2C_buffer.data.selected4 == 1) break;
+                    }
+                    LATBbits.LATB5 = 0;
+                    I2C_buffer.data.dispense = 0;
+                    break;
+                default:
+                    I2C_buffer.data.dispense = 0;
+                    break;
             }
-            __delay_ms(100);
-            if (middleSen == 1 && topSen == 1) {
-                I2C_buffer.data.UPA++;
-                I2C_buffer.data.NWA = I2C_buffer.data.UPA - I2C_buffer.data.DWA;
-            } else {
-                if (middleSen == 1 && topSen == 0) {
-                    I2C_buffer.data.UPK++;
-                    I2C_buffer.data.NWK = I2C_buffer.data.UPK - I2C_buffer.data.DWK;
-                }
-            }
-            while (PORTBbits.RB0 == 1 || PORTBbits.RB2 == 1 || PORTBbits.RB3 == 1 || PORTBbits.RB5 == 1 || PORTBbits.RB6 == 1 || PORTBbits.RB7 == 1) {
-                __delay_ms(10);
-            }
-            triggerUP = 0;
-            middleSen = 0;
-            topSen = 0;
-            IOCBF = 0; //clear interrupt on change flags
+            I2C_buffer.data.selected = 0;
+
         }
 
-        if (triggerDW == 1) { //validates it is was a person(adult or kid) and wait until it pass the barries before re-enabling detection, if not discards the event and re-enables detection
-            __delay_ms(500);
-            while (PORTBbits.RB0 == 1 || PORTBbits.RB2 == 1 || PORTBbits.RB3 == 1 || PORTBbits.RB5 == 1 || PORTBbits.RB6 == 1 || PORTBbits.RB7 == 1) {
-                __delay_ms(10);
-            }
-            __delay_ms(100);
-            if (middleSen == 1 && topSen == 1) {
-                I2C_buffer.data.DWA++;
-                I2C_buffer.data.NWA = I2C_buffer.data.UPA - I2C_buffer.data.DWA;
-            } else {
-                if (middleSen == 1 && topSen == 0) {
-                    I2C_buffer.data.DWK++;
-                    I2C_buffer.data.NWK = I2C_buffer.data.UPK - I2C_buffer.data.DWK;
-                }
-            }
-            while (PORTBbits.RB0 == 1 || PORTBbits.RB2 == 1 || PORTBbits.RB3 == 1 || PORTBbits.RB5 == 1 || PORTBbits.RB6 == 1 || PORTBbits.RB7 == 1) {
-                __delay_ms(10);
-            }
-            triggerDW = 0;
-            middleSen = 0;
-            topSen = 0;
-            IOCBF = 0; //clear interrupt on change flags
+        if (I2C_buffer.data.relay1 == 1) {
+            LATAbits.LATA4 = 1;
+        } else {
+            LATAbits.LATA4 = 0;
         }
+
+        if (I2C_buffer.data.relay2 == 1) {
+            LATAbits.LATA6 = 1;
+        } else {
+            LATAbits.LATA6 = 0;
+        }
+
+        if (I2C_buffer.data.relay3 == 1) {
+            LATAbits.LATA7 = 1;
+        } else {
+            LATAbits.LATA7 = 0;
+        }
+
+        if (I2C_buffer.data.relay4 == 1) {
+            LATBbits.LATB5 = 1;
+        } else {
+            LATBbits.LATB5 = 0;
+        }
+
 
     }
-    return;
+    return (EXIT_SUCCESS);
 }
 
 

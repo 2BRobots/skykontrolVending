@@ -11,39 +11,39 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\ciro_\AppData\Local\Temp\sj2c.o
+$C:\Users\ciro_\AppData\Local\Temp\sujg.o
 reset_vec CODE 0 0 0 2 2
-end_init CODE 0 106 106 2 2
+end_init CODE 0 319 319 2 2
 config CONFIG 0 8007 8007 2 2
 $dist/default/production\firmware.production.o
-cinit CODE 0 108 108 1B 2
-text1 CODE 0 314 314 61 2
-text2 CODE 0 3C2 3C2 1B 2
-text3 CODE 0 375 375 28 2
-text4 CODE 0 39D 39D 25 2
-text5 CODE 0 3F8 3F8 C 2
-text7 CODE 0 3DD 3DD 1B 2
-idataCOMMON CODE 0 40A 40A 2 2
-maintext CODE 0 123 123 1F1 2
-cstackCOMMON COMMON 1 70 70 7 1
-cstackBANK0 BANK0 1 45 45 9 1
-stringtext1 STRCODE 0 40D 40D 1 2
-intentry CODE 0 4 4 102 2
-bssBANK0 BANK0 1 20 20 25 1
-idataBANK0 CODE 0 40C 40C 1 2
-eeprom_data EEDATA 3 0 F000 8 2
-dataBANK0 BANK0 1 4E 4E 1 1
-dataCOMMON COMMON 1 7B 7B 2 1
-clrtext CODE 0 404 404 6 2
-bssCOMMON COMMON 1 77 77 4 1
+cinit CODE 0 31B 31B 1D 2
+text1 CODE 0 69B 69B DD 2
+text2 CODE 0 F12 F12 1B 2
+text3 CODE 0 7D6 7D6 28 2
+text5 CODE 0 778 778 5E 2
+text6 CODE 0 F4B F4B 2F 2
+text7 CODE 0 FAE FAE 52 2
+text8 CODE 0 F7A F7A 34 2
+text9 CODE 0 F2D F2D 1E 2
+maintext CODE 0 338 338 363 2
+cstackCOMMON COMMON 1 70 70 D 1
+cstackBANK0 BANK0 1 20 20 3B 1
+cstackBANK1 BANK1 1 A0 A0 1B 1
+stringtext1 STRCODE 0 1000 1000 1 2
+intentry CODE 0 4 4 315 2
+bssBANK0 BANK0 1 5B 5B B 1
+idataBANK0 CODE 0 7FE 7FE 1 2
+eeprom_data EEDATA 3 0 F000 E0 2
+dataBANK0 BANK0 1 66 66 1 1
+clrtext CODE 0 F06 F06 C 2
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
 # is described on a single line as follows:
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM 4F-6F 1
-RAM A0-EF 1
+RAM 67-6F 1
+RAM BB-EF 1
 RAM 120-16F 1
 RAM 1A0-1EF 1
 RAM 220-26F 1
@@ -51,12 +51,9 @@ RAM 2A0-2EF 1
 RAM 320-36F 1
 RAM 3A0-3EF 1
 RAM 420-46F 1
-RAM 4A0-4EF 1
-RAM 520-56F 1
-RAM 5A0-5EF 1
-RAM 620-64F 1
-BANK0 4F-6F 1
-BANK1 A0-EF 1
+RAM 4A0-4C4 1
+BANK0 67-6F 1
+BANK1 BB-EF 1
 BANK2 120-16F 1
 BANK3 1A0-1EF 1
 BANK4 220-26F 1
@@ -64,11 +61,13 @@ BANK5 2A0-2EF 1
 BANK6 320-36F 1
 BANK7 3A0-3EF 1
 BANK8 420-46F 1
-BANK9 4A0-4EF 1
+BANK9 4A0-4C4 1
 CONST 2-3 2
-CONST 40E-1FFF 2
+CONST 7FF-F05 2
+CONST 1001-1FFF 2
 ENTRY 2-3 2
-ENTRY 40E-1FFF 2
+ENTRY 7FF-F05 2
+ENTRY 1001-1FFF 2
 IDLOC 8000-8003 2
 SFR10 500-51F 1
 SFR11 580-59F 1
@@ -92,9 +91,10 @@ SFR28 E00-E6F 1
 SFR29 E80-EEF 1
 SFR30 F00-F6F 1
 SFR31 F80-FEF 1
-STACK 202F-23EF 1
+STACK 206B-22F4 1
 CODE 2-3 2
-CODE 40E-1FFF 2
+CODE 7FF-F05 2
+CODE 1001-1FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
 SFR2 100-11F 1
@@ -105,16 +105,15 @@ SFR6 300-31F 1
 SFR7 380-39F 1
 SFR8 400-41F 1
 SFR9 480-49F 1
-BANK10 520-56F 1
-BANK11 5A0-5EF 1
-BANK12 620-64F 1
 BIGRAM 2000-23EF 1
 COMMON 7D-7D 1
-EEDATA F008-F0FF 2
+EEDATA F0E0-F0FF 2
 STRCODE 2-3 2
-STRCODE 40E-1FFF 2
+STRCODE 7FF-F05 2
+STRCODE 1001-1FFF 2
 STRING 2-3 2
-STRING 40E-1FFF 2
+STRING 7FF-F05 2
+STRING 1001-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -129,261 +128,349 @@ STRING 40E-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\firmware.production.o
-108 cinit CODE >1530:C:\Users\ciro_\AppData\Local\Temp\sj2c.s
-108 cinit CODE >1533:C:\Users\ciro_\AppData\Local\Temp\sj2c.s
-108 cinit CODE >1591:C:\Users\ciro_\AppData\Local\Temp\sj2c.s
-10B cinit CODE >1592:C:\Users\ciro_\AppData\Local\Temp\sj2c.s
-10C cinit CODE >1593:C:\Users\ciro_\AppData\Local\Temp\sj2c.s
-10F cinit CODE >1594:C:\Users\ciro_\AppData\Local\Temp\sj2c.s
-110 cinit CODE >1598:C:\Users\ciro_\AppData\Local\Temp\sj2c.s
-113 cinit CODE >1599:C:\Users\ciro_\AppData\Local\Temp\sj2c.s
-114 cinit CODE >1616:C:\Users\ciro_\AppData\Local\Temp\sj2c.s
-115 cinit CODE >1617:C:\Users\ciro_\AppData\Local\Temp\sj2c.s
-116 cinit CODE >1618:C:\Users\ciro_\AppData\Local\Temp\sj2c.s
-117 cinit CODE >1619:C:\Users\ciro_\AppData\Local\Temp\sj2c.s
-118 cinit CODE >1623:C:\Users\ciro_\AppData\Local\Temp\sj2c.s
-119 cinit CODE >1624:C:\Users\ciro_\AppData\Local\Temp\sj2c.s
-11A cinit CODE >1625:C:\Users\ciro_\AppData\Local\Temp\sj2c.s
-11B cinit CODE >1626:C:\Users\ciro_\AppData\Local\Temp\sj2c.s
-11C cinit CODE >1627:C:\Users\ciro_\AppData\Local\Temp\sj2c.s
-11D cinit CODE >1628:C:\Users\ciro_\AppData\Local\Temp\sj2c.s
-11F cinit CODE >1634:C:\Users\ciro_\AppData\Local\Temp\sj2c.s
-11F cinit CODE >1636:C:\Users\ciro_\AppData\Local\Temp\sj2c.s
-120 cinit CODE >1637:C:\Users\ciro_\AppData\Local\Temp\sj2c.s
-121 cinit CODE >1638:C:\Users\ciro_\AppData\Local\Temp\sj2c.s
-4 intentry CODE >81:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-6 intentry CODE >83:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-8 intentry CODE >84:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-9 intentry CODE >85:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-10 intentry CODE >86:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-17 intentry CODE >87:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-1B intentry CODE >88:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-1C intentry CODE >90:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-22 intentry CODE >91:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-26 intentry CODE >92:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-27 intentry CODE >94:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-30 intentry CODE >95:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-35 intentry CODE >96:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-37 intentry CODE >97:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-38 intentry CODE >99:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-41 intentry CODE >100:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-46 intentry CODE >101:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-48 intentry CODE >102:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-49 intentry CODE >104:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-4A intentry CODE >107:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-4C intentry CODE >108:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-4D intentry CODE >112:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-50 intentry CODE >114:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-51 intentry CODE >115:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-52 intentry CODE >116:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-53 intentry CODE >117:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-57 intentry CODE >118:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-58 intentry CODE >119:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-62 intentry CODE >120:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-65 intentry CODE >121:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-69 intentry CODE >123:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-7C intentry CODE >124:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-80 intentry CODE >125:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-81 intentry CODE >126:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-83 intentry CODE >129:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-84 intentry CODE >130:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-86 intentry CODE >132:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-8C intentry CODE >133:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-8E intentry CODE >134:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-8F intentry CODE >138:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-93 intentry CODE >139:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-94 intentry CODE >140:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-96 intentry CODE >142:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-97 intentry CODE >143:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-99 intentry CODE >144:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-9A intentry CODE >149:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-9C intentry CODE >151:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-9D intentry CODE >152:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-9F intentry CODE >153:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-A2 intentry CODE >155:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-A4 intentry CODE >157:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-AE intentry CODE >158:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-AF intentry CODE >160:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-B1 intentry CODE >162:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-BB intentry CODE >163:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-BC intentry CODE >166:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-BE intentry CODE >168:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-C0 intentry CODE >170:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-C4 intentry CODE >171:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-C8 intentry CODE >172:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-C9 intentry CODE >174:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-CB intentry CODE >176:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-CE intentry CODE >177:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-D2 intentry CODE >178:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-D3 intentry CODE >179:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-D4 intentry CODE >182:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-D8 intentry CODE >184:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-E4 intentry CODE >185:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-E5 intentry CODE >186:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-E9 intentry CODE >189:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-EB intentry CODE >191:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-EC intentry CODE >192:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-F0 intentry CODE >194:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-F1 intentry CODE >197:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-F3 intentry CODE >198:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-F4 intentry CODE >199:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-F6 intentry CODE >202:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-F9 intentry CODE >204:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-FE intentry CODE >205:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-100 intentry CODE >206:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-102 intentry CODE >207:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-104 intentry CODE >209:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-3DD text7 CODE >15:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\Umul16.c
-3DD text7 CODE >43:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\Umul16.c
-3DF text7 CODE >45:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\Umul16.c
-3E1 text7 CODE >46:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\Umul16.c
-3E5 text7 CODE >47:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\Umul16.c
-3EA text7 CODE >48:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\Umul16.c
-3EF text7 CODE >49:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\Umul16.c
-3F3 text7 CODE >52:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\Umul16.c
-3F7 text7 CODE >53:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\Umul16.c
-3F8 text5 CODE >231:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-3F8 text5 CODE >234:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-3FB text5 CODE >235:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-3FE text5 CODE >236:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-3FF text5 CODE >237:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-401 text5 CODE >238:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-403 text5 CODE >239:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-39D text4 CODE >241:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-39D text4 CODE >243:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-3A8 text4 CODE >244:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-3B4 text4 CODE >245:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-3C1 text4 CODE >248:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-375 text3 CODE >6:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\pic\__eewrite.c
-376 text3 CODE >8:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\pic\__eewrite.c
-39C text3 CODE >9:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\pic\__eewrite.c
-3C2 text2 CODE >6:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\pic\__eeread.c
-3C3 text2 CODE >12:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\pic\__eeread.c
-3C5 text2 CODE >8:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\pic\__eeread.c
-3C5 text2 CODE >9:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\pic\__eeread.c
-3C6 text2 CODE >12:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\pic\__eeread.c
-3C9 text2 CODE >18:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\pic\__eeread.c
-3DC text2 CODE >19:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\pic\__eeread.c
-314 text1 CODE >213:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-314 text1 CODE >214:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-319 text1 CODE >215:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-321 text1 CODE >216:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-322 text1 CODE >217:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-323 text1 CODE >218:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-32B text1 CODE >219:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-333 text1 CODE >220:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-33B text1 CODE >221:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-343 text1 CODE >222:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-344 text1 CODE >223:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-34C text1 CODE >224:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-354 text1 CODE >225:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-35C text1 CODE >226:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-364 text1 CODE >227:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-36C text1 CODE >228:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-374 text1 CODE >229:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-123 maintext CODE >250:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-123 maintext CODE >251:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-126 maintext CODE >252:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-129 maintext CODE >253:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-12B maintext CODE >254:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-12D maintext CODE >255:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-12F maintext CODE >256:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-132 maintext CODE >257:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-134 maintext CODE >258:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-137 maintext CODE >259:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-139 maintext CODE >260:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-13B maintext CODE >261:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-13C maintext CODE >262:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-13E maintext CODE >263:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-141 maintext CODE >264:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-143 maintext CODE >265:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-144 maintext CODE >266:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-145 maintext CODE >267:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-146 maintext CODE >268:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-147 maintext CODE >269:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-14B maintext CODE >270:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-14D maintext CODE >271:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-14E maintext CODE >272:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-150 maintext CODE >273:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-151 maintext CODE >274:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-152 maintext CODE >275:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-155 maintext CODE >276:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-15B maintext CODE >277:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-15E maintext CODE >278:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-160 maintext CODE >279:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-163 maintext CODE >280:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-165 maintext CODE >281:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-167 maintext CODE >282:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-173 maintext CODE >283:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-175 maintext CODE >284:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-182 maintext CODE >285:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-184 maintext CODE >286:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-185 maintext CODE >290:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-18C maintext CODE >291:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-190 maintext CODE >292:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-199 maintext CODE >293:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-1A0 maintext CODE >294:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-1A1 maintext CODE >295:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-1A8 maintext CODE >296:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-1B1 maintext CODE >297:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-1B2 maintext CODE >300:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-1B5 maintext CODE >301:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-1B6 maintext CODE >304:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-1BA maintext CODE >305:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-1C2 maintext CODE >306:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-1CB maintext CODE >307:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-1D4 maintext CODE >308:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-1DD maintext CODE >309:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-1E6 maintext CODE >310:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-1EF maintext CODE >311:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-1F1 maintext CODE >314:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-1F4 maintext CODE >315:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-201 maintext CODE >316:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-204 maintext CODE >317:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-20D maintext CODE >316:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-216 maintext CODE >319:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-222 maintext CODE >320:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-229 maintext CODE >321:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-231 maintext CODE >322:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-245 maintext CODE >323:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-246 maintext CODE >324:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-24C maintext CODE >325:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-254 maintext CODE >326:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-268 maintext CODE >329:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-26B maintext CODE >330:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-274 maintext CODE >329:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-27D maintext CODE >332:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-27E maintext CODE >333:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-27F maintext CODE >334:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-280 maintext CODE >335:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-282 maintext CODE >338:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-285 maintext CODE >339:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-292 maintext CODE >340:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-295 maintext CODE >341:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-29E maintext CODE >340:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-2A7 maintext CODE >343:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-2B3 maintext CODE >344:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-2BA maintext CODE >345:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-2C2 maintext CODE >346:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-2D6 maintext CODE >347:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-2D7 maintext CODE >348:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-2DD maintext CODE >349:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-2E5 maintext CODE >350:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-2F9 maintext CODE >353:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-2FC maintext CODE >354:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-305 maintext CODE >353:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-30E maintext CODE >356:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-30F maintext CODE >357:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-310 maintext CODE >358:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-311 maintext CODE >359:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-404 clrtext CODE >1605:C:\Users\ciro_\AppData\Local\Temp\sj2c.s
-404 clrtext CODE >1606:C:\Users\ciro_\AppData\Local\Temp\sj2c.s
-405 clrtext CODE >1607:C:\Users\ciro_\AppData\Local\Temp\sj2c.s
-405 clrtext CODE >1608:C:\Users\ciro_\AppData\Local\Temp\sj2c.s
-406 clrtext CODE >1609:C:\Users\ciro_\AppData\Local\Temp\sj2c.s
-407 clrtext CODE >1610:C:\Users\ciro_\AppData\Local\Temp\sj2c.s
-408 clrtext CODE >1611:C:\Users\ciro_\AppData\Local\Temp\sj2c.s
-409 clrtext CODE >1612:C:\Users\ciro_\AppData\Local\Temp\sj2c.s
+31B cinit CODE >1629:C:\Users\ciro_\AppData\Local\Temp\sujg.s
+31B cinit CODE >1632:C:\Users\ciro_\AppData\Local\Temp\sujg.s
+31B cinit CODE >1671:C:\Users\ciro_\AppData\Local\Temp\sujg.s
+31E cinit CODE >1672:C:\Users\ciro_\AppData\Local\Temp\sujg.s
+31F cinit CODE >1695:C:\Users\ciro_\AppData\Local\Temp\sujg.s
+320 cinit CODE >1696:C:\Users\ciro_\AppData\Local\Temp\sujg.s
+321 cinit CODE >1697:C:\Users\ciro_\AppData\Local\Temp\sujg.s
+322 cinit CODE >1698:C:\Users\ciro_\AppData\Local\Temp\sujg.s
+323 cinit CODE >1699:C:\Users\ciro_\AppData\Local\Temp\sujg.s
+324 cinit CODE >1700:C:\Users\ciro_\AppData\Local\Temp\sujg.s
+325 cinit CODE >1701:C:\Users\ciro_\AppData\Local\Temp\sujg.s
+326 cinit CODE >1702:C:\Users\ciro_\AppData\Local\Temp\sujg.s
+327 cinit CODE >1703:C:\Users\ciro_\AppData\Local\Temp\sujg.s
+32A cinit CODE >1707:C:\Users\ciro_\AppData\Local\Temp\sujg.s
+32B cinit CODE >1708:C:\Users\ciro_\AppData\Local\Temp\sujg.s
+32C cinit CODE >1709:C:\Users\ciro_\AppData\Local\Temp\sujg.s
+32D cinit CODE >1710:C:\Users\ciro_\AppData\Local\Temp\sujg.s
+32E cinit CODE >1711:C:\Users\ciro_\AppData\Local\Temp\sujg.s
+32F cinit CODE >1712:C:\Users\ciro_\AppData\Local\Temp\sujg.s
+330 cinit CODE >1713:C:\Users\ciro_\AppData\Local\Temp\sujg.s
+331 cinit CODE >1714:C:\Users\ciro_\AppData\Local\Temp\sujg.s
+332 cinit CODE >1715:C:\Users\ciro_\AppData\Local\Temp\sujg.s
+334 cinit CODE >1721:C:\Users\ciro_\AppData\Local\Temp\sujg.s
+334 cinit CODE >1723:C:\Users\ciro_\AppData\Local\Temp\sujg.s
+335 cinit CODE >1724:C:\Users\ciro_\AppData\Local\Temp\sujg.s
+336 cinit CODE >1725:C:\Users\ciro_\AppData\Local\Temp\sujg.s
+4 intentry CODE >211:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+6 intentry CODE >213:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+8 intentry CODE >214:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+9 intentry CODE >215:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+11 intentry CODE >216:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+17 intentry CODE >217:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+1D intentry CODE >218:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+22 intentry CODE >219:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+27 intentry CODE >220:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+2C intentry CODE >221:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+2D intentry CODE >222:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+3D intentry CODE >224:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+3E intentry CODE >225:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+3F intentry CODE >228:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+41 intentry CODE >229:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+42 intentry CODE >230:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+45 intentry CODE >231:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+4B intentry CODE >232:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+50 intentry CODE >233:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+55 intentry CODE >234:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+5A intentry CODE >236:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+5C intentry CODE >237:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+62 intentry CODE >238:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+68 intentry CODE >239:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+6D intentry CODE >240:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+72 intentry CODE >242:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+74 intentry CODE >243:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+7A intentry CODE >244:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+7F intentry CODE >245:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+85 intentry CODE >246:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+8A intentry CODE >248:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+8C intentry CODE >249:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+92 intentry CODE >250:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+97 intentry CODE >251:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+9C intentry CODE >252:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+A2 intentry CODE >253:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+A2 intentry CODE >254:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+A3 intentry CODE >255:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+A4 intentry CODE >258:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+A7 intentry CODE >260:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+A8 intentry CODE >261:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+A9 intentry CODE >262:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+AE intentry CODE >263:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+B7 intentry CODE >264:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+C0 intentry CODE >265:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+C9 intentry CODE >266:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+D2 intentry CODE >267:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+D6 intentry CODE >268:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+D7 intentry CODE >269:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+DF intentry CODE >270:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+F2 intentry CODE >271:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+105 intentry CODE >272:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+118 intentry CODE >273:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+12B intentry CODE >274:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+12C intentry CODE >275:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+182 intentry CODE >276:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+1D8 intentry CODE >277:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+22E intentry CODE >278:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+284 intentry CODE >280:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+286 intentry CODE >281:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+288 intentry CODE >282:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+28A intentry CODE >283:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+28C intentry CODE >284:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+28D intentry CODE >286:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+28E intentry CODE >287:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+28F intentry CODE >292:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+291 intentry CODE >294:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+292 intentry CODE >295:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+294 intentry CODE >296:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+297 intentry CODE >298:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+299 intentry CODE >300:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+2A8 intentry CODE >301:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+2AA intentry CODE >303:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+2AC intentry CODE >305:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+2BB intentry CODE >306:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+2BD intentry CODE >309:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+2BF intentry CODE >311:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+2C1 intentry CODE >313:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+2C6 intentry CODE >314:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+2CC intentry CODE >315:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+2CE intentry CODE >317:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+2D0 intentry CODE >319:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+2D4 intentry CODE >320:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+2DA intentry CODE >321:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+2DB intentry CODE >322:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+2DC intentry CODE >325:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+2E0 intentry CODE >327:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+2F2 intentry CODE >328:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+2F3 intentry CODE >329:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+2F9 intentry CODE >332:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+2FC intentry CODE >334:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+2FD intentry CODE >335:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+302 intentry CODE >337:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+304 intentry CODE >340:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+306 intentry CODE >341:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+307 intentry CODE >342:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+309 intentry CODE >345:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+30C intentry CODE >347:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+312 intentry CODE >348:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+313 intentry CODE >349:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+315 intentry CODE >350:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+317 intentry CODE >352:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+F2D text9 CODE >162:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+F2E text9 CODE >163:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+F38 text9 CODE >164:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+F39 text9 CODE >165:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+F41 text9 CODE >166:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+F43 text9 CODE >167:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+F45 text9 CODE >168:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+F46 text9 CODE >169:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+F4A text9 CODE >170:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+F7A text8 CODE >5:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\lwdiv.c
+F7A text8 CODE >13:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\lwdiv.c
+F7C text8 CODE >14:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\lwdiv.c
+F80 text8 CODE >15:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\lwdiv.c
+F82 text8 CODE >16:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\lwdiv.c
+F84 text8 CODE >17:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\lwdiv.c
+F89 text8 CODE >18:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\lwdiv.c
+F8D text8 CODE >16:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\lwdiv.c
+F8E text8 CODE >21:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\lwdiv.c
+F93 text8 CODE >22:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\lwdiv.c
+F9B text8 CODE >23:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\lwdiv.c
+F9F text8 CODE >24:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\lwdiv.c
+FA0 text8 CODE >26:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\lwdiv.c
+FA5 text8 CODE >27:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\lwdiv.c
+FA9 text8 CODE >29:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\lwdiv.c
+FAD text8 CODE >30:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\lwdiv.c
+FAE text7 CODE >5:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\__lldiv.c
+FAE text7 CODE >13:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\__lldiv.c
+FB6 text7 CODE >14:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\__lldiv.c
+FBC text7 CODE >15:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\__lldiv.c
+FBE text7 CODE >16:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\__lldiv.c
+FC0 text7 CODE >17:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\__lldiv.c
+FC7 text7 CODE >18:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\__lldiv.c
+FCB text7 CODE >16:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\__lldiv.c
+FCC text7 CODE >21:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\__lldiv.c
+FD3 text7 CODE >22:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\__lldiv.c
+FE3 text7 CODE >23:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\__lldiv.c
+FEB text7 CODE >24:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\__lldiv.c
+FEC text7 CODE >26:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\__lldiv.c
+FF3 text7 CODE >27:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\__lldiv.c
+FF7 text7 CODE >29:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\__lldiv.c
+FFF text7 CODE >30:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\__lldiv.c
+F4B text6 CODE >15:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\Umul32.c
+F4B text6 CODE >119:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\Umul32.c
+F53 text6 CODE >121:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\Umul32.c
+F55 text6 CODE >122:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\Umul32.c
+F5D text6 CODE >123:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\Umul32.c
+F64 text6 CODE >124:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\Umul32.c
+F6B text6 CODE >125:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\Umul32.c
+F71 text6 CODE >128:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\Umul32.c
+F79 text6 CODE >129:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\Umul32.c
+778 text5 CODE >158:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+778 text5 CODE >159:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+7D5 text5 CODE >160:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+7D6 text3 CODE >6:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\pic\__eewrite.c
+7D7 text3 CODE >8:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\pic\__eewrite.c
+7FD text3 CODE >9:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\pic\__eewrite.c
+F12 text2 CODE >6:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\pic\__eeread.c
+F13 text2 CODE >12:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\pic\__eeread.c
+F15 text2 CODE >8:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\pic\__eeread.c
+F15 text2 CODE >9:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\pic\__eeread.c
+F16 text2 CODE >12:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\pic\__eeread.c
+F19 text2 CODE >18:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\pic\__eeread.c
+F2C text2 CODE >19:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\pic\__eeread.c
+69B text1 CODE >172:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+69B text1 CODE >173:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+6A1 text1 CODE >174:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+6A7 text1 CODE >175:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+6AD text1 CODE >176:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+6B3 text1 CODE >177:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+6B9 text1 CODE >178:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+6BF text1 CODE >179:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+6C8 text1 CODE >180:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+6D1 text1 CODE >181:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+6D7 text1 CODE >182:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+6DD text1 CODE >183:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+6E3 text1 CODE >184:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+6E9 text1 CODE >185:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+6EF text1 CODE >186:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+6F5 text1 CODE >187:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+6F6 text1 CODE >189:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+709 text1 CODE >187:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+711 text1 CODE >191:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+716 text1 CODE >192:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+717 text1 CODE >194:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+72B text1 CODE >192:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+733 text1 CODE >196:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+738 text1 CODE >197:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+739 text1 CODE >199:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+74D text1 CODE >197:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+755 text1 CODE >201:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+75A text1 CODE >202:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+75B text1 CODE >204:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+76F text1 CODE >202:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+338 maintext CODE >354:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+338 maintext CODE >355:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+33B maintext CODE >356:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+33E maintext CODE >357:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+33F maintext CODE >358:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+341 maintext CODE >359:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+344 maintext CODE >360:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+347 maintext CODE >361:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+349 maintext CODE >362:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+34B maintext CODE >363:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+34C maintext CODE >364:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+34E maintext CODE >365:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+34F maintext CODE >366:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+352 maintext CODE >367:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+354 maintext CODE >368:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+355 maintext CODE >369:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+356 maintext CODE >370:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+357 maintext CODE >371:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+358 maintext CODE >372:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+35A maintext CODE >373:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+35C maintext CODE >374:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+35D maintext CODE >375:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+35F maintext CODE >376:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+360 maintext CODE >377:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+361 maintext CODE >378:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+364 maintext CODE >379:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+366 maintext CODE >380:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+369 maintext CODE >381:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+36B maintext CODE >382:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+36D maintext CODE >383:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+36E maintext CODE >385:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+36E maintext CODE >386:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+36F maintext CODE >387:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+376 maintext CODE >388:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+377 maintext CODE >391:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+37F maintext CODE >393:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+381 maintext CODE >395:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+390 maintext CODE >393:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+399 maintext CODE >397:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+39A maintext CODE >399:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+3AA maintext CODE >397:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+3B3 maintext CODE >401:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+3B4 maintext CODE >403:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+3C4 maintext CODE >401:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+3CD maintext CODE >405:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+3CE maintext CODE >407:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+3DE maintext CODE >405:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+3E7 maintext CODE >409:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+3ED maintext CODE >410:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+3F6 maintext CODE >413:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+3FE maintext CODE >414:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+407 maintext CODE >415:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+410 maintext CODE >416:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+416 maintext CODE >417:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+41C maintext CODE >418:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+421 maintext CODE >419:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+426 maintext CODE >420:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+42B maintext CODE >421:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+42C maintext CODE >423:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+42C maintext CODE >424:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+42E maintext CODE >425:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+43E maintext CODE >426:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+447 maintext CODE >427:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+457 maintext CODE >423:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+4B2 maintext CODE >429:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+4B5 maintext CODE >433:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+4B5 maintext CODE >434:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+4B7 maintext CODE >435:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+4C7 maintext CODE >436:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+4D0 maintext CODE >437:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+4DF maintext CODE >433:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+53A maintext CODE >439:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+53C maintext CODE >440:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+53D maintext CODE >443:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+53D maintext CODE >444:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+53F maintext CODE >445:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+54F maintext CODE >446:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+558 maintext CODE >447:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+567 maintext CODE >443:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+5C2 maintext CODE >449:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+5C4 maintext CODE >450:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+5C5 maintext CODE >453:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+5C5 maintext CODE >454:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+5C7 maintext CODE >455:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+5D7 maintext CODE >456:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+5E0 maintext CODE >457:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+5EF maintext CODE >453:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+64A maintext CODE >459:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+64C maintext CODE >463:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+652 maintext CODE >464:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+653 maintext CODE >421:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+666 maintext CODE >466:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+66C maintext CODE >470:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+674 maintext CODE >471:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+676 maintext CODE >472:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+677 maintext CODE >473:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+679 maintext CODE >476:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+681 maintext CODE >477:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+682 maintext CODE >478:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+683 maintext CODE >479:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+684 maintext CODE >482:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+68C maintext CODE >483:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+68D maintext CODE >484:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+68E maintext CODE >485:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+68F maintext CODE >488:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+697 maintext CODE >489:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+698 maintext CODE >490:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+699 maintext CODE >491:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
+F06 clrtext CODE >1678:C:\Users\ciro_\AppData\Local\Temp\sujg.s
+F06 clrtext CODE >1679:C:\Users\ciro_\AppData\Local\Temp\sujg.s
+F07 clrtext CODE >1680:C:\Users\ciro_\AppData\Local\Temp\sujg.s
+F07 clrtext CODE >1681:C:\Users\ciro_\AppData\Local\Temp\sujg.s
+F08 clrtext CODE >1682:C:\Users\ciro_\AppData\Local\Temp\sujg.s
+F09 clrtext CODE >1683:C:\Users\ciro_\AppData\Local\Temp\sujg.s
+F0A clrtext CODE >1684:C:\Users\ciro_\AppData\Local\Temp\sujg.s
+F0B clrtext CODE >1685:C:\Users\ciro_\AppData\Local\Temp\sujg.s
+F0C clrtext CODE >1686:C:\Users\ciro_\AppData\Local\Temp\sujg.s
+F0D clrtext CODE >1687:C:\Users\ciro_\AppData\Local\Temp\sujg.s
+F0E clrtext CODE >1688:C:\Users\ciro_\AppData\Local\Temp\sujg.s
+F0F clrtext CODE >1689:C:\Users\ciro_\AppData\Local\Temp\sujg.s
+F10 clrtext CODE >1691:C:\Users\ciro_\AppData\Local\Temp\sujg.s
+F11 clrtext CODE >1690:C:\Users\ciro_\AppData\Local\Temp\sujg.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -397,425 +484,448 @@ FE intentry CODE >205:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotE
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
 ___latbits 2 0 ABS 0 - dist/default/production\firmware.production.o
-__LdataBANK0 10 1E000 ABS 0 dataBANK0 -
+__LdataBANK0 1C0 1E000 ABS 0 dataBANK0 -
 __Hspace_0 8009 0 ABS 0 - -
-__Hspace_1 7D 0 ABS 0 - -
+__Hspace_1 1C0 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
-__Hspace_3 8 0 ABS 0 - -
+__Hspace_3 E0 0 ABS 0 - -
 __CFG_IESO$OFF 0 0 ABS 0 - dist/default/production\firmware.production.o
-__HidataBANK0 10 1E000 ABS 0 idataBANK0 -
+__HidataBANK0 1C0 1E000 ABS 0 idataBANK0 -
 _SSP1STATbits 214 0 ABS 0 - dist/default/production\firmware.production.o
-isr@junk 77 0 COMMON 1 bssCOMMON dist/default/production\firmware.production.o
-_index_i2c 7A 0 COMMON 1 bssCOMMON dist/default/production\firmware.production.o
-__BbssBANK0 1E010 1E000 ABS 0 bssBANK0 -
-__Heeprom_data 10 1E000 EEDATA 3 eeprom_data -
-__end_of_init_I2C_buffer 6EA 0 CODE 0 text1 dist/default/production\firmware.production.o
+isr@junk 63 0 BANK0 1 bssBANK0 dist/default/production\firmware.production.o
+_index_i2c 65 0 BANK0 1 bssBANK0 dist/default/production\firmware.production.o
+__BbssBANK0 1E1C0 1E000 ABS 0 bssBANK0 -
+__Heeprom_data 1C0 1E000 EEDATA 3 eeprom_data -
+__end_of_init_I2C_buffer EF0 0 CODE 0 text1 dist/default/production\firmware.production.o
 __CFG_MCLRE$ON 0 0 ABS 0 - dist/default/production\firmware.production.o
 _T1CONbits 18 0 ABS 0 - dist/default/production\firmware.production.o
-__Hstrings 10 1E000 ABS 0 strings -
+?_map 2D 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
+main@i B7 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
+__Hstrings 1C0 1E000 ABS 0 strings -
 _WPUA 20C 0 ABS 0 - dist/default/production\firmware.production.o
 _WPUB 20D 0 ABS 0 - dist/default/production\firmware.production.o
-___sp 0 0 STACK 2 stack C:\Users\ciro_\AppData\Local\Temp\sj2c.o
-_main 246 0 CODE 0 maintext dist/default/production\firmware.production.o
+___sp 0 0 STACK 2 stack C:\Users\ciro_\AppData\Local\Temp\sujg.o
+_main 670 0 CODE 0 maintext dist/default/production\firmware.production.o
 btemp 7E 0 ABS 0 - dist/default/production\firmware.production.o
-start 20C 0 CODE 0 init C:\Users\ciro_\AppData\Local\Temp\sj2c.o
+map@x 2D 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
+start 632 0 CODE 0 init C:\Users\ciro_\AppData\Local\Temp\sujg.o
 __size_of_main 0 0 ABS 0 - dist/default/production\firmware.production.o
-__HbssCOMMON 10 1E000 ABS 0 bssCOMMON -
-_obstructHold 41 0 BANK0 1 bssBANK0 dist/default/production\firmware.production.o
-?___wmul 70 0 COMMON 1 cstackCOMMON dist/default/production\firmware.production.o
+__size_of___lldiv 0 0 ABS 0 - dist/default/production\firmware.production.o
+__size_of___lwdiv 0 0 ABS 0 - dist/default/production\firmware.production.o
+?___lmul 70 0 COMMON 1 cstackCOMMON dist/default/production\firmware.production.o
 _OPTION_REGbits 95 0 ABS 0 - dist/default/production\firmware.production.o
-__LidataBANK0 10 1E000 ABS 0 idataBANK0 -
+init_I2C_buffer@i A7 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
+__LidataBANK0 1C0 1E000 ABS 0 idataBANK0 -
 __Hpowerup 0 0 CODE 0 powerup -
-__HdataCOMMON 10 1E000 ABS 0 dataCOMMON -
-intlevel0 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\sj2c.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\sj2c.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\sj2c.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\sj2c.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\sj2c.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\sj2c.o
-__LbssCOMMON 10 1E000 ABS 0 bssCOMMON -
+__size_of_ADC_read 0 0 ABS 0 - dist/default/production\firmware.production.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\sujg.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\sujg.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\sujg.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\sujg.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\sujg.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\sujg.o
 wtemp0 7E 0 ABS 0 - dist/default/production\firmware.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
-_init_I2C_buffer 628 0 CODE 0 text1 dist/default/production\firmware.production.o
-__Hclrtext 10 1E000 ABS 0 clrtext -
-__pidataCOMMON 814 0 CODE 0 idataCOMMON dist/default/production\firmware.production.o
-___wmul@multiplicand 72 0 COMMON 1 cstackCOMMON dist/default/production\firmware.production.o
+_init_I2C_buffer D36 0 CODE 0 text1 dist/default/production\firmware.production.o
+__Hclrtext 1C0 1E000 ABS 0 clrtext -
+_ADCON0 9D 0 ABS 0 - dist/default/production\firmware.production.o
+_ADRESH 9C 0 ABS 0 - dist/default/production\firmware.production.o
+_ADRESL 9B 0 ABS 0 - dist/default/production\firmware.production.o
 _ANSELA 18C 0 ABS 0 - dist/default/production\firmware.production.o
 _ANSELB 18D 0 ABS 0 - dist/default/production\firmware.production.o
-__LdataCOMMON 10 1E000 ABS 0 dataCOMMON -
 _EECON1bits 195 0 ABS 0 - dist/default/production\firmware.production.o
-_CCPR2L 298 0 ABS 0 - dist/default/production\firmware.production.o
-__end_of___wmul 7F0 0 CODE 0 text7 dist/default/production\firmware.production.o
-_middleSen 44 0 BANK0 1 bssBANK0 dist/default/production\firmware.production.o
+__end_of___lmul 1EF4 0 CODE 0 text6 dist/default/production\firmware.production.o
 _EECON1 195 0 ABS 0 - dist/default/production\firmware.production.o
 _EECON2 196 0 ABS 0 - dist/default/production\firmware.production.o
 _EEDATA 193 0 ABS 0 - dist/default/production\firmware.production.o
-__Lmaintext 10 1E000 ABS 0 maintext -
-_triggerDW 78 0 COMMON 1 bssCOMMON dist/default/production\firmware.production.o
-_triggerUP 79 0 COMMON 1 bssCOMMON dist/default/production\firmware.production.o
-eeprom_write@addr 48 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
+__Lmaintext 1C0 1E000 ABS 0 maintext -
+_ADC_read 1E5A 0 CODE 0 text9 dist/default/production\firmware.production.o
+__end_of___lldiv 2000 0 CODE 0 text7 dist/default/production\firmware.production.o
+__end_of___lwdiv 1F5C 0 CODE 0 text8 dist/default/production\firmware.production.o
+eeprom_write@addr A3 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
 _INTCON B 0 ABS 0 - dist/default/production\firmware.production.o
-___stackhi 23EF 0 ABS 0 - C:\Users\ciro_\AppData\Local\Temp\sj2c.o
-___stacklo 202F 0 ABS 0 - C:\Users\ciro_\AppData\Local\Temp\sj2c.o
-_blockStop 4E 0 BANK0 1 dataBANK0 dist/default/production\firmware.production.o
-_eeprom_read 784 0 CODE 0 text2 dist/default/production\firmware.production.o
-__LidataCOMMON 10 1E000 ABS 0 idataCOMMON -
+__end_of_ADC_read 1E96 0 CODE 0 text9 dist/default/production\firmware.production.o
+___stackhi 22F4 0 ABS 0 - C:\Users\ciro_\AppData\Local\Temp\sujg.o
+___stacklo 206B 0 ABS 0 - C:\Users\ciro_\AppData\Local\Temp\sujg.o
+_eeprom_read 1E24 0 CODE 0 text2 dist/default/production\firmware.production.o
+___lwdiv@quotient 75 0 COMMON 1 cstackCOMMON dist/default/production\firmware.production.o
+___lldiv@counter 2C 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
 __CFG_FCMEN$OFF 0 0 ABS 0 - dist/default/production\firmware.production.o
-start_initialization 210 0 CODE 0 cinit dist/default/production\firmware.production.o
+start_initialization 636 0 CODE 0 cinit dist/default/production\firmware.production.o
 _OSCCON 99 0 ABS 0 - dist/default/production\firmware.production.o
+___lldiv@dividend 24 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
 __size_of_init_I2C_buffer 0 0 ABS 0 - dist/default/production\firmware.production.o
-__Bbank0 1E010 1E000 ABS 0 bank0 -
-__Bbank1 1E010 1E000 ABS 0 bank1 -
-__Bbank2 1E010 1E000 ABS 0 bank2 -
-__Bbank3 1E010 1E000 ABS 0 bank3 -
-__Bbank4 1E010 1E000 ABS 0 bank4 -
-__Bbank5 1E010 1E000 ABS 0 bank5 -
-__Bbank6 1E010 1E000 ABS 0 bank6 -
-__Bbank7 1E010 1E000 ABS 0 bank7 -
-__Bbank8 1E010 1E000 ABS 0 bank8 -
-__Bbank9 1E010 1E000 ABS 0 bank9 -
-__Bsfr10 1E010 1E000 ABS 0 sfr10 -
-__Bsfr11 1E010 1E000 ABS 0 sfr11 -
-__Bsfr12 1E010 1E000 ABS 0 sfr12 -
-__Bsfr13 1E010 1E000 ABS 0 sfr13 -
-__Bsfr14 1E010 1E000 ABS 0 sfr14 -
-__Bsfr15 1E010 1E000 ABS 0 sfr15 -
-__Bsfr16 1E010 1E000 ABS 0 sfr16 -
-__Bsfr17 1E010 1E000 ABS 0 sfr17 -
-__Bsfr18 1E010 1E000 ABS 0 sfr18 -
-__Bsfr19 1E010 1E000 ABS 0 sfr19 -
-__Bsfr20 1E010 1E000 ABS 0 sfr20 -
-__Bsfr21 1E010 1E000 ABS 0 sfr21 -
-__Bsfr22 1E010 1E000 ABS 0 sfr22 -
-__Bsfr23 1E010 1E000 ABS 0 sfr23 -
-__Bsfr24 1E010 1E000 ABS 0 sfr24 -
-__Bsfr25 1E010 1E000 ABS 0 sfr25 -
-__Bsfr26 1E010 1E000 ABS 0 sfr26 -
-__Bsfr27 1E010 1E000 ABS 0 sfr27 -
-__Bsfr28 1E010 1E000 ABS 0 sfr28 -
-__Bsfr29 1E010 1E000 ABS 0 sfr29 -
-__Bsfr30 1E010 1E000 ABS 0 sfr30 -
-__Bsfr31 1E010 1E000 ABS 0 sfr31 -
-clear_ram0 808 0 CODE 0 clrtext dist/default/production\firmware.production.o
-__pcstackBANK0 45 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
-__BidataCOMMON 1E010 1E000 ABS 0 idataCOMMON -
-_first_i2c 7C 0 COMMON 1 dataCOMMON dist/default/production\firmware.production.o
-__end_of_RX_ELMNTS 81C 0 STRCODE 0 stringtext1 dist/default/production\firmware.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\ciro_\AppData\Local\Temp\sj2c.o
-__Hbank0 10 1E000 ABS 0 bank0 -
-__Hbank1 10 1E000 ABS 0 bank1 -
-__Hbank2 10 1E000 ABS 0 bank2 -
-__Hbank3 10 1E000 ABS 0 bank3 -
-__Hbank4 10 1E000 ABS 0 bank4 -
-__Hbank5 10 1E000 ABS 0 bank5 -
-__Hbank6 10 1E000 ABS 0 bank6 -
-__Hbank7 10 1E000 ABS 0 bank7 -
-__Hbank8 10 1E000 ABS 0 bank8 -
-__Hbank9 10 1E000 ABS 0 bank9 -
-__Hcinit 246 0 CODE 0 cinit -
+__Bbank0 1E1C0 1E000 ABS 0 bank0 -
+__Bbank1 1E1C0 1E000 ABS 0 bank1 -
+__Bbank2 1E1C0 1E000 ABS 0 bank2 -
+__Bbank3 1E1C0 1E000 ABS 0 bank3 -
+__Bbank4 1E1C0 1E000 ABS 0 bank4 -
+__Bbank5 1E1C0 1E000 ABS 0 bank5 -
+__Bbank6 1E1C0 1E000 ABS 0 bank6 -
+__Bbank7 1E1C0 1E000 ABS 0 bank7 -
+__Bbank8 1E1C0 1E000 ABS 0 bank8 -
+__Bbank9 1E1C0 1E000 ABS 0 bank9 -
+__Bsfr10 1E1C0 1E000 ABS 0 sfr10 -
+__Bsfr11 1E1C0 1E000 ABS 0 sfr11 -
+__Bsfr12 1E1C0 1E000 ABS 0 sfr12 -
+__Bsfr13 1E1C0 1E000 ABS 0 sfr13 -
+__Bsfr14 1E1C0 1E000 ABS 0 sfr14 -
+__Bsfr15 1E1C0 1E000 ABS 0 sfr15 -
+__Bsfr16 1E1C0 1E000 ABS 0 sfr16 -
+__Bsfr17 1E1C0 1E000 ABS 0 sfr17 -
+__Bsfr18 1E1C0 1E000 ABS 0 sfr18 -
+__Bsfr19 1E1C0 1E000 ABS 0 sfr19 -
+__Bsfr20 1E1C0 1E000 ABS 0 sfr20 -
+__Bsfr21 1E1C0 1E000 ABS 0 sfr21 -
+__Bsfr22 1E1C0 1E000 ABS 0 sfr22 -
+__Bsfr23 1E1C0 1E000 ABS 0 sfr23 -
+__Bsfr24 1E1C0 1E000 ABS 0 sfr24 -
+__Bsfr25 1E1C0 1E000 ABS 0 sfr25 -
+__Bsfr26 1E1C0 1E000 ABS 0 sfr26 -
+__Bsfr27 1E1C0 1E000 ABS 0 sfr27 -
+__Bsfr28 1E1C0 1E000 ABS 0 sfr28 -
+__Bsfr29 1E1C0 1E000 ABS 0 sfr29 -
+__Bsfr30 1E1C0 1E000 ABS 0 sfr30 -
+__Bsfr31 1E1C0 1E000 ABS 0 sfr31 -
+clear_ram0 1E0C 0 CODE 0 clrtext dist/default/production\firmware.production.o
+__pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
+__pcstackBANK1 A0 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
+_first_i2c 66 0 BANK0 1 dataBANK0 dist/default/production\firmware.production.o
+__end_of_RX_ELMNTS 2002 0 STRCODE 0 stringtext1 dist/default/production\firmware.production.o
+___int_sp 0 0 STACK 2 stack C:\Users\ciro_\AppData\Local\Temp\sujg.o
+init_I2C_buffer@i_640 A8 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
+init_I2C_buffer@i_641 A9 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
+init_I2C_buffer@i_642 AA 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
+__Hbank0 1C0 1E000 ABS 0 bank0 -
+__Hbank1 1C0 1E000 ABS 0 bank1 -
+__Hbank2 1C0 1E000 ABS 0 bank2 -
+__Hbank3 1C0 1E000 ABS 0 bank3 -
+__Hbank4 1C0 1E000 ABS 0 bank4 -
+__Hbank5 1C0 1E000 ABS 0 bank5 -
+__Hbank6 1C0 1E000 ABS 0 bank6 -
+__Hbank7 1C0 1E000 ABS 0 bank7 -
+__Hbank8 1C0 1E000 ABS 0 bank8 -
+__Hbank9 1C0 1E000 ABS 0 bank9 -
+__Hcinit 670 0 CODE 0 cinit -
 __Hidloc 0 0 IDLOC 0 idloc -
-__Hsfr10 10 1E000 ABS 0 sfr10 -
-__Hsfr11 10 1E000 ABS 0 sfr11 -
-__Hsfr12 10 1E000 ABS 0 sfr12 -
-__Hsfr13 10 1E000 ABS 0 sfr13 -
-__Hsfr14 10 1E000 ABS 0 sfr14 -
-__Hsfr15 10 1E000 ABS 0 sfr15 -
-__Hsfr16 10 1E000 ABS 0 sfr16 -
-__Hsfr17 10 1E000 ABS 0 sfr17 -
-__Hsfr18 10 1E000 ABS 0 sfr18 -
-__Hsfr19 10 1E000 ABS 0 sfr19 -
-__Hsfr20 10 1E000 ABS 0 sfr20 -
-__Hsfr21 10 1E000 ABS 0 sfr21 -
-__Hsfr22 10 1E000 ABS 0 sfr22 -
-__Hsfr23 10 1E000 ABS 0 sfr23 -
-__Hsfr24 10 1E000 ABS 0 sfr24 -
-__Hsfr25 10 1E000 ABS 0 sfr25 -
-__Hsfr26 10 1E000 ABS 0 sfr26 -
-__Hsfr27 10 1E000 ABS 0 sfr27 -
-__Hsfr28 10 1E000 ABS 0 sfr28 -
-__Hsfr29 10 1E000 ABS 0 sfr29 -
-__Hsfr30 10 1E000 ABS 0 sfr30 -
-__Hsfr31 10 1E000 ABS 0 sfr31 -
+__Hsfr10 1C0 1E000 ABS 0 sfr10 -
+__Hsfr11 1C0 1E000 ABS 0 sfr11 -
+__Hsfr12 1C0 1E000 ABS 0 sfr12 -
+__Hsfr13 1C0 1E000 ABS 0 sfr13 -
+__Hsfr14 1C0 1E000 ABS 0 sfr14 -
+__Hsfr15 1C0 1E000 ABS 0 sfr15 -
+__Hsfr16 1C0 1E000 ABS 0 sfr16 -
+__Hsfr17 1C0 1E000 ABS 0 sfr17 -
+__Hsfr18 1C0 1E000 ABS 0 sfr18 -
+__Hsfr19 1C0 1E000 ABS 0 sfr19 -
+__Hsfr20 1C0 1E000 ABS 0 sfr20 -
+__Hsfr21 1C0 1E000 ABS 0 sfr21 -
+__Hsfr22 1C0 1E000 ABS 0 sfr22 -
+__Hsfr23 1C0 1E000 ABS 0 sfr23 -
+__Hsfr24 1C0 1E000 ABS 0 sfr24 -
+__Hsfr25 1C0 1E000 ABS 0 sfr25 -
+__Hsfr26 1C0 1E000 ABS 0 sfr26 -
+__Hsfr27 1C0 1E000 ABS 0 sfr27 -
+__Hsfr28 1C0 1E000 ABS 0 sfr28 -
+__Hsfr29 1C0 1E000 ABS 0 sfr29 -
+__Hsfr30 1C0 1E000 ABS 0 sfr30 -
+__Hsfr31 1C0 1E000 ABS 0 sfr31 -
 __Hstack 0 0 STACK 2 stack -
-__Hbank10 10 1E000 ABS 0 bank10 -
-__Hbank11 10 1E000 ABS 0 bank11 -
-__Hbank12 10 1E000 ABS 0 bank12 -
-__Hbank13 10 1E000 BANK13 1 bank13 -
-__Hbank14 10 1E000 BANK14 1 bank14 -
-__Hbank15 10 1E000 BANK15 1 bank15 -
-__Hbank16 10 1E000 BANK16 1 bank16 -
-__Hbank17 10 1E000 BANK17 1 bank17 -
-__Hbank18 10 1E000 BANK18 1 bank18 -
-__Hbank19 10 1E000 BANK19 1 bank19 -
-__Hbank20 10 1E000 BANK20 1 bank20 -
-__Hbank21 10 1E000 BANK21 1 bank21 -
-__Hbank22 10 1E000 BANK22 1 bank22 -
-__Hbank23 10 1E000 BANK23 1 bank23 -
-__Hbank24 10 1E000 BANK24 1 bank24 -
-__Hbank25 10 1E000 BANK25 1 bank25 -
-__Hbank26 10 1E000 BANK26 1 bank26 -
-__Hbank27 10 1E000 BANK27 1 bank27 -
-__Hbank28 10 1E000 BANK28 1 bank28 -
-__Hbank29 10 1E000 BANK29 1 bank29 -
-__Hbank30 10 1E000 BANK30 1 bank30 -
-__Hbank31 10 1E000 BANK31 1 bank31 -
-__Hbigram 10 1E000 ABS 0 bigram -
-__Hmaintext 10 1E000 ABS 0 maintext -
+___lwdiv@counter 77 0 COMMON 1 cstackCOMMON dist/default/production\firmware.production.o
+__Hbank10 1C0 1E000 ABS 0 bank10 -
+__Hbank11 1C0 1E000 ABS 0 bank11 -
+__Hbank12 1C0 1E000 ABS 0 bank12 -
+__Hbank13 1C0 1E000 BANK13 1 bank13 -
+__Hbank14 1C0 1E000 BANK14 1 bank14 -
+__Hbank15 1C0 1E000 BANK15 1 bank15 -
+__Hbank16 1C0 1E000 BANK16 1 bank16 -
+__Hbank17 1C0 1E000 BANK17 1 bank17 -
+__Hbank18 1C0 1E000 BANK18 1 bank18 -
+__Hbank19 1C0 1E000 BANK19 1 bank19 -
+__Hbank20 1C0 1E000 BANK20 1 bank20 -
+__Hbank21 1C0 1E000 BANK21 1 bank21 -
+__Hbank22 1C0 1E000 BANK22 1 bank22 -
+__Hbank23 1C0 1E000 BANK23 1 bank23 -
+__Hbank24 1C0 1E000 BANK24 1 bank24 -
+__Hbank25 1C0 1E000 BANK25 1 bank25 -
+__Hbank26 1C0 1E000 BANK26 1 bank26 -
+__Hbank27 1C0 1E000 BANK27 1 bank27 -
+__Hbank28 1C0 1E000 BANK28 1 bank28 -
+__Hbank29 1C0 1E000 BANK29 1 bank29 -
+__Hbank30 1C0 1E000 BANK30 1 bank30 -
+__Hbank31 1C0 1E000 BANK31 1 bank31 -
+__Hbigram 1C0 1E000 ABS 0 bigram -
+__Hmaintext 1C0 1E000 ABS 0 maintext -
+_average 64 0 BANK0 1 bssBANK0 dist/default/production\firmware.production.o
+ADC_read@channel 73 0 COMMON 1 cstackCOMMON dist/default/production\firmware.production.o
 __CFG_FOSC$INTOSC 0 0 ABS 0 - dist/default/production\firmware.production.o
-__Hcommon 10 1E000 ABS 0 common -
+__Hcommon 1C0 1E000 ABS 0 common -
 __Hconfig 10012 0 CONFIG 0 config -
-__Lbank0 10 1E000 ABS 0 bank0 -
-__Lbank1 10 1E000 ABS 0 bank1 -
-__Lbank2 10 1E000 ABS 0 bank2 -
-__Lbank3 10 1E000 ABS 0 bank3 -
-__Lbank4 10 1E000 ABS 0 bank4 -
-__Lbank5 10 1E000 ABS 0 bank5 -
-__Lbank6 10 1E000 ABS 0 bank6 -
-__Lbank7 10 1E000 ABS 0 bank7 -
-__Lbank8 10 1E000 ABS 0 bank8 -
-__Lbank9 10 1E000 ABS 0 bank9 -
-__Lcinit 210 0 CODE 0 cinit -
+__Lbank0 1C0 1E000 ABS 0 bank0 -
+__Lbank1 1C0 1E000 ABS 0 bank1 -
+__Lbank2 1C0 1E000 ABS 0 bank2 -
+__Lbank3 1C0 1E000 ABS 0 bank3 -
+__Lbank4 1C0 1E000 ABS 0 bank4 -
+__Lbank5 1C0 1E000 ABS 0 bank5 -
+__Lbank6 1C0 1E000 ABS 0 bank6 -
+__Lbank7 1C0 1E000 ABS 0 bank7 -
+__Lbank8 1C0 1E000 ABS 0 bank8 -
+__Lbank9 1C0 1E000 ABS 0 bank9 -
+__Lcinit 636 0 CODE 0 cinit -
 __Lidloc 0 0 IDLOC 0 idloc -
-__Lsfr10 10 1E000 ABS 0 sfr10 -
-__Lsfr11 10 1E000 ABS 0 sfr11 -
-__Lsfr12 10 1E000 ABS 0 sfr12 -
-__Lsfr13 10 1E000 ABS 0 sfr13 -
-__Lsfr14 10 1E000 ABS 0 sfr14 -
-__Lsfr15 10 1E000 ABS 0 sfr15 -
-__Lsfr16 10 1E000 ABS 0 sfr16 -
-__Lsfr17 10 1E000 ABS 0 sfr17 -
-__Lsfr18 10 1E000 ABS 0 sfr18 -
-__Lsfr19 10 1E000 ABS 0 sfr19 -
-__Lsfr20 10 1E000 ABS 0 sfr20 -
-__Lsfr21 10 1E000 ABS 0 sfr21 -
-__Lsfr22 10 1E000 ABS 0 sfr22 -
-__Lsfr23 10 1E000 ABS 0 sfr23 -
-__Lsfr24 10 1E000 ABS 0 sfr24 -
-__Lsfr25 10 1E000 ABS 0 sfr25 -
-__Lsfr26 10 1E000 ABS 0 sfr26 -
-__Lsfr27 10 1E000 ABS 0 sfr27 -
-__Lsfr28 10 1E000 ABS 0 sfr28 -
-__Lsfr29 10 1E000 ABS 0 sfr29 -
-__Lsfr30 10 1E000 ABS 0 sfr30 -
-__Lsfr31 10 1E000 ABS 0 sfr31 -
+__Lsfr10 1C0 1E000 ABS 0 sfr10 -
+__Lsfr11 1C0 1E000 ABS 0 sfr11 -
+__Lsfr12 1C0 1E000 ABS 0 sfr12 -
+__Lsfr13 1C0 1E000 ABS 0 sfr13 -
+__Lsfr14 1C0 1E000 ABS 0 sfr14 -
+__Lsfr15 1C0 1E000 ABS 0 sfr15 -
+__Lsfr16 1C0 1E000 ABS 0 sfr16 -
+__Lsfr17 1C0 1E000 ABS 0 sfr17 -
+__Lsfr18 1C0 1E000 ABS 0 sfr18 -
+__Lsfr19 1C0 1E000 ABS 0 sfr19 -
+__Lsfr20 1C0 1E000 ABS 0 sfr20 -
+__Lsfr21 1C0 1E000 ABS 0 sfr21 -
+__Lsfr22 1C0 1E000 ABS 0 sfr22 -
+__Lsfr23 1C0 1E000 ABS 0 sfr23 -
+__Lsfr24 1C0 1E000 ABS 0 sfr24 -
+__Lsfr25 1C0 1E000 ABS 0 sfr25 -
+__Lsfr26 1C0 1E000 ABS 0 sfr26 -
+__Lsfr27 1C0 1E000 ABS 0 sfr27 -
+__Lsfr28 1C0 1E000 ABS 0 sfr28 -
+__Lsfr29 1C0 1E000 ABS 0 sfr29 -
+__Lsfr30 1C0 1E000 ABS 0 sfr30 -
+__Lsfr31 1C0 1E000 ABS 0 sfr31 -
 __Lstack 0 0 STACK 2 stack -
-_PORTBbits D 0 ABS 0 - dist/default/production\firmware.production.o
 _INTCONbits B 0 ABS 0 - dist/default/production\firmware.production.o
-__Babs1 1E010 1E000 ABS 0 abs1 -
-__Bcode 1E010 1E000 ABS 0 code -
-__Bsfr0 1E010 1E000 ABS 0 sfr0 -
-__Bsfr1 1E010 1E000 ABS 0 sfr1 -
-__Bsfr2 1E010 1E000 ABS 0 sfr2 -
-__Bsfr3 1E010 1E000 ABS 0 sfr3 -
-__Bsfr4 1E010 1E000 ABS 0 sfr4 -
-__Bsfr5 1E010 1E000 ABS 0 sfr5 -
-__Bsfr6 1E010 1E000 ABS 0 sfr6 -
-__Bsfr7 1E010 1E000 ABS 0 sfr7 -
-__Bsfr8 1E010 1E000 ABS 0 sfr8 -
-__Bsfr9 1E010 1E000 ABS 0 sfr9 -
-__Btext 1E010 1E000 ABS 0 text -
-__Habs1 10 1E000 ABS 0 abs1 -
-__Hcode 10 1E000 ABS 0 code -
-__Hinit 20C 0 CODE 0 init -
-__Hsfr0 10 1E000 ABS 0 sfr0 -
-__Hsfr1 10 1E000 ABS 0 sfr1 -
-__Hsfr2 10 1E000 ABS 0 sfr2 -
-__Hsfr3 10 1E000 ABS 0 sfr3 -
-__Hsfr4 10 1E000 ABS 0 sfr4 -
-__Hsfr5 10 1E000 ABS 0 sfr5 -
-__Hsfr6 10 1E000 ABS 0 sfr6 -
-__Hsfr7 10 1E000 ABS 0 sfr7 -
-__Hsfr8 10 1E000 ABS 0 sfr8 -
-__Hsfr9 10 1E000 ABS 0 sfr9 -
-__Htext 10 1E000 ABS 0 text -
-__Labs1 10 1E000 ABS 0 abs1 -
-__Lcode 10 1E000 ABS 0 code -
-__Linit 20C 0 CODE 0 init -
-__Lsfr0 10 1E000 ABS 0 sfr0 -
-__Lsfr1 10 1E000 ABS 0 sfr1 -
-__Lsfr2 10 1E000 ABS 0 sfr2 -
-__Lsfr3 10 1E000 ABS 0 sfr3 -
-__Lsfr4 10 1E000 ABS 0 sfr4 -
-__Lsfr5 10 1E000 ABS 0 sfr5 -
-__Lsfr6 10 1E000 ABS 0 sfr6 -
-__Lsfr7 10 1E000 ABS 0 sfr7 -
-__Lsfr8 10 1E000 ABS 0 sfr8 -
-__Lsfr9 10 1E000 ABS 0 sfr9 -
-__Ltext 10 1E000 ABS 0 text -
-__pstringtext1 81A 0 STRCODE 0 stringtext1 dist/default/production\firmware.production.o
+__Babs1 1E1C0 1E000 ABS 0 abs1 -
+__Bcode 1E1C0 1E000 ABS 0 code -
+__Bsfr0 1E1C0 1E000 ABS 0 sfr0 -
+__Bsfr1 1E1C0 1E000 ABS 0 sfr1 -
+__Bsfr2 1E1C0 1E000 ABS 0 sfr2 -
+__Bsfr3 1E1C0 1E000 ABS 0 sfr3 -
+__Bsfr4 1E1C0 1E000 ABS 0 sfr4 -
+__Bsfr5 1E1C0 1E000 ABS 0 sfr5 -
+__Bsfr6 1E1C0 1E000 ABS 0 sfr6 -
+__Bsfr7 1E1C0 1E000 ABS 0 sfr7 -
+__Bsfr8 1E1C0 1E000 ABS 0 sfr8 -
+__Bsfr9 1E1C0 1E000 ABS 0 sfr9 -
+__Btext 1E1C0 1E000 ABS 0 text -
+__Habs1 1C0 1E000 ABS 0 abs1 -
+__Hcode 1C0 1E000 ABS 0 code -
+__Hinit 632 0 CODE 0 init -
+__Hsfr0 1C0 1E000 ABS 0 sfr0 -
+__Hsfr1 1C0 1E000 ABS 0 sfr1 -
+__Hsfr2 1C0 1E000 ABS 0 sfr2 -
+__Hsfr3 1C0 1E000 ABS 0 sfr3 -
+__Hsfr4 1C0 1E000 ABS 0 sfr4 -
+__Hsfr5 1C0 1E000 ABS 0 sfr5 -
+__Hsfr6 1C0 1E000 ABS 0 sfr6 -
+__Hsfr7 1C0 1E000 ABS 0 sfr7 -
+__Hsfr8 1C0 1E000 ABS 0 sfr8 -
+__Hsfr9 1C0 1E000 ABS 0 sfr9 -
+__Htext 1C0 1E000 ABS 0 text -
+__Labs1 1C0 1E000 ABS 0 abs1 -
+__Lcode 1C0 1E000 ABS 0 code -
+__Linit 632 0 CODE 0 init -
+__Lsfr0 1C0 1E000 ABS 0 sfr0 -
+__Lsfr1 1C0 1E000 ABS 0 sfr1 -
+__Lsfr2 1C0 1E000 ABS 0 sfr2 -
+__Lsfr3 1C0 1E000 ABS 0 sfr3 -
+__Lsfr4 1C0 1E000 ABS 0 sfr4 -
+__Lsfr5 1C0 1E000 ABS 0 sfr5 -
+__Lsfr6 1C0 1E000 ABS 0 sfr6 -
+__Lsfr7 1C0 1E000 ABS 0 sfr7 -
+__Lsfr8 1C0 1E000 ABS 0 sfr8 -
+__Lsfr9 1C0 1E000 ABS 0 sfr9 -
+__Ltext 1C0 1E000 ABS 0 text -
+__pstringtext1 2000 0 STRCODE 0 stringtext1 dist/default/production\firmware.production.o
 _SSP1CON1 215 0 ABS 0 - dist/default/production\firmware.production.o
 _SSP1STAT 214 0 ABS 0 - dist/default/production\firmware.production.o
-___wmul 7BA 0 CODE 0 text7 dist/default/production\firmware.production.o
-__LcstackBANK0 10 1E000 ABS 0 cstackBANK0 -
+___lmul 1E96 0 CODE 0 text6 dist/default/production\firmware.production.o
+__LcstackBANK0 1C0 1E000 ABS 0 cstackBANK0 -
+__LcstackBANK1 1C0 1E000 ABS 0 cstackBANK1 -
 int$flags 7E 0 ABS 0 - dist/default/production\firmware.production.o
-__HcstackCOMMON 10 1E000 ABS 0 cstackCOMMON -
-_PR2 1B 0 ABS 0 - dist/default/production\firmware.production.o
+__HcstackCOMMON 1C0 1E000 ABS 0 cstackCOMMON -
 __S0 8009 0 ABS 0 - -
-__S1 7D 0 ABS 0 - -
+__S1 BB 0 ABS 0 - -
 __S2 0 0 ABS 0 - -
-__S3 F008 0 ABS 0 - -
+__S3 F0E0 0 ABS 0 - -
 _isr 8 0 CODE 0 intentry dist/default/production\firmware.production.o
+_map EF0 0 CODE 0 text5 dist/default/production\firmware.production.o
+?_ADC_read 70 0 COMMON 1 cstackCOMMON dist/default/production\firmware.production.o
 __CFG_PLLEN$ON 0 0 ABS 0 - dist/default/production\firmware.production.o
-__Bstrings 1E010 1E000 ABS 0 strings -
-__HidataCOMMON 10 1E000 ABS 0 idataCOMMON -
-_PWM_set_duty 73A 0 CODE 0 text4 dist/default/production\firmware.production.o
-__end_of_isr 20C 0 CODE 0 intentry dist/default/production\firmware.production.o
+__Bstrings 1E1C0 1E000 ABS 0 strings -
+__end_of_isr 632 0 CODE 0 intentry dist/default/production\firmware.production.o
+__end_of_map FAC 0 CODE 0 text5 dist/default/production\firmware.production.o
 __CFG_BOREN$ON 0 0 ABS 0 - dist/default/production\firmware.production.o
-_ignoreCount 7B 0 COMMON 1 dataCOMMON dist/default/production\firmware.production.o
-eeprom_write@value 45 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
+eeprom_write@value A0 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\ciro_\AppData\Local\Temp\sj2c.o
-_eeprom_write 6EA 0 CODE 0 text3 dist/default/production\firmware.production.o
-__BcstackBANK0 1E010 1E000 ABS 0 cstackBANK0 -
-__pdataBANK0 4E 0 BANK0 1 dataBANK0 dist/default/production\firmware.production.o
-__size_of___wmul 0 0 ABS 0 - dist/default/production\firmware.production.o
-__LbssBANK0 10 1E000 ABS 0 bssBANK0 -
-__Lstringtext1 10 1E000 ABS 0 stringtext1 -
+___lldiv@divisor 20 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\ciro_\AppData\Local\Temp\sujg.o
+_eeprom_write FAC 0 CODE 0 text3 dist/default/production\firmware.production.o
+__BcstackBANK0 1E1C0 1E000 ABS 0 cstackBANK0 -
+__BcstackBANK1 1E1C0 1E000 ABS 0 cstackBANK1 -
+__pdataBANK0 66 0 BANK0 1 dataBANK0 dist/default/production\firmware.production.o
+__size_of___lmul 0 0 ABS 0 - dist/default/production\firmware.production.o
+__LbssBANK0 1C0 1E000 ABS 0 bssBANK0 -
+__Lstringtext1 1C0 1E000 ABS 0 stringtext1 -
 _PIE1bits 91 0 ABS 0 - dist/default/production\firmware.production.o
 _PIE2bits 92 0 ABS 0 - dist/default/production\firmware.production.o
 _IOCBFbits 396 0 ABS 0 - dist/default/production\firmware.production.o
-__Bbank10 1E010 1E000 ABS 0 bank10 -
-__Bbank11 1E010 1E000 ABS 0 bank11 -
-__Bbank12 1E010 1E000 ABS 0 bank12 -
-__Bbank13 1E010 1E000 BANK13 1 bank13 -
-__Bbank14 1E010 1E000 BANK14 1 bank14 -
-__Bbank15 1E010 1E000 BANK15 1 bank15 -
-__Bbank16 1E010 1E000 BANK16 1 bank16 -
-__Bbank17 1E010 1E000 BANK17 1 bank17 -
-__Bbank18 1E010 1E000 BANK18 1 bank18 -
-__Bbank19 1E010 1E000 BANK19 1 bank19 -
-__Bbank20 1E010 1E000 BANK20 1 bank20 -
-__Bbank21 1E010 1E000 BANK21 1 bank21 -
-__Bbank22 1E010 1E000 BANK22 1 bank22 -
-__Bbank23 1E010 1E000 BANK23 1 bank23 -
-__Bbank24 1E010 1E000 BANK24 1 bank24 -
-__Bbank25 1E010 1E000 BANK25 1 bank25 -
-__Bbank26 1E010 1E000 BANK26 1 bank26 -
-__Bbank27 1E010 1E000 BANK27 1 bank27 -
-__Bbank28 1E010 1E000 BANK28 1 bank28 -
-__Bbank29 1E010 1E000 BANK29 1 bank29 -
-__Bbank30 1E010 1E000 BANK30 1 bank30 -
-__Bbank31 1E010 1E000 BANK31 1 bank31 -
-__Bbigram 1E010 1E000 ABS 0 bigram -
-__Lbank10 10 1E000 ABS 0 bank10 -
-__Lbank11 10 1E000 ABS 0 bank11 -
-__Lbank12 10 1E000 ABS 0 bank12 -
-__Lbank13 10 1E000 BANK13 1 bank13 -
-__Lbank14 10 1E000 BANK14 1 bank14 -
-__Lbank15 10 1E000 BANK15 1 bank15 -
-__Lbank16 10 1E000 BANK16 1 bank16 -
-__Lbank17 10 1E000 BANK17 1 bank17 -
-__Lbank18 10 1E000 BANK18 1 bank18 -
-__Lbank19 10 1E000 BANK19 1 bank19 -
-__Lbank20 10 1E000 BANK20 1 bank20 -
-__Lbank21 10 1E000 BANK21 1 bank21 -
-__Lbank22 10 1E000 BANK22 1 bank22 -
-__Lbank23 10 1E000 BANK23 1 bank23 -
-__Lbank24 10 1E000 BANK24 1 bank24 -
-__Lbank25 10 1E000 BANK25 1 bank25 -
-__Lbank26 10 1E000 BANK26 1 bank26 -
-__Lbank27 10 1E000 BANK27 1 bank27 -
-__Lbank28 10 1E000 BANK28 1 bank28 -
-__Lbank29 10 1E000 BANK29 1 bank29 -
-__Lbank30 10 1E000 BANK30 1 bank30 -
-__Lbank31 10 1E000 BANK31 1 bank31 -
-__BcstackCOMMON 1E010 1E000 ABS 0 cstackCOMMON -
-__pmaintext 246 0 CODE 0 maintext dist/default/production\firmware.production.o
-__Lbigram 10 1E000 ABS 0 bigram -
+__Bbank10 1E1C0 1E000 ABS 0 bank10 -
+__Bbank11 1E1C0 1E000 ABS 0 bank11 -
+__Bbank12 1E1C0 1E000 ABS 0 bank12 -
+__Bbank13 1E1C0 1E000 BANK13 1 bank13 -
+__Bbank14 1E1C0 1E000 BANK14 1 bank14 -
+__Bbank15 1E1C0 1E000 BANK15 1 bank15 -
+__Bbank16 1E1C0 1E000 BANK16 1 bank16 -
+__Bbank17 1E1C0 1E000 BANK17 1 bank17 -
+__Bbank18 1E1C0 1E000 BANK18 1 bank18 -
+__Bbank19 1E1C0 1E000 BANK19 1 bank19 -
+__Bbank20 1E1C0 1E000 BANK20 1 bank20 -
+__Bbank21 1E1C0 1E000 BANK21 1 bank21 -
+__Bbank22 1E1C0 1E000 BANK22 1 bank22 -
+__Bbank23 1E1C0 1E000 BANK23 1 bank23 -
+__Bbank24 1E1C0 1E000 BANK24 1 bank24 -
+__Bbank25 1E1C0 1E000 BANK25 1 bank25 -
+__Bbank26 1E1C0 1E000 BANK26 1 bank26 -
+__Bbank27 1E1C0 1E000 BANK27 1 bank27 -
+__Bbank28 1E1C0 1E000 BANK28 1 bank28 -
+__Bbank29 1E1C0 1E000 BANK29 1 bank29 -
+__Bbank30 1E1C0 1E000 BANK30 1 bank30 -
+__Bbank31 1E1C0 1E000 BANK31 1 bank31 -
+__Bbigram 1E1C0 1E000 ABS 0 bigram -
+___lldiv 1F5C 0 CODE 0 text7 dist/default/production\firmware.production.o
+___lwdiv 1EF4 0 CODE 0 text8 dist/default/production\firmware.production.o
+__Lbank10 1C0 1E000 ABS 0 bank10 -
+__Lbank11 1C0 1E000 ABS 0 bank11 -
+__Lbank12 1C0 1E000 ABS 0 bank12 -
+__Lbank13 1C0 1E000 BANK13 1 bank13 -
+__Lbank14 1C0 1E000 BANK14 1 bank14 -
+__Lbank15 1C0 1E000 BANK15 1 bank15 -
+__Lbank16 1C0 1E000 BANK16 1 bank16 -
+__Lbank17 1C0 1E000 BANK17 1 bank17 -
+__Lbank18 1C0 1E000 BANK18 1 bank18 -
+__Lbank19 1C0 1E000 BANK19 1 bank19 -
+__Lbank20 1C0 1E000 BANK20 1 bank20 -
+__Lbank21 1C0 1E000 BANK21 1 bank21 -
+__Lbank22 1C0 1E000 BANK22 1 bank22 -
+__Lbank23 1C0 1E000 BANK23 1 bank23 -
+__Lbank24 1C0 1E000 BANK24 1 bank24 -
+__Lbank25 1C0 1E000 BANK25 1 bank25 -
+__Lbank26 1C0 1E000 BANK26 1 bank26 -
+__Lbank27 1C0 1E000 BANK27 1 bank27 -
+__Lbank28 1C0 1E000 BANK28 1 bank28 -
+__Lbank29 1C0 1E000 BANK29 1 bank29 -
+__Lbank30 1C0 1E000 BANK30 1 bank30 -
+__Lbank31 1C0 1E000 BANK31 1 bank31 -
+__BcstackCOMMON 1E1C0 1E000 ABS 0 cstackCOMMON -
+__pmaintext 670 0 CODE 0 maintext dist/default/production\firmware.production.o
+__Lbigram 1C0 1E000 ABS 0 bigram -
 __CFG_BORV$LO 0 0 ABS 0 - dist/default/production\firmware.production.o
-__size_of_PWM_set_duty 0 0 ABS 0 - dist/default/production\firmware.production.o
-__Bcommon 1E010 1E000 ABS 0 common -
-__Bclrtext 1E010 1E000 ABS 0 clrtext -
-__Lcommon 10 1E000 ABS 0 common -
+___lmul@multiplier 70 0 COMMON 1 cstackCOMMON dist/default/production\firmware.production.o
+__Bcommon 1E1C0 1E000 ABS 0 common -
+__Bclrtext 1E1C0 1E000 ABS 0 clrtext -
+__Lcommon 1C0 1E000 ABS 0 common -
 __Lconfig 1000E 0 CONFIG 0 config -
 __CFG_CP$OFF 0 0 ABS 0 - dist/default/production\firmware.production.o
-_I2C_buffer 20 0 BANK0 1 bssBANK0 dist/default/production\firmware.production.o
-___wmul@multiplier 70 0 COMMON 1 cstackCOMMON dist/default/production\firmware.production.o
+_I2C_buffer 22F5 0 ABS 1 - dist/default/production\firmware.production.o
 _LATAbits 10C 0 ABS 0 - dist/default/production\firmware.production.o
+_LATBbits 10D 0 ABS 0 - dist/default/production\firmware.production.o
+___lwdiv@divisor 70 0 COMMON 1 cstackCOMMON dist/default/production\firmware.production.o
+main@i_816 B8 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
+main@i_817 B9 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
+main@i_818 BA 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
 __size_of_eeprom_write 0 0 ABS 0 - dist/default/production\firmware.production.o
-_topSen 43 0 BANK0 1 bssBANK0 dist/default/production\firmware.production.o
-__Bstringtext1 1E010 1E000 ABS 0 stringtext1 -
-__end_of_PWM_set_duty 784 0 CODE 0 text4 dist/default/production\firmware.production.o
-__end_of_eeprom_read 7BA 0 CODE 0 text2 dist/default/production\firmware.production.o
-__Bmaintext 1E010 1E000 ABS 0 maintext -
+_stock1 61 0 BANK0 1 bssBANK0 dist/default/production\firmware.production.o
+_stock2 5F 0 BANK0 1 bssBANK0 dist/default/production\firmware.production.o
+_stock3 5D 0 BANK0 1 bssBANK0 dist/default/production\firmware.production.o
+_stock4 5B 0 BANK0 1 bssBANK0 dist/default/production\firmware.production.o
+map@in_max 35 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
+map@in_min 31 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
+__Bstringtext1 1E1C0 1E000 ABS 0 stringtext1 -
+__end_of_eeprom_read 1E5A 0 CODE 0 text2 dist/default/production\firmware.production.o
+_ADCON0bits 9D 0 ABS 0 - dist/default/production\firmware.production.o
+__Bmaintext 1E1C0 1E000 ABS 0 maintext -
 __CFG_LVP$OFF 0 0 ABS 0 - dist/default/production\firmware.production.o
+__pbssBIGRAM 22F5 0 ABS 0 - dist/default/production\firmware.production.o
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
 __Lspace_3 0 0 ABS 0 - -
-__pbssCOMMON 77 0 COMMON 1 bssCOMMON dist/default/production\firmware.production.o
-__HcstackBANK0 10 1E000 ABS 0 cstackBANK0 -
+__HcstackBANK0 1C0 1E000 ABS 0 cstackBANK0 -
+__HcstackBANK1 1C0 1E000 ABS 0 cstackBANK1 -
 _PIR1bits 11 0 ABS 0 - dist/default/production\firmware.production.o
 _PIR2bits 12 0 ABS 0 - dist/default/production\firmware.production.o
-__Lend_init 20C 0 CODE 0 end_init -
-__LcstackCOMMON 10 1E000 ABS 0 cstackCOMMON -
-__end_of_eeprom_write 73A 0 CODE 0 text3 dist/default/production\firmware.production.o
-end_of_initialization 23E 0 CODE 0 cinit dist/default/production\firmware.production.o
-__Hintentry 20C 0 CODE 0 intentry -
+__Lend_init 632 0 CODE 0 end_init -
+__LcstackCOMMON 1C0 1E000 ABS 0 cstackCOMMON -
+__end_of_eeprom_write FFC 0 CODE 0 text3 dist/default/production\firmware.production.o
+end_of_initialization 668 0 CODE 0 cinit dist/default/production\firmware.production.o
+__Hintentry 632 0 CODE 0 intentry -
+map@out_max 3D 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
+map@out_min 39 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
 __CFG_STVREN$ON 0 0 ABS 0 - dist/default/production\firmware.production.o
-__Lstrings 10 1E000 ABS 0 strings -
+__Lstrings 1C0 1E000 ABS 0 strings -
+___lwdiv@dividend 72 0 COMMON 1 cstackCOMMON dist/default/production\firmware.production.o
+?___lldiv 20 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
+?___lwdiv 70 0 COMMON 1 cstackCOMMON dist/default/production\firmware.production.o
 __Hreset_vec 4 0 CODE 0 reset_vec -
-__HbssBANK0 10 1E000 ABS 0 bssBANK0 -
-__size_of_PWM_Init 0 0 ABS 0 - dist/default/production\firmware.production.o
-__ptext1 628 0 CODE 0 text1 dist/default/production\firmware.production.o
-__ptext2 784 0 CODE 0 text2 dist/default/production\firmware.production.o
-__ptext3 6EA 0 CODE 0 text3 dist/default/production\firmware.production.o
-__ptext4 73A 0 CODE 0 text4 dist/default/production\firmware.production.o
-__ptext5 7F0 0 CODE 0 text5 dist/default/production\firmware.production.o
-__ptext7 7BA 0 CODE 0 text7 dist/default/production\firmware.production.o
+__HbssBANK0 1C0 1E000 ABS 0 bssBANK0 -
+__ptext1 D36 0 CODE 0 text1 dist/default/production\firmware.production.o
+__ptext2 1E24 0 CODE 0 text2 dist/default/production\firmware.production.o
+__ptext3 FAC 0 CODE 0 text3 dist/default/production\firmware.production.o
+__ptext5 EF0 0 CODE 0 text5 dist/default/production\firmware.production.o
+__ptext6 1E96 0 CODE 0 text6 dist/default/production\firmware.production.o
+__ptext7 1F5C 0 CODE 0 text7 dist/default/production\firmware.production.o
+__ptext8 1EF4 0 CODE 0 text8 dist/default/production\firmware.production.o
+__ptext9 1E5A 0 CODE 0 text9 dist/default/production\firmware.production.o
 __Lpowerup 0 0 CODE 0 powerup -
-_APFCON0bits 11D 0 ABS 0 - dist/default/production\firmware.production.o
 __Leeprom_data 0 1E000 EEDATA 3 eeprom_data -
 __Lreset_vec 0 0 CODE 0 reset_vec -
-__Hstringtext1 10 1E000 ABS 0 stringtext1 -
+__Hstringtext1 1C0 1E000 ABS 0 stringtext1 -
 __CFG_CLKOUTEN$OFF 0 0 ABS 0 - dist/default/production\firmware.production.o
 __CFG_WDTE$ON 0 0 ABS 0 - dist/default/production\firmware.production.o
-__end_of__initialization 23E 0 CODE 0 cinit dist/default/production\firmware.production.o
+__end_of__initialization 668 0 CODE 0 cinit dist/default/production\firmware.production.o
 __Lfunctab 0 0 ENTRY 0 functab -
-__BdataBANK0 1E010 1E000 ABS 0 dataBANK0 -
-__pidataBANK0 818 0 CODE 0 idataBANK0 dist/default/production\firmware.production.o
-__Lclrtext 10 1E000 ABS 0 clrtext -
+__BdataBANK0 1E1C0 1E000 ABS 0 dataBANK0 -
+__pidataBANK0 FFC 0 CODE 0 idataBANK0 dist/default/production\firmware.production.o
+__Lclrtext 1C0 1E000 ABS 0 clrtext -
 _SSP1CON1bits 215 0 ABS 0 - dist/default/production\firmware.production.o
 _SSP1CON2bits 216 0 ABS 0 - dist/default/production\firmware.production.o
 _SSP1CON3bits 217 0 ABS 0 - dist/default/production\firmware.production.o
+___lmul@product 78 0 COMMON 1 cstackCOMMON dist/default/production\firmware.production.o
+___lmul@multiplicand 74 0 COMMON 1 cstackCOMMON dist/default/production\firmware.production.o
 __CFG_PWRTE$ON 0 0 ABS 0 - dist/default/production\firmware.production.o
+___lldiv@quotient 28 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
 __pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\firmware.production.o
 __Beeprom_data 1E000 1E000 EEDATA 3 eeprom_data -
-__BidataBANK0 1E010 1E000 ABS 0 idataBANK0 -
-_PWM_Init 7F0 0 CODE 0 text5 dist/default/production\firmware.production.o
+__BidataBANK0 1E1C0 1E000 ABS 0 idataBANK0 -
 _SSP1ADD 212 0 ABS 0 - dist/default/production\firmware.production.o
 _SSP1BUF 211 0 ABS 0 - dist/default/production\firmware.production.o
-__Hend_init 210 0 CODE 0 end_init -
-__end_of_main 628 0 CODE 0 maintext dist/default/production\firmware.production.o
+__Hend_init 636 0 CODE 0 end_init -
+__end_of_main D36 0 CODE 0 maintext dist/default/production\firmware.production.o
 _EEADR 191 0 ABS 0 - dist/default/production\firmware.production.o
 _IOCBF 396 0 ABS 0 - dist/default/production\firmware.production.o
-_IOCBP 394 0 ABS 0 - dist/default/production\firmware.production.o
+_IOCBN 395 0 ABS 0 - dist/default/production\firmware.production.o
 _PORTA C 0 ABS 0 - dist/default/production\firmware.production.o
 _PORTB D 0 ABS 0 - dist/default/production\firmware.production.o
 _T1CON 18 0 ABS 0 - dist/default/production\firmware.production.o
-_T2CON 1C 0 ABS 0 - dist/default/production\firmware.production.o
 _TRISA 8C 0 ABS 0 - dist/default/production\firmware.production.o
 _TRISB 8D 0 ABS 0 - dist/default/production\firmware.production.o
-__end_of_PWM_Init 808 0 CODE 0 text5 dist/default/production\firmware.production.o
-__Bram 1E010 1E000 ABS 0 ram -
-__Hram 10 1E000 ABS 0 ram -
-__Lram 10 1E000 ABS 0 ram -
+__Bram 1E1C0 1E000 ABS 0 ram -
+__Hram 1C0 1E000 ABS 0 ram -
+__Lram 1C0 1E000 ABS 0 ram -
 __CFG_CPD$OFF 0 0 ABS 0 - dist/default/production\firmware.production.o
-eeprom_read@addr 48 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
-_CCP2CON 29A 0 ABS 0 - dist/default/production\firmware.production.o
+eeprom_read@addr A3 0 BANK1 1 cstackBANK1 dist/default/production\firmware.production.o
 __pintentry 8 0 CODE 0 intentry dist/default/production\firmware.production.o
 __size_of_isr 0 0 ABS 0 - dist/default/production\firmware.production.o
-__HdataBANK0 10 1E000 ABS 0 dataBANK0 -
-__initialization 210 0 CODE 0 cinit dist/default/production\firmware.production.o
+__size_of_map 0 0 ABS 0 - dist/default/production\firmware.production.o
+__HdataBANK0 1C0 1E000 ABS 0 dataBANK0 -
+__initialization 636 0 CODE 0 cinit dist/default/production\firmware.production.o
 __size_of_eeprom_read 0 0 ABS 0 - dist/default/production\firmware.production.o
-__pbssBANK0 20 0 BANK0 1 bssBANK0 dist/default/production\firmware.production.o
-__pdataCOMMON 7B 0 COMMON 1 dataCOMMON dist/default/production\firmware.production.o
+__pbssBANK0 5B 0 BANK0 1 bssBANK0 dist/default/production\firmware.production.o
 __CFG_WRT$OFF 0 0 ABS 0 - dist/default/production\firmware.production.o
-___wmul@product 74 0 COMMON 1 cstackCOMMON dist/default/production\firmware.production.o
-__BbssCOMMON 1E010 1E000 ABS 0 bssCOMMON -
-PWM_set_duty@duty 45 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
 _STATUSbits 3 0 ABS 0 - dist/default/production\firmware.production.o
-__BdataCOMMON 1E010 1E000 ABS 0 dataCOMMON -
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -832,6 +942,11 @@ __BdataCOMMON 1E010 1E000 ABS 0 dataCOMMON -
 # otherwise name will be "-".  The <space> number is in decimal.
 # <address> and <size> are in byte units as unqaulified hexadecimal
 %DABS
+_I2C_buffer 1 22F5 0
+- 1 620 30
+- 1 5A0 50
+- 1 520 50
+- 1 4C5 2B
 - 1 7E 2
 # %SEGMENTS Section
 # This sections enumerates the segments of the program.  Each segment
@@ -841,12 +956,19 @@ __BdataCOMMON 1E010 1E000 ABS 0 dataCOMMON -
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
+text2 0 F12 1E24 1B 2
+text6 0 F4B 1E96 2F 2
+text7 0 FAE 1F5C 52 2
+text8 0 F7A 1EF4 34 2
+text9 0 F2D 1E5A 1E 2
 cstackCOMMON 1 70 70 D 1
-stringtext1 0 40D 81A 1 2
-intentry 0 4 8 409 2
+cstackBANK0 1 20 20 47 1
+cstackBANK1 1 A0 A0 1B 1
+stringtext1 0 1000 2000 1 2
+intentry 0 4 8 7FB 2
 reset_vec 0 0 0 2 2
-bssBANK0 1 20 20 2F 1
-eeprom_data 3 0 1E000 8 2
+eeprom_data 3 0 1E000 E0 2
+clrtext 0 F06 1E0C C 2
 config 0 8007 1000E 2 2
 # OTES Section
 # This section contains data of all the note-psects.  The beginning of the section
