@@ -93,7 +93,7 @@ public:
 	void RESET(void);
 	void startDispensing(void);
 	void stopDispensing(void);
-	bool dispensingDone(void);
+	uint8_t isDispensing(void);
 	uint8_t getSelected(void);
 	void setSelected(uint8_t value);
 	uint8_t getCancel(void);

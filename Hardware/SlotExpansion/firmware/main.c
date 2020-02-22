@@ -66,6 +66,7 @@ __EEPROM_DATA(0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00);
 __EEPROM_DATA(0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00);
 __EEPROM_DATA(0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00);
 __EEPROM_DATA(0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00);
+__EEPROM_DATA(0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00);
 unsigned char eeprom_read(unsigned char address);
 void eeprom_write(unsigned char address, unsigned char value);
 
@@ -152,6 +153,7 @@ unsigned int stock1 = 0;
 unsigned int stock2 = 0;
 unsigned int stock3 = 0;
 unsigned int stock4 = 0;
+unsigned char readADC = 0;
 
 // Functions
 
@@ -184,24 +186,24 @@ void init_I2C_buffer() { //load default values of vars
     I2C_buffer.data.relay3 = 0;
     I2C_buffer.data.relay4 = 0;
     I2C_buffer.data.selected1 = 0;
-    for (unsigned char i = 0; i < 57; i++) //data for slot1 (56 bytes) (product_id, name, unit, time, counter, cost, quantity, stock, capacity, emptyLevel, fullLevel)
+    for (unsigned char i = 0; i < 58; i++) //data for slot1 (56 bytes) (product_id, name, unit, time, counter, cost, quantity, stock, capacity, emptyLevel, fullLevel)
     {
         I2C_buffer.byte[(unsigned char) (0x14 + i)] = eeprom_read(i);
     }
     I2C_buffer.data.selected2 = 0;
-    for (unsigned char i = 0; i < 57; i++) //data for slot2 (product_id, name, unit, time, counter, cost, quantity, stock, capacity, emptyLevel, fullLevel)
+    for (unsigned char i = 0; i < 58; i++) //data for slot2 (product_id, name, unit, time, counter, cost, quantity, stock, capacity, emptyLevel, fullLevel)
     {
-        I2C_buffer.byte[(unsigned char) (0x4E + i)] = eeprom_read((unsigned char) (57 + i));
+        I2C_buffer.byte[(unsigned char) (0x4E + i)] = eeprom_read((unsigned char) (58 + i));
     }
     I2C_buffer.data.selected3 = 0;
-    for (unsigned char i = 0; i < 57; i++) //data for slot3 (product_id, name, unit, time, counter, cost, quantity, stock, capacity, emptyLevel, fullLevel)
+    for (unsigned char i = 0; i < 58; i++) //data for slot3 (product_id, name, unit, time, counter, cost, quantity, stock, capacity, emptyLevel, fullLevel)
     {
-        I2C_buffer.byte[(unsigned char) (0x88 + i)] = eeprom_read((unsigned char) (113 + i));
+        I2C_buffer.byte[(unsigned char) (0x88 + i)] = eeprom_read((unsigned char) (115 + i));
     }
     I2C_buffer.data.selected4 = 0;
-    for (unsigned char i = 0; i < 57; i++) //data for slot4 (product_id, name, unit, time, counter, cost, quantity, stock, capacity, emptyLevel, fullLevel)
+    for (unsigned char i = 0; i < 58; i++) //data for slot4 (product_id, name, unit, time, counter, cost, quantity, stock, capacity, emptyLevel, fullLevel)
     {
-        I2C_buffer.byte[(unsigned char) (0xC2 + i)] = eeprom_read((unsigned char) (167 + i));
+        I2C_buffer.byte[(unsigned char) (0xC2 + i)] = eeprom_read((unsigned char) (172 + i));
     }
 
 }
@@ -212,14 +214,16 @@ void __interrupt isr() {
 
     if (INTCONbits.INTF == 1) {//interrupt on CNC input
         INTCONbits.INTE = 0; //disable this interrupt
-        if (I2C_buffer.data.dispense == 0) {
-            I2C_buffer.data.cancel = 1;
-            I2C_buffer.data.selected1 = 0;
-            I2C_buffer.data.selected2 = 0;
-            I2C_buffer.data.selected3 = 0;
-            I2C_buffer.data.selected4 = 0;
-        } else {
-            I2C_buffer.data.counter++;
+        if (PORTBbits.RB0 == 0) {
+            if (I2C_buffer.data.dispense == 0) {
+                I2C_buffer.data.cancel = 1;
+                I2C_buffer.data.selected1 = 0;
+                I2C_buffer.data.selected2 = 0;
+                I2C_buffer.data.selected3 = 0;
+                I2C_buffer.data.selected4 = 0;
+            } else {
+                I2C_buffer.data.counter++;
+            }
         }
         INTCONbits.INTF = 0; //clear this interrupt flag
         INTCONbits.INTE = 1; //enable this interrupt
@@ -228,28 +232,40 @@ void __interrupt isr() {
     if (INTCONbits.IOCIF == 1) {//interrupt on change
         INTCONbits.IOCIE = 0; //disable on change interrupts
         if (IOCBFbits.IOCBF2 == 1) {
-            I2C_buffer.data.selected1 = 1;
-            I2C_buffer.data.selected2 = 0;
-            I2C_buffer.data.selected3 = 0;
-            I2C_buffer.data.selected4 = 0;
+            if (PORTBbits.RB2 == 0) {
+                I2C_buffer.data.cancel = 0;
+                I2C_buffer.data.selected1 = 1;
+                I2C_buffer.data.selected2 = 0;
+                I2C_buffer.data.selected3 = 0;
+                I2C_buffer.data.selected4 = 0;
+            }
         }
         if (IOCBFbits.IOCBF3 == 1) {
-            I2C_buffer.data.selected1 = 0;
-            I2C_buffer.data.selected2 = 1;
-            I2C_buffer.data.selected3 = 0;
-            I2C_buffer.data.selected4 = 0;
+            if (PORTBbits.RB3 == 0) {
+                I2C_buffer.data.cancel = 0;
+                I2C_buffer.data.selected1 = 0;
+                I2C_buffer.data.selected2 = 1;
+                I2C_buffer.data.selected3 = 0;
+                I2C_buffer.data.selected4 = 0;
+            }
         }
         if (IOCBFbits.IOCBF6 == 1) {
-            I2C_buffer.data.selected1 = 0;
-            I2C_buffer.data.selected2 = 0;
-            I2C_buffer.data.selected3 = 1;
-            I2C_buffer.data.selected4 = 0;
+            if (PORTBbits.RB6 == 0) {
+                I2C_buffer.data.cancel = 0;
+                I2C_buffer.data.selected1 = 0;
+                I2C_buffer.data.selected2 = 0;
+                I2C_buffer.data.selected3 = 1;
+                I2C_buffer.data.selected4 = 0;
+            }
         }
         if (IOCBFbits.IOCBF7 == 1) {
-            I2C_buffer.data.selected1 = 0;
-            I2C_buffer.data.selected2 = 0;
-            I2C_buffer.data.selected3 = 0;
-            I2C_buffer.data.selected4 = 1;
+            if (PORTBbits.RB7 == 0) {
+                I2C_buffer.data.cancel = 0;
+                I2C_buffer.data.selected1 = 0;
+                I2C_buffer.data.selected2 = 0;
+                I2C_buffer.data.selected3 = 0;
+                I2C_buffer.data.selected4 = 1;
+            }
         }
         IOCBF = 0; //clear interrupt on change flags
         INTCONbits.IOCIE = 1; //enable on change interrupts
@@ -259,30 +275,7 @@ void __interrupt isr() {
     {
         T1CONbits.TMR1ON = 0; //stop timer1
         asm("CLRWDT");
-        if (average < 10) {
-            stock1 += ADC_read(0x00);
-            stock2 += ADC_read(0x01);
-            stock3 += ADC_read(0x02);
-            stock4 += ADC_read(0x03);
-            average++;
-        } else {
-            if (I2C_buffer.data.calibrate == 1) {
-                I2C_buffer.data.stock1 = stock1 / 10;
-                I2C_buffer.data.stock2 = stock2 / 10;
-                I2C_buffer.data.stock3 = stock3 / 10;
-                I2C_buffer.data.stock4 = stock4 / 10;
-            } else {
-                I2C_buffer.data.stock1 = map((stock1 / 10), I2C_buffer.data.emptyLevel1, I2C_buffer.data.fullLevel1, 0, I2C_buffer.data.capacity1);
-                I2C_buffer.data.stock2 = map((stock2 / 10), I2C_buffer.data.emptyLevel2, I2C_buffer.data.fullLevel2, 0, I2C_buffer.data.capacity2);
-                I2C_buffer.data.stock3 = map((stock3 / 10), I2C_buffer.data.emptyLevel3, I2C_buffer.data.fullLevel3, 0, I2C_buffer.data.capacity3);
-                I2C_buffer.data.stock4 = map((stock4 / 10), I2C_buffer.data.emptyLevel4, I2C_buffer.data.fullLevel4, 0, I2C_buffer.data.capacity4);
-            }
-            stock1 = 0;
-            stock2 = 0;
-            stock3 = 0;
-            stock4 = 0;
-            average = 0;
-        }
+        readADC = 1;
         PIR1bits.TMR1IF = 0; //clear interrutp flag
         T1CONbits.TMR1ON = 1; //start timer1
     }
@@ -354,15 +347,16 @@ void __interrupt isr() {
 int main(int argc, char** argv) {
     OSCCON = 0b11110000; //configure internal oscilator for 32Mhz
     init_I2C_buffer(); //load default values and configurations
-    OPTION_REGbits.nWPUEN = 0; //allow weak pull-ups to activate
+    OPTION_REGbits.nWPUEN = 1; //allow weak pull-ups to activate
+    ADCON1 = 0b11110000; //configure ADC
     TRISA = 0b00101111; //configure IO
-    ANSELA = 0b00001111; //analog functions of pins disabled
+    ANSELA = 0b00001111; //analog functions of pins certain disabled
     TRISB = 0b11011111; //configure IO
-    ANSELB = 0b00000000; //analog functions of pins disabled
-    WPUA = 0b00000000; //configure weak pull-ups on input pins
-    WPUB = 0b00000000; //configure weak pull-ups on input pins
-    PORTA = 0b00000000; //set all to LOW
-    PORTB = 0b00000000; //set all to LOW
+    ANSELB = 0b00000000; //analog functions of all pins disabled
+    WPUA = 0b00100000; //configure weak pull-ups on input pins
+    WPUB = 0b11001101; //configure weak pull-ups on input pins
+    LATA = 0b00000000; //set all to LOW
+    LATB = 0b00000000; //set all to LOW
     SSP1STAT = 0b10000000; // Slew rate control disabled for standardspeed I2C mode (100 kHz and 1 MHz)
     SSP1CON1 = 0b00110110; // Enable serial port, I2C slave mode, 7-bit address
     SSP1CON2bits.SEN = 1; // Clock stretching on I2C is enabled
@@ -375,7 +369,8 @@ int main(int argc, char** argv) {
     PIE2bits.BCL1IE = 1; // Enable bus collision interrupts
     PIE1bits.SSP1IE = 1; // Enable serial port interrupts
     INTCONbits.PEIE = 1; // Enable peripheral interrupts
-    IOCBN = 0b11001100; //configure interrupt on falling edge for buttons
+    OPTION_REGbits.INTEDG = 0; //Interrupt on falling edge for CNC
+    IOCBN = 0b11001100; //configure interrupt on falling edge for slot buttons
     INTCON = 0b01011000; //enables interrupts
     T1CON = 0b00110100; //configure timer 1 to run at 1 MHz, interrupt time is 65.536 ms
     PIE1bits.TMR1IE = 1; //enable timer 1 interrupt
@@ -390,21 +385,21 @@ int main(int argc, char** argv) {
 
         if (I2C_buffer.data.SAVE == 1) { //Save non-volatile data into the EEPROM
             //eeprom_write(0, I2C_buffer.data.ADDRESS);
-            for (unsigned char i = 0; i < 57; i++) //data for slot1 (56 bytes) (product_id, name, unit, time, counter, cost, quantity, stock, capacity, emptyLevel, fullLevel)
+            for (unsigned char i = 0; i < 58; i++) //data for slot1 (56 bytes) (product_id, name, unit, time, counter, cost, quantity, stock, capacity, emptyLevel, fullLevel)
             {
                 eeprom_write(i, I2C_buffer.byte[(unsigned char) (0x14 + i)]);
             }
-            for (unsigned char i = 0; i < 57; i++) //data for slot2 (product_id, name, unit, time, counter, cost, quantity, stock, capacity, emptyLevel, fullLevel)
+            for (unsigned char i = 0; i < 58; i++) //data for slot2 (product_id, name, unit, time, counter, cost, quantity, stock, capacity, emptyLevel, fullLevel)
             {
-                eeprom_write((unsigned char) (57 + i), I2C_buffer.byte[(unsigned char) (0x4E + i)]);
+                eeprom_write((unsigned char) (58 + i), I2C_buffer.byte[(unsigned char) (0x4E + i)]);
             }
-            for (unsigned char i = 0; i < 57; i++) //data for slot3 (product_id, name, unit, time, counter, cost, quantity, stock, capacity, emptyLevel, fullLevel)
+            for (unsigned char i = 0; i < 58; i++) //data for slot3 (product_id, name, unit, time, counter, cost, quantity, stock, capacity, emptyLevel, fullLevel)
             {
-                eeprom_write((unsigned char) (113 + i), I2C_buffer.byte[(unsigned char) (0x88 + i)]);
+                eeprom_write((unsigned char) (115 + i), I2C_buffer.byte[(unsigned char) (0x88 + i)]);
             }
-            for (unsigned char i = 0; i < 57; i++) //data for slot4 (product_id, name, unit, time, counter, cost, quantity, stock, capacity, emptyLevel, fullLevel)
+            for (unsigned char i = 0; i < 58; i++) //data for slot4 (product_id, name, unit, time, counter, cost, quantity, stock, capacity, emptyLevel, fullLevel)
             {
-                eeprom_write((unsigned char) (167 + i), I2C_buffer.byte[(unsigned char) (0xC2 + i)]);
+                eeprom_write((unsigned char) (172 + i), I2C_buffer.byte[(unsigned char) (0xC2 + i)]);
             }
             I2C_buffer.data.SAVE = 0;
             __delay_ms(10);
@@ -420,40 +415,44 @@ int main(int argc, char** argv) {
             I2C_buffer.data.selected4 = 0;
             switch (I2C_buffer.data.selected) {
                 case 1:
-                    while (I2C_buffer.data.time <= I2C_buffer.data.time1 && I2C_buffer.data.counter <= I2C_buffer.data.counter1 && I2C_buffer.data.dispense == 1) {
+                    while (I2C_buffer.data.time < I2C_buffer.data.time1 && I2C_buffer.data.counter < I2C_buffer.data.counter1 && I2C_buffer.data.dispense == 1) {
                         LATAbits.LATA4 = 1;
                         I2C_buffer.data.time++;
                         __delay_ms(1);
+                        asm("CLRWDT");
                         if (I2C_buffer.data.calibrate == 1 && I2C_buffer.data.selected1 == 1) break;
                     }
                     LATAbits.LATA4 = 0;
                     I2C_buffer.data.dispense = 0;
                     break;
                 case 2:
-                    while (I2C_buffer.data.time <= I2C_buffer.data.time2 && I2C_buffer.data.counter <= I2C_buffer.data.counter2 && I2C_buffer.data.dispense == 1) {
+                    while (I2C_buffer.data.time < I2C_buffer.data.time2 && I2C_buffer.data.counter < I2C_buffer.data.counter2 && I2C_buffer.data.dispense == 1) {
                         LATAbits.LATA6 = 1;
                         I2C_buffer.data.time++;
                         __delay_ms(1);
+                        asm("CLRWDT");
                         if (I2C_buffer.data.calibrate == 1 && I2C_buffer.data.selected2 == 1) break;
                     }
                     LATAbits.LATA6 = 0;
                     I2C_buffer.data.dispense = 0;
                     break;
                 case 3:
-                    while (I2C_buffer.data.time <= I2C_buffer.data.time3 && I2C_buffer.data.counter <= I2C_buffer.data.counter3 && I2C_buffer.data.dispense == 1) {
+                    while (I2C_buffer.data.time < I2C_buffer.data.time3 && I2C_buffer.data.counter < I2C_buffer.data.counter3 && I2C_buffer.data.dispense == 1) {
                         LATAbits.LATA7 = 1;
                         I2C_buffer.data.time++;
                         __delay_ms(1);
+                        asm("CLRWDT");
                         if (I2C_buffer.data.calibrate == 1 && I2C_buffer.data.selected3 == 1) break;
                     }
                     LATAbits.LATA7 = 0;
                     I2C_buffer.data.dispense = 0;
                     break;
                 case 4:
-                    while (I2C_buffer.data.time <= I2C_buffer.data.time4 && I2C_buffer.data.counter <= I2C_buffer.data.counter4 && I2C_buffer.data.dispense == 1) {
+                    while (I2C_buffer.data.time < I2C_buffer.data.time4 && I2C_buffer.data.counter < I2C_buffer.data.counter4 && I2C_buffer.data.dispense == 1) {
                         LATBbits.LATB5 = 1;
                         I2C_buffer.data.time++;
                         __delay_ms(1);
+                        asm("CLRWDT");
                         if (I2C_buffer.data.calibrate == 1 && I2C_buffer.data.selected4 == 1) break;
                     }
                     LATBbits.LATB5 = 0;
@@ -464,7 +463,6 @@ int main(int argc, char** argv) {
                     break;
             }
             I2C_buffer.data.selected = 0;
-
         }
 
         if (I2C_buffer.data.relay1 == 1) {
@@ -491,7 +489,32 @@ int main(int argc, char** argv) {
             LATBbits.LATB5 = 0;
         }
 
-
+        if (readADC == 1) {
+            if (average < 10) {
+                stock1 += ADC_read(0x00);
+                stock2 += ADC_read(0x01);
+                stock3 += ADC_read(0x02);
+                stock4 += ADC_read(0x03);
+                average++;
+            } else {
+                if (I2C_buffer.data.calibrate == 1) {
+                    I2C_buffer.data.stock1 = stock1 / 10;
+                    I2C_buffer.data.stock2 = stock2 / 10;
+                    I2C_buffer.data.stock3 = stock3 / 10;
+                    I2C_buffer.data.stock4 = stock4 / 10;
+                } else {
+                    I2C_buffer.data.stock1 = map((stock1 / 10), I2C_buffer.data.emptyLevel1, I2C_buffer.data.fullLevel1, 0, I2C_buffer.data.capacity1);
+                    I2C_buffer.data.stock2 = map((stock2 / 10), I2C_buffer.data.emptyLevel2, I2C_buffer.data.fullLevel2, 0, I2C_buffer.data.capacity2);
+                    I2C_buffer.data.stock3 = map((stock3 / 10), I2C_buffer.data.emptyLevel3, I2C_buffer.data.fullLevel3, 0, I2C_buffer.data.capacity3);
+                    I2C_buffer.data.stock4 = map((stock4 / 10), I2C_buffer.data.emptyLevel4, I2C_buffer.data.fullLevel4, 0, I2C_buffer.data.capacity4);
+                }
+                stock1 = 0;
+                stock2 = 0;
+                stock3 = 0;
+                stock4 = 0;
+                average = 0;
+            }
+        }
     }
     return (EXIT_SUCCESS);
 }

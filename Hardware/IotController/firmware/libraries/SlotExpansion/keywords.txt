@@ -5,7 +5,7 @@ SAVE       	KEYWORD2
 RESET      	KEYWORD2
 startDispensing	KEYWORD2
 stopDispensing	KEYWORD2
-dispensingDone	KEYWORD2
+isDispensing	KEYWORD2
 getSelected	KEYWORD2
 setSelected	KEYWORD2
 getCancel	KEYWORD2

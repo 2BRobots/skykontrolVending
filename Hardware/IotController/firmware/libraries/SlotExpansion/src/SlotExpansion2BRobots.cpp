@@ -45,8 +45,8 @@ void SlotExpansion2BRobots::stopDispensing() {
 	write8(SLE_REG_dispense, 0X00);
 }
 
-bool SlotExpansion2BRobots::dispensingDone() {
-	return (bool)read8(SLE_REG_dispense);
+uint8_t SlotExpansion2BRobots::isDispensing() {
+	return read8(SLE_REG_dispense);
 }
 
 uint8_t SlotExpansion2BRobots::getSelected() {
@@ -155,16 +155,16 @@ void SlotExpansion2BRobots::changeSelected(uint8_t slot, uint8_t value) {
 	switch (slot)
 	{
 	case 1:
-		write8(SLE_REG_relay1, value & 0x01);
+		write8(SLE_REG_selected1, value & 0x01);
 		break;
 	case 2:
-		write8(SLE_REG_relay2, value & 0x01);
+		write8(SLE_REG_selected2, value & 0x01);
 		break;
 	case 3:
-		write8(SLE_REG_relay3, value & 0x01);
+		write8(SLE_REG_selected3, value & 0x01);
 		break;
 	case 4:
-		write8(SLE_REG_relay4, value & 0x01);
+		write8(SLE_REG_selected4, value & 0x01);
 		break;
 	default:
 		break;
@@ -178,28 +178,28 @@ String SlotExpansion2BRobots::getProductID(uint8_t slot) {
 	case 1:
 		for (char i = 0; i < 13; i++)
 		{
-			productID += read8(SLE_REG_product_id1 + i);
+			productID += (char)read8(SLE_REG_product_id1 + i);
 		}
 		return productID;
 		break;
 	case 2:
 		for (char i = 0; i < 13; i++)
 		{
-			productID += read8(SLE_REG_product_id2 + i);
+			productID += (char)read8(SLE_REG_product_id2 + i);
 		}
 		return productID;
 		break;
 	case 3:
 		for (char i = 0; i < 13; i++)
 		{
-			productID += read8(SLE_REG_product_id3 + i);
+			productID += (char)read8(SLE_REG_product_id3 + i);
 		}
 		return productID;
 		break;
 	case 4:
 		for (char i = 0; i < 13; i++)
 		{
-			productID += read8(SLE_REG_product_id4 + i);
+			productID += (char)read8(SLE_REG_product_id4 + i);
 		}
 		return productID;
 		break;
@@ -248,28 +248,28 @@ String SlotExpansion2BRobots::getName(uint8_t slot) {
 	case 1:
 		for (char i = 0; i < 21; i++)
 		{
-			name += read8(SLE_REG_name1 + i);
+			name += (char)read8(SLE_REG_name1 + i);
 		}
 		return name;
 		break;
 	case 2:
 		for (char i = 0; i < 21; i++)
 		{
-			name += read8(SLE_REG_name2 + i);
+			name += (char)read8(SLE_REG_name2 + i);
 		}
 		return name;
 		break;
 	case 3:
 		for (char i = 0; i < 21; i++)
 		{
-			name += read8(SLE_REG_name3 + i);
+			name += (char)read8(SLE_REG_name3 + i);
 		}
 		return name;
 		break;
 	case 4:
 		for (char i = 0; i < 21; i++)
 		{
-			name += read8(SLE_REG_name4 + i);
+			name += (char)read8(SLE_REG_name4 + i);
 		}
 		return name;
 		break;
@@ -318,28 +318,28 @@ String SlotExpansion2BRobots::getUnit(uint8_t slot) {
 	case 1:
 		for (char i = 0; i < 3; i++)
 		{
-			unit += read8(SLE_REG_unit1 + i);
+			unit += (char)read8(SLE_REG_unit1 + i);
 		}
 		return unit;
 		break;
 	case 2:
 		for (char i = 0; i < 3; i++)
 		{
-			unit += read8(SLE_REG_unit2 + i);
+			unit += (char)read8(SLE_REG_unit2 + i);
 		}
 		return unit;
 		break;
 	case 3:
 		for (char i = 0; i < 3; i++)
 		{
-			unit += read8(SLE_REG_unit3 + i);
+			unit += (char)read8(SLE_REG_unit3 + i);
 		}
 		return unit;
 		break;
 	case 4:
 		for (char i = 0; i < 3; i++)
 		{
-			unit += read8(SLE_REG_unit4 + i);
+			unit += (char)read8(SLE_REG_unit4 + i);
 		}
 		return unit;
 		break;
@@ -406,16 +406,16 @@ void SlotExpansion2BRobots::setTime(uint8_t slot, uint32_t value) {
 	switch (slot)
 	{
 	case 1:
-		write8(SLE_REG_time1, value);
+		write32(SLE_REG_time1, value);
 		break;
 	case 2:
-		write8(SLE_REG_time2, value);
+		write32(SLE_REG_time2, value);
 		break;
 	case 3:
-		write8(SLE_REG_time3, value);
+		write32(SLE_REG_time3, value);
 		break;
 	case 4:
-		write8(SLE_REG_time4, value);
+		write32(SLE_REG_time4, value);
 		break;
 	default:
 		break;
@@ -447,16 +447,16 @@ void SlotExpansion2BRobots::setCounter(uint8_t slot, uint32_t value) {
 	switch (slot)
 	{
 	case 1:
-		write8(SLE_REG_counter1, value);
+		write32(SLE_REG_counter1, value);
 		break;
 	case 2:
-		write8(SLE_REG_counter2, value);
+		write32(SLE_REG_counter2, value);
 		break;
 	case 3:
-		write8(SLE_REG_counter3, value);
+		write32(SLE_REG_counter3, value);
 		break;
 	case 4:
-		write8(SLE_REG_counter4, value);
+		write32(SLE_REG_counter4, value);
 		break;
 	default:
 		break;
