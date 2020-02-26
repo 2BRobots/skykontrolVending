@@ -68,13 +68,13 @@ void setup()
     SlotExpansion.setProductID(4, "567890123456");
     SlotExpansion.setName(4, "Hand & Body Soap");
     SlotExpansion.setUnit(4, "ml");
-    SlotExpansion.setTime(4, 33535);
+    SlotExpansion.setTime(4, 4294967295);
     SlotExpansion.setCounter(4, 1);
     SlotExpansion.setCost(4, 8);
     SlotExpansion.setQuantity(4, 235);
     SlotExpansion.setCapacity(4, 20000);
     SlotExpansion.setEmptyLevel(4, 47);
-    SlotExpansion.setFullLevel(4, 81);
+    SlotExpansion.setFullLevel(4, 75);
 
     SlotExpansion.SAVE();
 

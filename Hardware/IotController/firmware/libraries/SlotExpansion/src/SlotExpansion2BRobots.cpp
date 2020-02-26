@@ -54,7 +54,11 @@ uint8_t SlotExpansion2BRobots::getSelected() {
 }
 
 void SlotExpansion2BRobots::setSelected(uint8_t value) {
-	write8(SLE_REG_selected, value & 0x04);
+        if(value > 0x04)
+        { 
+          value = 0x04;
+        }
+	write8(SLE_REG_selected, value);
 }
 
 uint8_t SlotExpansion2BRobots::getCancel() {
