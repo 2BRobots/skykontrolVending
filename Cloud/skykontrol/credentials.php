@@ -1,8 +1,8 @@
 <?php
-$hostname   = "domain.com";                              #This is used to block cron job scripts from running externally.
-$servername = "localhost";                               #This is the database location.
-$username   = "dbusername";                              #Database user.
-$password   = "dbpass";                                  #Database password.
-$dbname     = "dbname";                                  #Database name.
-$mapsAPIkey = "api-key-google-cloud";                    #Your google cloud API key for showing location map.
+$hostname   = "yourserver.com";                          #This is used to block cron job scripts from running externally.
+$servername = "yourserver.com";                          #This is the database location.
+$username   = "db_username";                             #Database user.
+$password   = "db_password";                             #Database password.
+$dbname     = "skykontrol_2brobots";                     #Database name.
+$mapsAPIkey = "google-cloud-maps-api-key-for-your-app."; #Your google cloud API key for showing location map.
 ?>

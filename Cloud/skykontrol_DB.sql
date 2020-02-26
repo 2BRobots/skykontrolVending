@@ -1,4 +1,4 @@
--- --------------------------------------------------------
+﻿-- --------------------------------------------------------
 -- Host:                         www.2brobots.com
 -- Versión del servidor:         5.6.41-84.1 - Percona Server (GPL), Release 84.1, Revision b308619
 -- SO del servidor:              Linux
@@ -12,9 +12,9 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
 
--- Volcando estructura de base de datos para brobotsc_skykontrol
-CREATE DATABASE IF NOT EXISTS `brobotsc_skykontrol` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci */;
-USE `brobotsc_skykontrol`;
+-- Volcando estructura de base de datos para skykontrol
+CREATE DATABASE IF NOT EXISTS `skykontrol_2brobots` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci */;
+USE `skykontrol_2brobots`;
 
 -- Volcando estructura para tabla brobotsc_skykontrol.controller_boards
 CREATE TABLE IF NOT EXISTS `controller_boards` (
@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `controller_boards` (
   `firmware` text COLLATE utf8_unicode_ci,
   `message` text COLLATE utf8_unicode_ci NOT NULL,
   `company` text COLLATE utf8_unicode_ci NOT NULL,
-  `cost` int(10) unsigned NOT NULL DEFAULT '1',
+  `cost` smallint(5) unsigned NOT NULL DEFAULT '1',
   `time` int(10) unsigned NOT NULL DEFAULT '5',
   `enabled` bit(1) NOT NULL DEFAULT b'1',
   `active` bit(1) NOT NULL DEFAULT b'1',
@@ -52,21 +52,21 @@ CREATE TABLE IF NOT EXISTS `controller_events` (
   `datetime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `device_id` (`device_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=194 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=261 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- La exportación de datos fue deseleccionada.
 -- Volcando estructura para tabla brobotsc_skykontrol.controller_slots
 CREATE TABLE IF NOT EXISTS `controller_slots` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `device_id` int(11) unsigned NOT NULL DEFAULT '0',
-  `slot` int(10) unsigned NOT NULL DEFAULT '1',
-  `product_id` text COLLATE utf8_unicode_ci,
+  `slot` tinyint(3) unsigned NOT NULL DEFAULT '1',
+  `product_id` varchar(12) COLLATE utf8_unicode_ci DEFAULT NULL,
   `time` int(11) unsigned NOT NULL DEFAULT '0',
   `counter` int(11) unsigned NOT NULL DEFAULT '1',
-  `cost` int(10) unsigned NOT NULL DEFAULT '1',
-  `quantity` int(10) unsigned NOT NULL DEFAULT '0',
-  `stock` int(10) unsigned NOT NULL DEFAULT '0',
-  `capacity` int(10) unsigned NOT NULL DEFAULT '0',
+  `cost` smallint(5) unsigned NOT NULL DEFAULT '1',
+  `quantity` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `stock` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `capacity` smallint(5) unsigned NOT NULL DEFAULT '0',
   `datetime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `device_id` (`device_id`),
@@ -82,17 +82,17 @@ CREATE TABLE IF NOT EXISTS `power_meter` (
   `datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `device_id` (`device_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=101 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=MyISAM AUTO_INCREMENT=305 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
 
 -- La exportación de datos fue deseleccionada.
 -- Volcando estructura para tabla brobotsc_skykontrol.products
 CREATE TABLE IF NOT EXISTS `products` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `product_id` text COLLATE utf8_unicode_ci,
-  `name` text COLLATE utf8_unicode_ci,
-  `brand` text COLLATE utf8_unicode_ci,
-  `description` longtext COLLATE utf8_unicode_ci,
-  `unit` text COLLATE utf8_unicode_ci,
+  `product_id` varchar(12) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `brand` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8_unicode_ci,
+  `unit` varchar(2) COLLATE utf8_unicode_ci DEFAULT NULL,
   `img` longblob,
   `datetime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
@@ -110,7 +110,7 @@ CREATE TABLE IF NOT EXISTS `sales` (
   `datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `device_id` (`device_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1727 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=1785 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- La exportación de datos fue deseleccionada.
 -- Volcando estructura para tabla brobotsc_skykontrol.summaries

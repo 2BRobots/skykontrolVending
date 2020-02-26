@@ -11,6 +11,7 @@
 #include "RTClib.h"
 #include "Adafruit_FRAM_I2C.h"
 #include "PowerMeter2BRobots.h"
+#include "SlotExpansion2BRobots.h"
 
 #define wifiLed 2
 #define button 0
@@ -31,8 +32,8 @@ const unsigned int rev = 6;
 const IPAddress apIP(192, 168, 1, 1);
 String apSSID = "2BROBOTS_SETUP_";
 String ssidList;
-const String googleApiKey = "your-google-cloud-api-key";
-const String URL = "domain.com/skykontrol/service/";
+const String googleApiKey = "your-google-geolocation-api-key";
+const String URL = "yourserver.com/skykontrol/service/";
 
 DNSServer dnsServer;
 ESP8266WebServer webServer(80);
@@ -50,6 +51,7 @@ std::unique_ptr<BearSSL::WiFiClientSecure>wifiClientSSL(new BearSSL::WiFiClientS
 RTC_PCF8523 rtc;
 Adafruit_FRAM_I2C fram = Adafruit_FRAM_I2C();
 PowerMeter2BRobots powerMeter(0x3E);
+SlotExpansion2BRobots SlotExpansion0(0x40);
 
 String ssid = "";
 String pass = "";
@@ -72,10 +74,13 @@ byte has_slots = 0;
 bool has_charLCD = false;
 bool charLCDisSmart = false;
 bool DisplayMsg = true;
+bool beeped = false;
+bool pSelected = false;
 byte max_mess = 32;
 byte displayCycle = 0;
 byte counter = 0;
 byte prox = 0;
+byte refresh = 0;
 
 void ICACHE_RAM_ATTR incrementMoney()
 {
@@ -112,7 +117,8 @@ void ICACHE_RAM_ATTR pre_clearWifi()
   clearConfig = true;
 }
 
-void setup() {
+void setup()
+{
   pinMode(relay, OUTPUT);
   digitalWrite(relay, HIGH);
   pinMode(block, OUTPUT);
@@ -174,7 +180,7 @@ void setup() {
     Serial.println("Stored parameters are:");
     Serial.print("Current Transformer Ratio: "); Serial.println(powerMeter.getCtRatio());
     Serial.print("Current Transformer Resistor(burden): "); Serial.println(powerMeter.getCtRl());
-    Serial.print("Voltage Transformer Ratio: "); Serial.println(powerMeter.getTrRatio(),7);
+    Serial.print("Voltage Transformer Ratio: "); Serial.println(powerMeter.getTrRatio(), 7);
     Serial.print("Samples for AC readings: "); Serial.println(powerMeter.getSamples());
     Serial.println();
   }
@@ -193,6 +199,14 @@ void setup() {
     }
     printDatetime();
     Serial.println();
+  }
+
+  if (SlotExpansion0.begin())
+  {
+    has_slots += 4;
+    Serial.println("Accessory detected correctly: 'Slot Expansion Module' in bay A");
+    Serial.println("Stored parameters in the module are:");
+    printSlotData(1, 4);
   }
 
   EEPROM.begin(512);
@@ -310,6 +324,13 @@ void setup() {
 
   delay(100);
 
+  if (has_slots > 0)
+  {
+    setSlots(); //recover dato for the slots when they are connected
+  }
+
+  delay(100);
+
   updateConfigs.attach(configTime, cPolConfig);
   checkUpdate.attach(updateTime, cPolUpdate);
   if (has_charLCD == true)
@@ -340,50 +361,176 @@ void setup() {
 
 void loop()
 {
-  if (money >= cost)
+  if (has_slots == 0) //uni vending mode
   {
-    if (has_charLCD == true)
+    if (money >= cost)
     {
-      DisplayMsg = false;
-      charLCD.clear();
-      charLCD.setCursor(0, 0);
-      charLCD.print("*** PAYMENT DONE ***");
-      charLCD.setCursor(1, 0);
-      charLCD.print(" Processing order...");
-      if (charLCDisSmart == true)
+      if (has_charLCD == true)
       {
-        charLCD.beep(700);
-        delay(750);
+        DisplayMsg = false;
+        charLCD.clear();
+        charLCD.setCursor(0, 0);
+        charLCD.print("*** PAYMENT DONE ***");
+        charLCD.setCursor(1, 0);
+        charLCD.print(" Processing order...");
+        if (charLCDisSmart == true)
+        {
+          charLCD.beep(700);
+          delay(750);
+        }
+      }
+      money = money - cost;
+      Serial.print("Relay activated by "); Serial.print(rtime); Serial.print(" ms, the amount charged was: $ "); Serial.print(cost); Serial.print(" Remaining balance: $"); Serial.println(money);
+      digitalWrite(relay, LOW);
+      for (unsigned int t = 1; t <= rtime; t++)
+      {
+        delay(1);
+      }
+      digitalWrite(relay, HIGH);
+      Serial.println("Relay deactivated.");
+      Serial.println();
+      if (has_charLCD == true)
+      {
+        charLCD.clear();
+        charLCD.setCursor(0, 0);
+        charLCD.print("Have a nice day! =) ");
+        charLCD.setCursor(1, 0);
+        charLCD.print("Thank you very much!");
+        if (charLCDisSmart == true)
+        {
+          charLCD.beep(800);
+        }
+      }
+      delay(950);
+      saveSale(cost, 0, "Cash");
+      if (has_charLCD == true)
+      {
+        charLCD.clear();
+        DisplayMsg = true;
       }
     }
-    money = money - cost;
-    Serial.print("Relay activated by "); Serial.print(rtime); Serial.print(" ms, the amount charged was: $ "); Serial.print(cost); Serial.print(" Remaining balance: $"); Serial.println(money);
-    digitalWrite(relay, LOW);
-    for (unsigned int t = 1; t <= rtime; t++)
+  }
+  else //multi vending mode
+  {
+    if (refresh >= 5)
     {
-      delay(1);
-    }
-    digitalWrite(relay, HIGH);
-    Serial.println("Relay deactivated.");
-    Serial.println();
-    if (has_charLCD == true)
-    {
-      charLCD.clear();
-      charLCD.setCursor(0, 0);
-      charLCD.print("Have a nice day! =) ");
-      charLCD.setCursor(1, 0);
-      charLCD.print("Thank you very much!");
-      if (charLCDisSmart == true)
+      refresh = 0;
+      for (uint8_t i = 1; i <= has_slots; i++)
       {
-        charLCD.beep(800);
+        if (SlotExpansion0.isSelected(i) == 1 && i > 0 && i <= 4) //check expansion module in bay A
+        {
+          pSelected = true;
+          if (has_charLCD == true)
+          {
+            if (i != SlotExpansion0.getSelected())
+            {
+              beeped = false;
+            }
+            if (charLCDisSmart == true && beeped == false)
+            {
+              charLCD.beep(200);
+              beeped = true;
+            }
+            charLCD.clear();
+            charLCD.setCursor(0, 0);
+            charLCD.print(SlotExpansion0.getName(i));
+            charLCD.setCursor(1, 0);
+            if (SlotExpansion0.getStock(i) < SlotExpansion0.getQuantity(i))
+            {
+              charLCD.print("=>  OUT OF STOCK  <=");
+            }
+            else
+            {
+              charLCD.print(String(SlotExpansion0.getQuantity(i)) + " " + SlotExpansion0.getUnit(i) + " = $" + String(SlotExpansion0.getCost(i)) + " - $" + String(money));
+            }
+          }
+          SlotExpansion0.setSelected(i);
+          if (money >= SlotExpansion0.getCost(i) && SlotExpansion0.getStock(i) > SlotExpansion0.getQuantity(i))
+          {
+            delay(1000);
+            if (has_charLCD == true)
+            {
+              charLCD.clear();
+              charLCD.setCursor(0, 0);
+              charLCD.print("*** PAYMENT DONE ***");
+              charLCD.setCursor(1, 0);
+              charLCD.print(" Processing order...");
+              if (charLCDisSmart == true)
+              {
+                charLCD.beep(700);
+                delay(1500);
+                charLCD.beep(100);
+              }
+              charLCD.clear();
+            }
+            money = money - SlotExpansion0.getCost(i);
+            Serial.print("Dispensing product in slot A"); Serial.print(SlotExpansion0.getSelected()); Serial.print(" with ID "); Serial.print(SlotExpansion0.getProductID(i)); Serial.print(", the amount charged was: $ "); Serial.print(SlotExpansion0.getCost(i)); Serial.print(" Remaining balance: $"); Serial.println(money);
+            SlotExpansion0.startDispensing();
+            int progT = 0;
+            int progC = 0;
+            int progress = 0;
+            while (SlotExpansion0.isDispensing())
+            {
+              if (has_charLCD == true)
+              {
+                charLCD.setCursor(0, 0);
+                charLCD.print("***  SERVING!!!  ***");
+                charLCD.setCursor(1, 0);
+                progC = map(SlotExpansion0.getCount(), 0, SlotExpansion0.getCounter(i), 0, 100);
+                progT = map(SlotExpansion0.getTimer(), 0, SlotExpansion0.getTime(i), 0, 100);
+                if (progC <= progT)
+                {
+                  progress = progT;
+                }
+                else
+                {
+                  progress = progC;
+                }
+                charLCD.print("  Progress ==> " + String(progress) + "%");
+              }
+              delay(100);
+            }
+            Serial.print("Dispensing done with Timer = "); Serial.print(SlotExpansion0.getTimer()); Serial.print(" and Counter = "); Serial.println(SlotExpansion0.getCount());
+            Serial.println();
+            delay(500);
+            if (has_charLCD == true)
+            {
+              charLCD.clear();
+              charLCD.setCursor(0, 0);
+              charLCD.print("Have a nice day! =) ");
+              charLCD.setCursor(1, 0);
+              charLCD.print("Thank you very much!");
+              if (charLCDisSmart == true)
+              {
+                charLCD.beep(800);
+              }
+            }
+            saveSale(SlotExpansion0.getCost(i), i, "Cash");
+            SlotExpansion0.setCancel(1);
+            delay(950);
+          }
+        }
+      }
+
+      if (SlotExpansion0.getCancel() == 1) //if multiple modules connected, only put a cancel button on the first one
+      {
+        SlotExpansion0.setCancel(0);
+        SlotExpansion0.setSelected(0);
+        if (has_charLCD == true && pSelected == true)
+        {
+          if (charLCDisSmart == true)
+          {
+            charLCD.beep(200);
+            beeped = false;
+          }
+          charLCD.clear();
+        }
+        pSelected = false;
       }
     }
-    delay(950);
-    saveSale(cost, 0, "Cash");
-    if (has_charLCD == true)
+    else
     {
-      charLCD.clear();
-      DisplayMsg = true;
+      refresh++;
     }
   }
 
@@ -392,24 +539,24 @@ void loop()
     counter = 0;
     if (auth == 1) // Unlocked, allow credit balance
     {
-      digitalWrite(block, LOW);
-      rejectMoney = false;
+      enableCoinAcceptor(true);
       DisplayMsg = true;
       Serial.print("The current balance is: $"); Serial.print(money); Serial.println(" - UNLOCKED");
       printDatetime();
       printPower();
+      printSlotStock();
       Serial.println();
     }
     else // Deny deposit of money if it is blocked, but only when there is no outstanding balance
     {
       if (money == 0)
       {
-        digitalWrite(block, HIGH);
+        enableCoinAcceptor(false);
         Serial.print("The current balance is: $"); Serial.print(money); Serial.println(" - LOCKED");
         printDatetime();
         printPower();
+        printSlotStock();
         Serial.println();
-        rejectMoney = true;
         if (has_charLCD == true)
         {
           DisplayMsg = false;
@@ -421,12 +568,12 @@ void loop()
       }
       else
       {
-        digitalWrite(block, LOW);
-        rejectMoney = false;
+        enableCoinAcceptor(true);
         DisplayMsg = true;
         Serial.print("The current balance is: $"); Serial.print(money); Serial.println(" - TEMPORARILY UNLOCKED");
         printDatetime();
         printPower();
+        printSlotStock();
         Serial.println();
       }
     }
@@ -451,6 +598,10 @@ void loop()
   if (polConfig)
   {
     setConfigs();
+    if (has_slots > 0)
+    {
+      setSlots();
+    }
     polConfig = false;
   }
 
@@ -484,8 +635,8 @@ void loop()
   if (polPower)
   {
     float PowMtr = powerMeter.getAvPower();
-    PowMtr = PowMtr/1000; //The DB spects KW, so we convert our W to KW.
-    savePower(PowMtr); 
+    PowMtr = PowMtr / 1000; //The DB spects KW, so we convert our W to KW.
+    savePower(PowMtr);
     polPower = false;
   }
 

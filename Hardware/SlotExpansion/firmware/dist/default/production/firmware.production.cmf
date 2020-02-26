@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\ciro_\AppData\Local\Temp\su50.o
+$C:\Users\ciro_\AppData\Local\Temp\s8pk.o
 reset_vec CODE 0 0 0 2 2
 end_init CODE 0 14D 14D 2 2
 config CONFIG 0 8007 8007 2 2
@@ -130,36 +130,36 @@ STRING 1001-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\firmware.production.o
-14F cinit CODE >1638:C:\Users\ciro_\AppData\Local\Temp\su50.s
-14F cinit CODE >1641:C:\Users\ciro_\AppData\Local\Temp\su50.s
-14F cinit CODE >1689:C:\Users\ciro_\AppData\Local\Temp\su50.s
-152 cinit CODE >1690:C:\Users\ciro_\AppData\Local\Temp\su50.s
-153 cinit CODE >1713:C:\Users\ciro_\AppData\Local\Temp\su50.s
-154 cinit CODE >1714:C:\Users\ciro_\AppData\Local\Temp\su50.s
-155 cinit CODE >1715:C:\Users\ciro_\AppData\Local\Temp\su50.s
-156 cinit CODE >1716:C:\Users\ciro_\AppData\Local\Temp\su50.s
-157 cinit CODE >1717:C:\Users\ciro_\AppData\Local\Temp\su50.s
-158 cinit CODE >1718:C:\Users\ciro_\AppData\Local\Temp\su50.s
-159 cinit CODE >1719:C:\Users\ciro_\AppData\Local\Temp\su50.s
-15A cinit CODE >1720:C:\Users\ciro_\AppData\Local\Temp\su50.s
-15B cinit CODE >1721:C:\Users\ciro_\AppData\Local\Temp\su50.s
-15D cinit CODE >1725:C:\Users\ciro_\AppData\Local\Temp\su50.s
-15E cinit CODE >1726:C:\Users\ciro_\AppData\Local\Temp\su50.s
-15F cinit CODE >1730:C:\Users\ciro_\AppData\Local\Temp\su50.s
-160 cinit CODE >1731:C:\Users\ciro_\AppData\Local\Temp\su50.s
-161 cinit CODE >1732:C:\Users\ciro_\AppData\Local\Temp\su50.s
-162 cinit CODE >1733:C:\Users\ciro_\AppData\Local\Temp\su50.s
-163 cinit CODE >1734:C:\Users\ciro_\AppData\Local\Temp\su50.s
-164 cinit CODE >1735:C:\Users\ciro_\AppData\Local\Temp\su50.s
-165 cinit CODE >1736:C:\Users\ciro_\AppData\Local\Temp\su50.s
-166 cinit CODE >1737:C:\Users\ciro_\AppData\Local\Temp\su50.s
-167 cinit CODE >1741:C:\Users\ciro_\AppData\Local\Temp\su50.s
-168 cinit CODE >1742:C:\Users\ciro_\AppData\Local\Temp\su50.s
-169 cinit CODE >1743:C:\Users\ciro_\AppData\Local\Temp\su50.s
-16A cinit CODE >1749:C:\Users\ciro_\AppData\Local\Temp\su50.s
-16A cinit CODE >1751:C:\Users\ciro_\AppData\Local\Temp\su50.s
-16B cinit CODE >1752:C:\Users\ciro_\AppData\Local\Temp\su50.s
-16C cinit CODE >1753:C:\Users\ciro_\AppData\Local\Temp\su50.s
+14F cinit CODE >1638:C:\Users\ciro_\AppData\Local\Temp\s8pk.s
+14F cinit CODE >1641:C:\Users\ciro_\AppData\Local\Temp\s8pk.s
+14F cinit CODE >1689:C:\Users\ciro_\AppData\Local\Temp\s8pk.s
+152 cinit CODE >1690:C:\Users\ciro_\AppData\Local\Temp\s8pk.s
+153 cinit CODE >1713:C:\Users\ciro_\AppData\Local\Temp\s8pk.s
+154 cinit CODE >1714:C:\Users\ciro_\AppData\Local\Temp\s8pk.s
+155 cinit CODE >1715:C:\Users\ciro_\AppData\Local\Temp\s8pk.s
+156 cinit CODE >1716:C:\Users\ciro_\AppData\Local\Temp\s8pk.s
+157 cinit CODE >1717:C:\Users\ciro_\AppData\Local\Temp\s8pk.s
+158 cinit CODE >1718:C:\Users\ciro_\AppData\Local\Temp\s8pk.s
+159 cinit CODE >1719:C:\Users\ciro_\AppData\Local\Temp\s8pk.s
+15A cinit CODE >1720:C:\Users\ciro_\AppData\Local\Temp\s8pk.s
+15B cinit CODE >1721:C:\Users\ciro_\AppData\Local\Temp\s8pk.s
+15D cinit CODE >1725:C:\Users\ciro_\AppData\Local\Temp\s8pk.s
+15E cinit CODE >1726:C:\Users\ciro_\AppData\Local\Temp\s8pk.s
+15F cinit CODE >1730:C:\Users\ciro_\AppData\Local\Temp\s8pk.s
+160 cinit CODE >1731:C:\Users\ciro_\AppData\Local\Temp\s8pk.s
+161 cinit CODE >1732:C:\Users\ciro_\AppData\Local\Temp\s8pk.s
+162 cinit CODE >1733:C:\Users\ciro_\AppData\Local\Temp\s8pk.s
+163 cinit CODE >1734:C:\Users\ciro_\AppData\Local\Temp\s8pk.s
+164 cinit CODE >1735:C:\Users\ciro_\AppData\Local\Temp\s8pk.s
+165 cinit CODE >1736:C:\Users\ciro_\AppData\Local\Temp\s8pk.s
+166 cinit CODE >1737:C:\Users\ciro_\AppData\Local\Temp\s8pk.s
+167 cinit CODE >1741:C:\Users\ciro_\AppData\Local\Temp\s8pk.s
+168 cinit CODE >1742:C:\Users\ciro_\AppData\Local\Temp\s8pk.s
+169 cinit CODE >1743:C:\Users\ciro_\AppData\Local\Temp\s8pk.s
+16A cinit CODE >1749:C:\Users\ciro_\AppData\Local\Temp\s8pk.s
+16A cinit CODE >1751:C:\Users\ciro_\AppData\Local\Temp\s8pk.s
+16B cinit CODE >1752:C:\Users\ciro_\AppData\Local\Temp\s8pk.s
+16C cinit CODE >1753:C:\Users\ciro_\AppData\Local\Temp\s8pk.s
 4 intentry CODE >213:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
 6 intentry CODE >215:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
 8 intentry CODE >216:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
@@ -481,20 +481,20 @@ FFF text1 CODE >162:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExp
 6CA maintext CODE >513:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
 6CC maintext CODE >514:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
 6CF maintext CODE >515:E:\ciro_\Documents\GitHub\skykontrolVending\Hardware\SlotExpansion\firmware\main.c
-ED7 clrtext CODE >1696:C:\Users\ciro_\AppData\Local\Temp\su50.s
-ED7 clrtext CODE >1697:C:\Users\ciro_\AppData\Local\Temp\su50.s
-ED8 clrtext CODE >1698:C:\Users\ciro_\AppData\Local\Temp\su50.s
-ED8 clrtext CODE >1699:C:\Users\ciro_\AppData\Local\Temp\su50.s
-ED9 clrtext CODE >1700:C:\Users\ciro_\AppData\Local\Temp\su50.s
-EDA clrtext CODE >1701:C:\Users\ciro_\AppData\Local\Temp\su50.s
-EDB clrtext CODE >1702:C:\Users\ciro_\AppData\Local\Temp\su50.s
-EDC clrtext CODE >1703:C:\Users\ciro_\AppData\Local\Temp\su50.s
-EDD clrtext CODE >1704:C:\Users\ciro_\AppData\Local\Temp\su50.s
-EDE clrtext CODE >1705:C:\Users\ciro_\AppData\Local\Temp\su50.s
-EDF clrtext CODE >1706:C:\Users\ciro_\AppData\Local\Temp\su50.s
-EE0 clrtext CODE >1707:C:\Users\ciro_\AppData\Local\Temp\su50.s
-EE1 clrtext CODE >1709:C:\Users\ciro_\AppData\Local\Temp\su50.s
-EE2 clrtext CODE >1708:C:\Users\ciro_\AppData\Local\Temp\su50.s
+ED7 clrtext CODE >1696:C:\Users\ciro_\AppData\Local\Temp\s8pk.s
+ED7 clrtext CODE >1697:C:\Users\ciro_\AppData\Local\Temp\s8pk.s
+ED8 clrtext CODE >1698:C:\Users\ciro_\AppData\Local\Temp\s8pk.s
+ED8 clrtext CODE >1699:C:\Users\ciro_\AppData\Local\Temp\s8pk.s
+ED9 clrtext CODE >1700:C:\Users\ciro_\AppData\Local\Temp\s8pk.s
+EDA clrtext CODE >1701:C:\Users\ciro_\AppData\Local\Temp\s8pk.s
+EDB clrtext CODE >1702:C:\Users\ciro_\AppData\Local\Temp\s8pk.s
+EDC clrtext CODE >1703:C:\Users\ciro_\AppData\Local\Temp\s8pk.s
+EDD clrtext CODE >1704:C:\Users\ciro_\AppData\Local\Temp\s8pk.s
+EDE clrtext CODE >1705:C:\Users\ciro_\AppData\Local\Temp\s8pk.s
+EDF clrtext CODE >1706:C:\Users\ciro_\AppData\Local\Temp\s8pk.s
+EE0 clrtext CODE >1707:C:\Users\ciro_\AppData\Local\Temp\s8pk.s
+EE1 clrtext CODE >1709:C:\Users\ciro_\AppData\Local\Temp\s8pk.s
+EE2 clrtext CODE >1708:C:\Users\ciro_\AppData\Local\Temp\s8pk.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -529,11 +529,11 @@ _LATA 10C 0 ABS 0 - dist/default/production\firmware.production.o
 _LATB 10D 0 ABS 0 - dist/default/production\firmware.production.o
 _WPUA 20C 0 ABS 0 - dist/default/production\firmware.production.o
 _WPUB 20D 0 ABS 0 - dist/default/production\firmware.production.o
-___sp 0 0 STACK 2 stack C:\Users\ciro_\AppData\Local\Temp\su50.o
+___sp 0 0 STACK 2 stack C:\Users\ciro_\AppData\Local\Temp\s8pk.o
 _main 2DC 0 CODE 0 maintext dist/default/production\firmware.production.o
 btemp 7E 0 ABS 0 - dist/default/production\firmware.production.o
 map@x 35 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
-start 29A 0 CODE 0 init C:\Users\ciro_\AppData\Local\Temp\su50.o
+start 29A 0 CODE 0 init C:\Users\ciro_\AppData\Local\Temp\s8pk.o
 __size_of_main 0 0 ABS 0 - dist/default/production\firmware.production.o
 __size_of___lldiv 0 0 ABS 0 - dist/default/production\firmware.production.o
 __size_of___lwdiv 0 0 ABS 0 - dist/default/production\firmware.production.o
@@ -544,12 +544,12 @@ init_I2C_buffer@i 20 0 BANK0 1 cstackBANK0 dist/default/production\firmware.prod
 __Hpowerup 0 0 CODE 0 powerup -
 __size_of_ADC_read 0 0 ABS 0 - dist/default/production\firmware.production.o
 __HdataCOMMON 1D0 1E000 ABS 0 dataCOMMON -
-intlevel0 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\su50.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\su50.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\su50.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\su50.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\su50.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\su50.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\s8pk.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\s8pk.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\s8pk.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\s8pk.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\s8pk.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\ciro_\AppData\Local\Temp\s8pk.o
 __LbssCOMMON 1D0 1E000 ABS 0 bssCOMMON -
 wtemp0 7E 0 ABS 0 - dist/default/production\firmware.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
@@ -575,8 +575,8 @@ __end_of___lwdiv FCA 0 CODE 0 text7 dist/default/production\firmware.production.
 eeprom_write@addr 75 0 COMMON 1 cstackCOMMON dist/default/production\firmware.production.o
 _INTCON B 0 ABS 0 - dist/default/production\firmware.production.o
 __end_of_ADC_read 1E02 0 CODE 0 text8 dist/default/production\firmware.production.o
-___stackhi 22F4 0 ABS 0 - C:\Users\ciro_\AppData\Local\Temp\su50.o
-___stacklo 2056 0 ABS 0 - C:\Users\ciro_\AppData\Local\Temp\su50.o
+___stackhi 22F4 0 ABS 0 - C:\Users\ciro_\AppData\Local\Temp\s8pk.o
+___stacklo 2056 0 ABS 0 - C:\Users\ciro_\AppData\Local\Temp\s8pk.o
 _eeprom_read FCA 0 CODE 0 text5 dist/default/production\firmware.production.o
 ___lwdiv@quotient 21 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
 __LidataCOMMON 1D0 1E000 ABS 0 idataCOMMON -
@@ -625,7 +625,7 @@ __BidataCOMMON 1E1D0 1E000 ABS 0 idataCOMMON -
 _readADC 6D 0 BANK0 1 bssBANK0 dist/default/production\firmware.production.o
 _first_i2c 7B 0 COMMON 1 dataCOMMON dist/default/production\firmware.production.o
 __end_of_RX_ELMNTS 2002 0 STRCODE 0 stringtext1 dist/default/production\firmware.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\ciro_\AppData\Local\Temp\su50.o
+___int_sp 0 0 STACK 2 stack C:\Users\ciro_\AppData\Local\Temp\s8pk.o
 init_I2C_buffer@i_663 21 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
 init_I2C_buffer@i_664 22 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
 init_I2C_buffer@i_665 23 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
@@ -796,7 +796,7 @@ __CFG_BOREN$ON 0 0 ABS 0 - dist/default/production\firmware.production.o
 eeprom_write@value 72 0 COMMON 1 cstackCOMMON dist/default/production\firmware.production.o
 __Lintentry 8 0 CODE 0 intentry -
 ___lldiv@divisor 28 0 BANK0 1 cstackBANK0 dist/default/production\firmware.production.o
-reset_vec 0 0 CODE 0 reset_vec C:\Users\ciro_\AppData\Local\Temp\su50.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\ciro_\AppData\Local\Temp\s8pk.o
 _eeprom_write 1E02 0 CODE 0 text6 dist/default/production\firmware.production.o
 __BcstackBANK0 1E1D0 1E000 ABS 0 cstackBANK0 -
 __BcstackBANK1 1E1D0 1E000 ABS 0 cstackBANK1 -

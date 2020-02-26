@@ -141,7 +141,7 @@ String savePower(float Skwh)
     http.begin(*wifiClientSSL, "https://" + URL + "savePower.php");
     http.addHeader("Content-Type", "application/x-www-form-urlencoded");
     Serial.println("Sending power compsuption record to SkyKontrol...");
-    String message = "mac=" + WiFi.macAddress() + "&kwh=" + String(Skwh,7);
+    String message = "mac=" + WiFi.macAddress() + "&kwh=" + String(Skwh, 7);
     int httpCode = http.POST(message);
     if (httpCode > 0)
     {
@@ -407,4 +407,48 @@ void update_firmware()
   }
   blinkStat.detach();
   digitalWrite(statLed, HIGH);
+}
+
+String recoverSlot(unsigned int slot)
+{
+  bool prev = digitalRead(wifiLed);
+  blinkWifi.attach(0.05, flashWifiLed);
+  Serial.println("Connecting to 2BRobots...");
+  String payload = "ERROR";
+  if (WiFi.status() == WL_CONNECTED)
+  {
+    http.begin(*wifiClientSSL, "https://" + URL + "recoverSlot.php");
+    http.addHeader("Content-Type", "application/x-www-form-urlencoded");
+    Serial.println("Retrieving slot data from SkyKontrol...");
+    String message = "mac=" + WiFi.macAddress() + "&slot=" + slot;
+    int httpCode = http.POST(message);
+    if (httpCode > 0)
+    {
+      Serial.printf("[HTTP/S] Success, code: %d \n", httpCode);
+      if (httpCode == HTTP_CODE_OK)
+      {
+        payload = http.getString();
+        payload.replace("\r", "");
+        payload.replace("\n", "");
+        payload.trim();
+        Serial.printf("[HTTP/S] Response received: %s \n", payload.c_str());
+      }
+      http.end();
+    }
+    else
+    {
+      Serial.printf("[HTTP/S] Fail, error: %s \n", http.errorToString(httpCode).c_str());
+      http.end();
+    }
+  }
+  else
+  {
+    delay(200);
+    Serial.println("Could not access the internet.");
+  }
+  Serial.println("Connection closed.");
+  Serial.println();
+  blinkWifi.detach();
+  digitalWrite(wifiLed, prev);
+  return payload;
 }

@@ -87,6 +87,97 @@ void setConfigs()
   Serial.println();
 }
 
+void setSlots()
+{
+  for (uint8_t i = 1; i <= has_slots; i++)
+  {
+    String res = recoverSlot(i);
+    String mess = "";
+    if (res != "ERROR" && res != "FAIL") // when we receive data correctly from the server
+    {
+      Serial.println("Slot data obtained from SkyKontrol.");
+      Serial.println();
+      String sproduct_id = getValue(res, ',', 0);
+      String sname = getValue(res, ',', 1);
+      String sunit = getValue(res, ',', 2);
+      String stime = getValue(res, ',', 3);
+      String scounter = getValue(res, ',', 4);
+      String scost = getValue(res, ',', 5);
+      String squantity = getValue(res, ',', 6);
+      String scapacity = getValue(res, ',', 7);
+      if (i > 0 && i <= 4)
+      {
+        SlotExpansion0.setProductID(i, sproduct_id);
+        SlotExpansion0.setName(i, sname);
+        SlotExpansion0.setUnit(i, sunit);
+        SlotExpansion0.setTime(i, stime.toInt());
+        SlotExpansion0.setCounter(i, scounter.toInt());
+        SlotExpansion0.setCost(i, scost.toInt());
+        SlotExpansion0.setQuantity(i, squantity.toInt());
+        SlotExpansion0.setCapacity(i, scapacity.toInt());
+        //SlotExpansion0.setEmptyLevel(i, 47); //will be used in the future for monitoring and preventing sales when the container is empty
+        //SlotExpansion0.setFullLevel(i, 75); //these are set as Analog values (0-1023) delivered by ADC in STx input
+        //SlotExpansion0.setCalibrate(1); //you can see these ADC raw values with this line, when is not used the value is the calcuted volume based on the capacity.
+      }
+    }
+    else // if not, we recover configs from EEPROM memory
+    {
+      Serial.println("Slot data will be obtained from memory.");
+      Serial.println();
+    }
+    delay(100);
+  }
+  Serial.println("This is the most recent slot data available.");
+  printSlotData(1, has_slots);
+  if (has_slots > 0)
+  {
+    SlotExpansion0.SAVE();
+  }
+  String data = "All slot data was sucesfully stored in memory.";
+  Serial.println(data);
+  Serial.println();
+}
+
+void printSlotData(unsigned int fromSlot, unsigned int toSlot)
+{
+  for (unsigned int i = fromSlot; i <= toSlot; i++)
+  {
+    if (i > 0 && i <= 4)
+    {
+      Serial.print("Data in Slot expansion module A"); Serial.println(i);
+      Serial.print("  Product ID: "); Serial.println(SlotExpansion0.getProductID(i));
+      Serial.print("  Name: "); Serial.println(SlotExpansion0.getName(i));
+      Serial.print("  Unit: "); Serial.println(SlotExpansion0.getUnit(i));
+      Serial.print("  Time: "); Serial.println(SlotExpansion0.getTime(i));
+      Serial.print("  Counter: "); Serial.println(SlotExpansion0.getCounter(i));
+      Serial.print("  Cost: "); Serial.println(SlotExpansion0.getCost(i));
+      Serial.print("  Quantity: "); Serial.println(SlotExpansion0.getQuantity(i));
+      Serial.print("  Capacity: "); Serial.println(SlotExpansion0.getCapacity(i));
+      Serial.print("  Empty Level: "); Serial.println(SlotExpansion0.getEmptyLevel(i));
+      Serial.print("  Full Level: "); Serial.println(SlotExpansion0.getFullLevel(i));
+    }
+  }
+  Serial.println();
+}
+
+void printSlotStock()
+{
+  if (has_slots > 0)
+  {
+    if (has_slots > 0)
+    {
+      Serial.print("Product selected in Slot expansion module A: "); Serial.println(SlotExpansion0.getSelected());
+    }
+    for (unsigned int i = 0; i <= has_slots; i++)
+    {
+      if (i > 0 && i <= 4)
+      {
+        Serial.print("  Stock in Slot A"); Serial.print(i); Serial.print(": "); Serial.print(SlotExpansion0.getStock(i)); Serial.print(" of "); Serial.print(SlotExpansion0.getCapacity(i)); Serial.print(" "); Serial.println(SlotExpansion0.getUnit(i));
+      }
+    }
+  }
+}
+
 void setDatetime()
 {
   String res = getDatetime();
@@ -140,12 +231,12 @@ void printPower()
 {
   if (has_powerMeter == true)
   {
-  Serial.print("Vrms: "); Serial.print(powerMeter.getVrms(),4);
-  Serial.print(" V - Irms: "); Serial.print(powerMeter.getIrms(),4);
-  Serial.print(" A - Power: "); Serial.print(powerMeter.getPower(),4);
-  Serial.print(" W - Average Power: "); Serial.print(powerMeter.getAvPower(),4);
-  Serial.print(" W - Power factor: "); Serial.print(powerMeter.getPowerFactor(),4);
-  Serial.println();
+    Serial.print("Vrms: "); Serial.print(powerMeter.getVrms(), 4);
+    Serial.print(" V - Irms: "); Serial.print(powerMeter.getIrms(), 4);
+    Serial.print(" A - Power: "); Serial.print(powerMeter.getPower(), 4);
+    Serial.print(" W - Average Power: "); Serial.print(powerMeter.getAvPower(), 4);
+    Serial.print(" W - Power factor: "); Serial.print(powerMeter.getPowerFactor(), 4);
+    Serial.println();
   }
 }
 
@@ -197,7 +288,7 @@ void cPolDatetime()
 
 void charLCDupdate()
 {
-  if (DisplayMsg == true)
+  if (DisplayMsg == true && pSelected == false)
   {
     String datetime = "";
     if (has_datalogger and rtc.initialized())
@@ -237,19 +328,50 @@ void charLCDupdate()
       }
     }
     charLCD.setCursor(1, 0);
-    String temp = "  Payment $" + String(cost - money);
+    String temp = "";
+    if (has_slots == 0)
+    {
+      temp = "1 = $" + String(cost) + " - $" + String(money);
+    }
+    else
+    {
+      temp = "**Select a product**";
+    }
     charLCD.print(temp);
   }
+
   if (charLCDisSmart == true) // when no one is near the device, dim the display backlight
   {
     prox = charLCD.proxDetected();
     if (prox == 1)
     {
       charLCD.setBrightness(1023);
+      if (has_slots != 0) //if an expansion module is plugged the buit-in relay is used for a smart lamp instead of vending
+      {
+        digitalWrite(relay, LOW);
+      }
     }
     else
     {
       charLCD.setBrightness(200);
+      if (has_slots != 0)
+      {
+        digitalWrite(relay, HIGH);
+      }
     }
+  }
+}
+
+void enableCoinAcceptor(bool enable)
+{
+  if (enable == false)
+  {
+    digitalWrite(block, HIGH); //don't accept money and block coin acceptor
+    rejectMoney = true;
+  }
+  else
+  {
+    digitalWrite(block, LOW);
+    rejectMoney = false;
   }
 }

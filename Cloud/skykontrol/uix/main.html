@@ -75,7 +75,7 @@
             var state = document.getElementById("state").checked;
             var message = document.getElementById("message").value;
             message = message.slice(0, document.getElementById("message").maxLength);
-            message = message.replace(/[^A-Za-z0-9\!\#\+\-\*\/\?\$\%\(\)\=\.\& ]/g, '');
+            message = message.replace(/[^A-Za-z0-9\:\!\#\+\-\*\/\?\$\%\(\)\=\.\& ]/g, '');
             if (message == "") {
                 message = "Powered by 2BRobots IoT network.";
             }
@@ -369,7 +369,7 @@
                         <form id="configs" class="form-group">
                             <div class="justify-content-center" id="charLCD">
                                 <label for="message"><b>Message in the LCD</b></label>
-                                <input type="text" maxlength="32" size="32" value="" oninput="this.value = this.value.replace(/[^A-Za-z0-9\!\#\+\-\*\/\?\$\%\(\)\=\.\& ]/g, '');  if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" onkeydown="return (event.keyCode!=13);" class="form-control text-center" style="max-width: calc(86%);" autocomplete="off" placeholder="LCD Message" name="message" id="message" required>
+                                <input type="text" maxlength="32" size="32" value="" oninput="this.value = this.value.replace(/[^A-Za-z0-9\:\!\#\+\-\*\/\?\$\%\(\)\=\.\& ]/g, '');  if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" onkeydown="return (event.keyCode!=13);" class="form-control text-center" style="max-width: calc(86%);" autocomplete="off" placeholder="LCD Message" name="message" id="message" required>
                                 <p>Maximum 32 characters UTF-8</p>
                             </div>
                             <div class="justify-content-center" id="uniVending">

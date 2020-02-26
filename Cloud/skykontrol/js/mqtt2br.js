@@ -1,9 +1,9 @@
-var hostname = "domain.com";
+var hostname = "yourserver.com";
 var port = 9883;
 var clientId = "SkyKontrol_web_";
 clientId += new Date().getUTCMilliseconds();
-var username = "mqttUsername";
-var password = "mqttPassword";
+var username = "mqtt_server_username";
+var password = "mqtt_server_password";
 
 mqttClient = new Paho.MQTT.Client(hostname, port, clientId);
 mqttClient.onMessageArrived =  MessageReceived;

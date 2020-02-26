@@ -469,7 +469,7 @@ clrtext 1DAE 1DC5 CODE 1DAE 0
 stringtext1 2000 2001 STRCODE 2000 0
 %locals
 dist/default/production\firmware.production.o
-C:\Users\ciro_\AppData\Local\Temp\su50.s
+C:\Users\ciro_\AppData\Local\Temp\s8pk.s
 1638 14F 0 CODE 0
 1641 14F 0 CODE 0
 1689 14F 0 CODE 0

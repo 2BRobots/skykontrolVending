@@ -1,7 +1,7 @@
 <?php
 include('../credentials.php');
 
-$current = 5;
+$current = 6;
 
 function process_input($data)
 {
