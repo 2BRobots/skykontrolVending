@@ -40,7 +40,7 @@ if ($result->num_rows > 0) {
     $result    = $conn->query($sql);
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            echo date('d-m-Y', strtotime($row["start_date"]))  . "," . date('d-m-Y', strtotime($row["end_date"])) . "," . $row["power"] . "," . $row["sales"] . ",$" . $row["ammount"] ."\n";
+            echo date('d-m-Y', strtotime($row["start_date"]))  . "," . date('d-m-Y', strtotime($row["end_date"])) . "," . $row["power"] . "," . $row["sales"] . "," . $row["ammount"] ."\n";
         }
     } else {
         echo "EMPTY";

@@ -57,7 +57,7 @@
                             for (var i = 0; i < lines.length - 1; i++) {
                                 var data = lines[i].split(',');
                                 events = events + 1;
-                                $('#register > tbody').append("<tr><td>" + data[0] + "</td><td>" + data[1] + "</td><td>" + data[2] + "</td><td>" + data[3] + "</td><td>" + data[4] + "</td></tr>");
+                                $('#register > tbody').append("<tr><td>" + data[0] + "</td><td>" + data[1] + "</td><td>" + parseFloat(data[2]).toFixed(2) + "</td><td>" + data[3] + "</td><td>$" + parseFloat(data[4]).toFixed(2) + "</td></tr>");
                             }
                             document.getElementById("message2").innerHTML = events + " records were recovered.";
                             return true;

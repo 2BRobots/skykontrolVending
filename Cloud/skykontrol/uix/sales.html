@@ -59,7 +59,7 @@
                                 var data = lines[i].split(',');
                                 events = events + 1;
                                 total = total + parseFloat(data[0]);
-                                $('#register > tbody').append("<tr><td>$" + data[0] + "</td><td>" + data[1] + "</td><td>" + data[2] + "</td><td>" + data[3] + "</td><td>" + data[4] + "</td></tr>");
+                                $('#register > tbody').append("<tr><td>$" + parseFloat(data[0]).toFixed(2) + "</td><td>" + data[1] + "</td><td>" + data[2] + "</td><td>" + data[3] + "</td><td>" + data[4] + "</td></tr>");
                             }
                             document.getElementById("message2").innerHTML = events + " sales were recovered for a total of $" + total;
                             return true;
