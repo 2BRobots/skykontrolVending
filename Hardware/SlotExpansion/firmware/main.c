@@ -30,7 +30,8 @@
 
 #define _XTAL_FREQ 32000000    //frequency of th MCU
 #define DEVICE_ID 0x03         //this is the device ID used for I2C validation
-#define I2C_slave_address 0x40 // any value from 0 to 127, this will be the default
+//#define I2C_slave_address 0x40 // any value from 0 to 127, this will be the default, for slot A
+#define I2C_slave_address 0x41 // any value from 0 to 127, this will be the default, for slot B
 
 #include <stdio.h>
 #include <stdlib.h>
